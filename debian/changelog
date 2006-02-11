@@ -1,3 +1,10 @@
+libsoup (2.2.7-1) unstable; urgency=low
+
+  * Hijack package, set myself as Maintainer, GNOME team uploads.
+    [debian/control, debian/control.in, debian/rules]
+
+ -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:22:13 +0100
+
 libsoup (2.2.6-1) unstable; urgency=low
 
   * New upstream release
