@@ -19,8 +19,5 @@ include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 
 DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev := debian/libsoup2.2-${SOUP_SOVERSION}/usr/lib
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V'libsoup2.2-${SOUP_SOVERSION} (>= ${UPSTREAM_VERSION})'
-DEB_CONFIGURE_EXTRA_FLAGS := --sysconfdir=/etc \
-	--libexecdir=\$${prefix}/lib/soup \
-	--with-gnutls-includes=/usr/include/gnutls \
-	--enable-gtk-doc
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 

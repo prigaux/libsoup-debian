@@ -17,8 +17,13 @@ libsoup (2.2.7-1) unstable; urgency=low
     [debian/control, debian/control.in]
   * Drop obsolete files.
     [debian/libsoup2.2-doc.files, debian/libsoup2.2-dev.files, debian/dirs]
+  * Don't overwrite DEB_CONFIGURE_EXTRA_FLAGS and clean it up.
+    [debian/rules]
+  * Update FSF address, update AUTHORS list, and clarify Copyright versus
+    License.
+    [debian/copyright]
 
- -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:58:08 +0100
+ -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 22:09:39 +0100
 
 libsoup (2.2.6-1) unstable; urgency=low
 
