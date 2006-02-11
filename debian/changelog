@@ -15,8 +15,10 @@ libsoup (2.2.7-1) unstable; urgency=low
   * Downgrade the Recommends dependency of libsoup-doc on libsoup-dev to a
     Suggests.
     [debian/control, debian/control.in]
+  * Drop obsolete files.
+    [debian/libsoup2.2-doc.files, debian/dirs]
 
- -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:55:15 +0100
+ -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:57:07 +0100
 
 libsoup (2.2.6-1) unstable; urgency=low
 
