@@ -1,0 +1,180 @@
+libsoup (2.2.6-1) unstable; urgency=low
+
+  * New upstream release
+  * bump package name: libsoup2.2-8
+
+ -- Takuo KITAME <kitame@debian.org>  Sat, 10 Sep 2005 10:49:48 +0900
+
+libsoup (2.2.3-2) unstable; urgency=low
+
+  * -dev: depends on libgnutls11-dev, libxml2-dev (closes: #268037)
+
+ -- Takuo KITAME <kitame@debian.org>  Thu, 31 Mar 2005 17:34:29 +0900
+
+libsoup (2.2.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Tue, 29 Mar 2005 10:54:50 +0900
+
+libsoup (2.2.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Fri,  4 Feb 2005 14:19:05 +0900
+
+libsoup (2.2.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Wed, 13 Oct 2004 11:39:50 +0900
+
+libsoup (2.2.0-2) unstable; urgency=low
+
+  * fix shlibs info
+
+ -- Takuo KITAME <kitame@debian.org>  Tue, 31 Aug 2004 14:34:01 +0900
+
+libsoup (2.2.0-1) unstable; urgency=low
+
+  * New upstream release
+  * bump package name to libsoup2.2-7
+
+ -- Takuo KITAME <kitame@debian.org>  Tue, 31 Aug 2004 12:03:56 +0900
+
+libsoup (2.1.13-1) unstable; urgency=low
+
+  * New upstream release
+  * bump package name libsoup2.2-3 to libsoup2.2-6
+
+ -- Takuo KITAME <kitame@debian.org>  Mon, 16 Aug 2004 11:58:26 +0900
+
+libsoup (2.1.12-2) unstable; urgency=low
+
+  * build against libgnutls11
+
+ -- Takuo KITAME <kitame@debian.org>  Thu,  5 Aug 2004 18:27:08 +0900
+
+libsoup (2.1.12-1) unstable; urgency=low
+
+  * New upstream release
+  * use cdbs
+
+ -- Takuo KITAME <kitame@debian.org>  Tue, 20 Jul 2004 14:55:47 +0900
+
+libsoup (2.1.11-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Mon,  7 Jun 2004 11:39:52 +0900
+
+libsoup (2.1.10-3) unstable; urgency=low
+
+  * added libsoup2.2-doc package
+
+ -- Takuo KITAME <kitame@debian.org>  Tue,  1 Jun 2004 12:59:24 +0900
+
+libsoup (2.1.10-2) unstable; urgency=low
+
+  * upload to unstable
+
+ -- Takuo KITAME <kitame@debian.org>  Wed, 26 May 2004 12:28:04 +0900
+
+libsoup (2.1.10-1) experimental; urgency=low
+
+  * New upstream release
+  * build against libgnutls10
+
+ -- Takuo KITAME <kitame@debian.org>  Mon, 24 May 2004 19:09:13 +0900
+
+libsoup (2.1.9-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Wed,  7 Apr 2004 12:24:47 +0900
+
+libsoup (2.1.8-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Tue,  9 Mar 2004 11:34:14 +0900
+
+libsoup (2.1.7-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Wed, 18 Feb 2004 15:54:49 +0900
+
+libsoup (2.1.5-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Tue,  3 Feb 2004 13:53:58 +0900
+
+libsoup (2.1.4-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Tue, 20 Jan 2004 15:40:58 +0900
+
+libsoup (2.1.3-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Thu,  8 Jan 2004 17:47:13 +0900
+
+libsoup (2.1.2-1) experimental; urgency=low
+
+  * New upstream release
+  * change package name s/2.0/2.2/g
+
+ -- Takuo KITAME <kitame@debian.org>  Thu, 11 Dec 2003 15:56:02 +0900
+
+libsoup (1.99.26-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Wed, 24 Sep 2003 12:17:04 +0900
+
+libsoup (1.99.23-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Thu, 12 Jun 2003 11:50:37 +0900
+
+libsoup (1.99.22-2) unstable; urgency=low
+
+  * Upload into unstable/main
+
+ -- Takuo KITAME <kitame@debian.org>  Tue,  3 Jun 2003 15:28:17 +0900
+
+libsoup (1.99.22-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Tue, 27 May 2003 18:33:55 +0900
+
+libsoup (1.99.20-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Wed,  7 May 2003 11:45:22 +0900
+
+libsoup (1.99.17-0.2) experimental; urgency=low
+
+  * --with-gnutls-includes
+
+ -- Takuo KITAME <kitame@debian.org>  Tue,  6 May 2003 16:59:56 +0900
+
+libsoup (1.99.17-0.1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@debian.org>  Thu, 24 Apr 2003 11:20:10 +0900
+
+libsoup (1.99.12-0.1) experimental; urgency=low
+
+  * Initial Release.
+
+ -- Takuo KITAME <kitame@debian.org>  Wed, 19 Mar 2003 18:09:38 +0900
+
