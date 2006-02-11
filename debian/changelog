@@ -4,8 +4,10 @@ libsoup (2.2.7-1) unstable; urgency=low
     [debian/control, debian/control.in, debian/rules]
   * Bump up Standards-Version to 3.6.2.
     [debian/control, debian/control.in]
+  * Add CDBS' utils.
+    [debian/rules]
 
- -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:26:22 +0100
+ -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:26:55 +0100
 
 libsoup (2.2.6-1) unstable; urgency=low
 
