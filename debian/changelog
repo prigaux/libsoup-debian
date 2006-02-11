@@ -8,8 +8,10 @@ libsoup (2.2.7-1) unstable; urgency=low
     [debian/rules]
   * Repair and cleanup computation of SOVERSION.
     [debian/rules]
+  * Add ${misc:Depends} to Depends.
+    [debian/control, debian/control.in]
 
- -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:35:43 +0100
+ -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 21:45:53 +0100
 
 libsoup (2.2.6-1) unstable; urgency=low
 

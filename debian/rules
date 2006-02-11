@@ -3,14 +3,15 @@
 # upstream version
 UPSTREAM_VERSION  := $(shell dpkg-parsechangelog | grep Version | sed -e 's/Version: //g' -e 's/-[A-Za-z0-9\.]*$$//g')
 
+ifeq ($(wildcard configure.in), "configure.in")
 SOUP_CURRENT := $(shell grep '^SOUP_CURRENT=' configure.in | sed -e 's/SOUP_CURRENT=//g')
 SOUP_AGE := $(shell grep '^SOUP_AGE=' configure.in | sed -e 's/SOUP_AGE=//g')
-
 SOUP_SOVERSION := $(shell expr $(SOUP_CURRENT) - $(SOUP_AGE))
+endif
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
-include /usr/share/cdbs/1/class/utils.mk
+include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/cdbs/1/class/gnome.mk
 include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk

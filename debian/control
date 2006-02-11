@@ -9,7 +9,7 @@ Standards-Version: 3.6.2
 Package: libsoup2.2-dev
 Section: devel
 Architecture: any
-Depends: libsoup2.2-8 (= ${Source-Version}), libglib2.0-dev, libgnutls11-dev, libxml2-dev
+Depends: ${misc:Depends}, libsoup2.2-8 (= ${Source-Version}), libglib2.0-dev, libgnutls11-dev, libxml2-dev
 Suggests: libsoup2.2-doc
 Description: an HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)
@@ -25,7 +25,7 @@ Description: an HTTP library implementation in C -- Development files
 Package: libsoup2.2-8
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: an HTTP library implementation in C -- Shared library
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
@@ -40,7 +40,7 @@ Description: an HTTP library implementation in C -- Shared library
 Package: libsoup2.2-doc
 Section: devel
 Architecture: all
-Recommends: libsoup2.2-dev
+Recommends: ${misc:Depends}, libsoup2.2-dev
 Description: an HTTP library implementation in C -- API Reference
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
