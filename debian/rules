@@ -1,10 +1,12 @@
 #!/usr/bin/make -f
 
+# upstream version
+UPSTREAM_VERSION  := $(shell dpkg-parsechangelog | grep Version | sed -e 's/Version: //g' -e 's/-[A-Za-z0-9\.]*$$//g')
 
-# shared library versions, option 1
-VERSION  := $(shell dpkg-parsechangelog | grep Version | sed -e 's/Version: //g' -e 's/-[A-Za-z0-9\.]*$$//g')
-# SOVERSION := $(shell grep '^SOUP_CURRENT=' configure.in | sed -e 's/SOUP_CURRENT=//g')
-SOVERSION := 8
+SOUP_CURRENT := $(shell grep '^SOUP_CURRENT=' configure.in | sed -e 's/SOUP_CURRENT=//g')
+SOUP_AGE := $(shell grep '^SOUP_AGE=' configure.in | sed -e 's/SOUP_AGE=//g')
+
+SOUP_SOVERSION := $(shell expr $(SOUP_CURRENT) - $(SOUP_AGE))
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
@@ -14,9 +16,10 @@ include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 
 
-DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev := debian/libsoup2.2-${SOVERSION}/usr/lib
-DEB_DH_MAKESHLIBS_ARGS_ALL := -V'libsoup2.2-${SOVERSION} (>= ${VERSION})'
+DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev := debian/libsoup2.2-${SOUP_SOVERSION}/usr/lib
+DEB_DH_MAKESHLIBS_ARGS_ALL := -V'libsoup2.2-${SOUP_SOVERSION} (>= ${UPSTREAM_VERSION})'
 DEB_CONFIGURE_EXTRA_FLAGS := --sysconfdir=/etc \
 	--libexecdir=\$${prefix}/lib/soup \
 	--with-gnutls-includes=/usr/include/gnutls \
 	--enable-gtk-doc
+
