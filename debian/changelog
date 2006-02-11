@@ -22,8 +22,13 @@ libsoup (2.2.7-1) unstable; urgency=low
   * Update FSF address, update AUTHORS list, and clarify Copyright versus
     License.
     [debian/copyright]
+  * Let libsoup-dev depend on zlib1g-dev to honor the pkg-config link flags.
+    [debian/control, debian/control.in]
+  * Let libsoup-dev depend on libgcrypt11-dev, libgpg-error-dev,
+    libtasn1-2-dev to honor the libtool dependency_libs line.
+    [debian/control, debian/control.in]
 
- -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 22:09:39 +0100
+ -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 22:15:24 +0100
 
 libsoup (2.2.6-1) unstable; urgency=low
 
