@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 # upstream version
-UPSTREAM_VERSION  := $(shell dpkg-parsechangelog | grep Version | sed -e 's/^Version: //g' -e 's/-[A-Za-z0-9\.]*$$//g')
+UPSTREAM_VERSION  := $(shell dpkg-parsechangelog | grep ^Version | sed -ne 's/^Version: //g' -e 's/-[A-Za-z0-9\.]*$$//pg')
 
 ifeq ($(wildcard configure.in),"configure.in")
 SOUP_CURRENT := $(shell grep '^SOUP_CURRENT=' configure.in | sed -e 's/SOUP_CURRENT=//g')
