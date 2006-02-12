@@ -30,8 +30,10 @@ libsoup (2.2.7-1) unstable; urgency=low
   * Let libsoup-dev depend on libgcrypt11-dev, libgpg-error-dev,
     libtasn1-2-dev to honor the libtool dependency_libs line.
     [debian/control, debian/control.in]
+  * Fix permissions of .pc files.
+    [debian/rules]
 
- -- Loic Minier <lool@dooz.org>  Sat, 11 Feb 2006 23:01:24 +0100
+ -- Loic Minier <lool@dooz.org>  Sun, 12 Feb 2006 09:53:41 +0100
 
 libsoup (2.2.6-1) unstable; urgency=low
 
