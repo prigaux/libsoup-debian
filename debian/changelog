@@ -1,3 +1,10 @@
+libsoup (2.2.7-2) unstable; urgency=low
+
+  * Anchor "Version:" regexp in dpkg-parsechangelog and fix shlibs.
+    [debian/rules]
+
+ -- Loic Minier <lool@dooz.org>  Sun, 12 Feb 2006 17:12:46 +0100
+
 libsoup (2.2.7-1) unstable; urgency=low
 
   * Hijack package, set myself as Maintainer, GNOME team uploads.
