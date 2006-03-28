@@ -1,3 +1,12 @@
+libsoup (2.2.91-2) unstable; urgency=low
+
+  * Compute the upstream version from the Debian version by removing anything
+    after and including the last dash; this should fix permit binNMUs
+    versions. (Closes: #359652)
+    [debian/rules]
+
+ -- Loic Minier <lool@dooz.org>  Tue, 28 Mar 2006 15:00:09 +0200
+
 libsoup (2.2.91-1) unstable; urgency=low
 
   * New upstream release with API additions.
