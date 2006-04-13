@@ -1,3 +1,12 @@
+libsoup (2.2.92-1) unstable; urgency=low
+
+  * New upstream release, no API changes.
+    - Remove chmod fix for the permissions of the pkg-config file
+      (fixed-upstream).
+      [debian/rules]
+
+ -- Loic Minier <lool@dooz.org>  Thu, 13 Apr 2006 12:01:42 +0200
+
 libsoup (2.2.91-2) unstable; urgency=low
 
   * Compute the upstream version from the Debian version by removing anything

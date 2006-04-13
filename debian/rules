@@ -21,6 +21,3 @@ DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev := debian/libsoup2.2-${SOUP_SOVERSION}/usr/
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V'libsoup2.2-${SOUP_SOVERSION} (>= ${UPSTREAM_VERSION})'
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 
-binary-post-install/libsoup2.2-dev::
-	find debian/libsoup2.2-dev/usr/lib/pkgconfig -type f -name '*.pc' -print0 | xargs -0r chmod 644
-
