@@ -1,3 +1,9 @@
+libsoup (2.2.93-1) unstable; urgency=low
+
+  * New upstream release with API additions.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 30 May 2006 15:30:36 +0200
+
 libsoup (2.2.92-1) unstable; urgency=low
 
   * New upstream release, no API changes.
