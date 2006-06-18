@@ -5,8 +5,11 @@ libsoup (2.2.93-2) UNRELEASED; urgency=low
     dependencies.
   * Remove the hardcoded dependencies added in 2.2.7-1 due to dependency_libs
     in *.la files: libgcrypt11-dev, libgpg-error-dev, libtasn1-2-dev
+  * Make the package binNMU-safe.
+    + Build-depend on dpkg-dev 1.13.19.
+    + Use ${binary:Version}.
 
- -- Loic Minier <lool@dooz.org>  Sun, 18 Jun 2006 20:33:04 +0200
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Jun 2006 20:34:46 +0200
 
 libsoup (2.2.93-1) unstable; urgency=low
 
