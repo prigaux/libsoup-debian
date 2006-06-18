@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Loic Minier <lool@dooz.org>
 Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper (>> 3.0.0), libglib2.0-dev (>= 2.6.0), libgnutls-dev, libxml2-dev, cdbs, gtk-doc-tools, gnome-pkg-tools, dpkg-dev (>= 1.13.19)
-Standards-Version: 3.6.2
+Standards-Version: 3.7.2
 
 Package: libsoup2.2-dev
 Section: devel
