@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# call with e.g.:
+#    dpkg -L libecal1.2-dev | grep .la$ | xargs la-deps
+
+files="$@"
+
+all_deps=$(cat $files | sed -n "s/^dependency_libs=' *\\(.*\\) *' */\\1/p")
+
+filter_la() {
+    all_deps="$1"
+
+    for dep in $all_deps; do
+       # XXX doesn't warn about unknown flags
+       echo "$dep" | sed -n '/^-l/d; /^-L/d; /\.la$/p'
+    done
+}
+
+filter_la "$all_deps" | xargs dpkg -S | sed -n 's/:.*//p' | sort | uniq | xargs | sed 's/ /, /g'
+
+exit 0
+

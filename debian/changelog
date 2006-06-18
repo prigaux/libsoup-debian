@@ -1,3 +1,13 @@
+libsoup (2.2.93-2) UNRELEASED; urgency=low
+
+  * Use a new la:Depends substvar generated in binary-predeb/libsoup2.2-dev by
+    debian/la-deps from debian/libsoup2.2-dev/**/*.la to compute *.la file
+    dependencies.
+  * Remove the hardcoded dependencies added in 2.2.7-1 due to dependency_libs
+    in *.la files: libgcrypt11-dev, libgpg-error-dev, libtasn1-2-dev
+
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Jun 2006 20:33:04 +0200
+
 libsoup (2.2.93-1) unstable; urgency=low
 
   * New upstream release with API additions.

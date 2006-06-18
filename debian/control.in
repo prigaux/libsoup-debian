@@ -9,7 +9,7 @@ Standards-Version: 3.6.2
 Package: libsoup2.2-dev
 Section: devel
 Architecture: any
-Depends: ${misc:Depends}, libsoup2.2-8 (= ${Source-Version}), libglib2.0-dev, libgnutls-dev, libxml2-dev, zlib1g-dev, libgcrypt11-dev, libgpg-error-dev, libtasn1-2-dev
+Depends: ${misc:Depends}, libsoup2.2-8 (= ${Source-Version}), libglib2.0-dev, libgnutls-dev, libxml2-dev, zlib1g-dev, ${la:Depends}
 Suggests: libsoup2.2-doc
 Description: an HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)

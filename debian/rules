@@ -21,3 +21,6 @@ DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev := debian/libsoup2.2-${SOUP_SOVERSION}/usr/
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V'libsoup2.2-${SOUP_SOVERSION} (>= ${UPSTREAM_VERSION})'
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 
+binary-predeb/libsoup2.2-dev::
+	( echo -n "la:Depends="; find debian/libsoup2.2-dev -iname '*.la' | xargs /bin/sh debian/la-deps ) >> debian/libsoup2.2-dev.substvars
+
