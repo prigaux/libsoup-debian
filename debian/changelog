@@ -3,8 +3,11 @@ libsoup (2.2.93-3) unstable; urgency=medium
   * Build-depend on libgnutls-dev (>= 1.4.0) since the broken libgnutls-dev
     Provide is here for a while. (Closes: #370387)
   * Depend on libgnutls-dev (>= 1.4.0) due to the above change.
+  * Build-conflict and conflict with libgnutls11-dev for additional safety, as
+    I'm not sure how the lack of support for versionned Provides might behave
+    here.
 
- -- Loic Minier <lool@dooz.org>  Sat, 24 Jun 2006 16:12:19 +0200
+ -- Loic Minier <lool@dooz.org>  Sat, 24 Jun 2006 16:47:24 +0200
 
 libsoup (2.2.93-2) unstable; urgency=low
 

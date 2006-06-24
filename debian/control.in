@@ -4,12 +4,14 @@ Priority: optional
 Maintainer: Loic Minier <lool@dooz.org>
 Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper (>= 5), libglib2.0-dev (>= 2.6.0), libgnutls-dev (>= 1.4.0), libxml2-dev, cdbs, gtk-doc-tools, gnome-pkg-tools, dpkg-dev (>= 1.13.19)
+Build-Conflicts: libgnutls11-dev
 Standards-Version: 3.7.2
 
 Package: libsoup2.2-dev
 Section: devel
 Architecture: any
 Depends: ${misc:Depends}, libsoup2.2-8 (= ${Source-Version}), libglib2.0-dev, libgnutls-dev (>= 1.4.0), libxml2-dev, zlib1g-dev, ${la:Depends}
+Conflicts: libgnutls11-dev
 Suggests: libsoup2.2-doc
 Description: an HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)
