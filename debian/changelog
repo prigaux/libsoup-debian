@@ -1,3 +1,9 @@
+libsoup (2.2.93-4) UNRELEASED; urgency=low
+
+  * Add watch file.
+
+ -- Loic Minier <lool@dooz.org>  Sat,  8 Jul 2006 10:29:49 +0200
+
 libsoup (2.2.93-3) unstable; urgency=medium
 
   * Build-depend on libgnutls-dev (>= 1.4.0) since the broken libgnutls-dev
