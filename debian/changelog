@@ -4,8 +4,10 @@ libsoup (2.2.95.1-1) unstable; urgency=low
   * Merge with 2.2.95.1-0ubuntu1.
     - New upstream release with API additions, and API changes.  The changes
       are in parts of the API which were considered unusable.
+  * Stop shipping *.la files as evolution-data-server doesn't do so anymore
+    and remove the calculation of *.la Dependencies introduced in 2.2.93-2.
 
- -- Loic Minier <lool@dooz.org>  Sat,  8 Jul 2006 10:29:49 +0200
+ -- Loic Minier <lool@dooz.org>  Fri, 14 Jul 2006 11:47:05 +0200
 
 libsoup (2.2.95.1-0ubuntu1) edgy; urgency=low
 
