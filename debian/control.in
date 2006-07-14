@@ -10,7 +10,7 @@ Standards-Version: 3.7.2
 Package: libsoup2.2-dev
 Section: devel
 Architecture: any
-Depends: ${misc:Depends}, libsoup2.2-8 (= ${Source-Version}), libglib2.0-dev, libgnutls-dev (>= 1.4.0), libxml2-dev, zlib1g-dev
+Depends: ${misc:Depends}, libsoup2.2-8 (= ${binary:Version}), libglib2.0-dev, libgnutls-dev (>= 1.4.0), libxml2-dev, zlib1g-dev
 Conflicts: libgnutls11-dev
 Suggests: libsoup2.2-doc
 Description: an HTTP library implementation in C -- Development files
