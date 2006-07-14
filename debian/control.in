@@ -42,7 +42,8 @@ Description: an HTTP library implementation in C -- Shared library
 Package: libsoup2.2-doc
 Section: devel
 Architecture: all
-Recommends: ${misc:Depends}, libsoup2.2-dev
+Depends:  ${misc:Depends}
+Suggests: libsoup2.2-dev
 Description: an HTTP library implementation in C -- API Reference
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been

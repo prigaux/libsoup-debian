@@ -7,8 +7,9 @@ libsoup (2.2.95.1-1) unstable; urgency=low
   * Stop shipping *.la files as evolution-data-server doesn't do so anymore
     and remove the calculation of *.la Dependencies introduced in 2.2.93-2.
   * Really use ${binary:Version} as I failed doing so in 2.2.93-2.
+  * Cleanup dependencies of libsoup2.2-doc.
 
- -- Loic Minier <lool@dooz.org>  Fri, 14 Jul 2006 11:54:02 +0200
+ -- Loic Minier <lool@dooz.org>  Fri, 14 Jul 2006 11:55:16 +0200
 
 libsoup (2.2.95.1-0ubuntu1) edgy; urgency=low
 
