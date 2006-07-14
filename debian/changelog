@@ -1,8 +1,41 @@
-libsoup (2.2.93-4) UNRELEASED; urgency=low
+libsoup (2.2.95.1-1) unstable; urgency=low
 
   * Add watch file.
+  * Merge with 2.2.95.1-0ubuntu1.
+    - New upstream release with API additions, and API changes.  The changes
+      are in parts of the API which were considered unusable.
 
  -- Loic Minier <lool@dooz.org>  Sat,  8 Jul 2006 10:29:49 +0200
+
+libsoup (2.2.95.1-0ubuntu1) edgy; urgency=low
+
+  * New upstream release:
+    - 2.2.95:
+      - Even more fixes to XML-RPC, found by the new XML-RPC regression test. 
+        This includes some API changes that I don't feel guilty about, because 
+        the code totally didn't work at all before.
+      - Fixed a bug in soup_mktime_utc()
+    - 2.2.95.1:
+      - (2.2.95 was identical to 2.2.95.1. The only difference is that the 
+        shared library version was belatedly bumped from 8.2.0 to 8.3.0 to 
+        reflect	the API "additions")
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Tue, 11 Jul 2006 18:00:23 +0200
+
+libsoup (2.2.94-0ubuntu1) edgy; urgency=low
+
+  * New upstream release:
+    - Various fixes to the XML-RPC code (which apparently had not actually 
+      ever worked before)
+    - Added client and server API tutorials to the docs
+    - auth-test now uses a local Apache 2.2 install, if possible, rather than 
+      depending on files that used to be on an old Ximian web server but 
+      haven't been anywhere for a ong time.
+  * Resynchronized with Debian, only Ubuntu changes are:
+    - debian/patches/02_xmlrpc_pointer.patch,
+      debian/patches/03_xmlrpc_array.patch: Distro fixes.
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Thu,  6 Jul 2006 09:55:02 +0200
 
 libsoup (2.2.93-3) unstable; urgency=medium
 
