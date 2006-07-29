@@ -1,0 +1,10 @@
+Document: libsoup
+Title: libsoup Reference Manual
+Author: Alex Graveley, Dick Porter, Miguel De Icaza, Joe Shaw, Dan Winship
+Abstract: API Reference Manual and little tutorial on how to write a simple
+ client and a simple server
+Section: Apps/Programming
+
+Format: HTML
+Index: /usr/share/gtk-doc/html/libsoup/index.html
+Files: /usr/share/gtk-doc/html/libsoup/*html
