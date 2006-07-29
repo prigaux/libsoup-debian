@@ -1,7 +1,7 @@
 libsoup (2.2.95.1-2) UNRELEASED; urgency=low
 
   * Add a doc-base document for the libsoup documentation, based on suggestion
-    by cascardo at holoscopio dot com.
+    by Thadeu Cascardo.
 
  -- Loic Minier <lool@dooz.org>  Sat, 29 Jul 2006 12:08:25 +0200
 
