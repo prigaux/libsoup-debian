@@ -23,6 +23,17 @@ Description: an HTTP library implementation in C -- Development files
  on the network in a completely asynchronous fashion, very similar to
  the Gtk+ programming model (a synchronous operation mode is also
  supported for those who want it).
+ .
+ Features:
+  * Both asynchronous (GMainLoop and callback-based) and synchronous APIs
+  * Automatically caches connections
+  * SSL Support using GnuTLS
+  * Proxy support, including authentication and SSL tunneling
+  * Client support for Digest, NTLM, and Basic authentication
+  * Server support for Digest and Basic authentication
+  * Basic client-side SOAP and XML-RPC support
+ .
+ This package contains the development files.
 
 Package: libsoup2.2-8
 Section: libs
@@ -34,10 +45,21 @@ Description: an HTTP library implementation in C -- Shared library
  split into separate packages.
  .
  libsoup uses the Glib main loop and is designed to work well with GTK
- applications. This enables GNOME applications to access HTTP servers
+ applications.  This enables GNOME applications to access HTTP servers
  on the network in a completely asynchronous fashion, very similar to
  the Gtk+ programming model (a synchronous operation mode is also
  supported for those who want it).
+ .
+ Features:
+  * Both asynchronous (GMainLoop and callback-based) and synchronous APIs
+  * Automatically caches connections
+  * SSL Support using GnuTLS
+  * Proxy support, including authentication and SSL tunneling
+  * Client support for Digest, NTLM, and Basic authentication
+  * Server support for Digest and Basic authentication
+  * Basic client-side SOAP and XML-RPC support
+ .
+ This package contains the shared library.
 
 Package: libsoup2.2-doc
 Section: devel
@@ -54,3 +76,14 @@ Description: an HTTP library implementation in C -- API Reference
  on the network in a completely asynchronous fashion, very similar to
  the Gtk+ programming model (a synchronous operation mode is also
  supported for those who want it).
+ .
+ Features:
+  * Both asynchronous (GMainLoop and callback-based) and synchronous APIs
+  * Automatically caches connections
+  * SSL Support using GnuTLS
+  * Proxy support, including authentication and SSL tunneling
+  * Client support for Digest, NTLM, and Basic authentication
+  * Server support for Digest and Basic authentication
+  * Basic client-side SOAP and XML-RPC support
+ .
+ This package contains the documentation.

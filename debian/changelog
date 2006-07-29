@@ -1,9 +1,12 @@
-libsoup (2.2.95.1-2) UNRELEASED; urgency=low
+libsoup (2.2.96-1) unstable; urgency=low
 
+  * New upstream release, with API additions.
   * Add a doc-base document for the libsoup documentation, based on suggestion
     by Thadeu Cascardo.
+  * Include the list of features in the descriptions and enhance descriptions
+    a little.
 
- -- Loic Minier <lool@dooz.org>  Sat, 29 Jul 2006 12:08:25 +0200
+ -- Loic Minier <lool@dooz.org>  Sat, 29 Jul 2006 12:41:59 +0200
 
 libsoup (2.2.95.1-1) unstable; urgency=low
 
