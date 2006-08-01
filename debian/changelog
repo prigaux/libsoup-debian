@@ -1,3 +1,9 @@
+libsoup (2.2.96-2) UNRELEASED; urgency=low
+
+  * Set Maintainer to the Debian GNOME team.
+
+ -- Loic Minier <lool@dooz.org>  Tue,  1 Aug 2006 17:04:34 +0200
+
 libsoup (2.2.96-1) unstable; urgency=low
 
   * New upstream release, with API additions.
