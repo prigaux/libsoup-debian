@@ -1,8 +1,10 @@
-libsoup (2.2.96-2) UNRELEASED; urgency=low
+libsoup (2.2.97-1) unstable; urgency=low
 
   * Set Maintainer to the Debian GNOME team.
+  * New upstream release; with an API addition.
+    - Bump shlibs to >= 2.2.97.
 
- -- Loic Minier <lool@dooz.org>  Tue,  1 Aug 2006 17:04:34 +0200
+ -- Loic Minier <lool@dooz.org>  Tue,  7 Nov 2006 23:48:38 +0100
 
 libsoup (2.2.96-1) unstable; urgency=low
 
