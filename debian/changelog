@@ -1,3 +1,11 @@
+libsoup (2.2.98-2) unstable; urgency=high
+
+  * 01_parse_headers_DoS.patch: new patch, fixes a remote denial of 
+    service vulnerability in rhythmbox - and probably anything using 
+    libsoup's HTTP server code. Closes: #405197.
+
+ -- Josselin Mouette <joss@debian.org>  Tue,  2 Jan 2007 18:42:12 +0100
+
 libsoup (2.2.98-1) unstable; urgency=low
 
   * New upstream stable release; no API change; XML-RPC minor syntax support
