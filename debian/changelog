@@ -1,3 +1,12 @@
+libsoup (2.2.99-1) unstable; urgency=low
+
+  * New upstream stable release; no API nor ABI change; stricter header
+    parsing and testsuite, plug for a small memory leak, bug fix, doc fix.
+    - Do not use the upstream version for shlibs, set them to >= 2.2.98.
+    - Drop patch 01_parse_headers_DoS, fixed differently upstream.
+
+ -- Loic Minier <lool@dooz.org>  Tue,  9 Jan 2007 09:23:51 +0100
+
 libsoup (2.2.98-2) unstable; urgency=high
 
   * 01_parse_headers_DoS.patch: new patch, fixes a remote denial of 
