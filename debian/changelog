@@ -1,3 +1,9 @@
+libsoup (2.2.100-2) UNRELEASED; urgency=low
+
+  * Drop useless upstream version computation.
+
+ -- Loic Minier <lool@dooz.org>  Wed, 04 Apr 2007 17:46:15 +0200
+
 libsoup (2.2.100-1) unstable; urgency=medium
 
   * Add a get-orig-source target to retrieve the upstream tarball.
