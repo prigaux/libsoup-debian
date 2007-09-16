@@ -9,7 +9,6 @@ endif
 SHLIBS := libsoup2.2-${SOUP_SOVERSION} (>= 2.2.98)
 
 include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/autotools.mk
 include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/cdbs/1/class/gnome.mk
 include /usr/share/cdbs/1/rules/simple-patchsys.mk

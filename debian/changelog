@@ -2,8 +2,9 @@ libsoup (2.2.100-2) UNRELEASED; urgency=low
 
   * Drop useless upstream version computation.
   * Use full URL in copyright.
+  * Don't include autotools.mk as it's already included by gnome.mk.
 
- -- Loic Minier <lool@dooz.org>  Wed, 04 Apr 2007 17:47:17 +0200
+ -- Loic Minier <lool@dooz.org>  Sun, 16 Sep 2007 20:23:00 +0200
 
 libsoup (2.2.100-1) unstable; urgency=medium
 
