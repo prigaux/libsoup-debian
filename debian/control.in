@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Build-Depends: debhelper (>= 5), libglib2.0-dev (>= 2.6.0), libgnutls-dev (>= 1.4.0), libxml2-dev, cdbs, gtk-doc-tools, gnome-pkg-tools, dpkg-dev (>= 1.13.19)
+Build-Depends: debhelper (>= 5), libglib2.0-dev (>= 2.12.0), libgnutls-dev (>= 1.4.0), libxml2-dev, cdbs, gtk-doc-tools, gnome-pkg-tools, dpkg-dev (>= 1.13.19)
 Build-Conflicts: libgnutls11-dev
 Standards-Version: 3.7.2
 

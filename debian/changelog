@@ -1,10 +1,16 @@
-libsoup (2.2.100-2) UNRELEASED; urgency=low
+libsoup (2.2.101-1) unstable; urgency=low
 
+  [ Loic Minier ]
   * Drop useless upstream version computation.
   * Use full URL in copyright.
   * Don't include autotools.mk as it's already included by gnome.mk.
 
- -- Loic Minier <lool@dooz.org>  Sun, 16 Sep 2007 20:23:00 +0200
+  [ Sebastian Dröge ]
+  * New upstream release with no API changes:
+    + debian/control.in:
+      - Build depend on libglib2.0-dev (>= 2.12.0).
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 08 Oct 2007 08:15:12 +0200
 
 libsoup (2.2.100-1) unstable; urgency=medium
 
