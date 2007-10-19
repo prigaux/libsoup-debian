@@ -15,7 +15,7 @@ include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
-DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev := debian/libsoup2.2-${SOUP_SOVERSION}/usr/lib
-DEB_DH_MAKESHLIBS_ARGS_ALL := -V'$(SHLIBS)'
+DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev += debian/libsoup2.2-${SOUP_SOVERSION}/usr/lib
+DEB_DH_MAKESHLIBS_ARGS_ALL += -V'$(SHLIBS)'
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 

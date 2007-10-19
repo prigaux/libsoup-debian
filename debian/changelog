@@ -1,10 +1,12 @@
-libsoup (2.2.102-1) UNRELEASED; urgency=low
+libsoup (2.2.102-1) unstable; urgency=low
 
   * New upstream release; no API change; fixes non-SSL build, Debian not
     affected.
   * Wrap build-deps and deps.
+  * Don't override DEB_SHLIBDEPS_INCLUDE_libsoup2.2-dev and
+    DEB_DH_MAKESHLIBS_ARGS_ALL completely.
 
- -- Loic Minier <lool@dooz.org>  Fri, 19 Oct 2007 11:37:35 +0200
+ -- Loic Minier <lool@dooz.org>  Fri, 19 Oct 2007 11:38:44 +0200
 
 libsoup (2.2.101-1) unstable; urgency=low
 
