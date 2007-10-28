@@ -1,3 +1,11 @@
+libsoup (2.2.103-1) unstable; urgency=low
+
+  * New upstream bugfix release:
+    + Fixes memory corruption in SoupSessionAsync that caused
+      rhythmbox to crash (Closes: #446288).
+
+ -- Sebastian Dröge <slomo@debian.org>  Sun, 28 Oct 2007 21:35:22 +0100
+
 libsoup (2.2.102-1) unstable; urgency=low
 
   * New upstream release; no API change; fixes non-SSL build, Debian not
