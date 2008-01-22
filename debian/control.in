@@ -15,7 +15,6 @@ Build-Conflicts: libgnutls11-dev
 Standards-Version: 3.7.3
 
 Package: libsoup2.4-dev
-Section: devel
 Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
