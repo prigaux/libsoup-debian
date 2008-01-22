@@ -1,10 +1,10 @@
-Source: libsoup
+Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Josselin Mouette <joss@debian.org>, Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
 Build-Depends: debhelper (>= 5),
-               libglib2.0-dev (>= 2.12.0),
+               libglib2.0-dev (>= 2.15.3),
                libgnutls-dev (>= 1.4.0),
                libxml2-dev,
                cdbs,
@@ -12,19 +12,19 @@ Build-Depends: debhelper (>= 5),
                gnome-pkg-tools,
                dpkg-dev (>= 1.13.19)
 Build-Conflicts: libgnutls11-dev
-Standards-Version: 3.7.2
+Standards-Version: 3.7.3
 
-Package: libsoup2.2-dev
+Package: libsoup2.4-dev
 Section: devel
 Architecture: any
+Section: libdevel
 Depends: ${misc:Depends},
-         libsoup2.2-8 (= ${binary:Version}),
+         libsoup2.4-0 (= ${binary:Version}),
          libglib2.0-dev,
          libgnutls-dev (>= 1.4.0),
-         libxml2-dev,
-         zlib1g-dev
+         libxml2-dev
 Conflicts: libgnutls11-dev
-Suggests: libsoup2.2-doc
+Suggests: libsoup2.4-doc
 Description: an HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
@@ -47,7 +47,7 @@ Description: an HTTP library implementation in C -- Development files
  .
  This package contains the development files.
 
-Package: libsoup2.2-8
+Package: libsoup2.4-0
 Section: libs
 Architecture: any
 Depends: ${misc:Depends},
@@ -74,11 +74,13 @@ Description: an HTTP library implementation in C -- Shared library
  .
  This package contains the shared library.
 
-Package: libsoup2.2-doc
-Section: devel
+Package: libsoup2.4-doc
+Section: doc
 Architecture: all
 Depends: ${misc:Depends}
-Suggests: libsoup2.2-dev
+Suggests: libsoup2.4-dev
+Replaces: libsoup2.2-doc
+Conflicts: libsoup2.2-doc
 Description: an HTTP library implementation in C -- API Reference
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
