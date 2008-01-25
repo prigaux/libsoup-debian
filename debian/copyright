@@ -1,21 +1,18 @@
-This package was debianized by Takuo KITAME <kitame@debian.org> on
-Fri, 14 Feb 2003 01:46:38 +0900.
+This package was downloaded from
+http://ftp.gnome.org/pub/GNOME/sources/libsoup/.  The initial debianization was
+by Takuo KITAME <kitame@debian.org> on Fri, 14 Feb 2003 01:46:38 +0900.
 
-It was downloaded from http://ftp.gnome.org/pub/GNOME/sources/libsoup/
-
-Upstream Authors and Copyright Holders:
- Alex Graveley
- Dick Porter
- Miguel De Icaza
- Joe Shaw
- Dan Winship
+Copyright:
+    Copyright (C) 2007, 2008 Red Hat, Inc.
+    Copyright (C) 2001-2007 Novell, Inc.
+    Copyright (C) 1999-2003 Ximian, Inc.
 
 License:
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
     License as published by the Free Software Foundation; either
-    version 2 of the License, or (at your option) any later version.
+    version 2 of the License.
 
     This package is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
