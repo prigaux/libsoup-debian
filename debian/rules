@@ -6,7 +6,7 @@ SOUP_AGE := $(shell grep '^SOUP_AGE=' configure.in | sed -e 's/SOUP_AGE=//g')
 SOUP_SOVERSION := $(shell expr $(SOUP_CURRENT) - $(SOUP_AGE))
 endif
 
-SHLIBS := libsoup2.4-${SOUP_SOVERSION} (>= 2.3.0)
+SHLIBS := libsoup2.4-${SOUP_SOVERSION} (>= 2.3.2)
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/utils.mk

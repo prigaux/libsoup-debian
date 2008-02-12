@@ -1,3 +1,11 @@
+libsoup2.4 (2.3.2-2) experimental; urgency=low
+
+  * New upstream release:
+    + debian/rules:
+      - Update shlibs to >= 2.3.2.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 12 Feb 2008 06:44:04 +0100
+
 libsoup2.4 (2.3.0.1-1) experimental; urgency=low
 
   * Mention Red Hat, Novell, and Ximian copyrights and copyright years in the
