@@ -78,8 +78,7 @@ Section: doc
 Architecture: all
 Depends: ${misc:Depends}
 Suggests: libsoup2.4-dev
-Replaces: libsoup2.2-doc
-Conflicts: libsoup2.2-doc
+Replaces: libsoup2.2-doc (<< 2.2.105)
 Description: an HTTP library implementation in C -- API Reference
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been

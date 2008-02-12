@@ -6,5 +6,5 @@ Abstract: API Reference Manual and little tutorial on how to write a simple
 Section: Apps/Programming
 
 Format: HTML
-Index: /usr/share/gtk-doc/html/libsoup/index.html
-Files: /usr/share/gtk-doc/html/libsoup/*html
+Index: /usr/share/gtk-doc/html/libsoup-2.4/index.html
+Files: /usr/share/gtk-doc/html/libsoup-2.4/*html
