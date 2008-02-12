@@ -7,6 +7,9 @@ libsoup2.4 (2.3.2-1) experimental; urgency=low
       debian/libsoup2.4-doc.doc-base:
       - Replace libsoup2.2-doc (<< 2.2.105) as 2.2.105 and above are
         installable at the same time. Also adjust documentation path.
+    + debian/control.in,
+      debian/libsoup2.4-1.install:
+      - Update for new soname.
 
  -- Sebastian Dröge <slomo@debian.org>  Tue, 12 Feb 2008 06:44:04 +0100
 
