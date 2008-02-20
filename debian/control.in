@@ -19,9 +19,7 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
          libsoup2.4-1 (= ${binary:Version}),
-         libglib2.0-dev,
-         libgnutls-dev (>= 1.4.0),
-         libxml2-dev
+         libglib2.0-dev
 Conflicts: libgnutls11-dev
 Suggests: libsoup2.4-doc
 Description: an HTTP library implementation in C -- Development files

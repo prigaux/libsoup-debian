@@ -1,3 +1,13 @@
+libsoup2.4 (2.3.2-2) UNRELEASED; urgency=low
+
+  * debian/control.in,
+    debian/patches/01_pkg-config-requires.patch:
+    + Move libxml and gnutls to Requires.private as no header includes them.
+    + Add gobject and gio to Requires as headers include them.
+    + Drop gnutls and libxml from the dependencies of the -dev package.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 20 Feb 2008 12:21:17 +0100
+
 libsoup2.4 (2.3.2-1) experimental; urgency=low
 
   * New upstream release:
