@@ -4,7 +4,6 @@ libsoup2.4 (2.3.2-2) UNRELEASED; urgency=low
     debian/patches/01_pkg-config-requires.patch:
     + Move libxml and gnutls to Requires.private as no header includes them.
     + Add gobject and gio to Requires as headers include them.
-    + Drop gnutls and libxml from the dependencies of the -dev package.
   * debian/libsoup2.4-doc.doc-base:
     + Use libsoup-2.4 as document name to not conflict with libsoup-2.2-doc
       anymore.
