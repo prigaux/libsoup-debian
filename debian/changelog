@@ -1,14 +1,11 @@
-libsoup2.4 (2.3.2-2) UNRELEASED; urgency=low
+libsoup2.4 (2.3.4-1) experimental; urgency=low
 
-  * debian/control.in,
-    debian/patches/01_pkg-config-requires.patch:
-    + Move libxml and gnutls to Requires.private as no header includes them.
-    + Add gobject and gio to Requires as headers include them.
+  * New upstream release.
   * debian/libsoup2.4-doc.doc-base:
     + Use libsoup-2.4 as document name to not conflict with libsoup-2.2-doc
       anymore.
 
- -- Sebastian Dröge <slomo@debian.org>  Wed, 20 Feb 2008 12:21:17 +0100
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 26 Feb 2008 07:02:14 +0100
 
 libsoup2.4 (2.3.2-1) experimental; urgency=low
 
