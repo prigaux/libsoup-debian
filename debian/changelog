@@ -1,3 +1,11 @@
+libsoup2.4 (2.4.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/rules:
+      - Remove check-dist include, upload to unstable.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 10 Mar 2008 21:18:07 +0100
+
 libsoup2.4 (2.3.4-1) experimental; urgency=low
 
   * New upstream release.
