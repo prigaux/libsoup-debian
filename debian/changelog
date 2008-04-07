@@ -1,3 +1,11 @@
+libsoup2.4 (2.4.1-1) unstable; urgency=low
+
+  * New upstream release with API additions:
+    + debian/rules:
+      - Bump shlibs to >= 2.4.1.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 07 Apr 2008 19:27:18 +0200
+
 libsoup2.4 (2.4.0-1) unstable; urgency=low
 
   * New upstream stable release:
