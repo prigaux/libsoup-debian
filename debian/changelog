@@ -1,3 +1,13 @@
+libsoup2.4 (2.4.1-2) unstable; urgency=low
+
+  * debian/patches/01_default-auth-digest-algorithm.patch:
+    + Patch from upstream SVN to use MD5 as default auth digest algorithm
+      if the server doesn't provide one.
+  * debian/control.in:
+    + Update Standards-Version to 3.8.0, no additional changes needed.
+
+ -- Sebastian Dröge <slomo@debian.org>  Fri, 01 Aug 2008 11:29:21 +0200
+
 libsoup2.4 (2.4.1-1) unstable; urgency=low
 
   * New upstream release with API additions:
