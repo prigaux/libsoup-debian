@@ -6,14 +6,13 @@ SOUP_AGE := $(shell grep '^SOUP_AGE=' configure.in | sed -e 's/SOUP_AGE=//g')
 SOUP_SOVERSION := $(shell expr $(SOUP_CURRENT) - $(SOUP_AGE))
 endif
 
-SHLIBS := libsoup2.4-${SOUP_SOVERSION} (>= 2.3.2)
+SHLIBS := libsoup2.4-${SOUP_SOVERSION} (>= 2.4.1)
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/cdbs/1/class/gnome.mk
 include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
-include /usr/share/gnome-pkg-tools/1/rules/check-dist.mk
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
 GNOME_MODULE := libsoup
