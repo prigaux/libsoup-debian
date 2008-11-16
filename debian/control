@@ -2,7 +2,7 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
+Uploaders: Josselin Mouette <joss@debian.org>, Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
 Build-Depends: debhelper (>= 5),
                libglib2.0-dev (>= 2.15.3),
                libgnutls-dev (>= 1.4.0),
@@ -29,10 +29,10 @@ Description: an HTTP library implementation in C -- Development files
  implementation called Soup, but the SOAP and non-SOAP parts have now been
  split into separate packages.
  .
- libsoup uses the Glib main loop and is designed to work well with GTK
+ libsoup uses the Glib main loop and is designed to work well with GTK+
  applications. This enables GNOME applications to access HTTP servers
  on the network in a completely asynchronous fashion, very similar to
- the Gtk+ programming model (a synchronous operation mode is also
+ the GTK+ programming model (a synchronous operation mode is also
  supported for those who want it).
  .
  Features:
@@ -56,10 +56,10 @@ Description: an HTTP library implementation in C -- Shared library
  implementation called Soup, but the SOAP and non-SOAP parts have now been
  split into separate packages.
  .
- libsoup uses the Glib main loop and is designed to work well with GTK
+ libsoup uses the Glib main loop and is designed to work well with GTK+
  applications.  This enables GNOME applications to access HTTP servers
  on the network in a completely asynchronous fashion, very similar to
- the Gtk+ programming model (a synchronous operation mode is also
+ the GTK+ programming model (a synchronous operation mode is also
  supported for those who want it).
  .
  Features:
@@ -84,10 +84,10 @@ Description: an HTTP library implementation in C -- API Reference
  implementation called Soup, but the SOAP and non-SOAP parts have now been
  split into separate packages.
  .
- libsoup uses the Glib main loop and is designed to work well with GTK
+ libsoup uses the Glib main loop and is designed to work well with GTK+
  applications. This enables GNOME applications to access HTTP servers
  on the network in a completely asynchronous fashion, very similar to
- the Gtk+ programming model (a synchronous operation mode is also
+ the GTK+ programming model (a synchronous operation mode is also
  supported for those who want it).
  .
  Features:

@@ -10,6 +10,7 @@ libsoup2.4 (2.24.1-1) experimental; urgency=low
   [ Josselin Mouette ]
   * Make the dependency on libglib2.0-dev match the build-dependency.
   * Bump shlibs to 2.23.91.
+  * Fix spelling of GTK+ in the descriptions.
 
  -- Josselin Mouette <joss@debian.org>  Sun, 16 Nov 2008 18:38:32 +0100
 
