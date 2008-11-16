@@ -1,4 +1,4 @@
-libsoup2.4 (2.24.1-1) UNRELEASED; urgency=low
+libsoup2.4 (2.24.1-1) experimental; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * debian/libsoup2.4-doc.doc-base: fix section.
@@ -7,7 +7,11 @@ libsoup2.4 (2.24.1-1) UNRELEASED; urgency=low
   * New upstream release.
     - drop patches/01_default-auth-digest-algorithm.patch, applied upstream.
 
- -- Andreas Henriksson <andreas@fatal.se>  Sun, 16 Nov 2008 16:40:39 +0000
+  [ Josselin Mouette ]
+  * Make the dependency on libglib2.0-dev match the build-dependency.
+  * Bump shlibs to 2.23.91.
+
+ -- Josselin Mouette <joss@debian.org>  Sun, 16 Nov 2008 18:38:32 +0100
 
 libsoup2.4 (2.4.1-2) unstable; urgency=low
 

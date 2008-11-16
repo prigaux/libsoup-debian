@@ -19,7 +19,7 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
          libsoup2.4-1 (= ${binary:Version}),
-         libglib2.0-dev,
+         libglib2.0-dev (>= 2.15.3),
          libxml2-dev,
          libgnutls-dev (>= 1.4.0)
 Conflicts: libgnutls11-dev
