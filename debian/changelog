@@ -1,3 +1,9 @@
+libsoup2.4 (2.24.2.1-1) experimental; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 27 Nov 2008 20:39:30 +0100
+
 libsoup2.4 (2.24.1-1) experimental; urgency=low
 
   [ Emilio Pozuelo Monfort ]
