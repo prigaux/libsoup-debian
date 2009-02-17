@@ -1,3 +1,9 @@
+libsoup2.4 (2.24.3-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 17 Feb 2009 15:13:27 -0300
+
 libsoup2.4 (2.24.3-1) experimental; urgency=low
 
   * New upstream bugfix release.
