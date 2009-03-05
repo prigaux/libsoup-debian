@@ -4,9 +4,11 @@ Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Gustavo Noronha Silva <kov@debian.org>, Josselin Mouette <joss@debian.org>, Sebastian Dröge <slomo@debian.org>
 Build-Depends: debhelper (>= 5),
+               libgconf2-dev,
                libglib2.0-dev (>= 2.15.3),
                libgnutls-dev (>= 1.4.0),
                libproxy-dev,
+               libsqlite3-dev,
                libxml2-dev,
                cdbs,
                gtk-doc-tools,
