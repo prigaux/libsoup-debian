@@ -1,4 +1,4 @@
-debian/tmp/usr/include
-debian/tmp/usr/lib/*.so
-debian/tmp/usr/lib/*.a
-debian/tmp/usr/lib/pkgconfig
+debian/tmp/usr/include/libsoup-2.4
+debian/tmp/usr/lib/libsoup-2.4.so
+debian/tmp/usr/lib/libsoup-2.4.a
+debian/tmp/usr/lib/pkgconfig/libsoup-2.4.pc
