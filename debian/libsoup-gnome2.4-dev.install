@@ -1,0 +1,5 @@
+debian/tmp/usr/include/libsoup-gnome-2.4
+debian/tmp/usr/lib/libsoup-gnome-2.4.so
+debian/tmp/usr/lib/libsoup-gnome-2.4.a
+debian/tmp/usr/lib/pkgconfig/libsoup-gnome-2.4.pc
+

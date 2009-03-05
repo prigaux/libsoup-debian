@@ -90,6 +90,10 @@ Description: an HTTP library implementation in C -- GNOME support library
  the GTK+ programming model (a synchronous operation mode is also
  supported for those who want it).
  .
+ The GNOME support library is used for features which are important to
+ GNOME apps, but which require GNOME-specific libraries that non-GNOME
+ apps may not want to add dependencies on.
+ .
  Features:
   * Both asynchronous (GMainLoop and callback-based) and synchronous APIs
   * Automatically caches connections
@@ -100,6 +104,39 @@ Description: an HTTP library implementation in C -- GNOME support library
   * Basic client-side SOAP and XML-RPC support
  .
  This package contains the GNOME support shared library.
+
+Package: libsoup-gnome2.4-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends},
+         libsoup-gnome2.4-1 (= ${binary:Version}),
+         libsoup2.4-dev
+Suggests: libsoup2.4-doc
+Description: an HTTP library implementation in C -- Development files
+ It was originally part of a SOAP (Simple Object Access Protocol)
+ implementation called Soup, but the SOAP and non-SOAP parts have now been
+ split into separate packages.
+ .
+ libsoup uses the Glib main loop and is designed to work well with GTK
+ applications. This enables GNOME applications to access HTTP servers
+ on the network in a completely asynchronous fashion, very similar to
+ the Gtk+ programming model (a synchronous operation mode is also
+ supported for those who want it).
+ .
+ The GNOME support library is used for features which are important to
+ GNOME apps, but which require GNOME-specific libraries that non-GNOME
+ apps may not want to add dependencies on.
+ .
+ Features:
+  * Both asynchronous (GMainLoop and callback-based) and synchronous APIs
+  * Automatically caches connections
+  * SSL Support using GnuTLS
+  * Proxy support, including authentication and SSL tunneling
+  * Client support for Digest, NTLM, and Basic authentication
+  * Server support for Digest and Basic authentication
+  * Basic client-side SOAP and XML-RPC support
+ .
+ This package contains the development files for the GNOME support.
 
 Package: libsoup2.4-doc
 Section: doc
