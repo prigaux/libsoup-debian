@@ -19,9 +19,5 @@ GNOME_MODULE := libsoup
 
 DEB_SHLIBDEPS_INCLUDE_libsoup2.4-dev += debian/libsoup2.4-${SOUP_SOVERSION}/usr/lib
 DEB_DH_MAKESHLIBS_ARGS_ALL += -V'$(SHLIBS)'
-# disabling GNOME support until we have libproxy in the archive we
-# shall then think about adding a new package to hold the GNOME
-# support; I am temporarily disabling gtk-doc because it requires
-# building GNOME support
-DEB_CONFIGURE_EXTRA_FLAGS += --disable-gtk-doc --without-gnome
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 
