@@ -28,6 +28,7 @@ libsoup2.4 (2.25.91-2) UNRELEASED; urgency=low
   * debian/control.in: fix typo s/GTK/GTK+/
   * debian/control.in: make libsoup-gnome2.4-dev short description
     different than libsoup2.4-dev one
+  * debian/copyright: Add missing copyright holder.
 
  -- Gustavo Noronha Silva <kov@debian.org>  Thu, 05 Mar 2009 07:49:04 -0300
 
