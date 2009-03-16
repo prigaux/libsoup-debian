@@ -1,4 +1,4 @@
-libsoup2.4 (2.25.91-2) UNRELEASED; urgency=low
+libsoup2.4 (2.26.0-1) UNRELEASED; urgency=low
 
   [ Gustavo Noronha Silva ]
   * debian/control.in:
@@ -22,6 +22,7 @@ libsoup2.4 (2.25.91-2) UNRELEASED; urgency=low
   - adapted to only install non-GNOME files
 
   [ Emilio Pozuelo Monfort ]
+  * New upstream release.
   * debian/watch: Don't uupdate
   * Add debug packages for libsoup and libsoup-gnome. Closes: #519052.
   * debian/copyright: refer to LGPL-2 rather than LGPL'
