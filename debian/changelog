@@ -1,3 +1,9 @@
+libsoup2.4 (2.24.3-3) UNRELEASED; urgency=low
+
+  * Add libglib2.0-doc to b-d-i to ensure proper xrefs.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 19 Mar 2009 20:04:50 +0100
+
 libsoup2.4 (2.24.3-2) unstable; urgency=low
 
   * Upload to unstable.
