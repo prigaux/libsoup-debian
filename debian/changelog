@@ -1,4 +1,4 @@
-libsoup2.4 (2.26.0-1) UNRELEASED; urgency=low
+libsoup2.4 (2.26.0-1) experimental; urgency=low
 
   [ Gustavo Noronha Silva ]
   * debian/control.in:
@@ -35,7 +35,10 @@ libsoup2.4 (2.26.0-1) UNRELEASED; urgency=low
   * Only ship one debug package, there’s no point in splitting it in 
     two.
 
- -- Gustavo Noronha Silva <kov@debian.org>  Thu, 05 Mar 2009 07:49:04 -0300
+  [ Sebastian Dröge ]
+  * Upload to experimental.
+
+ -- Sebastian Dröge <slomo@debian.org>  Sat, 28 Mar 2009 07:19:52 +0100
 
 libsoup2.4 (2.25.91-1) experimental; urgency=low
 
