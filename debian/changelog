@@ -8,6 +8,9 @@ libsoup2.4 (2.26.0-1) experimental; urgency=low
     support
   * debian/rules:
   - re-enable gtk-doc support, and enable GNOME support
+  * debian/patches/001_avoid_crash_on_msg_cancel.diff:
+  - avoids crashing when a message is cancelled during a restarted
+    callback; see http://bugzilla.gnome.org/show_bug.cgi?id=580193)
 
   Changes borrowed from Ubuntu (thanks):
   * debian/control.in, libsoup-gnome2.4-dev:
