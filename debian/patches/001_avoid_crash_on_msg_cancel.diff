@@ -1,0 +1,14 @@
+diff --git a/libsoup/soup-session-async.c b/libsoup/soup-session-async.c
+index d9d17e3..66826bc 100644
+--- a/libsoup/soup-session-async.c
++++ b/libsoup/soup-session-async.c
+@@ -303,6 +303,9 @@ request_restarted (SoupMessage *req, gpointer user_data)
+ {
+ 	SoupMessageQueueItem *item = user_data;
+ 
++	if (item->removed)
++		return;
++
+ 	if (item->msg_addr &&
+ 	    item->msg_addr != soup_message_get_address (item->msg)) {
+ 		g_object_unref (item->msg_addr);

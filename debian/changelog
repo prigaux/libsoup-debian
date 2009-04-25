@@ -1,8 +1,62 @@
-libsoup2.4 (2.24.3-3) UNRELEASED; urgency=low
+libsoup2.4 (2.26.1-1) experimental; urgency=low
 
+  [ Gustavo Noronha Silva ]
+  * debian/patches/001_avoid_crash_on_msg_cancel.diff:
+  - avoids crashing when a message is cancelled during a restarted
+    callback; see http://bugzilla.gnome.org/show_bug.cgi?id=580193)
+
+  [ Josselin Mouette ]
   * Add libglib2.0-doc to b-d-i to ensure proper xrefs.
 
- -- Josselin Mouette <joss@debian.org>  Thu, 19 Mar 2009 20:04:50 +0100
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 25 Apr 2009 11:50:05 -0300
+
+libsoup2.4 (2.26.0-1) experimental; urgency=low
+
+  [ Gustavo Noronha Silva ]
+  * debian/control.in:
+  - new package libsoup-gnome2.4-1, for the GNOME support library to live
+    in
+  - added libproxy-dev as build-dependecy; it's needed to build the GNOME
+    support
+  * debian/rules:
+  - re-enable gtk-doc support, and enable GNOME support
+
+  Changes borrowed from Ubuntu (thanks):
+  * debian/control.in, libsoup-gnome2.4-dev:
+  - also split dev package, and add nice description of what the GNOME
+    support library is
+  * debian/rules:
+  - correctly set shlib arguments for the various packages
+  * debian/control.in:
+  - added build-dependencies on libgconf2-dev, and libsqlite3-dev, needed
+    by the GNOME support libraries
+  * debian/libsoup2.4-dev.install:
+  - adapted to only install non-GNOME files
+
+  [ Emilio Pozuelo Monfort ]
+  * New upstream release.
+  * debian/watch: Don't uupdate
+  * Add debug packages for libsoup and libsoup-gnome. Closes: #519052.
+  * debian/copyright: refer to LGPL-2 rather than LGPL'
+  * debian/control.in: fix typo s/GTK/GTK+/
+  * debian/control.in: make libsoup-gnome2.4-dev short description
+    different than libsoup2.4-dev one
+  * debian/copyright: Add missing copyright holder.
+
+  [ Josselin Mouette ]
+  * Only ship one debug package, there’s no point in splitting it in 
+    two.
+
+  [ Sebastian Dröge ]
+  * Upload to experimental.
+
+ -- Sebastian Dröge <slomo@debian.org>  Sat, 28 Mar 2009 07:19:52 +0100
+
+libsoup2.4 (2.25.91-1) experimental; urgency=low
+
+  * New upstream development release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 17 Feb 2009 16:53:14 -0300
 
 libsoup2.4 (2.24.3-2) unstable; urgency=low
 
