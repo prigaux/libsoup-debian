@@ -34,6 +34,7 @@ libsoup2.4 (2.26.0-1) experimental; urgency=low
   [ Josselin Mouette ]
   * Only ship one debug package, there’s no point in splitting it in 
     two.
+  * Add libglib2.0-doc to b-d-i to ensure proper xrefs.
 
   [ Sebastian Dröge ]
   * Upload to experimental.
