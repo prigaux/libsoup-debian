@@ -1,6 +1,7 @@
-libsoup2.4 (2.26.1-1) experimental; urgency=low
+libsoup2.4 (2.26.1-1) unstable; urgency=low
 
   [ Gustavo Noronha Silva ]
+  * Upload to unstable
   * debian/patches/001_avoid_crash_on_msg_cancel.diff:
   - avoids crashing when a message is cancelled during a restarted
     callback; see http://bugzilla.gnome.org/show_bug.cgi?id=580193)
