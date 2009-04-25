@@ -1,6 +1,18 @@
 libsoup2.4 (2.26.1-1) experimental; urgency=low
 
   [ Gustavo Noronha Silva ]
+  * debian/patches/001_avoid_crash_on_msg_cancel.diff:
+  - avoids crashing when a message is cancelled during a restarted
+    callback; see http://bugzilla.gnome.org/show_bug.cgi?id=580193)
+
+  [ Josselin Mouette ]
+  * Add libglib2.0-doc to b-d-i to ensure proper xrefs.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 25 Apr 2009 11:50:05 -0300
+
+libsoup2.4 (2.26.0-1) experimental; urgency=low
+
+  [ Gustavo Noronha Silva ]
   * debian/control.in:
   - new package libsoup-gnome2.4-1, for the GNOME support library to live
     in
@@ -8,9 +20,6 @@ libsoup2.4 (2.26.1-1) experimental; urgency=low
     support
   * debian/rules:
   - re-enable gtk-doc support, and enable GNOME support
-  * debian/patches/001_avoid_crash_on_msg_cancel.diff:
-  - avoids crashing when a message is cancelled during a restarted
-    callback; see http://bugzilla.gnome.org/show_bug.cgi?id=580193)
 
   Changes borrowed from Ubuntu (thanks):
   * debian/control.in, libsoup-gnome2.4-dev:
@@ -37,7 +46,6 @@ libsoup2.4 (2.26.1-1) experimental; urgency=low
   [ Josselin Mouette ]
   * Only ship one debug package, there’s no point in splitting it in 
     two.
-  * Add libglib2.0-doc to b-d-i to ensure proper xrefs.
 
   [ Sebastian Dröge ]
   * Upload to experimental.
