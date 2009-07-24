@@ -1,4 +1,4 @@
-libsoup2.4 (2.27.4-1) UNRELEASED; urgency=low
+libsoup2.4 (2.27.4-1) unstable; urgency=low
 
   * New upstream release
   - debian/patches/001_avoid_crash_on_msg_cancel.diff:
