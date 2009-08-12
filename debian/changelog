@@ -1,6 +1,21 @@
-libsoup2.4 (2.26.1-1) experimental; urgency=low
+libsoup2.4 (2.27.4-1) unstable; urgency=low
+
+  * New upstream release
+  - debian/patches/001_avoid_crash_on_msg_cancel.diff:
+  - dropped; applied upstream
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 24 Jul 2009 15:15:04 +0100
+
+libsoup2.4 (2.26.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 20 May 2009 14:29:35 -0300
+
+libsoup2.4 (2.26.1-1) unstable; urgency=low
 
   [ Gustavo Noronha Silva ]
+  * Upload to unstable
   * debian/patches/001_avoid_crash_on_msg_cancel.diff:
   - avoids crashing when a message is cancelled during a restarted
     callback; see http://bugzilla.gnome.org/show_bug.cgi?id=580193)
