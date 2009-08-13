@@ -1,4 +1,4 @@
-libsoup2.4 (2.27.90-1) UNRELEASED; urgency=low
+libsoup2.4 (2.27.90-1) experimental; urgency=low
 
   * New upstream release.
     - Build depend on glib 2.21.3.
