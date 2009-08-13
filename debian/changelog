@@ -1,3 +1,12 @@
+libsoup2.4 (2.27.90-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+    - Build depend on glib 2.21.3.
+  * Standards-Version is 3.8.2, no changes needed.
+  * Add Vcs-* fields.
+
+ -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Wed, 12 Aug 2009 22:29:48 +0200
+
 libsoup2.4 (2.27.4-1) unstable; urgency=low
 
   * New upstream release
