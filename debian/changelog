@@ -2,8 +2,10 @@ libsoup2.4 (2.27.90-1) UNRELEASED; urgency=low
 
   * New upstream release.
     - Build depend on glib 2.21.3.
+    - Also bump the -dev package minimun glib dependency.
   * Standards-Version is 3.8.2, no changes needed.
   * Add Vcs-* fields.
+  * Include check-dist.mk to avoid uploads to unstable.
 
  -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Wed, 12 Aug 2009 22:29:48 +0200
 
