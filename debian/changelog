@@ -1,3 +1,9 @@
+libsoup2.4 (2.27.91-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 24 Aug 2009 20:53:20 -0300
+
 libsoup2.4 (2.27.90-1) experimental; urgency=low
 
   * New upstream release.
