@@ -1,7 +1,7 @@
 libsoup2.4 (2.27.91-2) experimental; urgency=low
 
   * debian/control.in:
-  - add missing Build-Dep on libgnome-keyring-dev
+  - add missing Build-Dep on libgnome-keyring-dev (Closes: #543556)
 
  -- Gustavo Noronha Silva <kov@debian.org>  Wed, 26 Aug 2009 11:02:06 -0300
 
