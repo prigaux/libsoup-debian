@@ -6,6 +6,7 @@ Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper (>= 5),
                libgconf2-dev,
                libglib2.0-dev (>= 2.21.3),
+               libgnome-keyring-dev,
                libgnutls-dev (>= 1.4.0),
                libproxy-dev,
                libsqlite3-dev,
