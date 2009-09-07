@@ -1,3 +1,9 @@
+libsoup2.4 (2.27.91-3) UNRELEASED; urgency=low
+
+  * Bump shver as there are new APIs.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 07 Sep 2009 18:40:46 +0200
+
 libsoup2.4 (2.27.91-2) experimental; urgency=low
 
   * debian/control.in:
