@@ -144,7 +144,7 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
          libsoup-gnome2.4-1 (= ${binary:Version}),
-         libsoup2.4-dev
+         libsoup2.4-dev (= ${binary:Version})
 Suggests: libsoup2.4-doc
 Description: an HTTP library implementation in C -- GNOME support development files
  It was originally part of a SOAP (Simple Object Access Protocol)

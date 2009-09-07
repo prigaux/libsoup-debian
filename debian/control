@@ -2,7 +2,7 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Emilio Pozuelo Monfort <pochu@ubuntu.com>, Gustavo Noronha Silva <kov@debian.org>, Sebastian Dröge <slomo@debian.org>
+Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>, Gustavo Noronha Silva <kov@debian.org>, Sebastian Dröge <slomo@debian.org>
 Build-Depends: debhelper (>= 5),
                libgconf2-dev,
                libglib2.0-dev (>= 2.21.3),
@@ -144,7 +144,7 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends},
          libsoup-gnome2.4-1 (= ${binary:Version}),
-         libsoup2.4-dev
+         libsoup2.4-dev (= ${binary:Version})
 Suggests: libsoup2.4-doc
 Description: an HTTP library implementation in C -- GNOME support development files
  It was originally part of a SOAP (Simple Object Access Protocol)

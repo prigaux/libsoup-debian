@@ -1,6 +1,9 @@
 libsoup2.4 (2.27.91-3) UNRELEASED; urgency=low
 
   * Bump shver as there are new APIs.
+  * Tighten libsoup-gnome2.4-dev dependency on libsoup2.4-dev to avoid issues
+    if something is built with different libsoup2.4 and libsoup-gnome2.4
+    versions.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 07 Sep 2009 18:40:46 +0200
 
