@@ -1,11 +1,19 @@
-libsoup2.4 (2.27.91-3) UNRELEASED; urgency=low
+libsoup2.4 (2.27.92-1) experimental; urgency=low
 
+  [ Emilio Pozuelo Monfort ]
   * Bump shver as there are new APIs.
   * Tighten libsoup-gnome2.4-dev dependency on libsoup2.4-dev to avoid issues
     if something is built with different libsoup2.4 and libsoup-gnome2.4
     versions.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 07 Sep 2009 18:40:46 +0200
+  [ Sebastian Dröge ]
+  * New upstream development release:
+    + debian/rules:
+      - Update SHVER to 2.27.92.
+  * debian/control.in:
+    + Standards-Version is 3.8.3, no changes needed.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 08 Sep 2009 07:35:23 +0200
 
 libsoup2.4 (2.27.91-2) experimental; urgency=low
 
