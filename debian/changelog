@@ -1,3 +1,11 @@
+libsoup2.4 (2.27.92-2) experimental; urgency=low
+
+  * debian/patches/01_improve_cookies_performance.patch:
+  - patch from upstream to avoid writing too much to the disk when
+    handling cookies (Closes: #530964)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 11 Sep 2009 14:52:33 -0300
+
 libsoup2.4 (2.27.92-1) experimental; urgency=low
 
   [ Emilio Pozuelo Monfort ]
