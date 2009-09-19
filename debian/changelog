@@ -1,4 +1,4 @@
-libsoup2.4 (2.27.92-2) experimental; urgency=low
+libsoup2.4 (2.27.92-2) UNRELEASED; urgency=low
 
   * debian/patches/01_improve_cookies_performance.patch:
   - patch from upstream to avoid writing too much to the disk when
