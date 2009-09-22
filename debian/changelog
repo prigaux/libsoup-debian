@@ -1,3 +1,52 @@
+libsoup2.4 (2.27.92-2) UNRELEASED; urgency=low
+
+  * debian/patches/01_improve_cookies_performance.patch:
+  - patch from upstream to avoid writing too much to the disk when
+    handling cookies (Closes: #530964)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 11 Sep 2009 14:52:33 -0300
+
+libsoup2.4 (2.27.92-1) experimental; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * Bump shver as there are new APIs.
+  * Tighten libsoup-gnome2.4-dev dependency on libsoup2.4-dev to avoid issues
+    if something is built with different libsoup2.4 and libsoup-gnome2.4
+    versions.
+
+  [ Sebastian Dröge ]
+  * New upstream development release:
+    + debian/rules:
+      - Update SHVER to 2.27.92.
+  * debian/control.in:
+    + Standards-Version is 3.8.3, no changes needed.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 08 Sep 2009 07:35:23 +0200
+
+libsoup2.4 (2.27.91-2) experimental; urgency=low
+
+  * debian/control.in:
+  - add missing Build-Dep on libgnome-keyring-dev (Closes: #543556)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 26 Aug 2009 11:02:06 -0300
+
+libsoup2.4 (2.27.91-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 24 Aug 2009 20:53:20 -0300
+
+libsoup2.4 (2.27.90-1) experimental; urgency=low
+
+  * New upstream release.
+    - Build depend on glib 2.21.3.
+    - Also bump the -dev package minimun glib dependency.
+  * Standards-Version is 3.8.2, no changes needed.
+  * Add Vcs-* fields.
+  * Include check-dist.mk to avoid uploads to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Wed, 12 Aug 2009 22:29:48 +0200
+
 libsoup2.4 (2.27.4-1) unstable; urgency=low
 
   * New upstream release
