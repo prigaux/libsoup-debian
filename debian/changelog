@@ -1,6 +1,8 @@
 libsoup2.4 (2.28.1-1) unstable; urgency=low
 
-  * New upstream bugfix release.
+  * New upstream bugfix release:
+    + debian/control.in:
+      - Update gnutls build dependency to >= 2.1.7.
 
  -- Sebastian Dröge <slomo@debian.org>  Tue, 20 Oct 2009 07:49:51 +0200
 
