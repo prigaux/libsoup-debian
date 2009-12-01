@@ -1,0 +1,48 @@
+commit fd0433d5a04b7d973ef01bfd4f711122728a4db4
+Author: Dan Winship <danw@gnome.org>
+Date:   Thu Nov 5 11:15:38 2009 -0500
+
+    Don't change HEAD to GET on 303 redirect
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=600830
+
+diff --git a/libsoup/soup-session.c b/libsoup/soup-session.c
+index 44a4476..8fb28ec 100644
+--- a/libsoup/soup-session.c
++++ b/libsoup/soup-session.c
+@@ -882,10 +882,12 @@ redirect_handler (SoupMessage *msg, gpointer user_data)
+ 	     !SOUP_METHOD_IS_SAFE (msg->method)) ||
+ 	    (msg->status_code == SOUP_STATUS_MOVED_PERMANENTLY &&
+ 	     msg->method == SOUP_METHOD_POST)) {
+-		/* Redirect using a GET */
+-		g_object_set (msg,
+-			      SOUP_MESSAGE_METHOD, SOUP_METHOD_GET,
+-			      NULL);
++		if (msg->method != SOUP_METHOD_HEAD) {
++			/* Redirect using a GET */
++			g_object_set (msg,
++				      SOUP_MESSAGE_METHOD, SOUP_METHOD_GET,
++				      NULL);
++		}
+ 		soup_message_set_request (msg, NULL,
+ 					  SOUP_MEMORY_STATIC, NULL, 0);
+ 		soup_message_headers_set_encoding (msg->request_headers,
+diff --git a/tests/redirect-test.c b/tests/redirect-test.c
+index 20e9d48..cd6f1a5 100644
+--- a/tests/redirect-test.c
++++ b/tests/redirect-test.c
+@@ -44,9 +44,12 @@ static struct {
+ 	{ { { "HEAD", "/302", 302 },
+ 	    { "HEAD", "/", 200 },
+ 	    { NULL } }, 200 },
+-	/* 303 is a nonsensical response to HEAD, so we don't care
+-	 * what happens there.
++	/* 303 is a nonsensical response to HEAD, but some sites do
++	 * it anyway. :-/
+ 	 */
++	{ { { "HEAD", "/303", 303 },
++	    { "HEAD", "/", 200 },
++	    { NULL } }, 200 },
+ 	{ { { "HEAD", "/307", 307 },
+ 	    { "HEAD", "/", 200 },
+ 	    { NULL } }, 200 },
