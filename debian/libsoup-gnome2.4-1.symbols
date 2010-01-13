@@ -1,4 +1,5 @@
 libsoup-gnome-2.4.so.1 libsoup-gnome2.4-1 #MINVER#
+* Build-Depends-Package: libsoup-gnome2.4-dev
  soup_cookie_jar_sqlite_get_type@Base 2.27.4
  soup_cookie_jar_sqlite_new@Base 2.27.4
  soup_gnome_features_2_26_get_type@Base 2.27.4
