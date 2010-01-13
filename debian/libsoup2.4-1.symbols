@@ -1,4 +1,4 @@
-libsoup-2.4.so.1 libsoup2.4 #MINVER#
+libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  _SOUP_METHOD_CONNECT@Base 2.4.0
  _SOUP_METHOD_COPY@Base 2.4.0
  _SOUP_METHOD_DELETE@Base 2.4.0
