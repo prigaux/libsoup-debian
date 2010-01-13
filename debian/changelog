@@ -1,3 +1,11 @@
+libsoup2.4 (2.29.5-1) experimental; urgency=low
+
+  * New upstream development release (Closes: #564698):
+    + debian/rules:
+      - Update SHVER to 2.29.5 for new API.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 13 Jan 2010 09:45:56 +0100
+
 libsoup2.4 (2.29.3-1) experimental; urgency=low
 
   * New upstream development release:
