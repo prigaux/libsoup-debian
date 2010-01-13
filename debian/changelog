@@ -1,8 +1,13 @@
-libsoup2.4 (2.29.5-1) experimental; urgency=low
+libsoup2.4 (2.29.5-1) unstable; urgency=low
 
   * New upstream development release (Closes: #564698):
     + debian/rules:
       - Update SHVER to 2.29.5 for new API.
+    + debian/rules,
+      debian/libsoup*.symbols:
+      - Add symbol files.
+    + debian/rules:
+      - Remove check-dist.mk include to upload to unstable.
 
  -- Sebastian Dröge <slomo@debian.org>  Wed, 13 Jan 2010 09:45:56 +0100
 
