@@ -1,3 +1,9 @@
+libsoup2.4 (2.29.91-1) unstable; urgency=low
+
+  * New upstream development release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 23 Feb 2010 10:33:41 +0100
+
 libsoup2.4 (2.29.90-1) unstable; urgency=low
 
   * New upstream development release:
