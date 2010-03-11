@@ -23,4 +23,4 @@ DEB_DH_MAKESHLIBS_ARGS_libsoup2.4-1 += -V'libsoup2.4-${SOUP_SOVERSION} (>= $(SHV
 DEB_DH_MAKESHLIBS_ARGS_libsoup-gnome2.4-1 += -V'libsoup-gnome2.4-${SOUP_SOVERSION} (>= $(SHVER))' -- -c4
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
-
+DEB_MAKE_CHECK_TARGET = check || true
