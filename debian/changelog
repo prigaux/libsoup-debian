@@ -1,6 +1,10 @@
 libsoup2.4 (2.29.91-2) UNRELEASED; urgency=low
 
   * debian/rules:
+    - Fix SOVERSION calculation.
+    - Don't pass additional flags to dh_shlibdeps for the -dev packages.
+      That's just wrong, but luckily they weren't depending on
+      ${shlibs:Depends} so it had no effect.
     - Enable the test suite during the build, but don't make it fatal yet.
   * debian/control.in:
     - Build dep on shared-mime-info, needed for one test to pass.

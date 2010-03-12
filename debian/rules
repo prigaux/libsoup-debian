@@ -1,10 +1,7 @@
 #!/usr/bin/make -f
 
-ifeq ($(wildcard configure.in),configure.in)
-SOUP_CURRENT := $(shell grep '^SOUP_CURRENT=' configure.in | sed -e 's/SOUP_CURRENT=//g')
-SOUP_AGE := $(shell grep '^SOUP_AGE=' configure.in | sed -e 's/SOUP_AGE=//g')
-SOUP_SOVERSION := $(shell expr $(SOUP_CURRENT) - $(SOUP_AGE))
-endif
+libsoup2.4-N := $(shell sed -nr 's/^Package:[[:space:]]*(libsoup2.4-[0-9]+)[[:space:]]*$$/\1/p' debian/control)
+libsoup-gnome2.4-N := $(shell sed -nr 's/^Package:[[:space:]]*(libsoup-gnome2.4-[0-9]+)[[:space:]]*$$/\1/p' debian/control)
 
 SHVER := 2.29.90
 
@@ -17,10 +14,8 @@ include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 
 GNOME_MODULE := libsoup
 
-DEB_SHLIBDEPS_INCLUDE_libsoup2.4-dev += debian/libsoup2.4-${SOUP_SOVERSION}/usr/lib
-DEB_SHLIBDEPS_INCLUDE_libsoup-gnome2.4-dev += debian/libsoup-gnome2.4-${SOUP_SOVERSION}/usr/lib
-DEB_DH_MAKESHLIBS_ARGS_libsoup2.4-1 += -V'libsoup2.4-${SOUP_SOVERSION} (>= $(SHVER))' -- -c4
-DEB_DH_MAKESHLIBS_ARGS_libsoup-gnome2.4-1 += -V'libsoup-gnome2.4-${SOUP_SOVERSION} (>= $(SHVER))' -- -c4
+DEB_DH_MAKESHLIBS_ARGS_libsoup2.4-1 += -V'$(libsoup2.4-N) (>= $(SHVER))' -- -c4
+DEB_DH_MAKESHLIBS_ARGS_libsoup-gnome2.4-1 += -V'$(libsoup-gnome2.4-N) (>= $(SHVER))' -- -c4
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 DEB_MAKE_CHECK_TARGET = check || true
