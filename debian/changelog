@@ -1,5 +1,11 @@
-libsoup2.4 (2.29.91-2) UNRELEASED; urgency=low
+libsoup2.4 (2.30.0-1) unstable; urgency=low
 
+  [ David Weinehall ]
+  * New upstream release.
+  * debian/control.in:
+    - Bump Standards version to 3.8.4 (No changes needed).
+
+  [ Emilio Pozuelo Monfort ]
   * debian/rules:
     - Fix SOVERSION calculation.
     - Don't pass additional flags to dh_shlibdeps for the -dev packages.
@@ -10,7 +16,7 @@ libsoup2.4 (2.29.91-2) UNRELEASED; urgency=low
     - Build dep on shared-mime-info, needed for one test to pass.
     - Reorder build-deps a bit.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 11 Mar 2010 22:36:22 +0100
+ -- David Weinehall <tao@debian.org>  Tue, 30 Mar 2010 01:13:16 +0300
 
 libsoup2.4 (2.29.91-1) unstable; urgency=low
 
