@@ -1,3 +1,10 @@
+libsoup2.4 (2.30.0-2) UNRELEASED; urgency=low
+
+  * debian/rules:
+    - Make test suite errors fatal for the build.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 15 Apr 2010 23:54:47 +0200
+
 libsoup2.4 (2.30.0-1) unstable; urgency=low
 
   [ David Weinehall ]
