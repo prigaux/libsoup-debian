@@ -195,6 +195,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_header_free_list@Base 2.4.0
  soup_header_free_param_list@Base 2.4.0
  soup_header_g_string_append_param@Base 2.26.1
+ soup_header_g_string_append_param_quoted@Base 2.30.1
  soup_header_parse_list@Base 2.4.0
  soup_header_parse_param_list@Base 2.4.0
  soup_header_parse_quality_list@Base 2.4.0
