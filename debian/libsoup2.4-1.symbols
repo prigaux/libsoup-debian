@@ -101,6 +101,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_buffer_new_subbuffer@Base 2.4.0
  soup_buffer_new_with_owner@Base 2.4.0
  soup_byte_array_get_type@Base 2.4.0
+ soup_char_attributes@Base 2.30.1
  soup_client_context_get_address@Base 2.4.0
  soup_client_context_get_auth_domain@Base 2.4.0
  soup_client_context_get_auth_user@Base 2.4.0
