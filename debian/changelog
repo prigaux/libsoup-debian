@@ -1,8 +1,78 @@
-libsoup2.4 (2.29.5-1) experimental; urgency=low
+libsoup2.4 (2.30.1-1) unstable; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/rules:
+    - Make test suite errors fatal for the build.
+  * debian/rules,
+    debian/source/format:
+    - Switch to source format 3.0 (quilt).
+
+  [ Sebastian Dröge ]
+  * New upstream bugfix release:
+    + debian/libsoup2.4-1.symbols,
+      debian/rules:
+      - Updated for API additions.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 Apr 2010 09:30:37 +0200
+
+libsoup2.4 (2.30.0-1) unstable; urgency=low
+
+  [ David Weinehall ]
+  * New upstream release.
+  * debian/control.in:
+    - Bump Standards version to 3.8.4 (No changes needed).
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/rules:
+    - Fix SOVERSION calculation.
+    - Don't pass additional flags to dh_shlibdeps for the -dev packages.
+      That's just wrong, but luckily they weren't depending on
+      ${shlibs:Depends} so it had no effect.
+    - Enable the test suite during the build, but don't make it fatal yet.
+  * debian/control.in:
+    - Build dep on shared-mime-info, needed for one test to pass.
+    - Reorder build-deps a bit.
+
+ -- David Weinehall <tao@debian.org>  Tue, 30 Mar 2010 01:13:16 +0300
+
+libsoup2.4 (2.29.91-1) unstable; urgency=low
+
+  * New upstream development release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 23 Feb 2010 10:33:41 +0100
+
+libsoup2.4 (2.29.90-1) unstable; urgency=low
+
+  * New upstream development release:
+    + debian/rules,
+      debian/libsoup2.4-1.symbols:
+      - Update for new API.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 09 Feb 2010 16:55:02 +0100
+
+libsoup2.4 (2.29.6-1) unstable; urgency=low
+
+  * New upstream development release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 26 Jan 2010 08:17:46 +0100
+
+libsoup2.4 (2.29.5-2) unstable; urgency=low
+
+  * debian/libsoup*.symbols:
+    + Fix symbol files.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 13 Jan 2010 10:23:15 +0100
+
+libsoup2.4 (2.29.5-1) unstable; urgency=low
 
   * New upstream development release (Closes: #564698):
     + debian/rules:
       - Update SHVER to 2.29.5 for new API.
+    + debian/rules,
+      debian/libsoup*.symbols:
+      - Add symbol files.
+    + debian/rules:
+      - Remove check-dist.mk include to upload to unstable.
 
  -- Sebastian Dröge <slomo@debian.org>  Wed, 13 Jan 2010 09:45:56 +0100
 
