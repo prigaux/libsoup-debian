@@ -7,7 +7,7 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: David Weinehall <tao@debian.org>, Emilio Pozuelo Monfort <pochu@debian.org>, Sebastian Dröge <slomo@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Uploaders: David Weinehall <tao@debian.org>, Sebastian Dröge <slomo@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Build-Depends: debhelper (>= 5),
                dpkg-dev (>= 1.13.19),
                cdbs,
@@ -20,7 +20,11 @@ Build-Depends: debhelper (>= 5),
                libsqlite3-dev,
                libxml2-dev,
                gtk-doc-tools,
-               shared-mime-info
+               shared-mime-info,
+               libgirepository1.0-dev (>= 0.6.7),
+               gobject-introspection (>= 0.6.7),
+               gir-repository-dev,
+               gir1.0-glib-2.0
 Build-Depends-Indep: libglib2.0-doc
 Build-Conflicts: libgnutls11-dev
 Vcs-Svn: svn://svn.debian.org/svn/pkg-gnome/desktop/experimental/libsoup2.4
@@ -37,6 +41,7 @@ Depends: ${misc:Depends},
          libgnutls-dev (>= 2.1.7)
 Conflicts: libgnutls11-dev
 Suggests: libsoup2.4-doc
+Replaces: gir-repository-dev (<< 0.6.5-7)
 Description: an HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
@@ -152,6 +157,7 @@ Depends: ${misc:Depends},
          libsoup-gnome2.4-1 (= ${binary:Version}),
          libsoup2.4-dev (= ${binary:Version})
 Suggests: libsoup2.4-doc
+Replaces: gir-repository-dev (<< 0.6.5-7)
 Description: an HTTP library implementation in C -- GNOME support development files
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
@@ -205,3 +211,23 @@ Description: an HTTP library implementation in C -- API Reference
   * Basic client-side SOAP and XML-RPC support
  .
  This package contains the documentation.
+
+Package: gir1.0-soup-2.4
+Section: libs
+Architecture: any
+Depends: ${gir:Depends},
+         ${shlibs:Depends},
+         ${misc:Depends}
+Provides: gir1.0-soup-gnome-2.4
+Description: GObject introspection data for the libsoup HTTP library
+ This package contains introspection data for the libsoup HTTP library.
+ .
+ libsoup uses the Glib main loop and is designed to work well with GTK+
+ applications.  This enables GNOME applications to access HTTP servers
+ on the network in a completely asynchronous fashion, very similar to
+ the GTK+ programming model (a synchronous operation mode is also
+ supported for those who want it).
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
+
