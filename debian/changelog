@@ -1,3 +1,11 @@
+libsoup2.4 (2.30.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * 01_disable_tls1.2.patch: stolen from git master. Disable TLS 1.2 and 
+    use SSL 3.0 instead. Closes: #576339.
+
+ -- Josselin Mouette <joss@debian.org>  Fri, 02 Jul 2010 19:25:29 +0200
+
 libsoup2.4 (2.30.1-1) unstable; urgency=low
 
   [ Emilio Pozuelo Monfort ]
