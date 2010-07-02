@@ -116,6 +116,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_connection_connect_async@Base 2.4.0
  soup_connection_connect_sync@Base 2.4.0
  soup_connection_disconnect@Base 2.4.0
+ soup_connection_get_ever_used@Base 2.30.2
  soup_connection_get_proxy_uri@Base 2.27.4
  soup_connection_get_socket@Base 2.4.0
  soup_connection_get_state@Base 2.27.4
