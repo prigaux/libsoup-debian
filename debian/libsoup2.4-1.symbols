@@ -20,6 +20,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  _SOUP_URI_SCHEME_FTP@Base 2.29.5
  _SOUP_URI_SCHEME_HTTP@Base 2.4.0
  _SOUP_URI_SCHEME_HTTPS@Base 2.4.0
+ _soup_address_address_enumerator_get_type@Base 2.32.2
  soup_add_completion@Base 2.24.3
  soup_add_idle@Base 2.4.0
  soup_add_io_watch@Base 2.4.0
@@ -27,6 +28,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_address_equal_by_ip@Base 2.26.1
  soup_address_equal_by_name@Base 2.26.1
  soup_address_family_get_type@Base 2.4.0
+ soup_address_get_gsockaddr@Base 2.32.2
  soup_address_get_name@Base 2.4.0
  soup_address_get_physical@Base 2.4.0
  soup_address_get_port@Base 2.4.0
@@ -95,12 +97,12 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_auth_update@Base 2.4.0
  soup_buffer_copy@Base 2.4.0
  soup_buffer_free@Base 2.4.0
- soup_buffer_get_data@Base 2.31.2
+ soup_buffer_get_data@Base 2.32.2
  soup_buffer_get_owner@Base 2.4.0
  soup_buffer_get_type@Base 2.4.0
  soup_buffer_new@Base 2.4.0
  soup_buffer_new_subbuffer@Base 2.4.0
- soup_buffer_new_take@Base 2.31.2
+ soup_buffer_new_take@Base 2.32.2
  soup_buffer_new_with_owner@Base 2.4.0
  soup_byte_array_get_type@Base 2.4.0
  soup_char_attributes@Base 2.30.1
@@ -118,12 +120,13 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_connection_connect_async@Base 2.4.0
  soup_connection_connect_sync@Base 2.4.0
  soup_connection_disconnect@Base 2.4.0
- soup_connection_get_ever_used@Base 2.31.2
+ soup_connection_get_ever_used@Base 2.32.2
  soup_connection_get_proxy_uri@Base 2.27.4
  soup_connection_get_socket@Base 2.4.0
  soup_connection_get_state@Base 2.27.4
  soup_connection_get_tunnel_addr@Base 2.27.4
  soup_connection_get_type@Base 2.4.0
+ soup_connection_is_via_proxy@Base 2.32.2
  soup_connection_new@Base 2.4.0
  soup_connection_send_request@Base 2.4.0
  soup_connection_set_state@Base 2.27.4
@@ -138,14 +141,14 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_cookie_domain_matches@Base 2.29.90
  soup_cookie_equal@Base 2.26.1
  soup_cookie_free@Base 2.24.3
- soup_cookie_get_domain@Base 2.31.2
- soup_cookie_get_expires@Base 2.31.2
- soup_cookie_get_http_only@Base 2.31.2
- soup_cookie_get_name@Base 2.31.2
- soup_cookie_get_path@Base 2.31.2
- soup_cookie_get_secure@Base 2.31.2
+ soup_cookie_get_domain@Base 2.32.2
+ soup_cookie_get_expires@Base 2.32.2
+ soup_cookie_get_http_only@Base 2.32.2
+ soup_cookie_get_name@Base 2.32.2
+ soup_cookie_get_path@Base 2.32.2
+ soup_cookie_get_secure@Base 2.32.2
  soup_cookie_get_type@Base 2.26.1
- soup_cookie_get_value@Base 2.31.2
+ soup_cookie_get_value@Base 2.32.2
  soup_cookie_jar_accept_policy_get_type@Base 2.29.90
  soup_cookie_jar_add_cookie@Base 2.26.1
  soup_cookie_jar_all_cookies@Base 2.26.1
@@ -181,15 +184,15 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_date_copy@Base 2.4.0
  soup_date_format_get_type@Base 2.4.0
  soup_date_free@Base 2.4.0
- soup_date_get_day@Base 2.31.2
- soup_date_get_hour@Base 2.31.2
- soup_date_get_minute@Base 2.31.2
- soup_date_get_month@Base 2.31.2
- soup_date_get_offset@Base 2.31.2
- soup_date_get_second@Base 2.31.2
+ soup_date_get_day@Base 2.32.2
+ soup_date_get_hour@Base 2.32.2
+ soup_date_get_minute@Base 2.32.2
+ soup_date_get_month@Base 2.32.2
+ soup_date_get_offset@Base 2.32.2
+ soup_date_get_second@Base 2.32.2
  soup_date_get_type@Base 2.4.0
- soup_date_get_utc@Base 2.31.2
- soup_date_get_year@Base 2.31.2
+ soup_date_get_utc@Base 2.32.2
+ soup_date_get_year@Base 2.32.2
  soup_date_is_past@Base 2.24.3
  soup_date_new@Base 2.4.0
  soup_date_new_from_now@Base 2.4.0
@@ -245,7 +248,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_message_add_status_code_handler@Base 2.4.0
  soup_message_body_append@Base 2.4.0
  soup_message_body_append_buffer@Base 2.4.0
- soup_message_body_append_take@Base 2.31.2
+ soup_message_body_append_take@Base 2.32.2
  soup_message_body_complete@Base 2.4.0
  soup_message_body_flatten@Base 2.4.0
  soup_message_body_free@Base 2.4.0
@@ -268,7 +271,6 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_message_get_first_party@Base 2.29.90
  soup_message_get_flags@Base 2.4.0
  soup_message_get_http_version@Base 2.4.0
- soup_message_get_io_status@Base 2.4.0
  soup_message_get_proxy_auth@Base 2.4.0
  soup_message_get_type@Base 2.4.0
  soup_message_get_uri@Base 2.4.0
@@ -308,6 +310,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_message_headers_type_get_type@Base 2.4.0
  soup_message_io_cleanup@Base 2.4.0
  soup_message_io_client@Base 2.4.0
+ soup_message_io_finished@Base 2.32.2
  soup_message_io_in_progress@Base 2.4.0
  soup_message_io_pause@Base 2.4.0
  soup_message_io_server@Base 2.4.0
@@ -333,7 +336,6 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_message_set_first_party@Base 2.29.90
  soup_message_set_flags@Base 2.4.0
  soup_message_set_http_version@Base 2.4.0
- soup_message_set_io_status@Base 2.4.0
  soup_message_set_proxy_auth@Base 2.4.0
  soup_message_set_request@Base 2.4.0
  soup_message_set_response@Base 2.4.0
@@ -394,7 +396,6 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_session_async_new_with_options@Base 2.4.0
  soup_session_cancel_message@Base 2.4.0
  soup_session_cleanup_connections@Base 2.28.0
- soup_session_connection_failed@Base 2.27.4
  soup_session_feature_attach@Base 2.24.3
  soup_session_feature_detach@Base 2.24.3
  soup_session_feature_get_type@Base 2.24.3
@@ -414,10 +415,12 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_session_requeue_message@Base 2.4.0
  soup_session_send_message@Base 2.4.0
  soup_session_send_queue_item@Base 2.27.4
+ soup_session_set_item_status@Base 2.32.2
  soup_session_sync_get_type@Base 2.4.0
  soup_session_sync_new@Base 2.4.0
  soup_session_sync_new_with_options@Base 2.4.0
  soup_session_unpause_message@Base 2.4.0
+ soup_session_unqueue_item@Base 2.32.2
  soup_socket_connect_async@Base 2.4.0
  soup_socket_connect_sync@Base 2.4.0
  soup_socket_disconnect@Base 2.4.0
@@ -453,15 +456,15 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_uri_encode@Base 2.4.0
  soup_uri_equal@Base 2.4.0
  soup_uri_free@Base 2.4.0
- soup_uri_get_fragment@Base 2.31.2
- soup_uri_get_host@Base 2.31.2
- soup_uri_get_password@Base 2.31.2
- soup_uri_get_path@Base 2.31.2
- soup_uri_get_port@Base 2.31.2
- soup_uri_get_query@Base 2.31.2
- soup_uri_get_scheme@Base 2.31.2
+ soup_uri_get_fragment@Base 2.32.2
+ soup_uri_get_host@Base 2.32.2
+ soup_uri_get_password@Base 2.32.2
+ soup_uri_get_path@Base 2.32.2
+ soup_uri_get_port@Base 2.32.2
+ soup_uri_get_query@Base 2.32.2
+ soup_uri_get_scheme@Base 2.32.2
  soup_uri_get_type@Base 2.4.0
- soup_uri_get_user@Base 2.31.2
+ soup_uri_get_user@Base 2.32.2
  soup_uri_host_equal@Base 2.27.4
  soup_uri_host_hash@Base 2.27.4
  soup_uri_new@Base 2.4.0

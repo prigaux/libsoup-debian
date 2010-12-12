@@ -3,7 +3,7 @@
 libsoup2.4-N := $(shell sed -nr 's/^Package:[[:space:]]*(libsoup2.4-[0-9]+)[[:space:]]*$$/\1/p' debian/control)
 libsoup-gnome2.4-N := $(shell sed -nr 's/^Package:[[:space:]]*(libsoup-gnome2.4-[0-9]+)[[:space:]]*$$/\1/p' debian/control)
 
-SHVER := 2.31.2
+SHVER := 2.32.2
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/utils.mk
@@ -19,3 +19,6 @@ DEB_DH_MAKESHLIBS_ARGS_libsoup-gnome2.4-1 += -V'$(libsoup-gnome2.4-N) (>= $(SHVE
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 DEB_MAKE_CHECK_TARGET = check
+
+$(patsubst %,binary-predeb/%,$(DEB_ALL_PACKAGES)) ::
+	dh_girepository -p$(cdbs_curpkg)

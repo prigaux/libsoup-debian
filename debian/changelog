@@ -1,3 +1,20 @@
+libsoup2.4 (2.32.2-1) experimental; urgency=low
+
+  * New upstream release.
+    - debian/libsoup2.4-0.symbols:
+      + Updated.
+    - debian/rules:
+      + Update the shver.
+  * Update to the new gir policy:
+    - Rename gir1.0-soup-2.4 to gir1.2-soup-2.4.
+    - Bump the gobject-introspection build dependency.
+    - Build depend on gir1.2 packages.
+  * debian/rules:
+    - Call dh_girepository to get proper dependencies on the
+      gir package.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 Dec 2010 16:26:33 +0100
+
 libsoup2.4 (2.31.2-1) experimental; urgency=low
 
   * New upstream development release:
