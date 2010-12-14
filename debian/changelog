@@ -1,3 +1,10 @@
+libsoup2.4 (2.32.2-2) UNRELEASED; urgency=low
+
+  * debian/control.in:
+    - Remove gir-repository-dev build dependency, no longer needed.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 15 Dec 2010 00:54:33 +0100
+
 libsoup2.4 (2.32.2-1) experimental; urgency=low
 
   * New upstream release.
