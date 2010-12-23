@@ -1,21 +1,15 @@
 #!/usr/bin/make -f
 
-libsoup2.4-N := $(shell sed -nr 's/^Package:[[:space:]]*(libsoup2.4-[0-9]+)[[:space:]]*$$/\1/p' debian/control)
-libsoup-gnome2.4-N := $(shell sed -nr 's/^Package:[[:space:]]*(libsoup-gnome2.4-[0-9]+)[[:space:]]*$$/\1/p' debian/control)
-
-SHVER := 2.32.2
-
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/cdbs/1/class/gnome.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 include /usr/share/gnome-pkg-tools/1/rules/check-dist.mk
--include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
+include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
 GNOME_MODULE := libsoup
 
-DEB_DH_MAKESHLIBS_ARGS_libsoup2.4-1 += -V'$(libsoup2.4-N) (>= $(SHVER))' -- -c4
-DEB_DH_MAKESHLIBS_ARGS_libsoup-gnome2.4-1 += -V'$(libsoup-gnome2.4-N) (>= $(SHVER))' -- -c4
+DEB_DH_MAKESHLIBS_ARGS_ALL += -V -- -c4
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 DEB_MAKE_CHECK_TARGET = check

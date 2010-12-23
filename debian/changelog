@@ -1,7 +1,15 @@
-libsoup2.4 (2.32.2-2) UNRELEASED; urgency=low
+libsoup2.4 (2.33.4-1) UNRELEASED; urgency=low
 
   * debian/control.in:
     - Remove gir-repository-dev build dependency, no longer needed.
+  * New upstream development release.
+    + debian/control.in:
+      - Build-depend/Depend on glib-networking.
+      - Stop build depending on libgnutls, we use glib-networking now.
+    + debian/rules:
+      - Make the shlibs always depend on the latest upstream version.
+        We have symbols file anyway, and manually bumping the shver is
+        error prone.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 15 Dec 2010 00:54:33 +0100
 
