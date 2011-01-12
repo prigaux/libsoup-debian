@@ -37,7 +37,7 @@ Depends: ${misc:Depends},
          libglib2.0-dev (>= 2.21.3),
          libxml2-dev
 Suggests: libsoup2.4-doc
-Replaces: gir-repository-dev (<< 0.6.5-7)
+Replaces: gir-repository-dev
 Description: an HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
