@@ -1,11 +1,12 @@
-libsoup2.4 (2.33.5-2) UNRELEASED; urgency=low
+libsoup2.4 (2.33.6-1) experimental; urgency=low
 
   * debian/control.in:
     + Let libsoup2.4-dev replace gir-repository-dev without a version.
       We don't want to drop libsoup bindings from girepository until
       Squeeze is released, and the version is useless until we do that.
+  * New upstream release.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 12 Jan 2011 14:44:06 +0000
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 31 Jan 2011 23:05:09 +0000
 
 libsoup2.4 (2.33.5-1) experimental; urgency=low
 
