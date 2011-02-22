@@ -1,3 +1,12 @@
+libsoup2.4 (2.33.90-1) experimental; urgency=low
+
+  * New upstream release.
+    + debian/control.in,
+      debian/rules:
+      - Let CDBS call dh_girepository for us.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 22 Feb 2011 20:43:06 +0000
+
 libsoup2.4 (2.33.6-1) experimental; urgency=low
 
   * debian/control.in:

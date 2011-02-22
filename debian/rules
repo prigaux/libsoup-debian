@@ -13,6 +13,3 @@ DEB_DH_MAKESHLIBS_ARGS_ALL += -V -- -c4
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
 DEB_MAKE_CHECK_TARGET = check
-
-$(patsubst %,binary-predeb/%,$(DEB_ALL_PACKAGES)) ::
-	dh_girepository -p$(cdbs_curpkg)
