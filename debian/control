@@ -9,8 +9,7 @@ Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: David Weinehall <tao@debian.org>, Emilio Pozuelo Monfort <pochu@debian.org>, Sebastian Dröge <slomo@debian.org>
 Build-Depends: debhelper (>= 5),
-               dpkg-dev (>= 1.13.19),
-               cdbs,
+               cdbs (>= 0.4.90),
                gnome-pkg-tools,
                libgconf2-dev,
                libglib2.0-dev (>= 2.27.5),
