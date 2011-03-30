@@ -1,3 +1,9 @@
+libsoup2.4 (2.33.92-2) UNRELEASED; urgency=low
+
+  * Make the -dev package depend on the gir package.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 30 Mar 2011 20:23:56 +0200
+
 libsoup2.4 (2.33.92-1) experimental; urgency=low
 
   * New upstream release.
