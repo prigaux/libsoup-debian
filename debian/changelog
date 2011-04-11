@@ -1,11 +1,97 @@
-libsoup2.4 (2.30.2-1) unstable; urgency=low
+libsoup2.4 (2.34.0-1) UNRELEASED; urgency=low
+
+  [ Josselin Mouette ]
+  * Make the -dev package depend on the gir package.
+
+  [ Andreas Henriksson ]
+  * New upstream release.
+  * Fix multiple lintian warnings on description-synopsis-starts-with-article
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 11 Apr 2011 10:10:29 +0200
+
+libsoup2.4 (2.33.92-1) experimental; urgency=low
 
   * New upstream release.
-  * 01_disable_tls1.2.patch: stolen from git master. Disable TLS 1.2 and 
-    use SSL 3.0 instead. Closes: #576339.
-  * libsoup2.4-1.symbols: updated for the new version.
+    + debian/libsoup2.4-1.symbols:
+      - Updated.
+    + debian/control.in:
+      - Update dependencies and build dependencies.
 
- -- Josselin Mouette <joss@debian.org>  Fri, 02 Jul 2010 19:25:29 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 26 Mar 2011 09:41:34 +0000
+
+libsoup2.4 (2.33.90-1) experimental; urgency=low
+
+  * New upstream release.
+    + debian/control.in,
+      debian/rules:
+      - Let CDBS call dh_girepository for us.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 22 Feb 2011 20:43:06 +0000
+
+libsoup2.4 (2.33.6-1) experimental; urgency=low
+
+  * debian/control.in:
+    + Let libsoup2.4-dev replace gir-repository-dev without a version.
+      We don't want to drop libsoup bindings from girepository until
+      Squeeze is released, and the version is useless until we do that.
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 31 Jan 2011 23:05:09 +0000
+
+libsoup2.4 (2.33.5-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 11 Jan 2011 00:11:22 +0000
+
+libsoup2.4 (2.33.4-1) experimental; urgency=low
+
+  * debian/control.in:
+    - Remove gir-repository-dev build dependency, no longer needed.
+    - Standards-Version is 3.9.1, no changes needed.
+  * New upstream development release.
+    + debian/control.in:
+      - Build-depend/Depend on glib-networking.
+      - Stop build depending on libgnutls, we use glib-networking now.
+    + debian/rules:
+      - Make the shlibs always depend on the latest upstream version.
+        We have symbols file anyway, and manually bumping the shver is
+        error prone.
+    + debian/libsoup2.4-1.symbols:
+      - Updated for the new symbols.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 08 Jan 2011 02:25:28 +0000
+
+libsoup2.4 (2.32.2-1) experimental; urgency=low
+
+  * New upstream release.
+    - debian/libsoup2.4-0.symbols:
+      + Updated.
+    - debian/rules:
+      + Update the shver.
+  * Update to the new gir policy:
+    - Rename gir1.0-soup-2.4 to gir1.2-soup-2.4.
+    - Bump the gobject-introspection build dependency.
+    - Build depend on gir1.2 packages.
+  * debian/rules:
+    - Call dh_girepository to get proper dependencies on the
+      gir package.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 Dec 2010 16:26:33 +0100
+
+libsoup2.4 (2.31.2-1) experimental; urgency=low
+
+  * New upstream development release:
+    + debian/control.in,
+      debian/libsoup2.4-dev.install,
+      debian/libsoup-gnome2.4-dev.install,
+      debian/gir1.0-soup-2.4.install:
+      - Add GObject-Introspection support.
+    + debian/libsoup2.4-1.symbols,
+      debian/rules:
+      - Update for API additions.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 25 May 2010 21:38:03 +0200
 
 libsoup2.4 (2.30.1-1) unstable; urgency=low
 
