@@ -1,4 +1,4 @@
-libsoup2.4 (2.34.0-1) UNRELEASED; urgency=low
+libsoup2.4 (2.34.0-1) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Make the -dev package depend on the gir package.
@@ -6,8 +6,9 @@ libsoup2.4 (2.34.0-1) UNRELEASED; urgency=low
   [ Andreas Henriksson ]
   * New upstream release.
   * Fix multiple lintian warnings on description-synopsis-starts-with-article
+  * Upload to unstable.
 
- -- Andreas Henriksson <andreas@fatal.se>  Mon, 11 Apr 2011 10:10:29 +0200
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 11 Apr 2011 12:19:57 +0200
 
 libsoup2.4 (2.33.92-1) experimental; urgency=low
 
