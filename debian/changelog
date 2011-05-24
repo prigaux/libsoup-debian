@@ -1,3 +1,10 @@
+libsoup2.4 (2.34.0-2) UNRELEASED; urgency=low
+
+  * debian/control.in: Update Vcs-* fields, package/branch is for unstable
+    now.
+
+ -- Martin Pitt <mpitt@debian.org>  Tue, 24 May 2011 17:00:53 +0200
+
 libsoup2.4 (2.34.0-1) unstable; urgency=low
 
   [ Josselin Mouette ]
