@@ -553,3 +553,4 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_xmlrpc_request_new@Base 2.4.0
  soup_xmlrpc_set_fault@Base 2.4.0
  soup_xmlrpc_set_response@Base 2.4.0
+ uri_decoded_copy@Base 2.34.2
