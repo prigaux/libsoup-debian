@@ -1,3 +1,9 @@
+libsoup2.4 (2.34.2-2) UNRELEASED; urgency=low
+
+  * 01_memleaks.patch: stolen from upstream git. Fix a few memory leaks.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 28 Jun 2011 17:10:17 +0200
+
 libsoup2.4 (2.34.2-1) unstable; urgency=low
 
   * New upstream release.
