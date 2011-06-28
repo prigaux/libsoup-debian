@@ -1,8 +1,11 @@
-libsoup2.4 (2.34.2-2) UNRELEASED; urgency=low
+libsoup2.4 (2.34.2-2) unstable; urgency=low
 
   * 01_memleaks.patch: stolen from upstream git. Fix a few memory leaks.
+  * 02_tls.patch: new patch. Stop forcing SSLv3, which breaks websites 
+    that properly support TLS only. This still breaks a few websites, 
+    but at least paypal has been fixed to support TLS. Closes: #579429.
 
- -- Josselin Mouette <joss@debian.org>  Tue, 28 Jun 2011 17:10:17 +0200
+ -- Josselin Mouette <joss@debian.org>  Tue, 28 Jun 2011 17:23:27 +0200
 
 libsoup2.4 (2.34.2-1) unstable; urgency=low
 

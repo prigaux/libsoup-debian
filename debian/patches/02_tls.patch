@@ -1,0 +1,13 @@
+Index: libsoup-2.34.2/libsoup/soup-socket.c
+===================================================================
+--- libsoup-2.34.2.orig/libsoup/soup-socket.c	2011-06-28 17:22:08.356156914 +0200
++++ libsoup-2.34.2/libsoup/soup-socket.c	2011-06-28 17:22:14.400186447 +0200
+@@ -934,7 +934,7 @@ soup_socket_start_proxy_ssl (SoupSocket
+ 				       "server-identity", identity,
+ 				       "use-system-certdb", FALSE,
+ 				       "require-close-notify", FALSE,
+-				       "use-ssl3", TRUE,
++				       "use-ssl3", FALSE,
+ 				       NULL);
+ 		g_object_unref (identity);
+ 
