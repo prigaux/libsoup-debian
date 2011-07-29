@@ -1,4 +1,4 @@
-libsoup2.4 (2.34.3-1) UNRELEASED; urgency=low
+libsoup2.4 (2.34.3-1) UNRELEASED; urgency=high
 
   * New upstream release.
     - Fixes CVE-2011-2524: SoupServer directory traversal vulnerability.
@@ -9,6 +9,7 @@ libsoup2.4 (2.34.3-1) UNRELEASED; urgency=low
   * Bump debhelper compatibility level to 8.
     - Update Build-Depends on debhelper.
     - Strip debian/tmp/ from .install files.
+  * Urgency high for the security fix.
 
  -- Michael Biebl <biebl@debian.org>  Fri, 29 Jul 2011 03:23:09 +0200
 
