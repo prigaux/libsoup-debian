@@ -3,6 +3,7 @@ libsoup2.4 (2.34.3-1) UNRELEASED; urgency=low
   * New upstream release.
   * debian/watch: Switch to .bz2 tarballs.
   * debian/patches/01_memleaks.patch: Remove, merged upstream.
+  * Bump Standards-Version to 3.9.2. No further changes.
 
  -- Michael Biebl <biebl@debian.org>  Fri, 29 Jul 2011 03:23:09 +0200
 
