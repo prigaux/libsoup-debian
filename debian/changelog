@@ -1,6 +1,8 @@
 libsoup2.4 (2.34.3-1) UNRELEASED; urgency=low
 
   * New upstream release.
+    - Fixes CVE-2011-2524: SoupServer directory traversal vulnerability.
+      Closes: #635837
   * debian/watch: Switch to .bz2 tarballs.
   * debian/patches/01_memleaks.patch: Remove, merged upstream.
   * Bump Standards-Version to 3.9.2. No further changes.
