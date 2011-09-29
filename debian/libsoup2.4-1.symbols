@@ -131,6 +131,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_connection_get_ever_used@Base 2.32.2
  soup_connection_get_proxy_uri@Base 2.28.0
  soup_connection_get_socket@Base 2.4.0
+ soup_connection_get_ssl_fallback@Base 2.36.0
  soup_connection_get_state@Base 2.28.0
  soup_connection_get_tunnel_addr@Base 2.28.0
  soup_connection_get_type@Base 2.4.0
@@ -138,7 +139,8 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_connection_new@Base 2.4.0
  soup_connection_send_request@Base 2.4.0
  soup_connection_set_state@Base 2.28.0
- soup_connection_start_ssl@Base 2.28.0
+ soup_connection_start_ssl_async@Base 2.36.0
+ soup_connection_start_ssl_sync@Base 2.36.0
  soup_connection_state_get_type@Base 2.30.0
  soup_content_decoder_get_type@Base 2.30.0
  soup_content_sniffer_get_type@Base 2.28.0
@@ -296,6 +298,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_message_got_headers@Base 2.4.0
  soup_message_got_informational@Base 2.4.0
  soup_message_headers_append@Base 2.4.0
+ soup_message_headers_clean_connection_headers@Base 2.36.0
  soup_message_headers_clear@Base 2.4.0
  soup_message_headers_foreach@Base 2.4.0
  soup_message_headers_free@Base 2.4.0
@@ -469,6 +472,8 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_socket_get_local_address@Base 2.4.0
  soup_socket_get_remote_address@Base 2.4.0
  soup_socket_get_type@Base 2.4.0
+ soup_socket_handshake_async@Base 2.36.0
+ soup_socket_handshake_sync@Base 2.36.0
  soup_socket_io_status_get_type@Base 2.4.0
  soup_socket_is_connected@Base 2.4.0
  soup_socket_is_ssl@Base 2.4.0
