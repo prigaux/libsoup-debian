@@ -1,3 +1,9 @@
+libsoup2.4 (2.36.0-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 29 Sep 2011 06:35:34 +0200
+
 libsoup2.4 (2.34.3-1) unstable; urgency=high
 
   * New upstream release.
