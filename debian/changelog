@@ -1,6 +1,8 @@
 libsoup2.4 (2.36.0-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * Remove debian/patches/02_tls.patch, fixed upstream: Default to TLS for
+    https connections, and fall back to SSLv3 on failure.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 29 Sep 2011 06:35:34 +0200
 
