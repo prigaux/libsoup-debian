@@ -11,7 +11,7 @@ Uploaders: Andreas Henriksson <andreas@fatal.se>, Emilio Pozuelo Monfort <pochu@
 Build-Depends: debhelper (>= 8),
                cdbs (>= 0.4.90),
                gnome-pkg-tools,
-               libglib2.0-dev (>= 2.27.5),
+               libglib2.0-dev (>= 2.30.0),
                glib-networking (>= 2.28.4),
                libgnome-keyring-dev,
                libsqlite3-dev,
