@@ -23,7 +23,6 @@ Standards-Version: 3.9.2
 
 Package: libsoup2.4-dev
 Architecture: any
-Multi-Arch: same
 Section: libdevel
 Depends: ${misc:Depends},
          libsoup2.4-1 (= ${binary:Version}),
@@ -147,7 +146,6 @@ Description: HTTP library implementation in C -- GNOME support library
 
 Package: libsoup-gnome2.4-dev
 Architecture: any
-Multi-Arch: same
 Section: libdevel
 Depends: ${misc:Depends},
          libsoup-gnome2.4-1 (= ${binary:Version}),
