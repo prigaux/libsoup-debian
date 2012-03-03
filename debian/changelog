@@ -1,3 +1,9 @@
+libsoup2.4 (2.37.90-1) UNRELEASED; urgency=low
+
+  * New development release.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 03 Mar 2012 16:24:10 -0300
+
 libsoup2.4 (2.36.1-2) UNRELEASED; urgency=low
 
   [ Allison Randal ]
