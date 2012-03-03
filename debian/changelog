@@ -1,4 +1,73 @@
-libsoup2.4 (2.34.0-1) UNRELEASED; urgency=low
+libsoup2.4 (2.36.1-2) UNRELEASED; urgency=low
+
+  [ Allison Randal ]
+  * Transition to multiarch. Thanks to Allison Randal for the patch!
+    (Closes: #651018)
+
+  [ Michael Biebl ]
+  * Change section of gir1.2-soup-2.4 to introspection.
+  * Remove obsolete Replaces.
+
+  [ Josselin Mouette ]
+  * Remove MA: same statements for -dev packages, because they depend on 
+    gir packages which are not MA compatible.
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 16 Dec 2011 22:25:30 +0100
+
+libsoup2.4 (2.36.1-1) unstable; urgency=low
+
+  [ Martin Pitt ]
+  * debian/watch: Switch to .xz tarballs.
+  * New upstream release.
+  * debian/control.in: Bump glib build dependency to >= 2.30.0, as per
+    configure.ac.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 27 Nov 2011 18:17:21 +0100
+
+libsoup2.4 (2.36.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Remove debian/patches/02_tls.patch, fixed upstream: Default to TLS for
+    https connections, and fall back to SSLv3 on failure.
+  * debian/libsoup2.4-1.symbols: Update symbols file.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 29 Sep 2011 07:20:24 +0200
+
+libsoup2.4 (2.34.3-1) unstable; urgency=high
+
+  * New upstream release.
+    - Fixes CVE-2011-2524: SoupServer directory traversal vulnerability.
+      Closes: #635837
+  * debian/watch: Switch to .bz2 tarballs.
+  * debian/patches/01_memleaks.patch: Remove, merged upstream.
+  * Bump Standards-Version to 3.9.2. No further changes.
+  * Bump debhelper compatibility level to 8.
+    - Update Build-Depends on debhelper.
+    - Strip debian/tmp/ from .install files.
+  * Urgency high for the security fix.
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 29 Jul 2011 03:44:00 +0200
+
+libsoup2.4 (2.34.2-2) unstable; urgency=low
+
+  * 01_memleaks.patch: stolen from upstream git. Fix a few memory leaks.
+  * 02_tls.patch: new patch. Stop forcing SSLv3, which breaks websites 
+    that properly support TLS only. This still breaks a few websites, 
+    but at least paypal has been fixed to support TLS. Closes: #579429.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 28 Jun 2011 17:23:27 +0200
+
+libsoup2.4 (2.34.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/libsoup2.4-1.symbols: Add new symbol from this upstream release.
+  * debian/control.in: Update Vcs-* fields, package/branch is for unstable
+    now.
+  * debian/watch: Fix syntax to actually catch the latest version.
+
+ -- Martin Pitt <mpitt@debian.org>  Tue, 24 May 2011 17:27:24 +0200
+
+libsoup2.4 (2.34.0-1) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Make the -dev package depend on the gir package.
@@ -6,8 +75,9 @@ libsoup2.4 (2.34.0-1) UNRELEASED; urgency=low
   [ Andreas Henriksson ]
   * New upstream release.
   * Fix multiple lintian warnings on description-synopsis-starts-with-article
+  * Upload to unstable.
 
- -- Andreas Henriksson <andreas@fatal.se>  Mon, 11 Apr 2011 10:10:29 +0200
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 11 Apr 2011 12:19:57 +0200
 
 libsoup2.4 (2.33.92-1) experimental; urgency=low
 

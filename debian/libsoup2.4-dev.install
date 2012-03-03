@@ -1,5 +1,5 @@
-debian/tmp/usr/include/libsoup-2.4
-debian/tmp/usr/lib/libsoup-2.4.so
-debian/tmp/usr/lib/libsoup-2.4.a
-debian/tmp/usr/lib/pkgconfig/libsoup-2.4.pc
-debian/tmp/usr/share/gir-1.0/Soup-2.4.gir
+usr/include/libsoup-2.4
+usr/lib/*/libsoup-2.4.so
+usr/lib/*/libsoup-2.4.a
+usr/lib/*/pkgconfig/libsoup-2.4.pc
+usr/share/gir-1.0/Soup-2.4.gir
