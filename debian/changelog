@@ -1,4 +1,4 @@
-libsoup2.4 (2.37.90-1) UNRELEASED; urgency=low
+libsoup2.4 (2.37.90-1) experimental; urgency=low
 
   * New development release.
   * debian/libsoup2.4-1.symbols:
@@ -7,7 +7,7 @@ libsoup2.4 (2.37.90-1) UNRELEASED; urgency=low
   - Bump build-dep and dep on libglib2.0-dev to 2.31.7, following upstream
     change
 
- -- Gustavo Noronha Silva <kov@debian.org>  Sat, 03 Mar 2012 16:53:18 -0300
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 03 Mar 2012 16:54:11 -0300
 
 libsoup2.4 (2.36.1-2) UNRELEASED; urgency=low
 
