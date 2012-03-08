@@ -2,8 +2,9 @@ libsoup2.4 (2.37.91-1) UNRELEASED; urgency=low
 
   * New upstream development release.
   * debian/libsoup2.4-1.symbols: Add new symbol.
+  * debian/control.in: Bump Build-Depends on debhelper to (>= 9).
 
- -- Michael Biebl <biebl@debian.org>  Thu, 08 Mar 2012 18:39:55 +0100
+ -- Michael Biebl <biebl@debian.org>  Thu, 08 Mar 2012 18:40:23 +0100
 
 libsoup2.4 (2.37.90-1) experimental; urgency=low
 
