@@ -1,3 +1,9 @@
+libsoup2.4 (2.37.91-1) UNRELEASED; urgency=low
+
+  * New upstream development release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 08 Mar 2012 18:31:45 +0100
+
 libsoup2.4 (2.37.90-1) experimental; urgency=low
 
   * New development release.
