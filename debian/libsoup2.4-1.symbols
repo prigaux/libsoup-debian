@@ -90,6 +90,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_auth_is_authenticated@Base 2.4.0
  soup_auth_is_for_proxy@Base 2.4.0
  soup_auth_manager_emit_authenticate@Base 2.24.3
+ soup_auth_manager_extract_challenge@Base 2.37.91
  soup_auth_manager_get_type@Base 2.24.3
  soup_auth_manager_ntlm_get_type@Base 2.24.3
  soup_auth_new@Base 2.4.0
