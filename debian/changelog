@@ -1,9 +1,9 @@
-libsoup2.4 (2.37.92-1) UNRELEASED; urgency=low
+libsoup2.4 (2.37.92-1) experimental; urgency=low
 
   * New upstream development release.
   * debian/libsoup2.4-1.symbols: Add new symbol.
 
- -- Michael Biebl <biebl@debian.org>  Tue, 20 Mar 2012 02:21:52 +0100
+ -- Michael Biebl <biebl@debian.org>  Tue, 20 Mar 2012 02:22:10 +0100
 
 libsoup2.4 (2.37.91-1) experimental; urgency=low
 
