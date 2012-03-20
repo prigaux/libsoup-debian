@@ -459,6 +459,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_session_get_type@Base 2.4.0
  soup_session_make_connect_message@Base 2.28.0
  soup_session_pause_message@Base 2.4.0
+ soup_session_prefetch_dns@Base 2.37.92
  soup_session_prepare_for_uri@Base 2.30.0
  soup_session_queue_message@Base 2.4.0
  soup_session_redirect_message@Base 2.37.90
