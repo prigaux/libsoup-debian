@@ -7,12 +7,12 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Andreas Henriksson <andreas@fatal.se>, Gustavo Noronha Silva <kov@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>
+Uploaders: Gustavo Noronha Silva <kov@debian.org>, Josselin Mouette <joss@debian.org>, Martin Pitt <mpitt@debian.org>, Michael Biebl <biebl@debian.org>
 Build-Depends: debhelper (>= 9),
                cdbs (>= 0.4.93~),
                gnome-pkg-tools,
                libglib2.0-dev (>= 2.31.7),
-               glib-networking (>= 2.28.4),
+               glib-networking (>= 2.32.0),
                libgnome-keyring-dev,
                libsqlite3-dev,
                libxml2-dev,
@@ -22,8 +22,8 @@ Build-Depends: debhelper (>= 9),
                gobject-introspection (>= 0.9.12-4~),
                gir1.2-glib-2.0
 Build-Depends-Indep: libglib2.0-doc
-Vcs-Svn: svn://svn.debian.org/svn/pkg-gnome/desktop/unstable/libsoup2.4
-Vcs-Browser: http://svn.debian.org/viewsvn/pkg-gnome/desktop/unstable/libsoup2.4
+Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/desktop/unstable/libsoup2.4
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/libsoup2.4
 Standards-Version: 3.9.2
 
 Package: libsoup2.4-dev
@@ -65,7 +65,7 @@ Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends},
          ${shlibs:Depends},
-         glib-networking (>= 2.28.4)
+         glib-networking (>= 2.32.0)
 Description: HTTP library implementation in C -- Shared library
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
