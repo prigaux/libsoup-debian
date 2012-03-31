@@ -1,11 +1,11 @@
-libsoup2.4 (2.38.0-1) UNRELEASED; urgency=low
+libsoup2.4 (2.38.0-1) unstable; urgency=low
 
   * New upstream release.
   * Bump minimum required version of glib-networking to 2.32.0.
   * Update Vcs-* URLs.
   * Bump Standards-Version to 3.9.3.
 
- -- Michael Biebl <biebl@debian.org>  Sat, 31 Mar 2012 07:31:34 +0200
+ -- Michael Biebl <biebl@debian.org>  Sat, 31 Mar 2012 07:38:04 +0200
 
 libsoup2.4 (2.37.92-1) experimental; urgency=low
 
