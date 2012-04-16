@@ -1,4 +1,4 @@
-libsoup2.4 (2.38.1-1) UNRELEASED; urgency=low
+libsoup2.4 (2.38.1-1) unstable; urgency=low
 
   * New upstream release:
     - Fixed a situation where soup_connection_disconnect() could end up
@@ -14,7 +14,7 @@ libsoup2.4 (2.38.1-1) UNRELEASED; urgency=low
       progress when it was unreffed.
   * debian/copyright: Move to copyright 1.0 format.
 
- -- Martin Pitt <mpitt@debian.org>  Tue, 17 Apr 2012 00:00:36 +0200
+ -- Martin Pitt <mpitt@debian.org>  Tue, 17 Apr 2012 00:08:43 +0200
 
 libsoup2.4 (2.38.0-1) unstable; urgency=low
 
