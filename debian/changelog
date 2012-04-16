@@ -12,6 +12,7 @@ libsoup2.4 (2.38.1-1) UNRELEASED; urgency=low
       (ssl-ca-file, ssl-use-system-ca-file, and tls-database).
     - Fixed SoupSession to not leak paused SoupMessages that were still in
       progress when it was unreffed.
+  * debian/copyright: Move to copyright 1.0 format.
 
  -- Martin Pitt <mpitt@debian.org>  Tue, 17 Apr 2012 00:00:36 +0200
 
