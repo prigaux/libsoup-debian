@@ -1,3 +1,11 @@
+libsoup2.4 (2.38.1-2) UNRELEASED; urgency=low
+
+  * Make test suite failures non-fatal so we don't block testing migration due
+    to failing builds on kfreebsd-* and sparc. Once #643906 and #663056 are
+    fixed this change should be reverted again.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 17 Apr 2012 20:45:04 +0200
+
 libsoup2.4 (2.38.1-1) unstable; urgency=low
 
   * New upstream release:
