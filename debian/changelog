@@ -1,3 +1,38 @@
+libsoup2.4 (2.38.1-2) unstable; urgency=low
+
+  * Make test suite failures non-fatal so we don't block testing migration due
+    to failing builds on kfreebsd-* and sparc. Once #643906 and #663056 are
+    fixed this change should be reverted again.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 17 Apr 2012 20:50:12 +0200
+
+libsoup2.4 (2.38.1-1) unstable; urgency=low
+
+  * New upstream release:
+    - Fixed a situation where soup_connection_disconnect() could end up
+      calling g_object_unref(NULL) when an idle connection was closed
+    - Fixed two warnings when cancelling an in-progress
+      soup_socket_connect_async()
+    - Fixed a crash when disposing a SoupServer with open connections
+    - Fixed the SoupSession:ssl-use-system-ca-file property to get turned off
+      (rather than on) when you set it to FALSE... Also fixed up the property
+      notifications around the various certificate-verification properties
+      (ssl-ca-file, ssl-use-system-ca-file, and tls-database).
+    - Fixed SoupSession to not leak paused SoupMessages that were still in
+      progress when it was unreffed.
+  * debian/copyright: Move to copyright 1.0 format.
+
+ -- Martin Pitt <mpitt@debian.org>  Tue, 17 Apr 2012 00:08:43 +0200
+
+libsoup2.4 (2.38.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump minimum required version of glib-networking to 2.32.0.
+  * Update Vcs-* URLs.
+  * Bump Standards-Version to 3.9.3.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 31 Mar 2012 07:38:04 +0200
+
 libsoup2.4 (2.37.92-1) experimental; urgency=low
 
   * New upstream development release.
