@@ -1,4 +1,4 @@
-libsoup2.4 (2.39.92-1) UNRELEASED; urgency=low
+libsoup2.4 (2.39.92-1) experimental; urgency=low
 
   * New upstream release.
   * Track unstable versions in the experimental branch.
@@ -6,7 +6,7 @@ libsoup2.4 (2.39.92-1) UNRELEASED; urgency=low
     the version from unstable. This will also generate a tight enough
     dependency. Closes: #687388
 
- -- Michael Biebl <biebl@debian.org>  Wed, 19 Sep 2012 18:41:06 +0200
+ -- Michael Biebl <biebl@debian.org>  Thu, 20 Sep 2012 21:05:44 +0200
 
 libsoup2.4 (2.39.90-1) experimental; urgency=low
 
