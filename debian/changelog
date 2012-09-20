@@ -1,3 +1,9 @@
+libsoup2.4 (2.39.92-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 19 Sep 2012 18:41:06 +0200
+
 libsoup2.4 (2.39.90-1) experimental; urgency=low
 
   * New upstream release (Packaging from 2.39.90-0ubuntu1)
