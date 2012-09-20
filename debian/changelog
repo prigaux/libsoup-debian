@@ -1,6 +1,7 @@
 libsoup2.4 (2.39.92-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * Track unstable versions in the experimental branch.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 19 Sep 2012 18:41:06 +0200
 
