@@ -2,6 +2,9 @@ libsoup2.4 (2.39.92-1) UNRELEASED; urgency=low
 
   * New upstream release.
   * Track unstable versions in the experimental branch.
+  * Bump Build-Depends on libglib2.0-dev to (>= 2.33.14) so we don't pick up
+    the version from unstable. This will also generate a tight enough
+    dependency. Closes: #687388
 
  -- Michael Biebl <biebl@debian.org>  Wed, 19 Sep 2012 18:41:06 +0200
 
