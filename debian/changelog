@@ -1,8 +1,8 @@
-libsoup2.4 (2.40.1-1) UNRELEASED; urgency=low
+libsoup2.4 (2.40.1-1) experimental; urgency=low
 
   * New upstream release.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 23 Oct 2012 13:33:45 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 23 Oct 2012 15:27:18 +0200
 
 libsoup2.4 (2.39.92-1) experimental; urgency=low
 

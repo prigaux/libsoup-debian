@@ -7,7 +7,7 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Gustavo Noronha Silva <kov@debian.org>, Martin Pitt <mpitt@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>, Gustavo Noronha Silva <kov@debian.org>, Martin Pitt <mpitt@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Build-Depends: debhelper (>= 9),
                cdbs (>= 0.4.93~),
                gnome-pkg-tools,
