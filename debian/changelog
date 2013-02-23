@@ -1,4 +1,4 @@
-libsoup2.4 (2.41.90-1) UNRELEASED; urgency=low
+libsoup2.4 (2.41.90-1) experimental; urgency=low
 
   * New upstream release.
     + debian/control.in:
@@ -8,7 +8,7 @@ libsoup2.4 (2.41.90-1) UNRELEASED; urgency=low
         were not exported in public headers, so nobody should be using them
         anyway.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 23 Feb 2013 17:16:24 +0100
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 23 Feb 2013 20:42:03 +0100
 
 libsoup2.4 (2.40.1-1) experimental; urgency=low
 
