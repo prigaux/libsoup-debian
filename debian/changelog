@@ -3,6 +3,10 @@ libsoup2.4 (2.41.90-1) UNRELEASED; urgency=low
   * New upstream release.
     + debian/control.in:
       - Update build dependencies.
+    + debian/libsoup2.4-1.symbols:
+      - Updated for new symbols. Many symbols have been removed, but they
+        were not exported in public headers, so nobody should be using them
+        anyway.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 23 Feb 2013 17:16:24 +0100
 
