@@ -1,6 +1,8 @@
 libsoup2.4 (2.41.91-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * debian/libsoup2.4-doc.examples:
+    + Ship examples in libsoup2.4-doc.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 05 Mar 2013 18:38:31 +0100
 
