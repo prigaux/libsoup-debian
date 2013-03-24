@@ -1,3 +1,10 @@
+libsoup2.4 (2.41.92-2) UNRELEASED; urgency=low
+
+  * debian/control.in:
+    + Remove spurious period in the description. Closes: #703757.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 24 Mar 2013 09:28:21 +0100
+
 libsoup2.4 (2.41.92-1) experimental; urgency=low
 
   * New upstream release.

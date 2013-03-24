@@ -90,7 +90,7 @@ Architecture: any
 Depends: libsoup2.4-1 (= ${binary:Version}),
          ${misc:Depends}
 Description: HTTP library implementation in C -- debugging symbols
- It was originally part of a SOAP (Simple Object Access Protocol).
+ It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
  split into separate packages.
  .
