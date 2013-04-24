@@ -1,3 +1,13 @@
+libsoup2.4 (2.42.2-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Build-Depends on libglib2.0-dev >= 2.36 according to
+      configure.ac.
+    - Bump Standards-Version to 3.9.4.
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Wed, 24 Apr 2013 23:36:50 +0200
+
 libsoup2.4 (2.42.0-1) experimental; urgency=low
 
   * debian/control.in:
