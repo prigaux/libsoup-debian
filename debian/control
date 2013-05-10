@@ -7,13 +7,13 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Gustavo Noronha Silva <kov@debian.org>, Martin Pitt <mpitt@debian.org>, Michael Biebl <biebl@debian.org>
+Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>, Martin Pitt <mpitt@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Build-Depends: debhelper (>= 9),
                cdbs (>= 0.4.93~),
                gnome-pkg-tools,
-               libglib2.0-dev (>= 2.31.7),
+               intltool (>= 0.35.0),
+               libglib2.0-dev (>= 2.36.0),
                glib-networking (>= 2.32.0),
-               libgnome-keyring-dev,
                libsqlite3-dev,
                libxml2-dev,
                gtk-doc-tools,
@@ -24,7 +24,7 @@ Build-Depends: debhelper (>= 9),
 Build-Depends-Indep: libglib2.0-doc
 Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/desktop/unstable/libsoup2.4
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/libsoup2.4
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 
 Package: libsoup2.4-dev
 Architecture: any
@@ -32,7 +32,7 @@ Section: libdevel
 Depends: ${misc:Depends},
          libsoup2.4-1 (= ${binary:Version}),
          gir1.2-soup-2.4 (= ${binary:Version}),
-         libglib2.0-dev (>= 2.31.7),
+         libglib2.0-dev (>= 2.35.0),
          libxml2-dev
 Suggests: libsoup2.4-doc
 Replaces: gir-repository-dev
@@ -95,7 +95,7 @@ Architecture: any
 Depends: libsoup2.4-1 (= ${binary:Version}),
          ${misc:Depends}
 Description: HTTP library implementation in C -- debugging symbols
- It was originally part of a SOAP (Simple Object Access Protocol).
+ It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
  split into separate packages.
  .

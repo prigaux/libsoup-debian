@@ -1,3 +1,69 @@
+libsoup2.4 (2.42.2-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Build-Depends on libglib2.0-dev >= 2.36 according to
+      configure.ac.
+    - Bump Standards-Version to 3.9.4.
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Wed, 24 Apr 2013 23:36:50 +0200
+
+libsoup2.4 (2.42.0-1) experimental; urgency=low
+
+  * debian/control.in:
+    + Remove spurious period in the description. Closes: #703757.
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 25 Mar 2013 16:07:05 +0100
+
+libsoup2.4 (2.41.92-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 18 Mar 2013 20:59:07 +0100
+
+libsoup2.4 (2.41.91-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/libsoup2.4-doc.examples:
+    + Ship examples in libsoup2.4-doc.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 05 Mar 2013 19:20:40 +0100
+
+libsoup2.4 (2.41.90-1) experimental; urgency=low
+
+  * New upstream release.
+    + debian/control.in:
+      - Update build dependencies.
+    + debian/libsoup2.4-1.symbols:
+      - Updated for new symbols. Many symbols have been removed, but they
+        were not exported in public headers, so nobody should be using them
+        anyway.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 23 Feb 2013 20:42:03 +0100
+
+libsoup2.4 (2.40.1-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 23 Oct 2012 15:27:18 +0200
+
+libsoup2.4 (2.39.92-1) experimental; urgency=low
+
+  * New upstream release.
+  * Track unstable versions in the experimental branch.
+  * Bump Build-Depends on libglib2.0-dev to (>= 2.33.14) so we don't pick up
+    the version from unstable. This will also generate a tight enough
+    dependency. Closes: #687388
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 20 Sep 2012 21:05:44 +0200
+
+libsoup2.4 (2.39.90-1) experimental; urgency=low
+
+  * New upstream release (Packaging from 2.39.90-0ubuntu1)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 26 Aug 2012 15:41:50 +0200
+
 libsoup2.4 (2.38.1-2) unstable; urgency=low
 
   * Make test suite failures non-fatal so we don't block testing migration due
