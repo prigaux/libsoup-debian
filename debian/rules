@@ -18,3 +18,6 @@ DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
 # and http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
 # aren't fixed yet.
 DEB_MAKE_CHECK_TARGET = check
+# Currently there is no better way to run the test-suite under xvfb
+# http://lists.alioth.debian.org/pipermail/build-common-hackers/2013-March/007826.html
+DEB_MAKE_INVOKE = xvfb-run $(MAKE)
