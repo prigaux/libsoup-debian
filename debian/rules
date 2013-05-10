@@ -13,11 +13,19 @@ DEB_DH_MAKESHLIBS_ARGS_ALL += -V -- -c4
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
         --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
-# Make test suite failures non-fatal as long as
+# The test-suite currently fails on various architectures
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=663056
-# and http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
-# aren't fixed yet.
-DEB_MAKE_CHECK_TARGET = check
-# Currently there is no better way to run the test-suite under xvfb
-# http://lists.alioth.debian.org/pipermail/build-common-hackers/2013-March/007826.html
-DEB_MAKE_INVOKE = xvfb-run $(MAKE)
+# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
+
+ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+common-build-arch common-build-indep:: debian/stamp-makefile-check
+debian/stamp-makefile-check: debian/stamp-makefile-build
+	mkdir -p $(CURDIR)/debian/tmp/home
+	export HOME=$(CURDIR)/debian/tmp/home
+	xvfb-run -s -noreset $(MAKE) check
+	touch $@
+
+makefile-clean::
+	rm -f debian/stamp-makefile-check
+endif
+

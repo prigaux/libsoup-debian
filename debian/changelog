@@ -1,3 +1,11 @@
+libsoup2.4 (2.42.2-3) UNRELEASED; urgency=low
+
+  * Don't run the test-suite via DEB_MAKE_CHECK_TARGET but use a separate make
+    target. This way we can avoid having to run the complete build under xvfb
+    and we can set HOME to a writable location.
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 10 May 2013 06:07:20 +0200
+
 libsoup2.4 (2.42.2-2) unstable; urgency=low
 
   [ Thomas Bechtold ]
