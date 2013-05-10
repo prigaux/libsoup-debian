@@ -17,4 +17,4 @@ DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=663056
 # and http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
 # aren't fixed yet.
-DEB_MAKE_CHECK_TARGET = check || true
+DEB_MAKE_CHECK_TARGET = check

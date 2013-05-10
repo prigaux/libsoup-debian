@@ -10,6 +10,7 @@ libsoup2.4 (2.42.2-2) UNRELEASED; urgency=low
   [ Michael Biebl ]
   * Upload to unstable.
   * Track stable releases again.
+  * Make test-suite failures fatal again, so regressions don't go unnoticed.
 
  -- Michael Biebl <biebl@debian.org>  Fri, 10 May 2013 03:25:26 +0200
 
