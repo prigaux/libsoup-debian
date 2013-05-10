@@ -22,7 +22,7 @@ CHECK_HOME = $(CURDIR)/debian/tmp/home
 common-build-arch common-build-indep:: debian/stamp-makefile-check
 debian/stamp-makefile-check: debian/stamp-makefile-build
 	mkdir -p $(CHECK_HOME)
-	env HOME=$(CHECK_HOME) xvfb-run -s -noreset $(MAKE) check
+	env HOME=$(CHECK_HOME) XDG_RUNTIME_DIR=$(CHECK_HOME) xvfb-run -s -noreset $(MAKE) check
 	touch $@
 
 makefile-clean::
