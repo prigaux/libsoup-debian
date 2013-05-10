@@ -18,11 +18,11 @@ DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
 
 ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+CHECK_HOME = $(CURDIR)/debian/tmp/home
 common-build-arch common-build-indep:: debian/stamp-makefile-check
 debian/stamp-makefile-check: debian/stamp-makefile-build
-	mkdir -p $(CURDIR)/debian/tmp/home
-	export HOME=$(CURDIR)/debian/tmp/home
-	xvfb-run -s -noreset $(MAKE) check
+	mkdir -p $(CHECK_HOME)
+	env HOME=$(CHECK_HOME) xvfb-run -s -noreset $(MAKE) check
 	touch $@
 
 makefile-clean::
