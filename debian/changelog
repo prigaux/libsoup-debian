@@ -1,3 +1,10 @@
+libsoup2.4 (2.42.2-4) UNRELEASED; urgency=low
+
+  * debian/patches/01_tests_debug_output.patch:
+    + Make the test suite print debug output.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 28 May 2013 01:10:55 +0200
+
 libsoup2.4 (2.42.2-3) unstable; urgency=low
 
   * Don't run the test-suite via DEB_MAKE_CHECK_TARGET but use a separate make
