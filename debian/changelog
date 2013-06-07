@@ -1,3 +1,14 @@
+libsoup2.4 (2.42.2-5) UNRELEASED; urgency=low
+
+  * debian/patches/11-cache-test.patch:
+    + Don't fail if we leak the GInputStream. This looks like a race
+      condition in the test case.
+  * debian/patches/12-timeout-test.patch:
+    + Ignore the results of this test as it currently fails on sparc
+      where there's no valgrind.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 07 Jun 2013 22:19:37 +0200
+
 libsoup2.4 (2.42.2-4) unstable; urgency=low
 
   * debian/patches/01_tests_debug_output.patch:

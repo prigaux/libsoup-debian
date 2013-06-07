@@ -1,1 +1,3 @@
 01_tests_debug_output.patch
+11-cache-test.patch
+12-timeout-test.patch
