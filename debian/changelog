@@ -1,9 +1,9 @@
-libsoup2.4 (2.42.2-6) UNRELEASED; urgency=low
+libsoup2.4 (2.42.2-6) unstable; urgency=low
 
   * debian/rules:
     + Temporarily disable the test suite on !linux as one test hangs there.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 20 Jun 2013 09:30:30 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 20 Jun 2013 09:32:26 +0200
 
 libsoup2.4 (2.42.2-5) unstable; urgency=low
 
