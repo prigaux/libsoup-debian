@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 9),
                xauth,
                curl
 Build-Depends-Indep: libglib2.0-doc
-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/desktop/unstable/libsoup2.4
+Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/libsoup2.4
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/libsoup2.4
 Standards-Version: 3.9.4
 
