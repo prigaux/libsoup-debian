@@ -1,3 +1,13 @@
+libsoup2.4 (2.44.0-1) UNRELEASED; urgency=low
+
+  * New upstream release
+  * Drop patches crippling test-cases which has now been fixed upstream:
+    - 11-cache-test.patch
+    - 12-timeout-test.patch
+  * Update debian/libsoup2.4-1.symbols with 4 added symbols
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 13 Oct 2013 21:49:11 +0200
+
 libsoup2.4 (2.42.2-6) unstable; urgency=low
 
   * debian/rules:
