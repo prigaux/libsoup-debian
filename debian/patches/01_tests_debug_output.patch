@@ -1,0 +1,11 @@
+--- a/tests/test-utils.c
++++ b/tests/test-utils.c
+@@ -13,7 +13,7 @@
+ 
+ static SoupLogger *logger;
+ 
+-int debug_level, errors;
++int debug_level = 3, errors;
+ gboolean parallelize = TRUE;
+ gboolean expect_warning, tls_available;
+ static int http_debug_level;

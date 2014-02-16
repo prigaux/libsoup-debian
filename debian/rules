@@ -13,8 +13,21 @@ DEB_DH_MAKESHLIBS_ARGS_ALL += -V -- -c4
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
         --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
-# Make test suite failures non-fatal as long as
+# The test-suite currently fails on various architectures
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=663056
-# and http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
-# aren't fixed yet.
-DEB_MAKE_CHECK_TARGET = check || true
+# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
+
+ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+CHECK_HOME = $(CURDIR)/debian/tmp/home
+common-build-arch common-build-indep:: debian/stamp-makefile-check
+debian/stamp-makefile-check: debian/stamp-makefile-build
+	mkdir -p $(CHECK_HOME)
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+	env HOME=$(CHECK_HOME) XDG_RUNTIME_DIR=$(CHECK_HOME) xvfb-run -s -noreset $(MAKE) check
+endif
+	touch $@
+
+makefile-clean::
+	rm -f debian/stamp-makefile-check
+endif
+

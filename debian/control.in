@@ -15,9 +15,13 @@ Build-Depends: debhelper (>= 9),
                shared-mime-info,
                libgirepository1.0-dev (>= 0.9.5),
                gobject-introspection (>= 0.9.12-4~),
-               gir1.2-glib-2.0
+               dbus,
+               dbus-x11,
+               xvfb,
+               xauth,
+               curl
 Build-Depends-Indep: libglib2.0-doc
-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/desktop/unstable/libsoup2.4
+Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/libsoup2.4
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/libsoup2.4
 Standards-Version: 3.9.4
 
