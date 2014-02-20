@@ -1,3 +1,9 @@
+libsoup2.4 (2.45.90-1) UNRELEASED; urgency=medium
+
+  * New upstream development release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 20 Feb 2014 20:24:25 +0100
+
 libsoup2.4 (2.45.3-1) experimental; urgency=medium
 
   * New upstream development release.
