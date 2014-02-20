@@ -4,6 +4,9 @@ libsoup2.4 (2.45.90-1) UNRELEASED; urgency=medium
   * debian/control.in:
     + Bump glib b-d to 2.39.90, needed for the test suite now that it has
       switch to the TAP driver.
+  * debian/patches/01_tests_debug_output.patch:
+    + Dropped, the extra debug output confused the TAP driver and makes it
+      think some tests fail.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 20 Feb 2014 20:24:25 +0100
 
