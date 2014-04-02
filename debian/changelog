@@ -1,3 +1,9 @@
+libsoup2.4 (2.46.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 02 Apr 2014 16:01:27 +0200
+
 libsoup2.4 (2.46.0-1) experimental; urgency=medium
 
   * New upstream release.
