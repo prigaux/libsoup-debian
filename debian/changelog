@@ -1,3 +1,9 @@
+libsoup2.4 (2.47.4-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Fri, 05 Sep 2014 22:07:30 +0200
+
 libsoup2.4 (2.46.0-2) unstable; urgency=medium
 
   * Upload to unstable.
