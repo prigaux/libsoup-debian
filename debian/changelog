@@ -1,3 +1,9 @@
+libsoup2.4 (2.46.0-3) UNRELEASED; urgency=medium
+
+  * Use dh_autoreconf to update libtool.m4 for new ports.
+
+ -- Iain Lane <laney@debian.org>  Fri, 19 Sep 2014 12:32:22 +0100
+
 libsoup2.4 (2.46.0-2) unstable; urgency=medium
 
   * Upload to unstable.
