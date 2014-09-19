@@ -1,6 +1,9 @@
 libsoup2.4 (2.46.0-3) UNRELEASED; urgency=medium
 
   * Use dh_autoreconf to update libtool.m4 for new ports.
+  * d/p/0001-tests-update-to-handle-G_PARAM_DEPRECATED-warnings-i.patch: Avoid
+    using deprecated properties to fix FTBFS with glib which warns about
+    these.
 
  -- Iain Lane <laney@debian.org>  Fri, 19 Sep 2014 12:32:22 +0100
 

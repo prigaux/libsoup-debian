@@ -1,0 +1,180 @@
+From 6dac94fc54f509afc63239c0e6529c5da1bb40f2 Mon Sep 17 00:00:00 2001
+From: Dan Winship <danw@gnome.org>
+Date: Tue, 22 Jul 2014 09:22:23 -0400
+Subject: [PATCH] tests: update to handle G_PARAM_DEPRECATED warnings in new
+ glib
+
+SoupSession:ssl-ca-file is deprecated, but we were still using it some
+tests for convenience, and in others because we need to test that it
+still works right. Fix the former by using SoupSession:tls-database
+instead, and fix the later by adjusting the property's GParamSpec's
+flags around tests that need to test :ssl-ca-file.
+---
+ tests/no-ssl-test.c |  9 +++++++++
+ tests/ssl-test.c    | 22 +++++++++++++++++++---
+ tests/test-utils.c  | 15 +++++++++++++--
+ 3 files changed, 41 insertions(+), 5 deletions(-)
+
+Index: b/tests/no-ssl-test.c
+===================================================================
+--- a/tests/no-ssl-test.c
++++ b/tests/no-ssl-test.c
+@@ -53,11 +53,17 @@
+ 	GTlsDatabase *tlsdb;
+ 	char *ca_file;
+ 	SoupSession *session;
++	GParamSpec *pspec;
+ 
+ 	g_test_bug ("700518");
+ 
+ 	session = soup_session_async_new ();
+ 
++	/* Temporarily undeprecate SOUP_SESSION_SSL_CA_FILE to avoid warnings. */
++	pspec = g_object_class_find_property (g_type_class_peek (SOUP_TYPE_SESSION),
++					      SOUP_SESSION_SSL_CA_FILE);
++	pspec->flags &= ~G_PARAM_DEPRECATED;
++
+ 	g_object_get (G_OBJECT (session),
+ 		      "ssl-use-system-ca-file", &use_system,
+ 		      "tls-database", &tlsdb,
+@@ -101,6 +107,9 @@
+ 	soup_test_assert (ca_file == NULL, "setting tls-database NULL set ssl-ca-file");
+ 
+ 	soup_test_session_abort_unref (session);
++
++	/* Re-deprecate SOUP_SESSION_SSL_CA_FILE */
++	pspec->flags |= G_PARAM_DEPRECATED;
+ }
+ 
+ static void
+Index: b/tests/ssl-test.c
+===================================================================
+--- a/tests/ssl-test.c
++++ b/tests/ssl-test.c
+@@ -3,6 +3,7 @@
+ #include "test-utils.h"
+ 
+ static char *uri;
++GTlsDatabase *null_tlsdb;
+ 
+ static void
+ do_properties_test_for_session (SoupSession *session, const char *uri)
+@@ -36,7 +37,7 @@
+ 
+ 	session = soup_test_session_new (SOUP_TYPE_SESSION_ASYNC, NULL);
+ 	g_object_set (G_OBJECT (session),
+-		      SOUP_SESSION_SSL_CA_FILE, "/dev/null",
++		      SOUP_SESSION_TLS_DATABASE, null_tlsdb,
+ 		      SOUP_SESSION_SSL_STRICT, FALSE,
+ 		      NULL);
+ 	do_properties_test_for_session (session, uri);
+@@ -52,7 +53,7 @@
+ 
+ 	session = soup_test_session_new (SOUP_TYPE_SESSION_SYNC, NULL);
+ 	g_object_set (G_OBJECT (session),
+-		      SOUP_SESSION_SSL_CA_FILE, "/dev/null",
++		      SOUP_SESSION_TLS_DATABASE, null_tlsdb,
+ 		      SOUP_SESSION_SSL_STRICT, FALSE,
+ 		      NULL);
+ 	do_properties_test_for_session (session, uri);
+@@ -105,7 +106,7 @@
+ 	}
+ 	if (!test->with_ca_list) {
+ 		g_object_set (G_OBJECT (session),
+-			      SOUP_SESSION_SSL_CA_FILE, "/dev/null",
++			      SOUP_SESSION_TLS_DATABASE, null_tlsdb,
+ 			      NULL);
+ 	}
+ 
+@@ -146,12 +147,19 @@
+ 	GTlsDatabase *tlsdb;
+ 	char *ca_file;
+ 	SoupSession *session;
++	GParamSpec *pspec;
+ 
+ 	g_test_bug ("673678");
+ 
+ 	SOUP_TEST_SKIP_IF_NO_TLS;
+ 
+ 	session = soup_session_async_new ();
++
++	/* Temporarily undeprecate SOUP_SESSION_SSL_CA_FILE to avoid warnings. */
++	pspec = g_object_class_find_property (g_type_class_peek (SOUP_TYPE_SESSION),
++					      SOUP_SESSION_SSL_CA_FILE);
++	pspec->flags &= ~G_PARAM_DEPRECATED;
++
+ 	g_signal_connect (session, "notify::ssl-use-system-ca-file",
+ 			  G_CALLBACK (property_changed), &use_system_changed);
+ 	g_signal_connect (session, "notify::tls-database",
+@@ -232,6 +240,9 @@
+ 	g_assert_true (ca_file_changed);
+ 
+ 	soup_test_session_abort_unref (session);
++
++	/* Re-deprecate SOUP_SESSION_SSL_CA_FILE */
++	pspec->flags |= G_PARAM_DEPRECATED;
+ }
+ 
+ static void
+@@ -253,6 +264,7 @@
+ {
+ 	SoupServer *server;
+ 	int i, ret;
++	GError *error = NULL;
+ 
+ 	test_init (argc, argv, NULL);
+ 
+@@ -261,6 +273,9 @@
+ 		soup_server_add_handler (server, NULL, server_handler, NULL, NULL);
+ 		uri = g_strdup_printf ("https://127.0.0.1:%u/",
+ 				       soup_server_get_port (server));
++
++		null_tlsdb = g_tls_file_database_new ("/dev/null", &error);
++		g_assert_no_error (error);
+ 	}
+ 
+ 	g_test_add_func ("/ssl/session-properties", do_session_property_tests);
+@@ -278,6 +293,7 @@
+ 	if (tls_available) {
+ 		g_free (uri);
+ 		soup_test_server_quit_unref (server);
++		g_object_unref (null_tlsdb);
+ 	}
+ 
+ 	test_cleanup ();
+Index: b/tests/test-utils.c
+===================================================================
+--- a/tests/test-utils.c
++++ b/tests/test-utils.c
+@@ -228,7 +228,9 @@
+ 	va_list args;
+ 	const char *propname;
+ 	SoupSession *session;
++	GTlsDatabase *tlsdb;
+ 	char *cafile;
++	GError *error = NULL;
+ 
+ 	va_start (args, type);
+ 	propname = va_arg (args, const char *);
+@@ -236,10 +238,19 @@
+ 	va_end (args);
+ 
+ 	cafile = g_test_build_filename (G_TEST_DIST, "test-cert.pem", NULL);
++	tlsdb = g_tls_file_database_new (cafile, &error);
++	g_free (cafile);
++	if (error) {
++		if (g_strcmp0 (g_getenv ("GIO_USE_TLS"), "dummy") == 0)
++			g_clear_error (&error);
++		else
++			g_assert_no_error (error);
++	}
++
+ 	g_object_set (G_OBJECT (session),
+-		      SOUP_SESSION_SSL_CA_FILE, cafile,
++		      SOUP_SESSION_TLS_DATABASE, tlsdb,
+ 		      NULL);
+-	g_free (cafile);
++	g_clear_object (&tlsdb);
+ 
+ 	if (http_debug_level && !logger) {
+ 		SoupLoggerLogLevel level = MIN ((SoupLoggerLogLevel)http_debug_level, SOUP_LOGGER_LOG_BODY);
