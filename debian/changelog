@@ -1,3 +1,9 @@
+libsoup2.4 (2.48.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 23 Sep 2014 20:51:27 +0200
+
 libsoup2.4 (2.47.4-1) experimental; urgency=medium
 
   * New upstream release
