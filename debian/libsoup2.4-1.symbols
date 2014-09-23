@@ -110,7 +110,10 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_client_context_get_address@Base 2.4.0
  soup_client_context_get_auth_domain@Base 2.4.0
  soup_client_context_get_auth_user@Base 2.4.0
+ soup_client_context_get_gsocket@Base 2.47.4
  soup_client_context_get_host@Base 2.4.0
+ soup_client_context_get_local_address@Base 2.47.4
+ soup_client_context_get_remote_address@Base 2.47.4
  soup_client_context_get_socket@Base 2.4.0
  soup_client_context_get_type@Base 2.4.0
  soup_connection_state_get_type@Base 2.30.0
@@ -367,9 +370,17 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_server_disconnect@Base 2.33.92
  soup_server_get_async_context@Base 2.4.0
  soup_server_get_listener@Base 2.4.0
+ soup_server_get_listeners@Base 2.47.4
  soup_server_get_port@Base 2.4.0
  soup_server_get_type@Base 2.4.0
+ soup_server_get_uris@Base 2.47.4
  soup_server_is_https@Base 2.4.0
+ soup_server_listen@Base 2.47.4
+ soup_server_listen_all@Base 2.47.4
+ soup_server_listen_fd@Base 2.47.4
+ soup_server_listen_local@Base 2.47.4
+ soup_server_listen_options_get_type@Base 2.47.4
+ soup_server_listen_socket@Base 2.47.4
  soup_server_new@Base 2.4.0
  soup_server_pause_message@Base 2.4.0
  soup_server_quit@Base 2.4.0
