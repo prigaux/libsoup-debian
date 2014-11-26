@@ -388,6 +388,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_server_remove_handler@Base 2.4.0
  soup_server_run@Base 2.4.0
  soup_server_run_async@Base 2.4.0
+ soup_server_set_ssl_cert_file@Base 2.49.1
  soup_server_unpause_message@Base 2.4.0
  soup_session_abort@Base 2.4.0
  soup_session_add_feature@Base 2.24.3
