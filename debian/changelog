@@ -1,4 +1,4 @@
-libsoup2.4 (2.49.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.49.1-1) experimental; urgency=medium
 
   * debian/watch: Also consider unstable versions, for exp
   * New upstream release 2.49.1:
@@ -14,7 +14,7 @@ libsoup2.4 (2.49.1-1) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.6, no further changes required.
   * Add new symbol soup_server_set_ssl_cert_file exported in this version.
 
- -- Iain Lane <laney@debian.org>  Wed, 26 Nov 2014 11:10:08 +0000
+ -- Iain Lane <laney@debian.org>  Wed, 26 Nov 2014 11:25:57 +0000
 
 libsoup2.4 (2.48.0-1) unstable; urgency=medium
 
