@@ -1,6 +1,14 @@
-libsoup2.4 (2.48.0-2) UNRELEASED; urgency=medium
+libsoup2.4 (2.49.1-1) UNRELEASED; urgency=medium
 
   * debian/watch: Also consider unstable versions, for exp
+  * New upstream release 2.49.1:
+    + Fixed a bug in the SoupMessage:event signal that broke evolution's
+      ability to connect to https hosts with "bad" certificates.
+    + Fixed a case where the async codepaths could potentially block on a
+      synchronous write
+    + Fixed the symbol soup_server_set_ssl_cert_file() to get exported, and
+      added soup_server_get_uris() to the documentation.
+    + Improved a bunch of introspection annotations
 
  -- Iain Lane <laney@debian.org>  Wed, 26 Nov 2014 11:10:08 +0000
 
