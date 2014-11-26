@@ -9,6 +9,8 @@ libsoup2.4 (2.49.1-1) UNRELEASED; urgency=medium
     + Fixed the symbol soup_server_set_ssl_cert_file() to get exported, and
       added soup_server_get_uris() to the documentation.
     + Improved a bunch of introspection annotations
+  * Re-add change which was accidentally dropped: Use dh-autoreconf to update
+    for new ports.
 
  -- Iain Lane <laney@debian.org>  Wed, 26 Nov 2014 11:10:08 +0000
 
