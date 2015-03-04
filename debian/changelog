@@ -1,9 +1,9 @@
-libsoup2.4 (2.49.91.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.49.91.1-1) experimental; urgency=medium
 
   * New upstream release 2.49.91.1
   * Add new symbols for this release
 
- -- Iain Lane <laney@debian.org>  Wed, 04 Mar 2015 16:29:59 +0000
+ -- Iain Lane <laney@debian.org>  Wed, 04 Mar 2015 16:48:30 +0000
 
 libsoup2.4 (2.49.1-1) experimental; urgency=medium
 
