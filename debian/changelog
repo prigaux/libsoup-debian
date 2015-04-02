@@ -1,3 +1,10 @@
+libsoup2.4 (2.50.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release 2.50.0
+    + Updated translations
+
+ -- Iain Lane <laney@debian.org>  Thu, 02 Apr 2015 16:05:34 +0100
+
 libsoup2.4 (2.49.92-1) experimental; urgency=medium
 
   * New upstream release 2.49.92
