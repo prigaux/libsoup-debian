@@ -1,3 +1,43 @@
+libsoup2.4 (2.50.0-1) experimental; urgency=medium
+
+  * New upstream release 2.50.0
+    + Updated translations
+
+ -- Iain Lane <laney@debian.org>  Thu, 02 Apr 2015 16:59:34 +0100
+
+libsoup2.4 (2.49.92-1) experimental; urgency=medium
+
+  * New upstream release 2.49.92
+    + Fixed an NTLM problem that caused spurious "Authentication Failed"
+      errors in evolution-ews.
+
+ -- Iain Lane <laney@debian.org>  Wed, 18 Mar 2015 16:49:45 +0000
+
+libsoup2.4 (2.49.91.1-1) experimental; urgency=medium
+
+  * New upstream release 2.49.91.1
+  * Add new symbols for this release
+
+ -- Iain Lane <laney@debian.org>  Wed, 04 Mar 2015 16:48:30 +0000
+
+libsoup2.4 (2.49.1-1) experimental; urgency=medium
+
+  * debian/watch: Also consider unstable versions, for exp
+  * New upstream release 2.49.1:
+    + Fixed a bug in the SoupMessage:event signal that broke evolution's
+      ability to connect to https hosts with "bad" certificates.
+    + Fixed a case where the async codepaths could potentially block on a
+      synchronous write
+    + Fixed the symbol soup_server_set_ssl_cert_file() to get exported, and
+      added soup_server_get_uris() to the documentation.
+    + Improved a bunch of introspection annotations
+  * Re-add change which was accidentally dropped: Use dh-autoreconf to update
+    for new ports.
+  * Bump Standards-Version to 3.9.6, no further changes required.
+  * Add new symbol soup_server_set_ssl_cert_file exported in this version.
+
+ -- Iain Lane <laney@debian.org>  Wed, 26 Nov 2014 11:25:57 +0000
+
 libsoup2.4 (2.48.0-1) unstable; urgency=medium
 
   * New upstream release.
