@@ -1,8 +1,16 @@
-libsoup2.4 (2.50.0-3) UNRELEASED; urgency=medium
+libsoup2.4 (2.52.0-1) UNRELEASED; urgency=medium
 
+  [ Michael Biebl ]
   * Track stable releases in debian/watch.
 
- -- Michael Biebl <biebl@debian.org>  Tue, 30 Jun 2015 22:39:07 +0200
+  [ Andreas Henriksson ]
+  * New upstream release.
+  * Add valac build-dependency for vapigen
+    - soup now generates its own vapi
+  * libsoup2.4-dev: ship generated vala api libsoup-2.4.vapi
+  * Update debian/libsoup2.4-1.symbols with many additions.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 27 Sep 2015 10:46:08 +0200
 
 libsoup2.4 (2.50.0-2) unstable; urgency=medium
 

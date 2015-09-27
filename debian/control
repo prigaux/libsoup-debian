@@ -24,7 +24,8 @@ Build-Depends: debhelper (>= 9),
                dbus-x11,
                xvfb,
                xauth,
-               curl
+               curl,
+               valac
 Build-Depends-Indep: libglib2.0-doc
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/libsoup2.4
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/libsoup2.4
