@@ -1,6 +1,10 @@
-libsoup2.4 (2.52.0-2) UNRELEASED; urgency=medium
+libsoup2.4 (2.52.1-1) UNRELEASED; urgency=medium
 
+  [ Iain Lane ]
   * Run the testsuite verbosely to get info about failures
+
+  [ Michael Biebl ]
+  * New upstream release.
 
  -- Iain Lane <laney@debian.org>  Fri, 02 Oct 2015 12:57:39 +0100
 
