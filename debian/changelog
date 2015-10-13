@@ -1,4 +1,4 @@
-libsoup2.4 (2.52.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.52.1-1) unstable; urgency=medium
 
   [ Iain Lane ]
   * Run the testsuite verbosely to get info about failures
@@ -10,7 +10,7 @@ libsoup2.4 (2.52.1-1) UNRELEASED; urgency=medium
   [ Steven Chamberlain ]
   * Re-enable testsuite on non-Linux platforms.
 
- -- Iain Lane <laney@debian.org>  Fri, 02 Oct 2015 12:57:39 +0100
+ -- Michael Biebl <biebl@debian.org>  Tue, 13 Oct 2015 21:33:22 +0200
 
 libsoup2.4 (2.52.0-1) unstable; urgency=medium
 
