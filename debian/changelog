@@ -5,6 +5,7 @@ libsoup2.4 (2.52.1-1) UNRELEASED; urgency=medium
 
   [ Michael Biebl ]
   * New upstream release.
+  * Drop obsolete Conflicts and Replaces from pre-wheezy.
 
  -- Iain Lane <laney@debian.org>  Fri, 02 Oct 2015 12:57:39 +0100
 

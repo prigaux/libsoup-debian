@@ -36,7 +36,6 @@ Depends: ${misc:Depends},
          libglib2.0-dev (>= 2.35.0),
          libxml2-dev
 Suggests: libsoup2.4-doc
-Replaces: gir-repository-dev
 Description: HTTP library implementation in C -- Development files
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
@@ -157,7 +156,6 @@ Depends: ${misc:Depends},
          libsoup-gnome2.4-1 (= ${binary:Version}),
          libsoup2.4-dev (= ${binary:Version})
 Suggests: libsoup2.4-doc
-Replaces: gir-repository-dev (<< 0.6.5-7)
 Description: HTTP library implementation in C -- GNOME support development files
  It was originally part of a SOAP (Simple Object Access Protocol)
  implementation called Soup, but the SOAP and non-SOAP parts have now been
@@ -218,8 +216,6 @@ Depends: ${gir:Depends},
          ${shlibs:Depends},
          ${misc:Depends}
 Provides: gir1.2-soup-gnome-2.4
-Conflicts: gir1.0-soup-2.4,
-           gir1.0-soup-gnome-2.4
 Description: GObject introspection data for the libsoup HTTP library
  This package contains introspection data for the libsoup HTTP library.
  .
