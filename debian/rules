@@ -16,10 +16,6 @@ DEB_DH_MAKESHLIBS_ARGS_ALL += -V -- -c4
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
         --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
-# The test-suite currently fails on various architectures
-# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=663056
-# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=643906
-
 ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
 CHECK_HOME = $(CURDIR)/debian/tmp/home
 common-build-arch common-build-indep:: debian/stamp-makefile-check

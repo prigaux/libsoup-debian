@@ -1,6 +1,7 @@
 libsoup2.4 (2.52.2-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Remove outdated comment from debian/rules.
 
  -- Michael Biebl <biebl@debian.org>  Tue, 10 Nov 2015 23:00:38 +0100
 
