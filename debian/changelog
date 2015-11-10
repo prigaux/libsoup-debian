@@ -1,3 +1,9 @@
+libsoup2.4 (2.52.2-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 10 Nov 2015 23:00:38 +0100
+
 libsoup2.4 (2.52.1-1) unstable; urgency=medium
 
   [ Iain Lane ]
