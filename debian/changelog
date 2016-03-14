@@ -1,3 +1,44 @@
+libsoup2.4 (2.52.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Remove outdated comment from debian/rules.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 10 Nov 2015 23:13:41 +0100
+
+libsoup2.4 (2.52.1-1) unstable; urgency=medium
+
+  [ Iain Lane ]
+  * Run the testsuite verbosely to get info about failures
+
+  [ Michael Biebl ]
+  * New upstream release.
+  * Drop obsolete Conflicts and Replaces from pre-wheezy.
+
+  [ Steven Chamberlain ]
+  * Re-enable testsuite on non-Linux platforms.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 13 Oct 2015 21:33:22 +0200
+
+libsoup2.4 (2.52.0-1) unstable; urgency=medium
+
+  [ Michael Biebl ]
+  * Track stable releases in debian/watch.
+
+  [ Andreas Henriksson ]
+  * New upstream release.
+  * Add valac build-dependency for vapigen
+    - soup now generates its own vapi
+  * libsoup2.4-dev: ship generated vala api libsoup-2.4.vapi
+  * Update debian/libsoup2.4-1.symbols with many additions.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 27 Sep 2015 13:57:47 +0200
+
+libsoup2.4 (2.50.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 23 May 2015 14:14:30 +0200
+
 libsoup2.4 (2.50.0-1) experimental; urgency=medium
 
   * New upstream release 2.50.0
