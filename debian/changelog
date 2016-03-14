@@ -1,3 +1,12 @@
+libsoup2.4 (2.53.92-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 3.9.7
+  * Add heimdal-dev build-dependency to enable GSS-Negotiate support
+  * Update debian/libsoup2.4-1.symbols with three new additions
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 14 Mar 2016 21:02:06 +0100
+
 libsoup2.4 (2.52.2-1) unstable; urgency=medium
 
   * New upstream release.

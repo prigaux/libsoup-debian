@@ -46,6 +46,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_address_resolve_sync@Base 2.4.0
  soup_auth_authenticate@Base 2.4.0
  soup_auth_basic_get_type@Base 2.4.0
+ soup_auth_can_authenticate@Base 2.53.92
  soup_auth_digest_get_type@Base 2.4.0
  soup_auth_domain_accepts@Base 2.4.0
  soup_auth_domain_add_path@Base 2.4.0
@@ -81,6 +82,8 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_auth_is_ready@Base 2.41.90
  soup_auth_manager_get_type@Base 2.24.3
  soup_auth_manager_use_auth@Base 2.41.90
+ soup_auth_negotiate_get_type@Base 2.53.92
+ soup_auth_negotiate_supported@Base 2.53.92
  soup_auth_new@Base 2.4.0
  soup_auth_ntlm_get_type@Base 2.4.0
  soup_auth_save_password@Base 2.28.0
