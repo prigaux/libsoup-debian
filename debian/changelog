@@ -1,6 +1,9 @@
 libsoup2.4 (2.54.0.1-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Drop libsoup2.4-dbg package now that we have automatic dbgsym packages.
+  * Ensure proper upgrade from libsoup2.4-dbg to new dbgsym packages by using
+    dh_strip --dbgsym-migration. Bump Build-Depends on debhelper accordingly.
 
  -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 01:40:30 +0200
 

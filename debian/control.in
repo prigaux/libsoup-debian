@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 9.20160114),
                dh-autoreconf,
                cdbs (>= 0.4.93~),
                gnome-pkg-tools,
@@ -88,34 +88,6 @@ Description: HTTP library implementation in C -- Shared library
   * Basic client-side SOAP and XML-RPC support
  .
  This package contains the shared library.
-
-Package: libsoup2.4-dbg
-Section: debug
-Priority: extra
-Architecture: any
-Depends: libsoup2.4-1 (= ${binary:Version}),
-         ${misc:Depends}
-Description: HTTP library implementation in C -- debugging symbols
- It was originally part of a SOAP (Simple Object Access Protocol)
- implementation called Soup, but the SOAP and non-SOAP parts have now been
- split into separate packages.
- .
- libsoup uses the Glib main loop and is designed to work well with GTK+
- applications.  This enables GNOME applications to access HTTP servers
- on the network in a completely asynchronous fashion, very similar to
- the GTK+ programming model (a synchronous operation mode is also
- supported for those who want it).
- .
- Features:
-  * Both asynchronous (GMainLoop and callback-based) and synchronous APIs
-  * Automatically caches connections
-  * SSL Support using GnuTLS.
-  * Proxy support, including authentication and SSL tunneling
-  * Client support for Digest, NTLM, and Basic authentication
-  * Server support for Digest and Basic authentication
-  * Basic client-side SOAP and XML-RPC support
- .
- This package contains the debugging symbols.
 
 Package: libsoup-gnome2.4-1
 Section: libs
