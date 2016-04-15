@@ -13,7 +13,7 @@ GNOME_MODULE := libsoup
 
 DEB_DH_MAKESHLIBS_ARGS_ALL += -V -- -c4
 
-DEB_DH_STRIP_ARGS = --dbgsym-migration='libsoup2.4-dbg (<< 2.52.0.1-1~)'
+DEB_DH_STRIP_ARGS = --dbgsym-migration='libsoup2.4-dbg (<< 2.54.0.1-1~)'
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
         --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
