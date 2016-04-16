@@ -5,6 +5,8 @@ libsoup2.4 (2.54.0.1-1) UNRELEASED; urgency=medium
   * Ensure proper upgrade from libsoup2.4-dbg to new dbgsym packages by using
     dh_strip --dbgsym-migration. Bump Build-Depends on debhelper accordingly.
   * Add Homepage: field.
+  * Use dbus-run-session to run the test suite and drop the no longer needed
+    Build-Depends on xvfb, xauth and dbus-x11.
 
  -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 01:40:30 +0200
 
