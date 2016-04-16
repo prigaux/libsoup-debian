@@ -1,4 +1,4 @@
-libsoup2.4 (2.54.0.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.54.0.1-1) unstable; urgency=medium
 
   * New upstream release.
   * Drop libsoup2.4-dbg package now that we have automatic dbgsym packages.
@@ -10,7 +10,7 @@ libsoup2.4 (2.54.0.1-1) UNRELEASED; urgency=medium
   * Switch from heimdal to krb5, which appears to be the more widely used
     Kerberos implementation.
 
- -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 01:40:30 +0200
+ -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 03:36:35 +0200
 
 libsoup2.4 (2.53.92-1) experimental; urgency=medium
 
