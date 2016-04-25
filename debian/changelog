@@ -1,9 +1,9 @@
-libsoup2.4 (2.54.0.1-2) UNRELEASED; urgency=medium
+libsoup2.4 (2.54.0.1-2) unstable; urgency=medium
 
   * Fix SoupAuthClass size to undo ABI break with 2.54.0. Patch cherry-picked
     from upstream Git. (Closes: #821274)
 
- -- Michael Biebl <biebl@debian.org>  Mon, 25 Apr 2016 18:28:54 +0200
+ -- Michael Biebl <biebl@debian.org>  Mon, 25 Apr 2016 18:35:49 +0200
 
 libsoup2.4 (2.54.0.1-1) unstable; urgency=medium
 
