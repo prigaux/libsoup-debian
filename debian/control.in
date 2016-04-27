@@ -24,7 +24,7 @@ Build-Depends-Indep: libglib2.0-doc
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/libsoup2.4
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/libsoup2.4
 Homepage: https://wiki.gnome.org/Projects/libsoup
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 
 Package: libsoup2.4-dev
 Architecture: any
