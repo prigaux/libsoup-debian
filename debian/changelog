@@ -1,3 +1,10 @@
+libsoup2.4 (2.54.1-1~test) UNRELEASED; urgency=medium
+
+  * New upstream release. Really closes: #821274, the previous upload was
+    actually missing the patch.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 27 Apr 2016 13:47:58 +0200
+
 libsoup2.4 (2.54.0.1-2) unstable; urgency=medium
 
   * Fix SoupAuthClass size to undo ABI break with 2.54.0. Patch cherry-picked
