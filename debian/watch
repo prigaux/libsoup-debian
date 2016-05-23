@@ -1,3 +1,3 @@
-version=3
-http://ftp.gnome.org/pub/GNOME/sources/libsoup/([\d\.]+[02468])/libsoup-(.*)\.tar\.xz
-
+version=4
+https://download.gnome.org/sources/libsoup/([\d\.]+[02468])/ \
+	libsoup@ANY_VERSION@\.tar\.xz
