@@ -1,3 +1,9 @@
+libsoup2.4 (2.55.90-1) UNRELEASED; urgency=medium
+
+  * New upstream beta release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 01 Sep 2016 13:45:24 +0200
+
 libsoup2.4 (2.54.1-1) unstable; urgency=medium
 
   * New upstream release. Really closes: #821274, the previous upload was
