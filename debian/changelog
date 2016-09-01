@@ -1,11 +1,11 @@
-libsoup2.4 (2.55.90-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.55.90-1) unstable; urgency=medium
 
   * New upstream beta release.
   * Convert from cdbs to dh.
   * Enable all hardening build flags.
   * Pass --as-needed to the linker to avoid unnecessary shlibs dependencies.
 
- -- Michael Biebl <biebl@debian.org>  Thu, 01 Sep 2016 13:45:24 +0200
+ -- Michael Biebl <biebl@debian.org>  Thu, 01 Sep 2016 14:30:33 +0200
 
 libsoup2.4 (2.54.1-1) unstable; urgency=medium
 
