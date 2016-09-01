@@ -1,6 +1,7 @@
 libsoup2.4 (2.55.90-1) UNRELEASED; urgency=medium
 
   * New upstream beta release.
+  * Convert from cdbs to dh.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 01 Sep 2016 13:45:24 +0200
 

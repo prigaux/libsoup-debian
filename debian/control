@@ -9,7 +9,6 @@ Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.
 Uploaders: Andreas Henriksson <andreas@fatal.se>, Emilio Pozuelo Monfort <pochu@debian.org>, Iain Lane <laney@debian.org>, Michael Biebl <biebl@debian.org>
 Build-Depends: debhelper (>= 9.20160114),
                dh-autoreconf,
-               cdbs (>= 0.4.93~),
                gnome-pkg-tools,
                intltool (>= 0.35.0),
                libglib2.0-dev (>= 2.39.90),
