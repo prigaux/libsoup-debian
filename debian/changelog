@@ -4,6 +4,7 @@ libsoup2.4 (2.56.0-1) UNRELEASED; urgency=medium
   * Install typelib files into multiarch paths.
   * Mark gir1.2-soup-2.4, libsoup2.4-dev and libsoup-gnome2.4-dev as
     Multi-Arch: same and libsoup2.4-doc as Multi-Arch: foreign.
+  * Bump debhelper compat level to 10.
 
  -- Michael Biebl <biebl@debian.org>  Mon, 19 Sep 2016 19:13:02 +0200
 
