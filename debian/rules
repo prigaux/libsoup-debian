@@ -28,6 +28,6 @@ CHECK_HOME = $(CURDIR)/debian/tmp/home
 override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	mkdir -p $(CHECK_HOME)
-	env HOME=$(CHECK_HOME) XDG_RUNTIME_DIR=$(CHECK_HOME) dbus-run-session -- $(MAKE) check VERBOSE=1
+	env XDG_RUNTIME_DIR=$(CHECK_HOME) dbus-run-session -- $(MAKE) check VERBOSE=1
 endif
 
