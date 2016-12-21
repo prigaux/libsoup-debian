@@ -1,12 +1,12 @@
-libsoup2.4 (2.56.0-2) UNRELEASED; urgency=medium
+libsoup2.4 (2.56.0-2) unstable; urgency=medium
 
-  [ Simon McVittie ]
+  * Team upload
   * Add patches from upstream 2.57.1 to make freeing a SoupSession
     thread-safe, fixing one of several root causes of ostree test
     failures (see #827473 and
     https://github.com/ostreedev/ostree/issues/601).
 
- -- Michael Biebl <biebl@debian.org>  Mon, 19 Sep 2016 19:53:11 +0200
+ -- Simon McVittie <smcv@debian.org>  Wed, 21 Dec 2016 17:10:16 +0000
 
 libsoup2.4 (2.56.0-1) unstable; urgency=medium
 
