@@ -1,11 +1,11 @@
-libsoup2.4 (2.56.1-1) UNRELEASED; urgency=high
+libsoup2.4 (2.56.1-1) unstable; urgency=high
 
   * New upstream release.
     + CVE-2017-2885: Fixed a chunked decoding buffer overrun that
       could be exploited against either clients or servers.
       Closes: #871650.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 10 Aug 2017 18:27:43 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 10 Aug 2017 18:29:43 +0200
 
 libsoup2.4 (2.56.0-2) unstable; urgency=medium
 
