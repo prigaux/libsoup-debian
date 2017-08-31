@@ -6,7 +6,7 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Andreas Henriksson <andreas@fatal.se>, Emilio Pozuelo Monfort <pochu@debian.org>, Michael Biebl <biebl@debian.org>
+Uploaders: Andreas Henriksson <andreas@fatal.se>, Emilio Pozuelo Monfort <pochu@debian.org>, Jeremy Bicha <jbicha@debian.org>, Michael Biebl <biebl@debian.org>
 Build-Depends: debhelper (>= 10),
                gnome-pkg-tools,
                intltool (>= 0.35.0),
@@ -19,6 +19,8 @@ Build-Depends: debhelper (>= 10),
                shared-mime-info,
                libgirepository1.0-dev (>= 0.9.5),
                gobject-introspection (>= 0.9.12-4~),
+               apache2 (>= 2.4) <!nocheck>,
+               php-xmlrpc <!nocheck>,
                dbus,
                curl,
                valac
