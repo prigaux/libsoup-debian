@@ -1,6 +1,7 @@
 libsoup2.4 (2.59.90.1-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * Drop all patches, applied in new release
 
  -- Jeremy Bicha <jbicha@debian.org>  Wed, 30 Aug 2017 20:31:30 -0400
 
