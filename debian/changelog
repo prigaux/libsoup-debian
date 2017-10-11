@@ -1,9 +1,9 @@
-libsoup2.4 (2.60.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.60.1-1) unstable; urgency=medium
 
   * New upstream release (LP: #1717216)
   * Bump Standards-Version to 4.1.1
 
- -- Jeremy Bicha <jbicha@debian.org>  Wed, 11 Oct 2017 10:09:30 -0400
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 11 Oct 2017 10:12:43 -0400
 
 libsoup2.4 (2.60.0-1) unstable; urgency=medium
 
