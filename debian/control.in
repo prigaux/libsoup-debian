@@ -190,7 +190,7 @@ Multi-Arch: same
 Depends: ${gir:Depends},
          ${shlibs:Depends},
          ${misc:Depends}
-Provides: gir1.2-soup-gnome-2.4
+Provides: gir1.2-soupgnome-2.4 (= ${binary:Version})
 Description: GObject introspection data for the libsoup HTTP library
  This package contains introspection data for the libsoup HTTP library.
  .
