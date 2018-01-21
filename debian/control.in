@@ -21,10 +21,10 @@ Build-Depends: debhelper (>= 11),
                curl,
                valac
 Build-Depends-Indep: libglib2.0-doc
-Vcs-Git: https://anonscm.debian.org/git/pkg-gnome/libsoup.git
-Vcs-Browser: https://anonscm.debian.org/git/pkg-gnome/libsoup.git
-Homepage: https://wiki.gnome.org/Projects/libsoup
 Standards-Version: 4.1.2
+Vcs-Browser: https://salsa.debian.org/gnome-team/libsoup
+Vcs-Git: https://salsa.debian.org/gnome-team/libsoup.git
+Homepage: https://wiki.gnome.org/Projects/libsoup
 
 Package: libsoup2.4-dev
 Section: libdevel

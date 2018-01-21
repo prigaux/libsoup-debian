@@ -1,3 +1,9 @@
+libsoup2.4 (2.60.2-3) UNRELEASED; urgency=medium
+
+  * Update Vcs fields for migration to https://salsa.debian.org/
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 21 Jan 2018 09:15:39 -0500
+
 libsoup2.4 (2.60.2-2) unstable; urgency=medium
 
   [ Simon McVittie ]
