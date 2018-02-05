@@ -412,6 +412,8 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_session_async_new@Base 2.4.0
  soup_session_async_new_with_options@Base 2.4.0
  soup_session_cancel_message@Base 2.4.0
+ soup_session_connect_async@Base 2.61.90
+ soup_session_connect_finish@Base 2.61.90
  soup_session_feature_add_feature@Base 2.33.92
  soup_session_feature_attach@Base 2.24.3
  soup_session_feature_detach@Base 2.24.3
