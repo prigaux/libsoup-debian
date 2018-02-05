@@ -1,9 +1,9 @@
-libsoup2.4 (2.61.90-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.61.90-1) experimental; urgency=medium
 
   * New upstream release
   * debian/libsoup2.4-1.symbols: Add new symbols
 
- -- Jeremy Bicha <jbicha@debian.org>  Mon, 05 Feb 2018 12:32:53 -0500
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 05 Feb 2018 12:42:17 -0500
 
 libsoup2.4 (2.60.3-1) unstable; urgency=medium
 
