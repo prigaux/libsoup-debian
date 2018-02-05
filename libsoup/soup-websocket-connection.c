@@ -96,11 +96,18 @@ enum {
 
 static guint signals[NUM_SIGNALS] = { 0, };
 
+typedef enum {
+	SOUP_WEBSOCKET_QUEUE_NORMAL = 0,
+	SOUP_WEBSOCKET_QUEUE_URGENT = 1 << 0,
+	SOUP_WEBSOCKET_QUEUE_LAST = 1 << 1,
+} SoupWebsocketQueueFlags;
+
 typedef struct {
 	GBytes *data;
-	gboolean last;
 	gsize sent;
 	gsize amount;
+	SoupWebsocketQueueFlags flags;
+	gboolean pending;
 } Frame;
 
 struct _SoupWebsocketConnectionPrivate {
@@ -143,14 +150,10 @@ struct _SoupWebsocketConnectionPrivate {
 
 G_DEFINE_TYPE_WITH_PRIVATE (SoupWebsocketConnection, soup_websocket_connection, G_TYPE_OBJECT)
 
-typedef enum {
-	SOUP_WEBSOCKET_QUEUE_NORMAL = 0,
-	SOUP_WEBSOCKET_QUEUE_URGENT = 1 << 0,
-	SOUP_WEBSOCKET_QUEUE_LAST = 1 << 1,
-} SoupWebsocketQueueFlags;
-
 static void queue_frame (SoupWebsocketConnection *self, SoupWebsocketQueueFlags flags,
 			 gpointer data, gsize len, gsize amount);
+
+static void protocol_error_and_close (SoupWebsocketConnection *self);
 
 static void
 frame_free (gpointer data)
@@ -358,11 +361,12 @@ send_message (SoupWebsocketConnection *self,
 	outer = bytes->data;
 	outer[0] = 0x80 | opcode;
 
-	/* If control message, truncate payload */
+	/* If control message, check payload size */
 	if (opcode & 0x08) {
 		if (length > 125) {
-			g_warning ("Truncating WebSocket control message payload");
-			length = 125;
+			g_warning ("WebSocket control message payload exceeds size limit");
+			protocol_error_and_close (self);
+			return;
 		}
 
 		buffered_amount = 0;
@@ -574,7 +578,11 @@ close_connection (SoupWebsocketConnection *self,
 		}
 		break;
 	default:
-		g_debug ("Wrong closing code %d received", code);
+		if (code < 3000) {
+			g_debug ("Wrong closing code %d received", code);
+			protocol_error_and_close (self);
+			return;
+		}
 	}
 
 	g_signal_emit (self, signals[CLOSING], 0);
@@ -601,17 +609,32 @@ receive_close (SoupWebsocketConnection *self,
 	pv->peer_close_data = NULL;
 	pv->close_received = TRUE;
 
-	/* Store the code/data payload */
-	if (len >= 2) {
+	switch (len) {
+	case 0:
+		/* Send a clean close when having an empty payload */
+		close_connection (self, 1000, NULL);
+		return;
+	case 1:
+		/* Send a protocol error since the close code is incomplete */
+		protocol_error_and_close (self);
+		return;
+	default:
+		/* Store the code/data payload */
 		pv->peer_close_code = (guint16)data[0] << 8 | data[1];
+		break;
 	}
+
 	if (len > 2) {
 		data += 2;
 		len -= 2;
-		if (g_utf8_validate ((char *)data, len, NULL))
-			pv->peer_close_data = g_strndup ((char *)data, len);
-		else
+		
+		if (!g_utf8_validate ((char *)data, len, NULL)) {
 			g_debug ("received non-UTF8 close data: %d '%.*s' %d", (int)len, (int)len, (char *)data, (int)data[0]);
+			protocol_error_and_close (self);
+			return;
+		}
+
+		pv->peer_close_data = g_strndup ((char *)data, len);
 	}
 
 	/* Once we receive close response on server, close immediately */
@@ -620,7 +643,7 @@ receive_close (SoupWebsocketConnection *self,
 		if (pv->connection_type == SOUP_WEBSOCKET_CONNECTION_SERVER)
 			close_io_stream (self);
 	} else {
-		close_connection (self, pv->peer_close_code, NULL);
+		close_connection (self, pv->peer_close_code, pv->peer_close_data);
 	}
 }
 
@@ -688,7 +711,8 @@ process_contents (SoupWebsocketConnection *self,
 			break;
 		default:
 			g_debug ("received unsupported control frame: %d", (int)opcode);
-			break;
+			protocol_error_and_close (self);
+			return;
 		}
 	} else if (pv->close_received) {
 		g_debug ("received message after close was received");
@@ -737,7 +761,22 @@ process_contents (SoupWebsocketConnection *self,
 
 		switch (pv->message_opcode) {
 		case 0x01:
-			if (!g_utf8_validate ((char *)payload, payload_len, NULL)) {
+		case 0x02:
+			g_byte_array_append (pv->message_data, payload, payload_len);
+			break;
+		default:
+			g_debug ("received unknown data frame: %d", (int)opcode);
+			protocol_error_and_close (self);
+			return;
+		}
+
+		/* Actually deliver the message? */
+		if (fin) {
+			if (pv->message_opcode == 0x01 &&
+			    !g_utf8_validate((char *)pv->message_data->data,
+			                     pv->message_data->len,
+			                     NULL)) {
+
 				g_debug ("received invalid non-UTF8 text data");
 
 				/* Discard the entire message */
@@ -748,17 +787,7 @@ process_contents (SoupWebsocketConnection *self,
 				bad_data_error_and_close (self);
 				return;
 			}
-			/* fall through */
-		case 0x02:
-			g_byte_array_append (pv->message_data, payload, payload_len);
-			break;
-		default:
-			g_debug ("received unknown data frame: %d", (int)opcode);
-			break;
-		}
 
-		/* Actually deliver the message? */
-		if (fin) {
 			/* Always null terminate, as a convenience */
 			g_byte_array_append (pv->message_data, (guchar *)"\0", 1);
 
@@ -800,6 +829,11 @@ process_frame (SoupWebsocketConnection *self)
 	control = header[0] & 0x08;
 	opcode = header[0] & 0x0f;
 	masked = ((header[1] & 0x80) != 0);
+
+	/* We do not support extensions, reserved bits must be 0 */
+	if (header[0] & 0x70) {
+		protocol_error_and_close (self);
+	}
 
 	switch (header[1] & 0x7f) {
 	case 126:
@@ -957,6 +991,9 @@ on_web_socket_output (GObject *pollable_stream,
 		if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_WOULD_BLOCK)) {
 			g_clear_error (&error);
 			count = 0;
+
+			g_debug ("failed to send frame because it would block, marking as pending");
+			frame->pending = TRUE;
 		} else {
 			emit_error_and_close (self, error, TRUE);
 			return FALSE;
@@ -968,7 +1005,7 @@ on_web_socket_output (GObject *pollable_stream,
 		g_debug ("sent frame");
 		g_queue_pop_head (&pv->outgoing);
 
-		if (frame->last) {
+		if (frame->flags & SOUP_WEBSOCKET_QUEUE_LAST) {
 			if (pv->connection_type == SOUP_WEBSOCKET_CONNECTION_SERVER) {
 				close_io_stream (self);
 			} else {
@@ -1005,7 +1042,6 @@ queue_frame (SoupWebsocketConnection *self,
 {
 	SoupWebsocketConnectionPrivate *pv = self->pv;
 	Frame *frame;
-	Frame *prev;
 
 	g_return_if_fail (SOUP_IS_WEBSOCKET_CONNECTION (self));
 	g_return_if_fail (pv->close_sent == FALSE);
@@ -1015,21 +1051,22 @@ queue_frame (SoupWebsocketConnection *self,
 	frame = g_slice_new0 (Frame);
 	frame->data = g_bytes_new_take (data, len);
 	frame->amount = amount;
-	frame->last = (flags & SOUP_WEBSOCKET_QUEUE_LAST) ? TRUE : FALSE;
+	frame->flags = flags;
 
 	/* If urgent put at front of queue */
 	if (flags & SOUP_WEBSOCKET_QUEUE_URGENT) {
-		/* But we can't interrupt a message already partially sent */
-		prev = g_queue_pop_head (&pv->outgoing);
-		if (prev == NULL) {
-			g_queue_push_head (&pv->outgoing, frame);
-		} else if (prev->sent > 0) {
-			g_queue_push_head (&pv->outgoing, frame);
-			g_queue_push_head (&pv->outgoing, prev);
-		} else {
-			g_queue_push_head (&pv->outgoing, prev);
-			g_queue_push_head (&pv->outgoing, frame);
+		GList *l;
+
+		/* Find out the first frame that is not urgent or partially sent or pending */
+		for (l = g_queue_peek_head_link (&pv->outgoing); l != NULL; l = l->next) {
+			Frame *prev = l->data;
+
+			if (!(prev->flags & SOUP_WEBSOCKET_QUEUE_URGENT) &&
+			    prev->sent == 0 && !prev->pending)
+				break;
 		}
+
+		g_queue_insert_before (&pv->outgoing, l, frame);
 	} else {
 		g_queue_push_tail (&pv->outgoing, frame);
 	}
