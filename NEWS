@@ -1,13 +1,34 @@
-Changes in libsoup from 2.60.2 to 2.60.3:
+Changes in libsoup from 2.61.2 to 2.61.90:
 
-	* heap-buffer-overflow in soup_ntlm_parse_challenge()
-	  [#788037, Milan Crha]
+	* Various improvements to the WebSocket implementation
+          [#792113, Italo Guerrieri]
+
+	 * cookie-jar: use base domain to decide if cookie is third party
+	  [#792130, Michael Catanzaro]
+
+	 * Add new API to create a new connection from a SoupSession
+	  [#792212, Carlos Garcia Campos]
+
+	 * soup-headers: accept any 3 digit number as message status code
+	  [#792124, Carlos Garcia Campos]
+
+Changes in libsoup from 2.61.1 to 2.61.2:
 
 	* session: don't request Keep-Alive for upgraded connections
 	  [#788723, Lionel Landwerlin]
 
-        * soup-headers: accept any 3 digit number as message status code
-	  [#792124, Carlos Garcia Campos]
+Changes in libsoup from 2.60.2 to 2.61.1:
+
+	* tld-parser: use Python 3 [#785735, Ross Burton]
+
+	* Fix heap-buffer-overflow in soup_ntlm_parse_challenge()
+	  [#788037, Milan Crha]
+
+	* Fix possibly uninitialized value in ssl-test
+	  [Tomas Popela]
+
+	* SoupCache: fix the timestamp for responses [#791031,
+	  Claudio Saavedra]
 
 Changes in libsoup from 2.60.1 to 2.60.2:
 

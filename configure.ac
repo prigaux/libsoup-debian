@@ -3,8 +3,8 @@ dnl *** Initialize automake and set version ***
 dnl *******************************************
 
 m4_define([soup_major_version], [2])
-m4_define([soup_minor_version], [60])
-m4_define([soup_micro_version], [3])
+m4_define([soup_minor_version], [61])
+m4_define([soup_micro_version], [90])
 
 AC_PREREQ(2.63)
 AC_INIT([libsoup],[soup_major_version.soup_minor_version.soup_micro_version],[http://bugzilla.gnome.org/enter_bug.cgi?product=libsoup])
@@ -377,7 +377,7 @@ case "$host" in
         SAVED_CFLAGS="${CFLAGS}"
         CFLAGS="-fvisibility=hidden"
         AC_MSG_CHECKING([for -fvisibility=hidden compiler flag])
-        AC_TRY_COMPILE([], [int main (void) { return 0; }],
+        AC_TRY_COMPILE([], [return 0],
                        AC_MSG_RESULT(yes)
                        enable_fvisibility_hidden=yes,
                        AC_MSG_RESULT(no)
