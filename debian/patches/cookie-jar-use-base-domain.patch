@@ -1,0 +1,165 @@
+From: Michael Catanzaro <mcatanzaro@igalia.com>
+Date: Tue, 9 Jan 2018 14:37:42 -0600
+Subject: cookie-jar: use base domain to decide if cookie is third party
+
+Our third-party cookie blocking is too strict. Safari is the only major
+browser that blocks third-party cookies by default, so the only way for
+SOUP_COOKIE_JAR_ACCEPT_NO_THIRD_PARTY to be web compatible is for it to
+match Safari as closely as possible. And Safari does not appear to
+consider the full domain when deciding whether to block a third-party
+cookie, it only considers the base domain. Reports indicate that Firefox
+and Chrome behave similarly if the user chooses to block third-party
+cookies in those browsers.
+
+This fixes, in particular, notifications on google.com domains.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=792130
+---
+ libsoup/soup-cookie-jar.c | 38 +++++++++++++++++++++++++++++---
+ tests/cookies-test.c      | 56 +++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 91 insertions(+), 3 deletions(-)
+
+diff --git a/libsoup/soup-cookie-jar.c b/libsoup/soup-cookie-jar.c
+index 41b614a..2369c8a 100644
+--- a/libsoup/soup-cookie-jar.c
++++ b/libsoup/soup-cookie-jar.c
+@@ -12,6 +12,7 @@
+ #include <string.h>
+ 
+ #include "soup-cookie-jar.h"
++#include "soup-misc-private.h"
+ #include "soup.h"
+ 
+ /**
+@@ -509,6 +510,38 @@ soup_cookie_jar_add_cookie (SoupCookieJar *jar, SoupCookie *cookie)
+ 	soup_cookie_jar_changed (jar, NULL, cookie);
+ }
+ 
++static const char *
++normalize_cookie_domain (const char *domain)
++{
++	/* Trim any leading dot if present to transform the cookie
++         * domain into a valid hostname.
++         */
++	if (domain != NULL && domain[0] == '.')
++		return domain + 1;
++	return domain;
++}
++
++static gboolean
++incoming_cookie_is_third_party (SoupCookie *cookie, SoupURI *first_party)
++{
++	const char *normalized_cookie_domain;
++	const char *cookie_base_domain;
++	const char *first_party_base_domain;
++
++	if (first_party == NULL || first_party->host == NULL)
++		return TRUE;
++
++	normalized_cookie_domain = normalize_cookie_domain (cookie->domain);
++	cookie_base_domain = soup_tld_get_base_domain (normalized_cookie_domain, NULL);
++	if (cookie_base_domain == NULL)
++		cookie_base_domain = cookie->domain;
++
++	first_party_base_domain = soup_tld_get_base_domain (first_party->host, NULL);
++	if (first_party_base_domain == NULL)
++		first_party_base_domain = first_party->host;
++	return !soup_host_matches_host (cookie_base_domain, first_party_base_domain);
++}
++
+ /**
+  * soup_cookie_jar_add_cookie_with_first_party:
+  * @jar: a #SoupCookieJar
+@@ -542,7 +575,7 @@ soup_cookie_jar_add_cookie_with_first_party (SoupCookieJar *jar, SoupURI *first_
+ 	}
+ 
+ 	if (priv->accept_policy == SOUP_COOKIE_JAR_ACCEPT_ALWAYS ||
+-	    soup_cookie_domain_matches (cookie, first_party->host)) {
++	    !incoming_cookie_is_third_party (cookie, first_party)) {
+ 		/* will steal or free soup_cookie */
+ 		soup_cookie_jar_add_cookie (jar, cookie);
+ 	} else {
+@@ -644,8 +677,7 @@ process_set_cookie_header (SoupMessage *msg, gpointer user_data)
+ 		SoupURI *first_party = soup_message_get_first_party (msg);
+ 		
+ 		if ((priv->accept_policy == SOUP_COOKIE_JAR_ACCEPT_NO_THIRD_PARTY &&
+-		     first_party != NULL && first_party->host &&
+-		     soup_cookie_domain_matches (nc->data, first_party->host)) ||
++		     !incoming_cookie_is_third_party (nc->data, first_party)) ||
+ 		    priv->accept_policy == SOUP_COOKIE_JAR_ACCEPT_ALWAYS)
+ 			soup_cookie_jar_add_cookie (jar, nc->data);
+ 		else
+diff --git a/tests/cookies-test.c b/tests/cookies-test.c
+index 479bcfe..8735964 100644
+--- a/tests/cookies-test.c
++++ b/tests/cookies-test.c
+@@ -94,6 +94,61 @@ do_cookies_accept_policy_test (void)
+ 	soup_test_session_abort_unref (session);
+ }
+ 
++static void
++do_cookies_subdomain_policy_test (void)
++{
++	SoupCookieJar *jar;
++	GSList *cookies;
++	SoupURI *uri1;
++	SoupURI *uri2;
++
++	g_test_bug ("792130");
++
++	/* Only the base domain should be considered when deciding
++	 * whether a cookie is a third-party cookie.
++	 */
++	uri1 = soup_uri_new ("https://www.gnome.org");
++	uri2 = soup_uri_new ("https://foundation.gnome.org");
++
++	/* We can't check subdomains with a test server running on
++	 * localhost, so we'll just check the cookie jar API itself.
++	 */
++
++	/* Cookie should be accepted. One cookie in the jar. */
++	jar = soup_cookie_jar_new ();
++	soup_cookie_jar_set_accept_policy (jar, SOUP_COOKIE_JAR_ACCEPT_NO_THIRD_PARTY);
++	soup_cookie_jar_set_cookie_with_first_party (jar, uri1, uri2, "1=foo");
++	cookies = soup_cookie_jar_all_cookies (jar);
++	g_assert_cmpint (g_slist_length (cookies), ==, 1);
++	g_slist_free_full (cookies, (GDestroyNotify)soup_cookie_free);
++
++	/* Cookie should be accepted. Two cookies in the jar. */
++	soup_cookie_jar_set_cookie_with_first_party (jar, uri2, uri1, "2=foo");
++	cookies = soup_cookie_jar_all_cookies (jar);
++	g_assert_cmpint (g_slist_length (cookies), ==, 2);
++	g_slist_free_full (cookies, (GDestroyNotify)soup_cookie_free);
++
++	/* Third-party cookie should be rejected, so there are still
++	 * only two cookies in the jar.
++	 */
++	soup_cookie_jar_set_cookie_with_first_party (jar, third_party_uri, uri1, "3=foo");
++	cookies = soup_cookie_jar_all_cookies (jar);
++	g_assert_cmpint (g_slist_length (cookies), ==, 2);
++	g_slist_free_full (cookies, (GDestroyNotify)soup_cookie_free);
++
++	/* A leading dot in the domain property should not affect things.
++	 * This cookie should be accepted. Three cookies in the jar.
++	 */
++	soup_cookie_jar_set_cookie_with_first_party (jar, uri1, uri1, "4=foo; Domain=.www.gnome.org");
++	cookies = soup_cookie_jar_all_cookies (jar);
++	g_assert_cmpint (g_slist_length (cookies), ==, 3);
++	g_slist_free_full (cookies, (GDestroyNotify)soup_cookie_free);
++
++	soup_uri_free (uri1);
++	soup_uri_free (uri2);
++	g_object_unref (jar);
++}
++
+ /* FIXME: moar tests! */
+ static void
+ do_cookies_parsing_test (void)
+@@ -182,6 +237,7 @@ main (int argc, char **argv)
+ 	soup_uri_set_port (third_party_uri, server_uri->port);
+ 
+ 	g_test_add_func ("/cookies/accept-policy", do_cookies_accept_policy_test);
++	g_test_add_func ("/cookies/accept-policy-subdomains", do_cookies_subdomain_policy_test);
+ 	g_test_add_func ("/cookies/parsing", do_cookies_parsing_test);
+ 
+ 	ret = g_test_run ();

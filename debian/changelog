@@ -2,6 +2,8 @@ libsoup2.4 (2.62.0-1) UNRELEASED; urgency=medium
 
   * New upstream release
   * Release to unstable
+  * Add cookie-jar-use-base-domain.patch:
+    - proposed patch to treat cookies from the base domain as first party
 
  -- Jeremy Bicha <jbicha@debian.org>  Mon, 12 Mar 2018 14:23:05 -0400
 
