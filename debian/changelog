@@ -1,3 +1,10 @@
+libsoup2.4 (2.62.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+  * Release to unstable
+
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 12 Mar 2018 14:23:05 -0400
+
 libsoup2.4 (2.61.90-1) experimental; urgency=medium
 
   * New upstream release
