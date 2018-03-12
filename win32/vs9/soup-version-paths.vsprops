@@ -22,11 +22,11 @@
 	/>
 	<UserMacro
 		Name="SoupMinorVersion"
-		Value="61"
+		Value="62"
 	/>
 	<UserMacro
 		Name="SoupMicroVersion"
-		Value="90"
+		Value="0"
 	/>
 	<UserMacro
 		Name="ApiVersion"

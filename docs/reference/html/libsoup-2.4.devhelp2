@@ -503,6 +503,9 @@
     <keyword type="function" name="soup_session_get_feature_for_message ()" link="SoupSession.html#soup-session-get-feature-for-message" since="2.28"/>
     <keyword type="function" name="soup_session_has_feature ()" link="SoupSession.html#soup-session-has-feature" since="2.42"/>
     <keyword type="function" name="soup_session_steal_connection ()" link="SoupSession.html#soup-session-steal-connection" since="2.50"/>
+    <keyword type="function" name="SoupSessionConnectProgressCallback ()" link="SoupSession.html#SoupSessionConnectProgressCallback" since="2.62"/>
+    <keyword type="function" name="soup_session_connect_async ()" link="SoupSession.html#soup-session-connect-async" since="2.62"/>
+    <keyword type="function" name="soup_session_connect_finish ()" link="SoupSession.html#soup-session-connect-finish" since="2.62"/>
     <keyword type="struct" name="SoupSession" link="SoupSession.html#SoupSession-struct"/>
     <keyword type="enum" name="enum SoupRequestError" link="SoupSession.html#SoupRequestError" since="2.42"/>
     <keyword type="macro" name="SOUP_REQUEST_ERROR" link="SoupSession.html#SOUP-REQUEST-ERROR:CAPS" since="2.42"/>
