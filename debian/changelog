@@ -1,11 +1,11 @@
-libsoup2.4 (2.62.0-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.62.0-1) unstable; urgency=medium
 
   * New upstream release
   * Release to unstable
   * Add cookie-jar-use-base-domain.patch:
     - proposed patch to treat cookies from the base domain as first party
 
- -- Jeremy Bicha <jbicha@debian.org>  Mon, 12 Mar 2018 14:23:05 -0400
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 12 Mar 2018 14:31:25 -0400
 
 libsoup2.4 (2.61.90-1) experimental; urgency=medium
 
@@ -466,7 +466,7 @@ libsoup2.4 (2.36.1-2) UNRELEASED; urgency=low
   * Remove obsolete Replaces.
 
   [ Josselin Mouette ]
-  * Remove MA: same statements for -dev packages, because they depend on 
+  * Remove MA: same statements for -dev packages, because they depend on
     gir packages which are not MA compatible.
 
  -- Michael Biebl <biebl@debian.org>  Fri, 16 Dec 2011 22:25:30 +0100
@@ -508,8 +508,8 @@ libsoup2.4 (2.34.3-1) unstable; urgency=high
 libsoup2.4 (2.34.2-2) unstable; urgency=low
 
   * 01_memleaks.patch: stolen from upstream git. Fix a few memory leaks.
-  * 02_tls.patch: new patch. Stop forcing SSLv3, which breaks websites 
-    that properly support TLS only. This still breaks a few websites, 
+  * 02_tls.patch: new patch. Stop forcing SSLv3, which breaks websites
+    that properly support TLS only. This still breaks a few websites,
     but at least paypal has been fixed to support TLS. Closes: #579429.
 
  -- Josselin Mouette <joss@debian.org>  Tue, 28 Jun 2011 17:23:27 +0200
@@ -849,7 +849,7 @@ libsoup2.4 (2.26.0-1) experimental; urgency=low
   * debian/copyright: Add missing copyright holder.
 
   [ Josselin Mouette ]
-  * Only ship one debug package, there’s no point in splitting it in 
+  * Only ship one debug package, there’s no point in splitting it in
     two.
 
   [ Sebastian Dröge ]
@@ -1026,8 +1026,8 @@ libsoup (2.2.99-1) unstable; urgency=low
 
 libsoup (2.2.98-2) unstable; urgency=high
 
-  * 01_parse_headers_DoS.patch: new patch, fixes a remote denial of 
-    service vulnerability in rhythmbox - and probably anything using 
+  * 01_parse_headers_DoS.patch: new patch, fixes a remote denial of
+    service vulnerability in rhythmbox - and probably anything using
     libsoup's HTTP server code. Closes: #405197.
 
  -- Josselin Mouette <joss@debian.org>  Tue,  2 Jan 2007 18:42:12 +0100
@@ -1074,13 +1074,13 @@ libsoup (2.2.95.1-0ubuntu1) edgy; urgency=low
 
   * New upstream release:
     - 2.2.95:
-      - Even more fixes to XML-RPC, found by the new XML-RPC regression test. 
-        This includes some API changes that I don't feel guilty about, because 
+      - Even more fixes to XML-RPC, found by the new XML-RPC regression test.
+        This includes some API changes that I don't feel guilty about, because
         the code totally didn't work at all before.
       - Fixed a bug in soup_mktime_utc()
     - 2.2.95.1:
-      - (2.2.95 was identical to 2.2.95.1. The only difference is that the 
-        shared library version was belatedly bumped from 8.2.0 to 8.3.0 to 
+      - (2.2.95 was identical to 2.2.95.1. The only difference is that the
+        shared library version was belatedly bumped from 8.2.0 to 8.3.0 to
         reflect	the API "additions")
 
  -- Daniel Holbach <daniel.holbach@ubuntu.com>  Tue, 11 Jul 2006 18:00:23 +0200
@@ -1088,11 +1088,11 @@ libsoup (2.2.95.1-0ubuntu1) edgy; urgency=low
 libsoup (2.2.94-0ubuntu1) edgy; urgency=low
 
   * New upstream release:
-    - Various fixes to the XML-RPC code (which apparently had not actually 
+    - Various fixes to the XML-RPC code (which apparently had not actually
       ever worked before)
     - Added client and server API tutorials to the docs
-    - auth-test now uses a local Apache 2.2 install, if possible, rather than 
-      depending on files that used to be on an old Ximian web server but 
+    - auth-test now uses a local Apache 2.2 install, if possible, rather than
+      depending on files that used to be on an old Ximian web server but
       haven't been anywhere for a ong time.
   * Resynchronized with Debian, only Ubuntu changes are:
     - debian/patches/02_xmlrpc_pointer.patch,
