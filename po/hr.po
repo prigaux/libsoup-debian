@@ -1,185 +1,178 @@
-# Slovak translation for libsoup.
-# Copyright (C) 2012-2013 libsoup's COPYRIGHT HOLDER
-# This file is distributed under the same license as the libsoup package.
-# Pavol Klačanský <pavol@klacansky.com>, 2012-2013.
+# Croatian translation for libsoup2.4
+# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
+# This file is distributed under the same license as the libsoup2.4 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libsoup\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libsoup&keywords=I18N+L10N&component=Misc\n"
-"POT-Creation-Date: 2018-02-09 14:43+0000\n"
-"PO-Revision-Date: 2018-03-17 21:37+0100\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
-"Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
-"Language: sk\n"
+"Project-Id-Version: libsoup2.4\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-03-12 23:01+0000\n"
+"PO-Revision-Date: 2018-03-17 19:30+0100\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
+"Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Launchpad-Export-Date: 2018-03-17 18:28+0000\n"
 "X-Generator: Poedit 2.0.6\n"
+"Language: hr\n"
 
 #: ../libsoup/soup-body-input-stream.c:139
 #: ../libsoup/soup-body-input-stream.c:170
 #: ../libsoup/soup-body-input-stream.c:203 ../libsoup/soup-message-io.c:238
 msgid "Connection terminated unexpectedly"
-msgstr "Pripojenie bolo neočakávane ukončené"
+msgstr "Povezivanje je neočekivano prekinuto"
 
 #: ../libsoup/soup-body-input-stream.c:459
 msgid "Invalid seek request"
-msgstr "Neplatná požiadavka na posunutie"
+msgstr "Neispravan zahtjev pretraživanja"
 
-# struct
 #: ../libsoup/soup-body-input-stream.c:487
 msgid "Cannot truncate SoupBodyInputStream"
-msgstr "SoupBodyInputStream sa nedá skrátiť"
+msgstr "Nemoguće skaratiti SoupBodyInputStream"
 
 #: ../libsoup/soup-cache-input-stream.c:76
 msgid "Network stream unexpectedly closed"
-msgstr "Sieťový prúd bol neočakávane uzavretý"
+msgstr "Mrežno strujanje je neočekivano zatvoreno"
 
 #: ../libsoup/soup-cache-input-stream.c:291
 msgid "Failed to completely cache the resource"
-msgstr "Úplné načítanie zdroja do dočasnej pamäte zlyhalo"
+msgstr "Neuspjelo potpuno međuspremanje resursa"
 
-# PM: buffer by som preložil ako schránka
-# PK: schranka je clipboard, buffer je jednoznacne vyrovnavacia pamet
 #: ../libsoup/soup-converter-wrapper.c:189
 #, c-format
 msgid "Output buffer is too small"
-msgstr "Výstupná vyrovnávacia pamäť je príliš malá"
+msgstr "Izlazni međuspremnik je premali"
 
 #: ../libsoup/soup-message-client-io.c:41
 msgid "Could not parse HTTP response"
-msgstr "Nepodarilo sa analyzovať odpoveď HTTP"
+msgstr "Nemoguća obrada HTTP odgovora"
 
 #: ../libsoup/soup-message-client-io.c:66
 msgid "Unrecognized HTTP response encoding"
-msgstr "Nerozpoznané kódovanie odpovede HTTP"
+msgstr "Nepoznato kôdiranje HTTP odgovora"
 
 #: ../libsoup/soup-message-io.c:263
 msgid "Header too big"
-msgstr "Záhlavie je príliš veľké"
+msgstr "Zaglavlje je preveliko"
 
-# PK: tu neviem ako to povedat, malo by ist o to, ze proste ta operacia neni async
 #: ../libsoup/soup-message-io.c:396 ../libsoup/soup-message-io.c:1024
 msgid "Operation would block"
-msgstr "Operácia by blokovala spracovanie"
+msgstr "Radnja će blokirati"
 
 #: ../libsoup/soup-message-io.c:976 ../libsoup/soup-message-io.c:1009
 msgid "Operation was cancelled"
-msgstr "Operácia bola zrušená"
+msgstr "Radnja je prekinuta"
 
 #: ../libsoup/soup-message-server-io.c:64
 msgid "Could not parse HTTP request"
-msgstr "Nepodarilo sa analyzovať požiadavku HTTP"
+msgstr "Nemoguća obrada HTTP zahtjeva"
 
-# error
 #: ../libsoup/soup-request.c:141
 #, c-format
 msgid "No URI provided"
-msgstr "Nebol poskytnutý identifikátor URI"
+msgstr "Nema pruženog URI-ja"
 
-# first %s - scheme (http, ftp, ...)
 #: ../libsoup/soup-request.c:151
 #, c-format
 msgid "Invalid “%s” URI: %s"
-msgstr "Neplatná schéma „%s“ identifikátora URI: %s"
+msgstr "Neispravno “%s” URI: %s"
 
 #: ../libsoup/soup-server.c:1725
 msgid "Can’t create a TLS server without a TLS certificate"
-msgstr "Nedá sa vytvoriť TLS server bez TLS certifikátu"
+msgstr "Nemoguće stvaranje TLS poslužitelja bez TLS vjerodajnice"
 
 #: ../libsoup/soup-server.c:1742
 #, c-format
 msgid "Could not listen on address %s, port %d: "
-msgstr "Nepodarilo sa počúvať na adrese %s, porte %d: "
+msgstr "Nemoguće osluškivanje adrese %s, ulaz %d: "
 
 #: ../libsoup/soup-session.c:4524
 #, c-format
 msgid "Could not parse URI “%s”"
-msgstr "Nepodarilo sa analyzovať identifikátor URI „%s“"
+msgstr "Nemoguća obrada URI-ja “%s”"
 
 #: ../libsoup/soup-session.c:4561
 #, c-format
 msgid "Unsupported URI scheme “%s”"
-msgstr "Nepodporovaná schéma „%s“ pre identifikátor URI"
+msgstr "Nepodržana URI shema “%s”"
 
 #: ../libsoup/soup-session.c:4583
 #, c-format
 msgid "Not an HTTP URI"
-msgstr "Nie je HTTP URI"
+msgstr "Nije HTTP URI"
 
 #: ../libsoup/soup-session.c:4781
 msgid "The server did not accept the WebSocket handshake."
-msgstr "Server neprijal vyjednanie protokolu WebSocket."
+msgstr "Poslužitelj ne prihvaća WebSocket rukovanje."
 
 #: ../libsoup/soup-socket.c:148
 msgid "Can’t import non-socket as SoupSocket"
-msgstr "Nedá sa importovať ne-soket ako SoupSocket"
+msgstr "Nemoguće prihvaćanje nepriključnice bez SoupSocketa"
 
 #: ../libsoup/soup-socket.c:166
 msgid "Could not import existing socket: "
-msgstr "Nepodarilo sa importovať existujúci soket: "
+msgstr "Nemoguć uvoz postojeće priključnice: "
 
 #: ../libsoup/soup-socket.c:175
 msgid "Can’t import unconnected socket"
-msgstr "Nedá sa importovať nepripojený soket"
+msgstr "Nemoguć uvoz nepovezane priključnice"
 
 #: ../libsoup/soup-websocket.c:338 ../libsoup/soup-websocket.c:347
 msgid "WebSocket handshake expected"
-msgstr "Očakávalo sa vyjednanie protokolu WebSocket"
+msgstr "WebSocket rukovanje je očekivano"
 
 #: ../libsoup/soup-websocket.c:355
 msgid "Unsupported WebSocket version"
-msgstr "Nepodporovaná verzia protokolu WebSocket"
+msgstr "Nepodržana WebSocket inačica"
 
 #: ../libsoup/soup-websocket.c:364
 msgid "Invalid WebSocket key"
-msgstr "Neplatný kľúč protokolu WebSocket"
+msgstr "Neispravan WebSocket ključ"
 
 #: ../libsoup/soup-websocket.c:374
 #, c-format
 msgid "Incorrect WebSocket “%s” header"
-msgstr "Nesprávna hlavička „%s“ protokolu Websocket"
+msgstr "Neispravno WebSocket “%s” zaglavlje"
 
 #: ../libsoup/soup-websocket.c:383
 msgid "Unsupported WebSocket subprotocol"
-msgstr "Nepodporovaný podprotokol protokolu WebSocket"
+msgstr "Nepodržan WebSocket podprotokol"
 
 #: ../libsoup/soup-websocket.c:510
 msgid "Server rejected WebSocket handshake"
-msgstr "Server odmietol vyjednanie protokolu WebSocket"
+msgstr "Posljužitelj je odbio WebSocket rukovanje"
 
 #: ../libsoup/soup-websocket.c:518 ../libsoup/soup-websocket.c:527
 msgid "Server ignored WebSocket handshake"
-msgstr "Server ignoroval vyjednanie protokolu WebSocket"
+msgstr "Posljužitelj je zanemario WebSocket rukovanje"
 
 #: ../libsoup/soup-websocket.c:539
 msgid "Server requested unsupported protocol"
-msgstr "Server si vyžiadal nepodporovaný protokol"
+msgstr "Poslužitelj je zahtijevao nepodržani protokol"
 
 #: ../libsoup/soup-websocket.c:549
 msgid "Server requested unsupported extension"
-msgstr "Server si vyžiadal nepodporované rozšírenie"
+msgstr "Poslužitelj je zahtijevao nepodržano proširenje"
 
 #: ../libsoup/soup-websocket.c:562
 #, c-format
 msgid "Server returned incorrect “%s” key"
-msgstr "Server vrátil nesprávny kľúč „%s“"
+msgstr "Poslužitelj je vratio neispravni “%s” ključ"
 
-#: ../libsoup/soup-tld.c:188
+#: ../libsoup/soup-tld.c:187
 msgid "Hostname is an IP address"
-msgstr "Názov hostiteľa je adresa IP"
+msgstr "Naziv poslužitelja je IP adresa"
 
-#: ../libsoup/soup-tld.c:198 ../libsoup/soup-tld.c:220
+#: ../libsoup/soup-tld.c:197 ../libsoup/soup-tld.c:219
 msgid "Invalid hostname"
-msgstr "Neplatný názov hostiteľa"
+msgstr "Neispravan naziv poslužitelja"
 
-#: ../libsoup/soup-tld.c:250
+#: ../libsoup/soup-tld.c:249
 msgid "Hostname has no base domain"
-msgstr "Názov hostiteľa neobsahuje základnú doménu"
+msgstr "Naziv poslužitelja nema osnovnu domenu"
 
-#: ../libsoup/soup-tld.c:304
+#: ../libsoup/soup-tld.c:303
 msgid "Not enough domains"
-msgstr "Nedostatočný počet domén"
+msgstr "Nedovoljno domena"

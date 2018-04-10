@@ -8,7 +8,7 @@
     <CopyDir>$(GlibEtcInstallRoot)</CopyDir>
     <SoupMajorVersion>2</SoupMajorVersion>
     <SoupMinorVersion>62</SoupMinorVersion>
-    <SoupMicroVersion>0</SoupMicroVersion>
+    <SoupMicroVersion>1</SoupMicroVersion>
     <ApiVersion>2.4</ApiVersion>
     <SoupLibtoolCompatibleDllPrefix>lib</SoupLibtoolCompatibleDllPrefix>
     <SoupLibtoolCompatibleDllSuffix>-$(ApiVersion)-0</SoupLibtoolCompatibleDllSuffix>
