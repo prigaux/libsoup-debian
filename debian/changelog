@@ -1,10 +1,10 @@
-libsoup2.4 (2.62.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.62.1-1) unstable; urgency=medium
 
   * New upstream release
   * Drop cookie-jar-use-base-domain.patch: Applied in new release
   * Bump Standards-Version to 4.1.4
 
- -- Jeremy Bicha <jbicha@debian.org>  Tue, 10 Apr 2018 14:26:48 -0400
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 10 Apr 2018 14:47:57 -0400
 
 libsoup2.4 (2.62.0-1) unstable; urgency=medium
 
