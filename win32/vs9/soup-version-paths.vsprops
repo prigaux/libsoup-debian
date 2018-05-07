@@ -26,7 +26,7 @@
 	/>
 	<UserMacro
 		Name="SoupMicroVersion"
-		Value="1"
+		Value="2"
 	/>
 	<UserMacro
 		Name="ApiVersion"
