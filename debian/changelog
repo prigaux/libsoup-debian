@@ -1,11 +1,11 @@
-libsoup2.4 (2.62.2-2) UNRELEASED; urgency=medium
+libsoup2.4 (2.62.2-2) unstable; urgency=high
 
   * debian/patches/0001-cookie-jar-bail-if-hostname-is-an-empty-string.patch,
     debian/patches/0002-Add-soup_cookie_jar_get_cookies-with-empty-hostname-.patch:
     Cherry-pick two patches from upstream to fix an out of bounds access in
     the cookie jar (CVE-2018-12910).
 
- -- Iain Lane <laney@debian.org>  Thu, 28 Jun 2018 19:56:00 +0100
+ -- Iain Lane <laney@debian.org>  Thu, 28 Jun 2018 19:57:42 +0100
 
 libsoup2.4 (2.62.2-1) unstable; urgency=medium
 
