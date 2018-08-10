@@ -1,3 +1,9 @@
+libsoup2.4 (2.62.2-3) UNRELEASED; urgency=medium
+
+  * debian/{gbp.conf,control{,.in}}: Update for experimental.
+
+ -- Iain Lane <laney@debian.org>  Fri, 10 Aug 2018 13:26:58 +0100
+
 libsoup2.4 (2.62.2-2) unstable; urgency=high
 
   * debian/patches/0001-cookie-jar-bail-if-hostname-is-an-empty-string.patch,
