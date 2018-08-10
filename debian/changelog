@@ -1,8 +1,24 @@
-libsoup2.4 (2.62.2-3) UNRELEASED; urgency=medium
+libsoup2.4 (2.63.90-1) UNRELEASED; urgency=medium
 
   * debian/{gbp.conf,control{,.in}}: Update for experimental.
+  * New upstream release 2.63.90
+    - Avoid unaligned memory accesses in WebSocket implementation
+    - Bail out on cookie-jar calls with empty hostnames
+    - Fix crash under soup_socket_new()
+    - Fix critical warning in SoupSocket
+    - Fix digest authentication with encoded URIs
+    - Fixes to GObject-introspection
+    - Fixes to the simple-httpd example
+    - Fixes to xmlrpc-server test with PHP >= 7.2 and related
+    - Many Coverity-found code fixes
+    - Set default cookie path for NULL origins
+    - Use atomic-refcounting in classes that are not using GObject-refcounting
+    - Use base domain to decide if cookies are third-party
+    - Use libpsl for the SoupTLD API instead of shipping a copy of the
+      public-suffix list
+  * debian/control.in: Build-Depend on libpsl-dev per upstream.
 
- -- Iain Lane <laney@debian.org>  Fri, 10 Aug 2018 13:26:58 +0100
+ -- Iain Lane <laney@debian.org>  Fri, 10 Aug 2018 13:29:19 +0100
 
 libsoup2.4 (2.62.2-2) unstable; urgency=high
 
