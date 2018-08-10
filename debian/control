@@ -30,6 +30,7 @@ Standards-Version: 4.1.4
 Vcs-Browser: https://salsa.debian.org/gnome-team/libsoup
 Vcs-Git: https://salsa.debian.org/gnome-team/libsoup.git -b debian/experimental
 Homepage: https://wiki.gnome.org/Projects/libsoup
+Rules-Requires-Root: no
 
 Package: libsoup2.4-dev
 Section: libdevel
