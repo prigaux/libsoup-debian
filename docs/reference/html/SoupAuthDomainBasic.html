@@ -8,7 +8,7 @@
 <link rel="up" href="ch02.html" title="Core API">
 <link rel="prev" href="SoupAuthDomain.html" title="SoupAuthDomain">
 <link rel="next" href="SoupAuthDomainDigest.html" title="SoupAuthDomainDigest">
-<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">gboolean</span>
+<a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 </td>
 <td class="function_name">
 <span class="c_punctuation">(</span><a class="link" href="SoupAuthDomainBasic.html#SoupAuthDomainBasicAuthCallback" title="SoupAuthDomainBasicAuthCallback ()">*SoupAuthDomainBasicAuthCallback</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
@@ -78,12 +78,12 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_type"><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a></td>
 <td class="property_name"><a class="link" href="SoupAuthDomainBasic.html#SoupAuthDomainBasic--auth-callback" title="The “auth-callback” property">auth-callback</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_type"><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a></td>
 <td class="property_name"><a class="link" href="SoupAuthDomainBasic.html#SoupAuthDomainBasic--auth-data" title="The “auth-data” property">auth-data</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -115,7 +115,7 @@
 </div>
 <div class="refsect1">
 <a name="SoupAuthDomainBasic.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    GObject
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> <a class="link" href="SoupAuthDomain.html" title="SoupAuthDomain">SoupAuthDomain</a>
         <span class="lineart">╰──</span> SoupAuthDomainBasic
 </pre>
@@ -152,7 +152,7 @@ parameters are optional.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>optname1</p></td>
-<td class="parameter_description"><p>name of first option, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>name of first option, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -171,17 +171,17 @@ parameters are optional.</p>
 <hr>
 <div class="refsect2">
 <a name="SoupAuthDomainBasicAuthCallback"></a><h3>SoupAuthDomainBasicAuthCallback ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 <span class="c_punctuation">(</span>*SoupAuthDomainBasicAuthCallback<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="SoupAuthDomain.html" title="SoupAuthDomain"><span class="type">SoupAuthDomain</span></a> *domain</code></em>,
                                     <em class="parameter"><code><a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> *msg</code></em>,
                                     <em class="parameter"><code>const <span class="type">char</span> *username</code></em>,
                                     <em class="parameter"><code>const <span class="type">char</span> *password</code></em>,
-                                    <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+                                    <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>Callback used by <a class="link" href="SoupAuthDomainBasic.html" title="SoupAuthDomainBasic"><span class="type">SoupAuthDomainBasic</span></a> for authentication purposes.
 The application should verify that <em class="parameter"><code>username</code></em>
  and <em class="parameter"><code>password</code></em>
  and valid
-and return <code class="literal">TRUE</code> or <code class="literal">FALSE</code>.</p>
+and return <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
 <p>If you are maintaining your own password database (rather than
 using the password to authenticate against some other system like
 PAM or a remote server), you should make sure you know what you are
@@ -203,8 +203,8 @@ as well.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>domain</p></td>
-<td class="parameter_description"><p>the domain</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>the domain. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> SoupAuthDomainBasic]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>msg</p></td>
@@ -231,7 +231,7 @@ as well.</p>
 </div>
 <div class="refsect3">
 <a name="SoupAuthDomainBasicAuthCallback.returns"></a><h4>Returns</h4>
-<p> <code class="literal">TRUE</code> if <em class="parameter"><code>username</code></em>
+<p> <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>username</code></em>
 and <em class="parameter"><code>password</code></em>
 are valid</p>
 </div>
@@ -243,8 +243,8 @@ are valid</p>
 soup_auth_domain_basic_set_auth_callback
                                (<em class="parameter"><code><a class="link" href="SoupAuthDomain.html" title="SoupAuthDomain"><span class="type">SoupAuthDomain</span></a> *domain</code></em>,
                                 <em class="parameter"><code><a class="link" href="SoupAuthDomainBasic.html#SoupAuthDomainBasicAuthCallback" title="SoupAuthDomainBasicAuthCallback ()"><span class="type">SoupAuthDomainBasicAuthCallback</span></a> callback</code></em>,
-                                <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
-                                <em class="parameter"><code><span class="type">GDestroyNotify</span> dnotify</code></em>);</pre>
+                                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> dnotify</code></em>);</pre>
 <p>Sets the callback that <em class="parameter"><code>domain</code></em>
  will use to authenticate incoming
 requests. For each request containing authorization, <em class="parameter"><code>domain</code></em>
@@ -267,8 +267,8 @@ used to set the callback at construct time.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>domain</p></td>
-<td class="parameter_description"><p>the domain</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>the domain. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> SoupAuthDomainBasic]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
@@ -320,20 +320,21 @@ is destroyed</p></td>
 <a name="SoupAuthDomainBasic.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="SoupAuthDomainBasic--auth-callback"></a><h3>The <code class="literal">“auth-callback”</code> property</h3>
-<pre class="programlisting">  “auth-callback”            <span class="type">gpointer</span></pre>
-<p>Password-checking callback.</p>
+<pre class="programlisting">  “auth-callback”            <a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a></pre>
+<p>The <a class="link" href="SoupAuthDomainBasic.html#SoupAuthDomainBasicAuthCallback" title="SoupAuthDomainBasicAuthCallback ()"><span class="type">SoupAuthDomainBasicAuthCallback</span></a></p>
+<p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> SoupAuthDomainBasicAuthCallback]</span></p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="SoupAuthDomainBasic--auth-data"></a><h3>The <code class="literal">“auth-data”</code> property</h3>
-<pre class="programlisting">  “auth-data”                <span class="type">gpointer</span></pre>
-<p>Data to pass to authentication callback.</p>
+<pre class="programlisting">  “auth-data”                <a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a></pre>
+<p>The data to pass to the <a class="link" href="SoupAuthDomainBasic.html#SoupAuthDomainBasicAuthCallback" title="SoupAuthDomainBasicAuthCallback ()"><span class="type">SoupAuthDomainBasicAuthCallback</span></a></p>
 <p>Flags: Read / Write</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28.1</div>
+<hr>Generated by GTK-Doc V1.28</div>
 </body>
 </html>

@@ -635,6 +635,7 @@ soup_tld_error_get_type (void)
         { SOUP_TLD_ERROR_IS_IP_ADDRESS, "SOUP_TLD_ERROR_IS_IP_ADDRESS", "is-ip-address" },
         { SOUP_TLD_ERROR_NOT_ENOUGH_DOMAINS, "SOUP_TLD_ERROR_NOT_ENOUGH_DOMAINS", "not-enough-domains" },
         { SOUP_TLD_ERROR_NO_BASE_DOMAIN, "SOUP_TLD_ERROR_NO_BASE_DOMAIN", "no-base-domain" },
+        { SOUP_TLD_ERROR_NO_PSL_DATA, "SOUP_TLD_ERROR_NO_PSL_DATA", "no-psl-data" },
         { 0, NULL, NULL }
       };
       GType g_define_type_id =

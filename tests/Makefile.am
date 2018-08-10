@@ -18,15 +18,15 @@ test_programs =			\
 	context-test		\
 	continue-test		\
 	cookies-test		\
-	date			\
+	date-test		\
 	forms-test		\
-	header-parsing		\
+	header-parsing-test	\
 	misc-test		\
 	multipart-test		\
 	no-ssl-test		\
 	ntlm-test		\
 	proxy-test		\
-	pull-api		\
+	pull-api-test		\
 	range-test		\
 	redirect-test		\
 	requester-test		\
@@ -40,7 +40,7 @@ test_programs =			\
 	streaming-test		\
 	timeout-test		\
 	tld-test		\
-	uri-parsing		\
+	uri-parsing-test	\
 	websocket-test		\
 	xmlrpc-old-server-test	\
 	xmlrpc-old-test		\
@@ -73,6 +73,11 @@ test_data +=			\
 	httpd.conf
 endif
 
+if HAVE_PHP
+test_data +=			\
+	php.ini
+endif
+
 RESOURCES = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir) --generate-dependencies $(srcdir)/soup-tests.gresource.xml)
 
 soup-tests.gresource: soup-tests.gresource.xml $(RESOURCES)
@@ -84,13 +89,15 @@ EXTRA_DIST +=			 \
 	httpd.conf.in		 \
 	index.txt		 \
 	libsoup.supp		 \
+	php.ini.in		 \
 	soup-tests.gresource.xml \
 	test-cert.pem		 \
 	test-key.pem		 \
 	xmlrpc-server.php	 \
+	meson.build		 \
 	$(RESOURCES)
 
-DISTCLEANFILES += soup-tests.gresource httpd.conf
+DISTCLEANFILES += soup-tests.gresource httpd.conf php.ini
 
 TESTS_ENVIRONMENT += SOUP_TESTS_IN_MAKE_CHECK=1
 

@@ -127,6 +127,9 @@ check_PROGRAMS = $(am__EXEEXT_5)
 @HAVE_APACHE_TRUE@	htpasswd		\
 @HAVE_APACHE_TRUE@	httpd.conf
 
+@HAVE_PHP_TRUE@am__append_15 = \
+@HAVE_PHP_TRUE@	php.ini
+
 subdir = tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_code_coverage.m4 \
@@ -141,7 +144,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
-CONFIG_CLEAN_FILES = httpd.conf
+CONFIG_CLEAN_FILES = httpd.conf php.ini
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -187,19 +190,19 @@ am__EXEEXT_1 = auth-test$(EXEEXT) cache-test$(EXEEXT) \
 	chunk-test$(EXEEXT) chunk-io-test$(EXEEXT) \
 	coding-test$(EXEEXT) connection-test$(EXEEXT) \
 	context-test$(EXEEXT) continue-test$(EXEEXT) \
-	cookies-test$(EXEEXT) date$(EXEEXT) forms-test$(EXEEXT) \
-	header-parsing$(EXEEXT) misc-test$(EXEEXT) \
+	cookies-test$(EXEEXT) date-test$(EXEEXT) forms-test$(EXEEXT) \
+	header-parsing-test$(EXEEXT) misc-test$(EXEEXT) \
 	multipart-test$(EXEEXT) no-ssl-test$(EXEEXT) \
-	ntlm-test$(EXEEXT) proxy-test$(EXEEXT) pull-api$(EXEEXT) \
+	ntlm-test$(EXEEXT) proxy-test$(EXEEXT) pull-api-test$(EXEEXT) \
 	range-test$(EXEEXT) redirect-test$(EXEEXT) \
 	requester-test$(EXEEXT) resource-test$(EXEEXT) \
 	session-test$(EXEEXT) server-auth-test$(EXEEXT) \
 	server-test$(EXEEXT) sniffing-test$(EXEEXT) \
 	socket-test$(EXEEXT) ssl-test$(EXEEXT) streaming-test$(EXEEXT) \
-	timeout-test$(EXEEXT) tld-test$(EXEEXT) uri-parsing$(EXEEXT) \
-	websocket-test$(EXEEXT) xmlrpc-old-server-test$(EXEEXT) \
-	xmlrpc-old-test$(EXEEXT) xmlrpc-server-test$(EXEEXT) \
-	xmlrpc-test$(EXEEXT)
+	timeout-test$(EXEEXT) tld-test$(EXEEXT) \
+	uri-parsing-test$(EXEEXT) websocket-test$(EXEEXT) \
+	xmlrpc-old-server-test$(EXEEXT) xmlrpc-old-test$(EXEEXT) \
+	xmlrpc-server-test$(EXEEXT) xmlrpc-test$(EXEEXT)
 am__EXEEXT_2 = $(am__EXEEXT_1)
 am__EXEEXT_3 = ntlm-test-helper$(EXEEXT) $(am__EXEEXT_2)
 am__EXEEXT_4 = $(am__EXEEXT_1) $(am__EXEEXT_3)
@@ -244,18 +247,18 @@ cookies_test_SOURCES = cookies-test.c
 cookies_test_OBJECTS = cookies-test.$(OBJEXT)
 cookies_test_LDADD = $(LDADD)
 cookies_test_DEPENDENCIES = libtest.la
-date_SOURCES = date.c
-date_OBJECTS = date.$(OBJEXT)
-date_LDADD = $(LDADD)
-date_DEPENDENCIES = libtest.la
+date_test_SOURCES = date-test.c
+date_test_OBJECTS = date-test.$(OBJEXT)
+date_test_LDADD = $(LDADD)
+date_test_DEPENDENCIES = libtest.la
 forms_test_SOURCES = forms-test.c
 forms_test_OBJECTS = forms-test.$(OBJEXT)
 forms_test_LDADD = $(LDADD)
 forms_test_DEPENDENCIES = libtest.la
-header_parsing_SOURCES = header-parsing.c
-header_parsing_OBJECTS = header-parsing.$(OBJEXT)
-header_parsing_LDADD = $(LDADD)
-header_parsing_DEPENDENCIES = libtest.la
+header_parsing_test_SOURCES = header-parsing-test.c
+header_parsing_test_OBJECTS = header-parsing-test.$(OBJEXT)
+header_parsing_test_LDADD = $(LDADD)
+header_parsing_test_DEPENDENCIES = libtest.la
 misc_test_SOURCES = misc-test.c
 misc_test_OBJECTS = misc-test.$(OBJEXT)
 misc_test_LDADD = $(LDADD)
@@ -280,10 +283,10 @@ proxy_test_SOURCES = proxy-test.c
 proxy_test_OBJECTS = proxy-test.$(OBJEXT)
 proxy_test_LDADD = $(LDADD)
 proxy_test_DEPENDENCIES = libtest.la
-pull_api_SOURCES = pull-api.c
-pull_api_OBJECTS = pull-api.$(OBJEXT)
-pull_api_LDADD = $(LDADD)
-pull_api_DEPENDENCIES = libtest.la
+pull_api_test_SOURCES = pull-api-test.c
+pull_api_test_OBJECTS = pull-api-test.$(OBJEXT)
+pull_api_test_LDADD = $(LDADD)
+pull_api_test_DEPENDENCIES = libtest.la
 range_test_SOURCES = range-test.c
 range_test_OBJECTS = range-test.$(OBJEXT)
 range_test_LDADD = $(LDADD)
@@ -336,10 +339,10 @@ tld_test_SOURCES = tld-test.c
 tld_test_OBJECTS = tld-test.$(OBJEXT)
 tld_test_LDADD = $(LDADD)
 tld_test_DEPENDENCIES = libtest.la
-uri_parsing_SOURCES = uri-parsing.c
-uri_parsing_OBJECTS = uri-parsing.$(OBJEXT)
-uri_parsing_LDADD = $(LDADD)
-uri_parsing_DEPENDENCIES = libtest.la
+uri_parsing_test_SOURCES = uri-parsing-test.c
+uri_parsing_test_OBJECTS = uri-parsing-test.$(OBJEXT)
+uri_parsing_test_LDADD = $(LDADD)
+uri_parsing_test_DEPENDENCIES = libtest.la
 websocket_test_SOURCES = websocket-test.c
 websocket_test_OBJECTS = websocket-test.$(OBJEXT)
 websocket_test_LDADD = $(LDADD)
@@ -397,26 +400,26 @@ am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(libtest_la_SOURCES) auth-test.c cache-test.c \
 	chunk-io-test.c chunk-test.c coding-test.c connection-test.c \
-	context-test.c continue-test.c cookies-test.c date.c \
-	forms-test.c header-parsing.c misc-test.c multipart-test.c \
-	no-ssl-test.c ntlm-test.c ntlm-test-helper.c proxy-test.c \
-	pull-api.c range-test.c redirect-test.c requester-test.c \
-	resource-test.c server-auth-test.c server-test.c \
-	session-test.c sniffing-test.c socket-test.c ssl-test.c \
-	streaming-test.c timeout-test.c tld-test.c uri-parsing.c \
-	websocket-test.c xmlrpc-old-server-test.c xmlrpc-old-test.c \
-	xmlrpc-server-test.c xmlrpc-test.c
+	context-test.c continue-test.c cookies-test.c date-test.c \
+	forms-test.c header-parsing-test.c misc-test.c \
+	multipart-test.c no-ssl-test.c ntlm-test.c ntlm-test-helper.c \
+	proxy-test.c pull-api-test.c range-test.c redirect-test.c \
+	requester-test.c resource-test.c server-auth-test.c \
+	server-test.c session-test.c sniffing-test.c socket-test.c \
+	ssl-test.c streaming-test.c timeout-test.c tld-test.c \
+	uri-parsing-test.c websocket-test.c xmlrpc-old-server-test.c \
+	xmlrpc-old-test.c xmlrpc-server-test.c xmlrpc-test.c
 DIST_SOURCES = $(libtest_la_SOURCES) auth-test.c cache-test.c \
 	chunk-io-test.c chunk-test.c coding-test.c connection-test.c \
-	context-test.c continue-test.c cookies-test.c date.c \
-	forms-test.c header-parsing.c misc-test.c multipart-test.c \
-	no-ssl-test.c ntlm-test.c ntlm-test-helper.c proxy-test.c \
-	pull-api.c range-test.c redirect-test.c requester-test.c \
-	resource-test.c server-auth-test.c server-test.c \
-	session-test.c sniffing-test.c socket-test.c ssl-test.c \
-	streaming-test.c timeout-test.c tld-test.c uri-parsing.c \
-	websocket-test.c xmlrpc-old-server-test.c xmlrpc-old-test.c \
-	xmlrpc-server-test.c xmlrpc-test.c
+	context-test.c continue-test.c cookies-test.c date-test.c \
+	forms-test.c header-parsing-test.c misc-test.c \
+	multipart-test.c no-ssl-test.c ntlm-test.c ntlm-test-helper.c \
+	proxy-test.c pull-api-test.c range-test.c redirect-test.c \
+	requester-test.c resource-test.c server-auth-test.c \
+	server-test.c session-test.c sniffing-test.c socket-test.c \
+	ssl-test.c streaming-test.c timeout-test.c tld-test.c \
+	uri-parsing-test.c websocket-test.c xmlrpc-old-server-test.c \
+	xmlrpc-old-test.c xmlrpc-server-test.c xmlrpc-test.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -620,7 +623,7 @@ TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
 TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
 	$(TEST_LOG_FLAGS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/httpd.conf.in \
-	$(top_srcdir)/build-aux/depcomp \
+	$(srcdir)/php.ini.in $(top_srcdir)/build-aux/depcomp \
 	$(top_srcdir)/build-aux/test-driver $(top_srcdir)/glib-tap.mk
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
@@ -682,6 +685,7 @@ HAVE_GNOME = @HAVE_GNOME@
 HTML_DIR = @HTML_DIR@
 IF_HAVE_MOD_UNIXD = @IF_HAVE_MOD_UNIXD@
 IF_HAVE_PHP = @IF_HAVE_PHP@
+IF_HAVE_PHP_XMLRPC = @IF_HAVE_PHP_XMLRPC@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -710,6 +714,8 @@ LCOV = @LCOV@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
+LIBPSL_CFLAGS = @LIBPSL_CFLAGS@
+LIBPSL_LIBS = @LIBPSL_LIBS@
 LIBS = \
 	$(top_builddir)/libsoup/libsoup-2.4.la \
 	$(GLIB_LIBS)
@@ -838,12 +844,12 @@ NULL =
 BUILT_SOURCES = 
 BUILT_EXTRA_DIST = 
 CLEANFILES = *.log *.trs $(am__append_13)
-DISTCLEANFILES = soup-tests.gresource httpd.conf
+DISTCLEANFILES = soup-tests.gresource httpd.conf php.ini
 MAINTAINERCLEANFILES = 
 EXTRA_DIST = $(all_dist_test_scripts) $(all_dist_test_data) htdigest \
-	htpasswd httpd.conf.in index.txt libsoup.supp \
+	htpasswd httpd.conf.in index.txt libsoup.supp php.ini.in \
 	soup-tests.gresource.xml test-cert.pem test-key.pem \
-	xmlrpc-server.php $(RESOURCES)
+	xmlrpc-server.php meson.build $(RESOURCES)
 installed_test_LTLIBRARIES = $(am__append_12)
 installed_test_SCRIPTS = $(am__append_10)
 nobase_installed_test_DATA = $(am__append_11)
@@ -891,15 +897,15 @@ test_programs = \
 	context-test		\
 	continue-test		\
 	cookies-test		\
-	date			\
+	date-test		\
 	forms-test		\
-	header-parsing		\
+	header-parsing-test	\
 	misc-test		\
 	multipart-test		\
 	no-ssl-test		\
 	ntlm-test		\
 	proxy-test		\
-	pull-api		\
+	pull-api-test		\
 	range-test		\
 	redirect-test		\
 	requester-test		\
@@ -913,7 +919,7 @@ test_programs = \
 	streaming-test		\
 	timeout-test		\
 	tld-test		\
-	uri-parsing		\
+	uri-parsing-test	\
 	websocket-test		\
 	xmlrpc-old-server-test	\
 	xmlrpc-old-test		\
@@ -925,7 +931,7 @@ test_extra_programs = \
 	$(TESTS)
 
 test_data = index.txt soup-tests.gresource test-cert.pem test-key.pem \
-	xmlrpc-server.php $(am__append_14)
+	xmlrpc-server.php $(am__append_14) $(am__append_15)
 libtest_la_SOURCES = \
 	test-utils.c	\
 	test-utils.h
@@ -968,6 +974,8 @@ $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 httpd.conf: $(top_builddir)/config.status $(srcdir)/httpd.conf.in
+	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
+php.ini: $(top_builddir)/config.status $(srcdir)/php.ini.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 
 clean-checkLTLIBRARIES:
@@ -1133,17 +1141,17 @@ cookies-test$(EXEEXT): $(cookies_test_OBJECTS) $(cookies_test_DEPENDENCIES) $(EX
 	@rm -f cookies-test$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(cookies_test_OBJECTS) $(cookies_test_LDADD) $(LIBS)
 
-date$(EXEEXT): $(date_OBJECTS) $(date_DEPENDENCIES) $(EXTRA_date_DEPENDENCIES) 
-	@rm -f date$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(date_OBJECTS) $(date_LDADD) $(LIBS)
+date-test$(EXEEXT): $(date_test_OBJECTS) $(date_test_DEPENDENCIES) $(EXTRA_date_test_DEPENDENCIES) 
+	@rm -f date-test$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(date_test_OBJECTS) $(date_test_LDADD) $(LIBS)
 
 forms-test$(EXEEXT): $(forms_test_OBJECTS) $(forms_test_DEPENDENCIES) $(EXTRA_forms_test_DEPENDENCIES) 
 	@rm -f forms-test$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(forms_test_OBJECTS) $(forms_test_LDADD) $(LIBS)
 
-header-parsing$(EXEEXT): $(header_parsing_OBJECTS) $(header_parsing_DEPENDENCIES) $(EXTRA_header_parsing_DEPENDENCIES) 
-	@rm -f header-parsing$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(header_parsing_OBJECTS) $(header_parsing_LDADD) $(LIBS)
+header-parsing-test$(EXEEXT): $(header_parsing_test_OBJECTS) $(header_parsing_test_DEPENDENCIES) $(EXTRA_header_parsing_test_DEPENDENCIES) 
+	@rm -f header-parsing-test$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(header_parsing_test_OBJECTS) $(header_parsing_test_LDADD) $(LIBS)
 
 misc-test$(EXEEXT): $(misc_test_OBJECTS) $(misc_test_DEPENDENCIES) $(EXTRA_misc_test_DEPENDENCIES) 
 	@rm -f misc-test$(EXEEXT)
@@ -1169,9 +1177,9 @@ proxy-test$(EXEEXT): $(proxy_test_OBJECTS) $(proxy_test_DEPENDENCIES) $(EXTRA_pr
 	@rm -f proxy-test$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(proxy_test_OBJECTS) $(proxy_test_LDADD) $(LIBS)
 
-pull-api$(EXEEXT): $(pull_api_OBJECTS) $(pull_api_DEPENDENCIES) $(EXTRA_pull_api_DEPENDENCIES) 
-	@rm -f pull-api$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pull_api_OBJECTS) $(pull_api_LDADD) $(LIBS)
+pull-api-test$(EXEEXT): $(pull_api_test_OBJECTS) $(pull_api_test_DEPENDENCIES) $(EXTRA_pull_api_test_DEPENDENCIES) 
+	@rm -f pull-api-test$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pull_api_test_OBJECTS) $(pull_api_test_LDADD) $(LIBS)
 
 range-test$(EXEEXT): $(range_test_OBJECTS) $(range_test_DEPENDENCIES) $(EXTRA_range_test_DEPENDENCIES) 
 	@rm -f range-test$(EXEEXT)
@@ -1225,9 +1233,9 @@ tld-test$(EXEEXT): $(tld_test_OBJECTS) $(tld_test_DEPENDENCIES) $(EXTRA_tld_test
 	@rm -f tld-test$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(tld_test_OBJECTS) $(tld_test_LDADD) $(LIBS)
 
-uri-parsing$(EXEEXT): $(uri_parsing_OBJECTS) $(uri_parsing_DEPENDENCIES) $(EXTRA_uri_parsing_DEPENDENCIES) 
-	@rm -f uri-parsing$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(uri_parsing_OBJECTS) $(uri_parsing_LDADD) $(LIBS)
+uri-parsing-test$(EXEEXT): $(uri_parsing_test_OBJECTS) $(uri_parsing_test_DEPENDENCIES) $(EXTRA_uri_parsing_test_DEPENDENCIES) 
+	@rm -f uri-parsing-test$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(uri_parsing_test_OBJECTS) $(uri_parsing_test_LDADD) $(LIBS)
 
 websocket-test$(EXEEXT): $(websocket_test_OBJECTS) $(websocket_test_DEPENDENCIES) $(EXTRA_websocket_test_DEPENDENCIES) 
 	@rm -f websocket-test$(EXEEXT)
@@ -1299,16 +1307,16 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/context-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/continue-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cookies-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/date.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/date-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forms-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/header-parsing.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/header-parsing-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/misc-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multipart-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/no-ssl-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ntlm-test-helper.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ntlm-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/proxy-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pull-api.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pull-api-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/range-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/redirect-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/requester-test.Po@am__quote@
@@ -1323,7 +1331,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-utils.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/timeout-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tld-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/uri-parsing.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/uri-parsing-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/websocket-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xmlrpc-old-server-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xmlrpc-old-test.Po@am__quote@
@@ -1658,9 +1666,9 @@ cookies-test.log: cookies-test$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-date.log: date$(EXEEXT)
-	@p='date$(EXEEXT)'; \
-	b='date'; \
+date-test.log: date-test$(EXEEXT)
+	@p='date-test$(EXEEXT)'; \
+	b='date-test'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -1672,9 +1680,9 @@ forms-test.log: forms-test$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-header-parsing.log: header-parsing$(EXEEXT)
-	@p='header-parsing$(EXEEXT)'; \
-	b='header-parsing'; \
+header-parsing-test.log: header-parsing-test$(EXEEXT)
+	@p='header-parsing-test$(EXEEXT)'; \
+	b='header-parsing-test'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -1714,9 +1722,9 @@ proxy-test.log: proxy-test$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pull-api.log: pull-api$(EXEEXT)
-	@p='pull-api$(EXEEXT)'; \
-	b='pull-api'; \
+pull-api-test.log: pull-api-test$(EXEEXT)
+	@p='pull-api-test$(EXEEXT)'; \
+	b='pull-api-test'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -1812,9 +1820,9 @@ tld-test.log: tld-test$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-uri-parsing.log: uri-parsing$(EXEEXT)
-	@p='uri-parsing$(EXEEXT)'; \
-	b='uri-parsing'; \
+uri-parsing-test.log: uri-parsing-test$(EXEEXT)
+	@p='uri-parsing-test$(EXEEXT)'; \
+	b='uri-parsing-test'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \

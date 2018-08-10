@@ -8,7 +8,7 @@
 <link rel="up" href="ch01.html" title="Tutorial">
 <link rel="prev" href="libsoup-session-porting.html" title="Porting to the new SoupSession">
 <link rel="next" href="ch02.html" title="Core API">
-<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -48,7 +48,7 @@ a few additional options:
 <tr>
 <td><p><span class="term"><a class="link" href="SoupServer.html#SOUP-SERVER-TLS-CERTIFICATE:CAPS" title="SOUP_SERVER_TLS_CERTIFICATE"><code class="literal">SOUP_SERVER_TLS_CERTIFICATE</code></a></span></p></td>
 <td><p>
-	    A <span class="type">GTlsCertificate</span>
+	    A <a href="/usr/share/gtk-doc/html/gio/GTlsCertificate.html#GTlsCertificate-struct"><span class="type">GTlsCertificate</span></a>
 	    (containing a private key) that will be used when handling
 	    HTTPS requests on the server.
 	</p></td>
@@ -89,7 +89,7 @@ a few additional options:
 <a name="id-1.2.6.4"></a><h3>Adding Listening Sockets</h3>
 <p>
   To tell the server where to listen, call <a class="link" href="SoupServer.html#soup-server-listen" title="soup_server_listen ()"><code class="function">soup_server_listen</code></a>
-  (to listen on a specific <span class="type">GSocketAddress</span>), <a class="link" href="SoupServer.html#soup-server-listen-all" title="soup_server_listen_all ()"><code class="function">soup_server_listen_all</code></a>
+  (to listen on a specific <a href="/usr/share/gtk-doc/html/gio/GSocketAddress.html#GSocketAddress-struct"><span class="type">GSocketAddress</span></a>), <a class="link" href="SoupServer.html#soup-server-listen-all" title="soup_server_listen_all ()"><code class="function">soup_server_listen_all</code></a>
   (to listen on a given port on all network interfaces), or <a class="link" href="SoupServer.html#soup-server-listen-local" title="soup_server_listen_local ()"><code class="function">soup_server_listen_local</code></a>
   (to listen to a given port on the loopback interface only). You can
   call any of these functions multiple times, to set up multiple
@@ -110,7 +110,7 @@ a few additional options:
 </p>
 <p>
   The server runs asynchronously, in the thread-default
-  <span class="type">GMainContext</span> of the
+  <a href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> of the
   thread in which the "listen" calls were made.
 </p>
 </div>
@@ -306,8 +306,8 @@ data available at once.
 	<span class="comment">/* This is somewhat silly. Presumably your server will do</span>
 <span class="comment">	 * something more interesting.</span>
 <span class="comment">	 */</span>
-	body <span class="gtkdoc opt">=</span> <span class="function">g_hash_table_lookup</span> <span class="gtkdoc opt">(</span>server_data<span class="gtkdoc opt">-&gt;</span>bodies<span class="gtkdoc opt">,</span> path<span class="gtkdoc opt">);</span>
-	mime_type <span class="gtkdoc opt">=</span> <span class="function">g_hash_table_lookup</span> <span class="gtkdoc opt">(</span>server_data<span class="gtkdoc opt">-&gt;</span>mime_types<span class="gtkdoc opt">,</span> path<span class="gtkdoc opt">);</span>
+	body <span class="gtkdoc opt">=</span> <span class="function"><a href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#g-hash-table-lookup">g_hash_table_lookup</a></span> <span class="gtkdoc opt">(</span>server_data<span class="gtkdoc opt">-&gt;</span>bodies<span class="gtkdoc opt">,</span> path<span class="gtkdoc opt">);</span>
+	mime_type <span class="gtkdoc opt">=</span> <span class="function"><a href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#g-hash-table-lookup">g_hash_table_lookup</a></span> <span class="gtkdoc opt">(</span>server_data<span class="gtkdoc opt">-&gt;</span>mime_types<span class="gtkdoc opt">,</span> path<span class="gtkdoc opt">);</span>
 	<span class="keyword">if</span> <span class="gtkdoc opt">(!</span>body <span class="gtkdoc opt">|| !</span>mime_type<span class="gtkdoc opt">) {</span>
 		<span class="function"><a href="SoupMessage.html#soup-message-set-status">soup_message_set_status</a></span> <span class="gtkdoc opt">(</span>msg<span class="gtkdoc opt">,</span> SOUP_STATUS_NOT_FOUND<span class="gtkdoc opt">);</span>
 		<span class="keyword">return</span><span class="gtkdoc opt">;</span>
@@ -390,7 +390,7 @@ domain <span class="gtkdoc opt">=</span> <span class="function"><a href="SoupAut
 	SOUP_AUTH_DOMAIN_ADD_PATH<span class="gtkdoc opt">,</span> <span class="string">&quot;/bar/private&quot;</span><span class="gtkdoc opt">,</span>
 	NULL<span class="gtkdoc opt">);</span>
 <span class="function"><a href="SoupServer.html#soup-server-add-auth-domain">soup_server_add_auth_domain</a></span> <span class="gtkdoc opt">(</span>server<span class="gtkdoc opt">,</span> domain<span class="gtkdoc opt">);</span>
-<span class="function">g_object_unref</span> <span class="gtkdoc opt">(</span>domain<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>domain<span class="gtkdoc opt">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -479,6 +479,6 @@ requests), use a <a class="link" href="SoupAuthDomain.html#SoupAuthDomainFilter"
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28.1</div>
+<hr>Generated by GTK-Doc V1.28</div>
 </body>
 </html>

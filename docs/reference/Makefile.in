@@ -208,6 +208,7 @@ HAVE_GNOME = @HAVE_GNOME@
 HTML_DIR = @HTML_DIR@
 IF_HAVE_MOD_UNIXD = @IF_HAVE_MOD_UNIXD@
 IF_HAVE_PHP = @IF_HAVE_PHP@
+IF_HAVE_PHP_XMLRPC = @IF_HAVE_PHP_XMLRPC@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -236,6 +237,8 @@ LCOV = @LCOV@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
+LIBPSL_CFLAGS = @LIBPSL_CFLAGS@
+LIBPSL_LIBS = @LIBPSL_LIBS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
@@ -392,7 +395,7 @@ IGNORE_HFILES = soup.h soup-autocleanups.h soup-enum-types.h \
 	soup-client-input-stream.h soup-content-processor.h \
 	soup-content-sniffer-stream.h soup-io-stream.h \
 	soup-cache-input-stream.h soup-filter-input-stream.h \
-	soup-cookie-jar-sqlite.h soup-requester.h soup-tld-private.h \
+	soup-cookie-jar-sqlite.h soup-requester.h \
 	soup-misc-private.h soup-proxy-uri-resolver.h \
 	soup-proxy-resolver-wrapper.h soup-proxy-uri-resolver.h \
 	soup-cache-private.h soup-cache-client-input-stream.h \
@@ -448,10 +451,7 @@ SETUP_FILES = \
 	$(DOC_MODULE)-sections.txt	\
 	$(DOC_MODULE)-overrides.txt
 
-EXTRA_DIST = \
-	$(HTML_IMAGES)			\
-	$(SETUP_FILES)
-
+EXTRA_DIST = $(HTML_IMAGES) $(SETUP_FILES) meson.build
 DOC_STAMPS = setup-build.stamp scan-build.stamp sgml-build.stamp \
 	html-build.stamp pdf-build.stamp \
 	sgml.stamp html.stamp pdf.stamp
@@ -800,6 +800,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_SGML_FILE) $(content_files) $(expand_con
 	for file in $(HTML_IMAGES) ; do \
 	  test -f $(abs_srcdir)/$$file && cp $(abs_srcdir)/$$file $(abs_builddir)/html; \
 	  test -f $(abs_builddir)/$$file && cp $(abs_builddir)/$$file $(abs_builddir)/html; \
+	  test -f $$file && cp $$file $(abs_builddir)/html; \
 	done;
 	$(GTK_DOC_V_XREF)gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
 	$(AM_V_at)touch html-build.stamp

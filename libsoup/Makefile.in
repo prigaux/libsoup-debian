@@ -220,7 +220,8 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libsoup_2_4_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 am_libsoup_2_4_la_OBJECTS = libsoup_2_4_la-soup-address.lo \
 	libsoup_2_4_la-soup-auth.lo libsoup_2_4_la-soup-auth-basic.lo \
 	libsoup_2_4_la-soup-auth-digest.lo \
@@ -443,6 +444,7 @@ HAVE_GNOME = @HAVE_GNOME@
 HTML_DIR = @HTML_DIR@
 IF_HAVE_MOD_UNIXD = @IF_HAVE_MOD_UNIXD@
 IF_HAVE_PHP = @IF_HAVE_PHP@
+IF_HAVE_PHP_XMLRPC = @IF_HAVE_PHP_XMLRPC@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -471,6 +473,8 @@ LCOV = @LCOV@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
+LIBPSL_CFLAGS = @LIBPSL_CFLAGS@
+LIBPSL_LIBS = @LIBPSL_LIBS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
@@ -584,9 +588,8 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-
-# TLD rules
-EXTRA_DIST = tld-parser.py $(am__append_4)
+EXTRA_DIST = $(am__append_4) meson.build soup-enum-types.h.template \
+	soup-enum-types.c.template
 CLEANFILES = $(am__append_3) $(am__append_6)
 @OS_WIN32_TRUE@LIBWS2_32 = -lws2_32
 SOUP_COMMON_CPPFLAGS = \
@@ -603,7 +606,8 @@ AM_CPPFLAGS = \
 	$(XML_CFLAGS)			\
 	$(SQLITE_CFLAGS)		\
 	$(CODE_COVERAGE_CFLAGS)		\
-	$(KRB5_CFLAGS)
+	$(KRB5_CFLAGS)			\
+	$(LIBPSL_CFLAGS)
 
 libsoupincludedir = $(includedir)/libsoup-2.4/libsoup
 soup_headers = \
@@ -679,7 +683,8 @@ libsoup_2_4_la_LIBADD = \
 	$(LIBWS2_32)			\
 	$(XML_LIBS)			\
 	$(SQLITE_LIBS)			\
-	$(KRB5_LIBS)
+	$(KRB5_LIBS)			\
+	$(LIBPSL_LIBS)
 
 libsoup_2_4_la_SOURCES = \
 	gconstructor.h			\
@@ -776,7 +781,6 @@ libsoup_2_4_la_SOURCES = \
 	soup-socket-properties.c	\
 	soup-status.c			\
 	soup-tld.c			\
-	soup-tld-private.h		\
 	soup-uri.c			\
 	soup-value-utils.c		\
 	soup-version.c			\
@@ -785,7 +789,6 @@ libsoup_2_4_la_SOURCES = \
 	soup-xmlrpc.c			\
 	soup-xmlrpc-old.c
 
-TLD_DATA_FILE = $(top_srcdir)/data/effective_tld_names.dat
 @BUILD_LIBSOUP_GNOME_TRUE@libsoupgnomeincludedir = $(includedir)/libsoup-gnome-2.4/libsoup
 @BUILD_LIBSOUP_GNOME_TRUE@libsoupgnomeinclude_HEADERS = \
 @BUILD_LIBSOUP_GNOME_TRUE@	soup-cookie-jar-sqlite.h\
@@ -812,8 +815,7 @@ TLD_DATA_FILE = $(top_srcdir)/data/effective_tld_names.dat
 
 GLIB_GENERATED = soup-enum-types.c soup-enum-types.h
 BUILT_SOURCES = \
-	$(GLIB_GENERATED)   \
-	tld_data.inc
+	$(GLIB_GENERATED)
 
 soup_enum_types_sources = $(libsoupinclude_HEADERS) $(libsoupgnomeinclude_HEADERS)
 soup_enum_types_MKENUMS_C_FLAGS = --fhead "\#define LIBSOUP_USE_UNSTABLE_REQUEST_API"
@@ -825,7 +827,7 @@ INTROSPECTION_COMPILER_ARGS = --includedir=.
 
 # Core library
 @HAVE_INTROSPECTION_TRUE@gi_soup_files = \
-@HAVE_INTROSPECTION_TRUE@	$(filter-out soup.h soup-enum-types.% soup-proxy-resolver.h,\
+@HAVE_INTROSPECTION_TRUE@	$(filter-out soup.h soup-enum-types.%,\
 @HAVE_INTROSPECTION_TRUE@	   $(soup_headers) $(filter-out %.h, $(libsoup_2_4_la_SOURCES)))
 
 @HAVE_INTROSPECTION_TRUE@gi_built_soup_files = soup-enum-types.h soup-version.h
@@ -2051,9 +2053,6 @@ uninstall-am: uninstall-girDATA uninstall-libLTLIBRARIES \
 
 
 include $(GLIB_MAKEFILE)
-
-tld_data.inc: tld-parser.py $(TLD_DATA_FILE)
-	$(srcdir)/tld-parser.py $(TLD_DATA_FILE) tld_data.inc
 
 #
 # Introspection support
