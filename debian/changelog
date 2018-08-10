@@ -17,6 +17,7 @@ libsoup2.4 (2.63.90-1) UNRELEASED; urgency=medium
     - Use libpsl for the SoupTLD API instead of shipping a copy of the
       public-suffix list
   * debian/control.in: Build-Depend on libpsl-dev per upstream.
+  * debian/patches: Drop, included from upstream.
 
  -- Iain Lane <laney@debian.org>  Fri, 10 Aug 2018 13:29:19 +0100
 
