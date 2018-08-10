@@ -19,6 +19,7 @@ libsoup2.4 (2.63.90-1) UNRELEASED; urgency=medium
   * debian/control.in:
     - Build-Depend on libpsl-dev per upstream.
     - Rules-Requires-Root: no - we don't need to be root to build/test.
+    - Standards-Version → 4.2.0
   * debian/patches: Drop, included from upstream.
 
  -- Iain Lane <laney@debian.org>  Fri, 10 Aug 2018 13:29:19 +0100

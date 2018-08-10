@@ -26,7 +26,7 @@ Build-Depends: debhelper (>= 11),
                curl,
                valac
 Build-Depends-Indep: libglib2.0-doc
-Standards-Version: 4.1.4
+Standards-Version: 4.2.0
 Vcs-Browser: https://salsa.debian.org/gnome-team/libsoup
 Vcs-Git: https://salsa.debian.org/gnome-team/libsoup.git -b debian/experimental
 Homepage: https://wiki.gnome.org/Projects/libsoup
