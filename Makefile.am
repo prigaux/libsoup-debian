@@ -4,7 +4,6 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 SUBDIRS = libsoup po tests examples docs win32
 
 EXTRA_DIST =				\
-	data/effective_tld_names.dat	\
 	libsoup-2.4.pc.in		\
 	libsoup-gnome-2.4.pc.in		\
 	gtk-doc.make			\
@@ -13,6 +12,9 @@ EXTRA_DIST =				\
 	tap-driver.sh			\
 	tap-test			\
 	Makefile.glib			\
+	meson.build			\
+	meson_options.txt		\
+	get_apache_module_dirs.py	\
 	config.h.win32
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection --disable-vala

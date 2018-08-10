@@ -958,6 +958,7 @@
     <keyword type="constant" name="SOUP_TLD_ERROR_IS_IP_ADDRESS" link="libsoup-2.4-Top-Level-Domain-utils.html#SOUP-TLD-ERROR-IS-IP-ADDRESS:CAPS"/>
     <keyword type="constant" name="SOUP_TLD_ERROR_NOT_ENOUGH_DOMAINS" link="libsoup-2.4-Top-Level-Domain-utils.html#SOUP-TLD-ERROR-NOT-ENOUGH-DOMAINS:CAPS"/>
     <keyword type="constant" name="SOUP_TLD_ERROR_NO_BASE_DOMAIN" link="libsoup-2.4-Top-Level-Domain-utils.html#SOUP-TLD-ERROR-NO-BASE-DOMAIN:CAPS"/>
+    <keyword type="constant" name="SOUP_TLD_ERROR_NO_PSL_DATA" link="libsoup-2.4-Top-Level-Domain-utils.html#SOUP-TLD-ERROR-NO-PSL-DATA:CAPS"/>
     <keyword type="constant" name="SOUP_COOKIE_JAR_ACCEPT_ALWAYS" link="SoupCookieJar.html#SOUP-COOKIE-JAR-ACCEPT-ALWAYS:CAPS"/>
     <keyword type="constant" name="SOUP_COOKIE_JAR_ACCEPT_NEVER" link="SoupCookieJar.html#SOUP-COOKIE-JAR-ACCEPT-NEVER:CAPS"/>
     <keyword type="constant" name="SOUP_COOKIE_JAR_ACCEPT_NO_THIRD_PARTY" link="SoupCookieJar.html#SOUP-COOKIE-JAR-ACCEPT-NO-THIRD-PARTY:CAPS"/>

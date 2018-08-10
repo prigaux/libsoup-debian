@@ -3,8 +3,8 @@ dnl *** Initialize automake and set version ***
 dnl *******************************************
 
 m4_define([soup_major_version], [2])
-m4_define([soup_minor_version], [62])
-m4_define([soup_micro_version], [2])
+m4_define([soup_minor_version], [63])
+m4_define([soup_micro_version], [90])
 
 AC_PREREQ(2.63)
 AC_INIT([libsoup],[soup_major_version.soup_minor_version.soup_micro_version],[http://bugzilla.gnome.org/enter_bug.cgi?product=libsoup])
@@ -97,6 +97,10 @@ AC_SUBST(XML_LIBS)
 PKG_CHECK_MODULES(SQLITE, sqlite3)
 AC_SUBST(SQLITE_CFLAGS)
 AC_SUBST(SQLITE_LIBS)
+
+PKG_CHECK_MODULES(LIBPSL, libpsl >= 0.20.0)
+AC_SUBST(LIBPSL_CFLAGS)
+AC_SUBST(LIBPSL_LIBS)
 
 dnl ***********************
 dnl *** Check for Win32 ***
@@ -272,13 +276,16 @@ if test "$have_apache" = 1; then
 
     if test "$have_php" = yes; then
 	AC_MSG_CHECKING([for php-xmlrpc])
-	if $PHP --rf xmlrpc_server_create | grep -q "does not exist"; then
-	    have_php_xmlrpc=no
-	else
+	if $PHP -d extension=xmlrpc -r 'exit(function_exists("xmlrpc_server_create")?0:1);'; then
 	    have_php_xmlrpc=yes
+	    IF_HAVE_PHP_XMLRPC=""
 	    AC_DEFINE(HAVE_PHP_XMLRPC, 1, [Have php-xmlrpc])
+	else
+	    have_php_xmlrpc=no
+	    IF_HAVE_PHP_XMLRPC=";"
 	fi
 	AC_MSG_RESULT($have_php_xmlrpc)
+	AC_SUBST(IF_HAVE_PHP_XMLRPC)
     fi
 
     if test -f "$APACHE_MODULE_DIR/mod_unixd.so"; then
@@ -288,6 +295,7 @@ if test "$have_apache" = 1; then
     fi
     AC_SUBST(IF_HAVE_MOD_UNIXD)
 fi
+AM_CONDITIONAL(HAVE_PHP, test "$have_php" = yes)
 
 AC_PATH_PROG(CURL, curl, no)
 if test "$CURL" != no; then
@@ -415,6 +423,7 @@ AC_CONFIG_FILES([
 	po/Makefile
 	tests/Makefile
 	tests/httpd.conf
+	tests/php.ini
 	examples/Makefile
 	docs/Makefile
 	docs/reference/Makefile

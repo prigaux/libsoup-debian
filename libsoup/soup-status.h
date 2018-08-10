@@ -5,10 +5,10 @@
  * Copyright (C) 2001-2003, Ximian, Inc.
  */
 
-#ifndef SOUP_STATUS_H
-#define SOUP_STATUS_H 1
+#ifndef __SOUP_STATUS_H__
+#define __SOUP_STATUS_H__ 1
 
-#include <libsoup/soup-types.h>
+#include <libsoup/soup-version.h>
 
 G_BEGIN_DECLS
 
@@ -182,4 +182,4 @@ typedef enum {
 
 G_END_DECLS
 
-#endif /* SOUP_STATUS_H */
+#endif /* __SOUP_STATUS_H__ */

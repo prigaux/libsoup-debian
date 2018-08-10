@@ -8,7 +8,7 @@
 <link rel="up" href="ch04.html" title="Web Services APIs">
 <link rel="prev" href="libsoup-2.4-HTML-Form-Support.html" title="HTML Form Support">
 <link rel="next" href="libsoup-2.4-WebSockets.html" title="WebSockets">
-<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">GVariant</span> *
+<a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-parse-response" title="soup_xmlrpc_parse_response ()">soup_xmlrpc_parse_response</a> <span class="c_punctuation">()</span>
@@ -65,7 +65,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">GVariant</span> *
+<a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-variant-new-datetime" title="soup_xmlrpc_variant_new_datetime ()">soup_xmlrpc_variant_new_datetime</a> <span class="c_punctuation">()</span>
@@ -89,7 +89,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">GVariant</span> *
+<a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-params-parse" title="soup_xmlrpc_params_parse ()">soup_xmlrpc_params_parse</a> <span class="c_punctuation">()</span>
@@ -121,7 +121,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">gboolean</span>
+<a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 </td>
 <td class="function_name">
 <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-message-set-response" title="soup_xmlrpc_message_set_response ()">soup_xmlrpc_message_set_response</a> <span class="c_punctuation">()</span>
@@ -183,13 +183,13 @@
 <a name="soup-xmlrpc-build-request"></a><h3>soup_xmlrpc_build_request ()</h3>
 <pre class="programlisting"><span class="returnvalue">char</span> *
 soup_xmlrpc_build_request (<em class="parameter"><code>const <span class="type">char</span> *method_name</code></em>,
-                           <em class="parameter"><code><span class="type">GVariant</span> *params</code></em>,
-                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+                           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *params</code></em>,
+                           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>This creates an XML-RPC methodCall and returns it as a string.
 This is the low-level method that <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-message-new" title="soup_xmlrpc_message_new ()"><code class="function">soup_xmlrpc_message_new()</code></a> is
 built on.</p>
 <p><em class="parameter"><code>params</code></em>
- is a <span class="type">GVariant</span> tuple representing the method parameters.</p>
+ is a <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple representing the method parameters.</p>
 <p>Serialization details:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>"a{s*}" and "{s*}" are serialized as &lt;struct&gt;</p></li>
@@ -201,9 +201,9 @@ built on.</p>
 <li class="listitem"><p>doubles are serialized as &lt;double&gt;</p></li>
 <li class="listitem"><p>Strings are serialized as &lt;string&gt;</p></li>
 <li class="listitem"><p>Variants (i.e. "v" type) are unwrapped and their child is serialized.</p></li>
-<li class="listitem"><p><span class="type">GVariants</span> created by <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-variant-new-datetime" title="soup_xmlrpc_variant_new_datetime ()"><code class="function">soup_xmlrpc_variant_new_datetime()</code></a> are serialized as
+<li class="listitem"><p><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariants</span></a> created by <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-variant-new-datetime" title="soup_xmlrpc_variant_new_datetime ()"><code class="function">soup_xmlrpc_variant_new_datetime()</code></a> are serialized as
 &lt;dateTime.iso8601&gt;</p></li>
-<li class="listitem"><p>Other types are not supported and will return <code class="literal">NULL</code> and set <em class="parameter"><code>error</code></em>
+<li class="listitem"><p>Other types are not supported and will return <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and set <em class="parameter"><code>error</code></em>
 .
 This notably includes: object-paths, signatures, uint64, handles, maybes
 and dictionaries with non-string keys.</p></li>
@@ -226,12 +226,12 @@ and dictionaries with non-string keys.</p></li>
 </tr>
 <tr>
 <td class="parameter_name"><p>params</p></td>
-<td class="parameter_description"><p>a <span class="type">GVariant</span> tuple</p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -239,7 +239,7 @@ and dictionaries with non-string keys.</p></li>
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-build-request.returns"></a><h4>Returns</h4>
-<p> the text of the methodCall, or <code class="literal">NULL</code> on error.</p>
+<p> the text of the methodCall, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.</p>
 </div>
 <p class="since">Since: 2.52</p>
 </div>
@@ -249,8 +249,8 @@ and dictionaries with non-string keys.</p></li>
 <pre class="programlisting"><a class="link" href="SoupMessage.html" title="SoupMessage"><span class="returnvalue">SoupMessage</span></a> *
 soup_xmlrpc_message_new (<em class="parameter"><code>const <span class="type">char</span> *uri</code></em>,
                          <em class="parameter"><code>const <span class="type">char</span> *method_name</code></em>,
-                         <em class="parameter"><code><span class="type">GVariant</span> *params</code></em>,
-                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *params</code></em>,
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Creates an XML-RPC methodCall and returns a <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a>, ready
 to send, for that method call.</p>
 <p>See <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-build-request" title="soup_xmlrpc_build_request ()"><code class="function">soup_xmlrpc_build_request()</code></a> for serialization details.</p>
@@ -278,12 +278,12 @@ to send, for that method call.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>params</p></td>
-<td class="parameter_description"><p>a <span class="type">GVariant</span> tuple</p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -292,7 +292,7 @@ to send, for that method call.</p>
 <div class="refsect3">
 <a name="soup-xmlrpc-message-new.returns"></a><h4>Returns</h4>
 <p>a <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> encoding the
-indicated XML-RPC request, or <code class="literal">NULL</code> on error. </p>
+indicated XML-RPC request, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.52</p>
@@ -300,20 +300,20 @@ indicated XML-RPC request, or <code class="literal">NULL</code> on error. </p>
 <hr>
 <div class="refsect2">
 <a name="soup-xmlrpc-parse-response"></a><h3>soup_xmlrpc_parse_response ()</h3>
-<pre class="programlisting"><span class="returnvalue">GVariant</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *
 soup_xmlrpc_parse_response (<em class="parameter"><code>const <span class="type">char</span> *method_response</code></em>,
                             <em class="parameter"><code><span class="type">int</span> length</code></em>,
                             <em class="parameter"><code>const <span class="type">char</span> *signature</code></em>,
-                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+                            <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Parses <em class="parameter"><code>method_response</code></em>
  and returns the return value. If
 <em class="parameter"><code>method_response</code></em>
- is a fault, <code class="literal">NULL</code> is returned, and <em class="parameter"><code>error</code></em>
+ is a fault, <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned, and <em class="parameter"><code>error</code></em>
 
 will be set to an error in the <a class="link" href="libsoup-2.4-XMLRPC-Support.html#SOUP-XMLRPC-FAULT:CAPS" title="SOUP_XMLRPC_FAULT"><code class="literal">SOUP_XMLRPC_FAULT</code></a> domain, with the error
 code containing the fault code, and the error message containing
 the fault string. If <em class="parameter"><code>method_response</code></em>
- cannot be parsed, <code class="literal">NULL</code> is returned,
+ cannot be parsed, <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned,
 and <em class="parameter"><code>error</code></em>
  will be set to an error in the <a class="link" href="libsoup-2.4-XMLRPC-Support.html#SOUP-XMLRPC-ERROR:CAPS" title="SOUP_XMLRPC_ERROR"><code class="literal">SOUP_XMLRPC_ERROR</code></a> domain.</p>
 <p>See <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-params-parse" title="soup_xmlrpc_params_parse ()"><code class="function">soup_xmlrpc_params_parse()</code></a> for deserialization details.</p>
@@ -339,12 +339,12 @@ and <em class="parameter"><code>error</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>signature</p></td>
-<td class="parameter_description"><p>A valid <span class="type">GVariant</span> type string, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_description"><p>A valid <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> type string, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -352,7 +352,7 @@ and <em class="parameter"><code>error</code></em>
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-parse-response.returns"></a><h4>Returns</h4>
-<p>a new (non-floating) <span class="type">GVariant</span>, or <code class="literal">NULL</code>. </p>
+<p>a new (non-floating) <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.52</p>
@@ -360,18 +360,18 @@ and <em class="parameter"><code>error</code></em>
 <hr>
 <div class="refsect2">
 <a name="soup-xmlrpc-variant-new-datetime"></a><h3>soup_xmlrpc_variant_new_datetime ()</h3>
-<pre class="programlisting"><span class="returnvalue">GVariant</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *
 soup_xmlrpc_variant_new_datetime (<em class="parameter"><code><a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a> *date</code></em>);</pre>
-<p>Construct a special <span class="type">GVariant</span> used to serialize a &lt;dateTime.iso8601&gt;
+<p>Construct a special <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> used to serialize a &lt;dateTime.iso8601&gt;
 node. See <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-build-request" title="soup_xmlrpc_build_request ()"><code class="function">soup_xmlrpc_build_request()</code></a>.</p>
-<p>The actual type of the returned <span class="type">GVariant</span> is unspecified and "v" or "*"
+<p>The actual type of the returned <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> is unspecified and "v" or "*"
 should be used in variant format strings. For example:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">args <span class="gtkdoc opt">=</span> <span class="function">g_variant_new</span> <span class="gtkdoc opt">(</span><span class="string">&quot;(v)&quot;</span><span class="gtkdoc opt">,</span> <span class="function"><a href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-variant-new-datetime">soup_xmlrpc_variant_new_datetime</a></span> <span class="gtkdoc opt">(</span>date<span class="gtkdoc opt">));</span></pre></td>
+        <td class="listing_code"><pre class="programlisting">args <span class="gtkdoc opt">=</span> <span class="function"><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#g-variant-new">g_variant_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;(v)&quot;</span><span class="gtkdoc opt">,</span> <span class="function"><a href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-variant-new-datetime">soup_xmlrpc_variant_new_datetime</a></span> <span class="gtkdoc opt">(</span>date<span class="gtkdoc opt">));</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -394,7 +394,7 @@ should be used in variant format strings. For example:</p>
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-variant-new-datetime.returns"></a><h4>Returns</h4>
-<p> a floating <span class="type">GVariant</span>.</p>
+<p> a floating <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>.</p>
 </div>
 <p class="since">Since: 2.52</p>
 </div>
@@ -402,9 +402,9 @@ should be used in variant format strings. For example:</p>
 <div class="refsect2">
 <a name="soup-xmlrpc-variant-get-datetime"></a><h3>soup_xmlrpc_variant_get_datetime ()</h3>
 <pre class="programlisting"><a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="returnvalue">SoupDate</span></a> *
-soup_xmlrpc_variant_get_datetime (<em class="parameter"><code><span class="type">GVariant</span> *variant</code></em>,
-                                  <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
-<p>Get the <a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a> from special <span class="type">GVariant</span> created by
+soup_xmlrpc_variant_get_datetime (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *variant</code></em>,
+                                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Get the <a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a> from special <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> created by
 <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-variant-new-datetime" title="soup_xmlrpc_variant_new_datetime ()"><code class="function">soup_xmlrpc_variant_new_datetime()</code></a> or by parsing a &lt;dateTime.iso8601&gt;
 node. See <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-params-parse" title="soup_xmlrpc_params_parse ()"><code class="function">soup_xmlrpc_params_parse()</code></a>.</p>
 <p>If <em class="parameter"><code>variant</code></em>
@@ -422,12 +422,12 @@ are not in the expected type.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>variant</p></td>
-<td class="parameter_description"><p>a <span class="type">GVariant</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -435,7 +435,7 @@ are not in the expected type.</p>
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-variant-get-datetime.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a>, or <code class="literal">NULL</code> on error.</p>
+<p> a new <a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.</p>
 </div>
 <p class="since">Since: 2.52</p>
 </div>
@@ -465,10 +465,10 @@ soup_xmlrpc_params_free (<em class="parameter"><code><a class="link" href="libso
 <hr>
 <div class="refsect2">
 <a name="soup-xmlrpc-params-parse"></a><h3>soup_xmlrpc_params_parse ()</h3>
-<pre class="programlisting"><span class="returnvalue">GVariant</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *
 soup_xmlrpc_params_parse (<em class="parameter"><code><a class="link" href="libsoup-2.4-XMLRPC-Support.html#SoupXMLRPCParams" title="SoupXMLRPCParams"><span class="type">SoupXMLRPCParams</span></a> *self</code></em>,
                           <em class="parameter"><code>const <span class="type">char</span> *signature</code></em>,
-                          <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+                          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Parse method parameters returned by <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-parse-request" title="soup_xmlrpc_parse_request ()"><code class="function">soup_xmlrpc_parse_request()</code></a>.</p>
 <p>Deserialization details:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
@@ -511,12 +511,12 @@ type check this special variant.</p></li>
 </tr>
 <tr>
 <td class="parameter_name"><p>signature</p></td>
-<td class="parameter_description"><p>A valid <span class="type">GVariant</span> type string, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_description"><p>A valid <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> type string, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -524,7 +524,7 @@ type check this special variant.</p></li>
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-params-parse.returns"></a><h4>Returns</h4>
-<p>a new (non-floating) <span class="type">GVariant</span>, or <code class="literal">NULL</code>. </p>
+<p>a new (non-floating) <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.52</p>
@@ -536,7 +536,7 @@ type check this special variant.</p></li>
 soup_xmlrpc_parse_request (<em class="parameter"><code>const <span class="type">char</span> *method_call</code></em>,
                            <em class="parameter"><code><span class="type">int</span> length</code></em>,
                            <em class="parameter"><code><a class="link" href="libsoup-2.4-XMLRPC-Support.html#SoupXMLRPCParams" title="SoupXMLRPCParams"><span class="type">SoupXMLRPCParams</span></a> **params</code></em>,
-                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+                           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Parses <em class="parameter"><code>method_call</code></em>
  and return the method name. Method parameters can be
 parsed later using <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-params-parse" title="soup_xmlrpc_params_parse ()"><code class="function">soup_xmlrpc_params_parse()</code></a>.</p>
@@ -567,7 +567,7 @@ parsed later using <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xm
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -575,7 +575,7 @@ parsed later using <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xm
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-parse-request.returns"></a><h4>Returns</h4>
-<p>method's name, or <code class="literal">NULL</code> on error. </p>
+<p>method's name, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.52</p>
@@ -584,8 +584,8 @@ parsed later using <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xm
 <div class="refsect2">
 <a name="soup-xmlrpc-build-response"></a><h3>soup_xmlrpc_build_response ()</h3>
 <pre class="programlisting"><span class="returnvalue">char</span> *
-soup_xmlrpc_build_response (<em class="parameter"><code><span class="type">GVariant</span> *value</code></em>,
-                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+soup_xmlrpc_build_response (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>,
+                            <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>This creates a (successful) XML-RPC methodResponse and returns it
 as a string. To create a fault response, use <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-build-fault" title="soup_xmlrpc_build_fault ()"><code class="function">soup_xmlrpc_build_fault()</code></a>. This
 is the low-level method that <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-xmlrpc-message-set-response" title="soup_xmlrpc_message_set_response ()"><code class="function">soup_xmlrpc_message_set_response()</code></a> is built on.</p>
@@ -611,7 +611,7 @@ should not be a tuple here (unless the return value is an array).</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -619,7 +619,7 @@ should not be a tuple here (unless the return value is an array).</p>
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-build-response.returns"></a><h4>Returns</h4>
-<p> the text of the methodResponse, or <code class="literal">NULL</code> on error.</p>
+<p> the text of the methodResponse, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.</p>
 </div>
 <p class="since">Since: 2.52</p>
 </div>
@@ -669,10 +669,10 @@ soup_xmlrpc_build_fault (<em class="parameter"><code><span class="type">int</spa
 <hr>
 <div class="refsect2">
 <a name="soup-xmlrpc-message-set-response"></a><h3>soup_xmlrpc_message_set_response ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 soup_xmlrpc_message_set_response (<em class="parameter"><code><a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> *msg</code></em>,
-                                  <em class="parameter"><code><span class="type">GVariant</span> *value</code></em>,
-                                  <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+                                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>,
+                                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Sets the status code and response body of <em class="parameter"><code>msg</code></em>
  to indicate a
 successful XML-RPC call, with a return value given by <em class="parameter"><code>value</code></em>
@@ -697,12 +697,12 @@ fault response, use <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-x
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p>a <span class="type">GVariant</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -710,7 +710,7 @@ fault response, use <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-x
 </div>
 <div class="refsect3">
 <a name="soup-xmlrpc-message-set-response.returns"></a><h4>Returns</h4>
-<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> otherwise.</p>
+<p> <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> on success, <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
 </div>
 <p class="since">Since: 2.52</p>
 </div>
@@ -802,7 +802,7 @@ and <em class="parameter"><code>fault_format</code></em>
 <a name="SOUP-XMLRPC-FAULT:CAPS"></a><h3>SOUP_XMLRPC_FAULT</h3>
 <pre class="programlisting">#define SOUP_XMLRPC_FAULT soup_xmlrpc_fault_quark()
 </pre>
-<p>A <span class="type">GError</span> domain representing an XML-RPC fault code. Used with
+<p>A <a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> domain representing an XML-RPC fault code. Used with
 <a class="link" href="libsoup-2.4-XMLRPC-Support.html#SoupXMLRPCFault" title="enum SoupXMLRPCFault"><span class="type">SoupXMLRPCFault</span></a> (although servers may also return fault codes not
 in that enumeration).</p>
 </div>
@@ -916,6 +916,6 @@ Can be parsed using <a class="link" href="libsoup-2.4-XMLRPC-Support.html#soup-x
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28.1</div>
+<hr>Generated by GTK-Doc V1.28</div>
 </body>
 </html>
