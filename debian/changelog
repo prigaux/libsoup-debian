@@ -1,7 +1,7 @@
 libsoup2.4 (2.63.90-1) UNRELEASED; urgency=medium
 
   * debian/{gbp.conf,control{,.in}}: Update for experimental.
-  * New upstream release 2.63.90
+  * New upstream release 2.63.90 (LP: #1786789)
     - Avoid unaligned memory accesses in WebSocket implementation
     - Bail out on cookie-jar calls with empty hostnames
     - Fix crash under soup_socket_new()
