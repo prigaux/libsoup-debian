@@ -1,4 +1,4 @@
-libsoup2.4 (2.63.90-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.63.90-1) experimental; urgency=medium
 
   * debian/{gbp.conf,control{,.in}}: Update for experimental.
   * New upstream release 2.63.90 (LP: #1786789)
