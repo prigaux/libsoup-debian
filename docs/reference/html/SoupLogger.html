@@ -8,7 +8,7 @@
 <link rel="up" href="ch03.html" title="Additional Features">
 <link rel="prev" href="SoupCookieJarDB.html" title="SoupCookieJarDB">
 <link rel="next" href="SoupProxyResolverDefault.html" title="SoupProxyResolverDefault">
-<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -108,7 +108,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td class="property_type"><span class="type">gint</span></td>
 <td class="property_name"><a class="link" href="SoupLogger.html#SoupLogger--max-body-size" title="The “max-body-size” property">max-body-size</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -136,7 +136,7 @@
 </div>
 <div class="refsect1">
 <a name="SoupLogger.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> SoupLogger
 </pre>
 </div>
@@ -257,7 +257,7 @@ logged, use <a class="link" href="SoupLogger.html#soup-logger-set-request-filter
 <pre class="programlisting"><a class="link" href="SoupLogger.html#SoupLoggerLogLevel" title="enum SoupLoggerLogLevel"><span class="returnvalue">SoupLoggerLogLevel</span></a>
 <span class="c_punctuation">(</span>*SoupLoggerFilter<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="SoupLogger.html" title="SoupLogger"><span class="type">SoupLogger</span></a> *logger</code></em>,
                      <em class="parameter"><code><a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> *msg</code></em>,
-                     <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                     <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>The prototype for a logging filter. The filter callback will be
 invoked for each request or response, and should analyze it and
 return a <a class="link" href="SoupLogger.html#SoupLoggerLogLevel" title="enum SoupLoggerLogLevel"><span class="type">SoupLoggerLogLevel</span></a> value indicating how much of the
@@ -303,8 +303,8 @@ the message to log</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 soup_logger_set_request_filter (<em class="parameter"><code><a class="link" href="SoupLogger.html" title="SoupLogger"><span class="type">SoupLogger</span></a> *logger</code></em>,
                                 <em class="parameter"><code><a class="link" href="SoupLogger.html#SoupLoggerFilter" title="SoupLoggerFilter ()"><span class="type">SoupLoggerFilter</span></a> request_filter</code></em>,
-                                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> filter_data</code></em>,
-                                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">gpointer</span> filter_data</code></em>,
+                                <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);</pre>
 <p>Sets up a filter to determine the log level for a given request.
 For each HTTP request <em class="parameter"><code>logger</code></em>
  will invoke <em class="parameter"><code>request_filter</code></em>
@@ -339,7 +339,7 @@ level passed to <a class="link" href="SoupLogger.html#soup-logger-new" title="so
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
-<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> to free <em class="parameter"><code>filter_data</code></em>
+<td class="parameter_description"><p>a <span class="type">GDestroyNotify</span> to free <em class="parameter"><code>filter_data</code></em>
 </p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -353,8 +353,8 @@ level passed to <a class="link" href="SoupLogger.html#soup-logger-new" title="so
 <pre class="programlisting"><span class="returnvalue">void</span>
 soup_logger_set_response_filter (<em class="parameter"><code><a class="link" href="SoupLogger.html" title="SoupLogger"><span class="type">SoupLogger</span></a> *logger</code></em>,
                                  <em class="parameter"><code><a class="link" href="SoupLogger.html#SoupLoggerFilter" title="SoupLoggerFilter ()"><span class="type">SoupLoggerFilter</span></a> response_filter</code></em>,
-                                 <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> filter_data</code></em>,
-                                 <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+                                 <em class="parameter"><code><span class="type">gpointer</span> filter_data</code></em>,
+                                 <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);</pre>
 <p>Sets up a filter to determine the log level for a given response.
 For each HTTP response <em class="parameter"><code>logger</code></em>
  will invoke <em class="parameter"><code>response_filter</code></em>
@@ -389,7 +389,7 @@ the level passed to <a class="link" href="SoupLogger.html#soup-logger-new" title
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
-<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> to free <em class="parameter"><code>filter_data</code></em>
+<td class="parameter_description"><p>a <span class="type">GDestroyNotify</span> to free <em class="parameter"><code>filter_data</code></em>
 </p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -405,7 +405,7 @@ the level passed to <a class="link" href="SoupLogger.html#soup-logger-new" title
                       <em class="parameter"><code><a class="link" href="SoupLogger.html#SoupLoggerLogLevel" title="enum SoupLoggerLogLevel"><span class="type">SoupLoggerLogLevel</span></a> level</code></em>,
                       <em class="parameter"><code><span class="type">char</span> direction</code></em>,
                       <em class="parameter"><code>const <span class="type">char</span> *data</code></em>,
-                      <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                      <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>The prototype for a custom printing callback.</p>
 <p><em class="parameter"><code>level</code></em>
  indicates what kind of information is being printed. Eg, it
@@ -472,8 +472,8 @@ to print; the printer is expected to add a terminating newline.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 soup_logger_set_printer (<em class="parameter"><code><a class="link" href="SoupLogger.html" title="SoupLogger"><span class="type">SoupLogger</span></a> *logger</code></em>,
                          <em class="parameter"><code><a class="link" href="SoupLogger.html#SoupLoggerPrinter" title="SoupLoggerPrinter ()"><span class="type">SoupLoggerPrinter</span></a> printer</code></em>,
-                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> printer_data</code></em>,
-                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+                         <em class="parameter"><code><span class="type">gpointer</span> printer_data</code></em>,
+                         <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);</pre>
 <p>Sets up an alternate log printing routine, if you don't want
 the log to go to <code class="literal">stdout</code>.</p>
 <div class="refsect3">
@@ -502,7 +502,7 @@ the log to go to <code class="literal">stdout</code>.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
-<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> to free <em class="parameter"><code>printer_data</code></em>
+<td class="parameter_description"><p>a <span class="type">GDestroyNotify</span> to free <em class="parameter"><code>printer_data</code></em>
 </p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -578,7 +578,7 @@ bodies.</p>
 <hr>
 <div class="refsect2">
 <a name="SoupLogger--max-body-size"></a><h3>The <code class="literal">“max-body-size”</code> property</h3>
-<pre class="programlisting">  “max-body-size”            <a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></pre>
+<pre class="programlisting">  “max-body-size”            <span class="type">gint</span></pre>
 <p>If <a class="link" href="SoupLogger.html#SoupLogger--level" title="The “level” property"><span class="type">“level”</span></a> is <a class="link" href="SoupLogger.html#SOUP-LOGGER-LOG-BODY:CAPS"><code class="literal">SOUP_LOGGER_LOG_BODY</code></a>, this gives
 the maximum number of bytes of the body that will be logged.
 (-1 means "no limit".)</p>
@@ -590,6 +590,6 @@ the maximum number of bytes of the body that will be logged.
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28</div>
+<hr>Generated by GTK-Doc V1.28.1</div>
 </body>
 </html>

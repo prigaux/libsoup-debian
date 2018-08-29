@@ -8,7 +8,7 @@
 <link rel="up" href="ch02.html" title="Core API">
 <link rel="prev" href="SoupAuthDomainDigest.html" title="SoupAuthDomainDigest">
 <link rel="next" href="SoupCookie.html" title="SoupCookie">
-<meta name="generator" content="GTK-Doc V1.28 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -84,7 +84,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="SoupCache.html#soup-cache-get-max-size" title="soup_cache_get_max_size ()">soup_cache_get_max_size</a> <span class="c_punctuation">()</span>
@@ -112,7 +112,7 @@
 <tbody>
 <tr>
 <td class="property_type">
-<a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">gchar</span> *</td>
 <td class="property_name"><a class="link" href="SoupCache.html#SoupCache--cache-dir" title="The “cache-dir” property">cache-dir</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
@@ -145,7 +145,7 @@
 </div>
 <div class="refsect1">
 <a name="SoupCache.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> SoupCache
 </pre>
 </div>
@@ -183,10 +183,10 @@ soup_cache_new (<em class="parameter"><code>const <span class="type">char</span>
 <tbody>
 <tr>
 <td class="parameter_name"><p>cache_dir</p></td>
-<td class="parameter_description"><p>the directory to store the cached data, or <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td class="parameter_description"><p>the directory to store the cached data, or <code class="literal">NULL</code>
 to use the default one. Note that since the cache isn't safe to access for
 multiple processes at once, and the default directory isn't namespaced by
-process, clients are strongly discouraged from passing <a href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+process, clients are strongly discouraged from passing <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@ process, clients are strongly discouraged from passing <a href="/usr/share/gtk-d
 soup_cache_flush (<em class="parameter"><code><a class="link" href="SoupCache.html" title="SoupCache"><span class="type">SoupCache</span></a> *cache</code></em>);</pre>
 <p>This function will force all pending writes in the <em class="parameter"><code>cache</code></em>
  to be
-committed to disk. For doing so it will iterate the <a href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a>
+committed to disk. For doing so it will iterate the <span class="type">GMainContext</span>
 associated with <em class="parameter"><code>cache</code></em>
 's session as long as needed.</p>
 <p>Contrast with <a class="link" href="SoupCache.html#soup-cache-dump" title="soup_cache_dump ()"><code class="function">soup_cache_dump()</code></a>, which writes out the cache index
@@ -310,7 +310,7 @@ soup_cache_load (<em class="parameter"><code><a class="link" href="SoupCache.htm
 <hr>
 <div class="refsect2">
 <a name="soup-cache-get-max-size"></a><h3>soup_cache_get_max_size ()</h3>
-<pre class="programlisting"><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<pre class="programlisting"><span class="returnvalue">guint</span>
 soup_cache_get_max_size (<em class="parameter"><code><a class="link" href="SoupCache.html" title="SoupCache"><span class="type">SoupCache</span></a> *cache</code></em>);</pre>
 <p>Gets the maximum size of the cache.</p>
 <div class="refsect3">
@@ -339,7 +339,7 @@ soup_cache_get_max_size (<em class="parameter"><code><a class="link" href="SoupC
 <a name="soup-cache-set-max-size"></a><h3>soup_cache_set_max_size ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 soup_cache_set_max_size (<em class="parameter"><code><a class="link" href="SoupCache.html" title="SoupCache"><span class="type">SoupCache</span></a> *cache</code></em>,
-                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> max_size</code></em>);</pre>
+                         <em class="parameter"><code><span class="type">guint</span> max_size</code></em>);</pre>
 <p>Sets the maximum size of the cache.</p>
 <div class="refsect3">
 <a name="soup-cache-set-max-size.parameters"></a><h4>Parameters</h4>
@@ -410,7 +410,7 @@ saved.</p>
 <a name="SoupCache.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="SoupCache--cache-dir"></a><h3>The <code class="literal">“cache-dir”</code> property</h3>
-<pre class="programlisting">  “cache-dir”                <a href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “cache-dir”                <span class="type">gchar</span> *</pre>
 <p>The directory to store the cache files.</p>
 <p>Flags: Read / Write / Construct Only</p>
 <p>Default value: NULL</p>
@@ -426,6 +426,6 @@ saved.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.28</div>
+<hr>Generated by GTK-Doc V1.28.1</div>
 </body>
 </html>
