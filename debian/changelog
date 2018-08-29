@@ -1,3 +1,9 @@
+libsoup2.4 (2.63.92-1) experimental; urgency=medium
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 29 Aug 2018 12:36:57 +0200
+
 libsoup2.4 (2.63.90-1) experimental; urgency=medium
 
   * debian/{gbp.conf,control{,.in}}: Update for experimental.
