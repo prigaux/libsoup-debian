@@ -1,5 +1,5 @@
 project('libsoup', 'c',
-        version: '2.63.90',
+        version: '2.63.92',
         meson_version : '>=0.43',
         license : 'LGPL2',
         default_options : 'c_std=c89')
@@ -103,7 +103,11 @@ endif
 #################################
 # Regression tests dependencies #
 #################################
-apache_httpd2 = find_program('httpd2', 'httpd', 'apache2', 'apache', required : false)
+# This abomination is a result of https://github.com/mesonbuild/meson/issues/1576
+apache_httpd2 = find_program('httpd2', 'httpd', 'apache2', 'apache',
+	      '/sbin/httpd2', '/sbin/httpd', '/sbin/apache2', '/sbin/apache',
+	      '/usr/sbin/httpd2', '/usr/sbin/httpd', '/usr/sbin/apache2', '/usr/sbin/apache',
+	      required : false)
 have_apache=false
 apache_httpd2_version = ''
 if apache_httpd2.found()

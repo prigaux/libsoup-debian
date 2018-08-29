@@ -25,6 +25,7 @@
 ..\libsoup\soup-multipart-input-stream.h
 ..\libsoup\soup-password-manager.h
 ..\libsoup\soup-portability.h
+..\libsoup\soup-proxy-resolver.h
 ..\libsoup\soup-proxy-resolver-default.h
 ..\libsoup\soup-proxy-uri-resolver.h
 ..\libsoup\soup-request.h
