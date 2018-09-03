@@ -76,6 +76,35 @@ soup_sources = [
   'soup-xmlrpc-old.c',
 ]
 
+soup_headers = [
+  'gconstructor.h',
+  'soup-auth-basic.h',
+  'soup-auth-digest.h',
+  'soup-auth-ntlm.h',
+  'soup-auth-negotiate.h',
+  'soup-body-input-stream.h',
+  'soup-body-output-stream.h',
+  'soup-cache-client-input-stream.h',
+  'soup-cache-input-stream.h',
+  'soup-cache-private.h',
+  'soup-client-input-stream.h',
+  'soup-connection.h',
+  'soup-connection-auth.h',
+  'soup-content-processor.h',
+  'soup-content-sniffer-stream.h',
+  'soup-converter-wrapper.h',
+  'soup-directory-input-stream.h',
+  'soup-filter-input-stream.h',
+  'soup-io-stream.h',
+  'soup-message-private.h',
+  'soup-message-queue.h',
+  'soup-misc-private.h',
+  'soup-path-map.h',
+  'soup-proxy-resolver-wrapper.h',
+  'soup-session-private.h',
+  'soup-socket-private.h',
+]
+
 soup_shared_headers = [
   'soup-address.h',
   'soup-auth.h',
@@ -129,7 +158,7 @@ soup_shared_headers = [
   'soup-xmlrpc-old.h',
 ]
 
-soup_headers = soup_shared_headers + [
+soup_installed_headers = soup_shared_headers + [
   'soup.h'
 ]
 
@@ -145,14 +174,14 @@ soup_gnome_headers = [
   'soup-password-manager-gnome.h'
 ]
 
-soup_gnome_include_headers = [
+soup_gnome_installed_headers = [
   'soup-cookie-jar-sqlite.h',
   'soup-gnome.h',
   'soup-gnome-features.h'
 ]
 
 includedir = join_paths(libsoup_api_name, meson.project_name())
-install_headers(soup_headers, subdir : includedir)
+install_headers(soup_installed_headers, subdir : includedir)
 
 version_cdata = configuration_data()
 version_cdata.set('SOUP_MAJOR_VERSION', soup_version_major)
@@ -166,7 +195,7 @@ configure_file(input : 'soup-version.h.in',
 
 enum_types = 'soup-enum-types'
 soup_enums = gnome.mkenums('soup-enum-types',
-  sources : soup_headers,
+  sources : soup_installed_headers,
   h_template : enum_types + '.h.template',
   c_template : enum_types + '.c.template',
   install_header : true,
@@ -188,11 +217,13 @@ deps = [
   platform_deps
 ]
 
-libsoup = shared_library('soup-@0@'.format(apiversion), soup_sources,
+libsoup = shared_library('soup-@0@'.format(apiversion),
+  soup_sources,
+  soup_headers,
   soup_enums,
   version : libversion,
   soversion : soversion,
-  c_args : libsoup_c_args,
+  c_args : libsoup_c_args + hidden_visibility_flag,
   include_directories : configinc,
   install : true,
   dependencies : deps)
@@ -222,13 +253,14 @@ if enable_gnome
 
   includedir = join_paths(libsoup_gnome_api_name, meson.project_name())
   install_headers(
-    soup_gnome_headers + ['soup-gnome.h', 'soup-gnome-features.h'],
+    soup_gnome_installed_headers,
     subdir : includedir)
 
-  libsoup_gnome = shared_library(soup_gnome_api_name, soup_gnome_sources,
+  libsoup_gnome = shared_library(soup_gnome_api_name,
+    soup_gnome_sources + soup_gnome_headers,
     version : libversion,
     soversion : soversion,
-    c_args : libsoup_c_args,
+    c_args : libsoup_c_args + hidden_visibility_flag,
     include_directories : configinc,
     install : true,
     dependencies : deps + [libsoup_dep])

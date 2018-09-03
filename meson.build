@@ -1,6 +1,6 @@
 project('libsoup', 'c',
-        version: '2.63.92',
-        meson_version : '>=0.43',
+        version: '2.64.0',
+        meson_version : '>=0.47',
         license : 'LGPL2',
         default_options : 'c_std=c89')
 
@@ -15,7 +15,7 @@ soup_version_micro = version_arr[2]
 
 libversion = '1.8.0'
 apiversion = '2.4'
-soversion = '0'
+soversion = '1'
 libsoup_api_name = '@0@-@1@'.format(meson.project_name(), apiversion)
 
 host_system = host_machine.system()
@@ -76,10 +76,19 @@ endif
 cdata = configuration_data()
 
 platform_deps = []
-if host_machine.system() == 'windows'
-  platform_deps = [cc.find_library('ws2_32')]
-  cdata.set('_SOUP_EXTERN', '__declspec(dllexport)')
-  cdata.set('DLL_EXPORT', 1)
+hidden_visibility_flag = []
+if get_option('default_library') != 'static'
+  if host_machine.system() == 'windows'
+    platform_deps = [cc.find_library('ws2_32')]
+    cdata.set('DLL_EXPORT', true)
+    cdata.set('_SOUP_EXTERN', '__declspec(dllexport) extern')
+    if cc.get_id() != 'msvc'
+      hidden_visibility_flag += ['-fvisibility=hidden']
+    endif
+  else
+    cdata.set('_SOUP_EXTERN', '__attribute__((visibility("default"))) extern')
+    hidden_visibility_flag += ['-fvisibility=hidden']
+  endif
 endif
 
 libpsl_required_version = '>= 0.20'
@@ -103,15 +112,30 @@ endif
 #################################
 # Regression tests dependencies #
 #################################
+
+# The situation here is a little bit complicated. For running some of the tests
+# we need the Apache's httpd binary. As we want to know more about its
+# configuration we have to run it and parse the output. But here is the first
+# problem, because on Debian we can't run the binary unless the
+# /etc/apache2/envvars file is sourced, otherwise it ends with failure. The
+# recommended way to communicate with the Apache is the apachectl that passes
+# the arguments to httpd and also sources the envvars file. In the ideal world
+# we could use the apachectl to run the tests as well, but on Fedora any non
+# trivial call to it ends with the following error:
+#     Passing arguments to httpd using apachectl is no longer supported.
+#
+# The summary is that for the configuration parsing we will use the apachectl,
+# but for running the tests we will use the httpd binary.
+apachectl = find_program('apachectl', '/sbin/apachectl', '/usr/sbin/apachectl', required : false)
 # This abomination is a result of https://github.com/mesonbuild/meson/issues/1576
 apache_httpd2 = find_program('httpd2', 'httpd', 'apache2', 'apache',
-	      '/sbin/httpd2', '/sbin/httpd', '/sbin/apache2', '/sbin/apache',
-	      '/usr/sbin/httpd2', '/usr/sbin/httpd', '/usr/sbin/apache2', '/usr/sbin/apache',
-	      required : false)
+             '/sbin/httpd2', '/sbin/httpd', '/sbin/apache2', '/sbin/apache',
+             '/usr/sbin/httpd2', '/usr/sbin/httpd', '/usr/sbin/apache2', '/usr/sbin/apache',
+             required : false)
 have_apache=false
 apache_httpd2_version = ''
-if apache_httpd2.found()
-  apache_httpd2_version_raw = run_command(apache_httpd2.path(), '-v')
+if apache_httpd2.found() and apachectl.found()
+  apache_httpd2_version_raw = run_command(apachectl.path(), '-v')
   if apache_httpd2_version_raw.returncode() == 0
     apache_httpd2_version = apache_httpd2_version_raw.stdout().split('\n')[0]
     apache_httpd2_version = apache_httpd2_version.split('/')[1].split(' ')[0]
@@ -125,16 +149,15 @@ if apache_httpd2.found()
 endif
 
 if have_apache
-  apache_module_dirs_out = run_command('get_apache_module_dirs.py', apache_httpd2.path())
-  have_apache = (apache_module_dirs_out.returncode() == 0)
+  apache_modules_dirs_out = run_command('get_apache_modules_dirs.py', apachectl.path())
+  have_apache = (apache_modules_dirs_out.returncode() == 0)
   if have_apache
-    apache_module_dirs = apache_module_dirs_out.stdout().split(':')
-    message('Apache module directory: ' + apache_module_dirs[0])
-    cdata.set('APACHE_MODULE_DIR', apache_module_dirs[0])
-    cdata.set('APACHE_SSL_MODULE_DIR', apache_module_dirs[1])
-    cdata.set('APACHE_PHP_MODULE_DIR', apache_module_dirs[2])
-    apache_mod_unixd = run_command('test', '-f', join_paths(apache_module_dirs[0], 'mod_unixd.so'))
-    cdata.set('IF_HAVE_MOD_UNIXD', apache_mod_unixd.returncode() == 0 ? '' : '#')
+    apache_modules_dirs = apache_modules_dirs_out.stdout().split(':')
+    message('Apache modules directory: ' + apache_modules_dirs[0])
+    cdata.set('APACHE_MODULE_DIR', apache_modules_dirs[0])
+    cdata.set('APACHE_SSL_MODULE_DIR', apache_modules_dirs[1])
+    cdata.set('APACHE_PHP_MODULE_FILE', apache_modules_dirs[2])
+    cdata.set('IF_HAVE_MOD_UNIXD', apache_modules_dirs[3] != '' ? '' : '#')
     cdata.set('HAVE_APACHE', have_apache)
   endif
 endif
@@ -143,8 +166,8 @@ have_php = false
 have_php_xmlrpc = false
 if have_apache
   php = find_program('php', required : false)
-  apache_php_module = run_command('test', '-d', cdata.get('APACHE_PHP_MODULE_DIR'))
-  if apache_php_module.returncode() == 0
+  message(cdata.get('APACHE_PHP_MODULE_FILE'))
+  if php.found() and cdata.get('APACHE_PHP_MODULE_FILE') != ''
     have_php = true
     php_xmlrpc = run_command(php, '-d', 'extension=xmlrpc', '-r', 'exit(function_exists("xmlrpc_server_create")?0:1);')
     if php_xmlrpc.returncode() == 0
@@ -157,6 +180,11 @@ if have_apache
   endif
   cdata.set('IF_HAVE_PHP', have_php ? '' : '#')
   cdata.set('IF_HAVE_PHP_XMLRPC', have_php_xmlrpc ? '' : ';')
+endif
+
+tests_ready = have_apache and have_php and have_php_xmlrpc
+if not tests_ready
+  warning('Some regression tests will not be compiled due to missing libraries or modules. Please check the logs for more details.')
 endif
 
 cdata.set('HAVE_CURL', find_program('curl', required : false).found())
