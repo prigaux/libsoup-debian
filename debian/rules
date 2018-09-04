@@ -20,11 +20,11 @@ override_dh_strip:
 override_dh_makeshlibs:
 	dh_makeshlibs -- -c4
 
-CHECK_HOME = $(CURDIR)/debian/tmp/home
+CHECK_RUNTIME_DIR= $(CURDIR)/debian/tmp/run
 
 override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	mkdir -p $(CHECK_HOME)
-	env XDG_RUNTIME_DIR=$(CHECK_HOME) dbus-run-session -- $(MAKE) check VERBOSE=1
+	mkdir -p -m0700 $(CHECK_RUNTIME_DIR)
+	env XDG_RUNTIME_DIR=$(CHECK_RUNTIME_DIR) dbus-run-session -- $(MAKE) check VERBOSE=1
 endif
 
