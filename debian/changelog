@@ -1,8 +1,15 @@
-libsoup2.4 (2.64.0-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.64.0-1) unstable; urgency=medium
 
+  [ Jeremy Bicha ]
   * New upstream release
+  * Build with meson
+  * Release to unstable
 
- -- Jeremy Bicha <jbicha@debian.org>  Mon, 03 Sep 2018 10:57:52 -0400
+  [ Iain Lane ]
+  * Make the runtime directory with 0700 permissions
+  * Use dh_auto_test not $(MAKE), since we're using meson now
+
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 04 Sep 2018 09:33:53 -0400
 
 libsoup2.4 (2.63.92-1) experimental; urgency=medium
 
