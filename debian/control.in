@@ -202,4 +202,3 @@ Description: GObject introspection data for the libsoup HTTP library
  .
  It can be used by packages using the GIRepository format to generate
  dynamic bindings.
-

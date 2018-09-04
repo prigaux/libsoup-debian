@@ -27,4 +27,3 @@ ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	mkdir -p -m0700 $(CHECK_RUNTIME_DIR)
 	env XDG_RUNTIME_DIR=$(CHECK_RUNTIME_DIR) dbus-run-session -- dh_auto_test
 endif
-
