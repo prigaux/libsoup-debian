@@ -1,0 +1,7 @@
+meson-Add-missing-check-for-gmtime_r.patch
+meson-Fix-symbol-prefix-in-introspection-files.patch
+meson-Remove-an-extra-Gio-include-for-the-GNOME-introspec.patch
+meson-Rename-introspection-s-extra-arguments-variable.patch
+meson-Add-missing-libsoup-gnome-headers-when-generating-e.patch
+meson-Rename-enum-variables.patch
+meson-Fix-the-introspection-files.patch

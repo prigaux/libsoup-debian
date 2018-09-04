@@ -1,0 +1,30 @@
+From: Tomas Popela <tpopela@redhat.com>
+Date: Tue, 4 Sep 2018 15:33:14 +0200
+Subject: meson: Fix symbol prefix in introspection files
+
+---
+ libsoup/meson.build | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/libsoup/meson.build b/libsoup/meson.build
+index 892799b..52cc543 100644
+--- a/libsoup/meson.build
++++ b/libsoup/meson.build
+@@ -285,7 +285,7 @@ if enable_introspection or enable_vapi
+     sources : soup_sources + soup_shared_headers + [soupenum_h, soupenum_c],
+     nsversion : apiversion,
+     namespace : soup_ns,
+-    symbol_prefix : soup_ns.to_lower() + '_',
++    symbol_prefix : soup_ns.to_lower(),
+     identifier_prefix : soup_ns,
+     export_packages : libsoup_api_name,
+     extra_args : gir_args,
+@@ -322,7 +322,7 @@ if enable_introspection or enable_vapi
+       ],
+       nsversion : apiversion,
+       namespace : 'SoupGNOME',
+-      symbol_prefix : soup_ns.to_lower() + '_',
++      symbol_prefix : soup_ns.to_lower(),
+       identifier_prefix : soup_ns,
+       export_packages : libsoup_gnome_api_name,
+       extra_args : gir_gnome_args,
