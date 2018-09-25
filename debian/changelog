@@ -1,8 +1,9 @@
-libsoup2.4 (2.64.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.64.1-1) unstable; urgency=medium
 
   * New upstream release
+  * Drop all patches: applied in new release
 
- -- Jeremy Bicha <jbicha@debian.org>  Tue, 25 Sep 2018 11:19:13 -0400
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 25 Sep 2018 11:20:40 -0400
 
 libsoup2.4 (2.64.0-2) unstable; urgency=medium
 
