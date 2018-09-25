@@ -15,6 +15,9 @@
 ..\libsoup\soup-date.h
 ..\libsoup\soup-form.h
 ..\libsoup\soup-headers.h
+..\libsoup\soup-hsts-enforcer.h
+..\libsoup\soup-hsts-enforcer-db.h
+..\libsoup\soup-hsts-policy.h
 ..\libsoup\soup-logger.h
 ..\libsoup\soup-message.h
 ..\libsoup\soup-message-body.h
@@ -80,6 +83,9 @@
 ..\libsoup\soup-filter-input-stream.c
 ..\libsoup\soup-form.c
 ..\libsoup\soup-headers.c
+..\libsoup\soup-hsts-enforcer.c
+..\libsoup\soup-hsts-enforcer-db.c
+..\libsoup\soup-hsts-policy.c
 ..\libsoup\soup-init.c
 ..\libsoup\soup-io-stream.c
 ..\libsoup\soup-logger.c

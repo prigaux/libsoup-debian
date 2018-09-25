@@ -322,6 +322,9 @@
    <ClCompile Include="..\..\libsoup\soup-filter-input-stream.c" />
    <ClCompile Include="..\..\libsoup\soup-form.c" />
    <ClCompile Include="..\..\libsoup\soup-headers.c" />
+   <ClCompile Include="..\..\libsoup\soup-hsts-enforcer.c" />
+   <ClCompile Include="..\..\libsoup\soup-hsts-enforcer-db.c" />
+   <ClCompile Include="..\..\libsoup\soup-hsts-policy.c" />
    <ClCompile Include="..\..\libsoup\soup-init.c" />
    <ClCompile Include="..\..\libsoup\soup-io-stream.c" />
    <ClCompile Include="..\..\libsoup\soup-logger.c" />
