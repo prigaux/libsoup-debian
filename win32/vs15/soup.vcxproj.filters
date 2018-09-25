@@ -45,6 +45,9 @@
    <ClCompile Include="..\..\libsoup\soup-filter-input-stream.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\libsoup\soup-form.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\libsoup\soup-headers.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\libsoup\soup-hsts-enforcer.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\libsoup\soup-hsts-enforcer-db.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\libsoup\soup-hsts-policy.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\libsoup\soup-init.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\libsoup\soup-io-stream.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\libsoup\soup-logger.c"><Filter>Source Files</Filter></ClCompile>

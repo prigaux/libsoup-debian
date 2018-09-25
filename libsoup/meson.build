@@ -105,7 +105,7 @@ soup_headers = [
   'soup-socket-private.h',
 ]
 
-soup_shared_headers = [
+soup_introspection_headers = [
   'soup-address.h',
   'soup-auth.h',
   'soup-auth-domain.h',
@@ -158,15 +158,15 @@ soup_shared_headers = [
   'soup-xmlrpc-old.h',
 ]
 
-soup_installed_headers = soup_shared_headers + [
+soup_installed_headers = soup_introspection_headers + [
   'soup.h'
 ]
 
 soup_gnome_sources = [
   'soup-cookie-jar-sqlite.c',
   'soup-gnome-features.c',
-  'soup-proxy-resolver-gnome.c',
-  'soup-password-manager-gnome.c'
+  'soup-password-manager-gnome.c',
+  'soup-proxy-resolver-gnome.c'
 ]
 
 soup_gnome_headers = [
@@ -174,10 +174,13 @@ soup_gnome_headers = [
   'soup-password-manager-gnome.h'
 ]
 
-soup_gnome_installed_headers = [
+soup_gnome_introspection_headers = [
   'soup-cookie-jar-sqlite.h',
-  'soup-gnome.h',
   'soup-gnome-features.h'
+]
+
+soup_gnome_installed_headers = soup_gnome_introspection_headers + [
+  'soup-gnome.h'
 ]
 
 includedir = join_paths(libsoup_api_name, meson.project_name())
@@ -188,21 +191,24 @@ version_cdata.set('SOUP_MAJOR_VERSION', soup_version_major)
 version_cdata.set('SOUP_MINOR_VERSION', soup_version_minor)
 version_cdata.set('SOUP_MICRO_VERSION', soup_version_micro)
 
-configure_file(input : 'soup-version.h.in',
+soup_version_h = configure_file(input : 'soup-version.h.in',
   output : 'soup-version.h',
   install_dir : join_paths(get_option('includedir'), includedir),
   configuration : version_cdata)
 
 enum_types = 'soup-enum-types'
 soup_enums = gnome.mkenums('soup-enum-types',
-  sources : soup_installed_headers,
+  sources : [
+    soup_installed_headers,
+    soup_gnome_installed_headers
+  ],
   h_template : enum_types + '.h.template',
   c_template : enum_types + '.c.template',
   install_header : true,
   install_dir : join_paths(get_option('includedir'), includedir))
 
-soupenum_h = soup_enums[1]
-soupenum_c = soup_enums[0]
+soup_enum_h = soup_enums[1]
+soup_enum_c = soup_enums[0]
 
 libsoup_c_args  = [
   '-DG_LOG_DOMAIN="@0@"'.format(meson.project_name()),
@@ -245,7 +251,7 @@ pkg.generate(
 
 libsoup_dep = declare_dependency(link_with : libsoup,
   include_directories : configinc,
-  sources : soupenum_h)
+  sources : soup_enum_h)
 
 if enable_gnome
   soup_gnome_api_name = 'soup-gnome-' + apiversion
@@ -277,18 +283,23 @@ if enable_gnome
 endif
 
 if enable_introspection or enable_vapi
-  gir_args = libsoup_c_args + ['-DLIBSOUP_USE_UNSTABLE_REQUEST_API']
+  soup_gir_args = libsoup_c_args + ['-DLIBSOUP_USE_UNSTABLE_REQUEST_API']
 
   soup_ns = 'Soup'
 
   soup_gir_gen_sources = gnome.generate_gir(libsoup,
-    sources : soup_sources + soup_shared_headers + [soupenum_h, soupenum_c],
+    sources : [
+      soup_sources,
+      soup_introspection_headers,
+      soup_enum_h,
+      soup_version_h
+    ],
     nsversion : apiversion,
     namespace : soup_ns,
-    symbol_prefix : soup_ns.to_lower() + '_',
+    symbol_prefix : soup_ns.to_lower(),
     identifier_prefix : soup_ns,
     export_packages : libsoup_api_name,
-    extra_args : gir_args,
+    extra_args : soup_gir_args,
     includes : 'Gio-2.0',
     install : true,
     header: join_paths(meson.project_name(), 'soup.h'),
@@ -300,34 +311,35 @@ if enable_introspection or enable_vapi
     sources : soup_gir_gen_sources)
 
   if enable_vapi
+    soup_ns_version = '@0@-@1@'.format(soup_ns, apiversion)
+
     gnome.generate_vapi(libsoup_api_name,
-      sources : soup_gir_gen_sources[0],
+      sources : [
+        soup_gir_gen_sources[0],
+        soup_ns_version + '-custom.vala'
+      ],
       packages : 'gio-2.0',
       install : true,
     )
   endif
 
   if enable_gnome
-    gir_gnome_args = libsoup_c_args + [
+    soup_gnome_gir_args = libsoup_c_args + [
       '--include-uninstalled=' + soup_gir_gen_sources[0].full_path()
     ]
 
     gnome.generate_gir(libsoup_gnome,
       sources : [
         soup_gnome_sources,
-        soupenum_c,
-        soupenum_h,
-        'soup-cookie-jar-sqlite.h',
-        'soup-gnome-features.h'
+        soup_gnome_introspection_headers
       ],
       nsversion : apiversion,
       namespace : 'SoupGNOME',
-      symbol_prefix : soup_ns.to_lower() + '_',
+      symbol_prefix : soup_ns.to_lower(),
       identifier_prefix : soup_ns,
       export_packages : libsoup_gnome_api_name,
-      extra_args : gir_gnome_args,
+      extra_args : soup_gnome_gir_args,
       dependencies : soup_gir_gen_dep,
-      includes : 'Gio-2.0',
       install : true,
       header: join_paths(meson.project_name(), 'soup-gnome.h'),
     )
