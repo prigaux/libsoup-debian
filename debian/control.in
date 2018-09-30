@@ -19,7 +19,6 @@ Build-Depends: debhelper (>= 11),
                apache2 (>= 2.4) <!nocheck>,
                php <!nocheck>,
                php-xmlrpc <!nocheck>,
-               dbus,
                curl <!nocheck>,
                valac
 Build-Depends-Indep: libglib2.0-doc
