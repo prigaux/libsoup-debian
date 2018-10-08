@@ -7,19 +7,18 @@ and this package is too critical to not get timely updates
 
 Forwarded: https://gitlab.gnome.org/GNOME/libsoup/issues/120
 ---
- tests/ssl-test.c | 2 ++
- 1 file changed, 2 insertions(+)
+ tests/ssl-test.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/tests/ssl-test.c b/tests/ssl-test.c
-index 735ba41..1285a18 100644
+index 735ba41..16c4076 100644
 --- a/tests/ssl-test.c
 +++ b/tests/ssl-test.c
-@@ -371,6 +371,8 @@ do_tls_interaction_test (void)
+@@ -450,7 +450,6 @@ main (int argc, char **argv)
+ 	g_test_add_func ("/ssl/session-properties", do_session_property_tests);
+ 	g_test_add_func ("/ssl/message-properties/async", do_async_properties_tests);
+ 	g_test_add_func ("/ssl/message-properties/sync", do_sync_properties_tests);
+-	g_test_add_func ("/ssl/tls-interaction", do_tls_interaction_test);
  
- 	SOUP_TEST_SKIP_IF_NO_TLS;
- 
-+	g_test_skip ("Skip unreliable test: https://gitlab.gnome.org/GNOME/libsoup/issues/120");
-+
- 	service = g_threaded_socket_service_new (1);
- 	address = g_inet_socket_address_new_from_string ("127.0.0.1", 0);
- 	g_socket_listener_add_address (G_SOCKET_LISTENER (service), address,
+ 	for (i = 0; i < G_N_ELEMENTS (strictness_tests); i++) {
+ 		g_test_add_data_func (strictness_tests[i].name,
