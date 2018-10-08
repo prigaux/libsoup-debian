@@ -1,3 +1,13 @@
+libsoup2.4 (2.64.1-2) unstable; urgency=medium
+
+  * Build-Depend on php for build tests
+  * Drop obsolete dh_auto_test override
+  * Drop obsolete Build-Depends on shared-mime-info
+  * Add skip-tls_interaction-test.patch:
+    - Skip an unreliable build test
+
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 08 Oct 2018 01:36:34 -0400
+
 libsoup2.4 (2.64.1-1) unstable; urgency=medium
 
   * New upstream release
