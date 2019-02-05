@@ -8,7 +8,8 @@ Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>
 Build-Depends: debhelper (>= 11),
-               gnome-pkg-tools,
+               dh-sequence-gir,
+               dh-sequence-gnome,
                libglib2.0-dev (>= 2.39.90),
                glib-networking (>= 2.32.0),
                libsqlite3-dev,
@@ -18,7 +19,6 @@ Build-Depends: debhelper (>= 11),
                gtk-doc-tools,
                meson (>= 0.47),
                libgirepository1.0-dev (>= 0.9.5),
-               gobject-introspection (>= 0.9.12-4~),
                apache2 (>= 2.4) <!nocheck>,
                php <!nocheck>,
                php-xmlrpc <!nocheck>,
