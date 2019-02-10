@@ -1,5 +1,8 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://download.gnome.org/sources/libsoup/
+Files-Excluded: docs/specs
+Comment: Many of those RFCs are non-free. They aren't used by the build
+         or installed.
 
 Files: *
 Copyright:
