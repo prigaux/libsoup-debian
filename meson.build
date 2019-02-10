@@ -1,5 +1,5 @@
 project('libsoup', 'c',
-        version: '2.64.2',
+        version: '2.65.90',
         meson_version : '>=0.47',
         license : 'LGPL2',
         default_options : 'c_std=c89')
@@ -55,36 +55,38 @@ endif
 add_project_arguments(common_flags, language : 'c')
 
 glib_required_version = '>= 2.38'
-glib_dep = [dependency('glib-2.0', version : glib_required_version),
-            dependency('gobject-2.0', version : glib_required_version),
-            dependency('gio-2.0', version : glib_required_version)]
+glib_dep = [dependency('glib-2.0', version : glib_required_version,
+                       fallback: ['glib', 'libglib_dep']),
+            dependency('gobject-2.0', version : glib_required_version,
+                       fallback: ['glib', 'libgobject_dep']),
+            dependency('gio-2.0', version : glib_required_version,
+                       fallback: ['glib', 'libgio_dep'])]
 
-sqlite_dep = dependency('sqlite3', required: cc.get_id() != 'msvc')
+sqlite_dep = dependency('sqlite3', required: false)
 
-# Fallback check for sqlite on Visual Studio, which normally does not
-# generate a pkg-config file upon a successful build
+# Fallback check for sqlite, not all platforms ship pkg-config file
 if not sqlite_dep.found()
   cc.has_header('sqlite3.h')
   cc.has_header('sqlite3ext.h')
   sqlite_dep = cc.find_library('sqlite3')
 endif
 
-libxml_dep = dependency('libxml-2.0', required: cc.get_id() != 'msvc')
+libxml_dep = dependency('libxml-2.0', required: false)
 
-# Fallback check for libxml2 on Visual Studio, which normally does not
-# generate a pkg-config file upon a successful build
+# Fallback check for libxml2, not all platforms ship pkg-config file
 if not libxml_dep.found()
   # Note: The XML include dir needs to be within the INCLUDE envvar,
   # such as <INCLUDEDIR>\libxml2
   cc.has_header('libxml/tree.h')
-  libxml2_dep = cc.find_library('libxml2')
+  libxml_dep = cc.find_library('xml2')
 endif
 
 cdata = configuration_data()
 
 platform_deps = []
 hidden_visibility_flag = []
-if get_option('default_library') != 'static'
+is_static_library = get_option('default_library') == 'static'
+if not is_static_library
   if host_machine.system() == 'windows'
     platform_deps = [cc.find_library('ws2_32')]
     cdata.set('DLL_EXPORT', true)
@@ -99,7 +101,8 @@ if get_option('default_library') != 'static'
 endif
 
 libpsl_required_version = '>= 0.20'
-libpsl_dep = dependency('libpsl', version : libpsl_required_version)
+libpsl_dep = dependency('libpsl', version : libpsl_required_version,
+  fallback : ['libpsl', 'libpsl_dep'])
 
 if cc.has_function('gmtime_r', prefix : '#include <time.h>', args : default_source_flag)
     cdata.set('HAVE_GMTIME_R', '1')
@@ -262,7 +265,10 @@ enable_gnome = get_option('gnome') and host_machine.system() != 'windows'
 #########################
 # GObject introspection #
 #########################
-enable_introspection = get_option('introspection') and find_program('g-ir-scanner', required: false).found() and not meson.is_cross_build()
+# FIXME: once we start to require meson 0.49.0+ and gnome-introspection 1.58.1+
+# the we can enable the introspection even for the static build. See
+# https://github.com/mesonbuild/meson/pull/4478.
+enable_introspection = get_option('introspection') and find_program('g-ir-scanner', required: false).found() and not meson.is_cross_build() and not is_static_library
 
 ############
 # Vala API #
