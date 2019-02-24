@@ -1,9 +1,11 @@
-libsoup2.4 (2.65.91-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.65.91-1) experimental; urgency=medium
 
   * New upstream development release
   * Build-Depend on dh-sequence-gir and dh-sequence-gnome
+  * Cherry-pick 2 patches to fix tests
+  * debian/libsoup2.4-1.symbols: Add new symbols
 
- -- Jeremy Bicha <jbicha@debian.org>  Sun, 24 Feb 2019 10:22:30 -0500
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 24 Feb 2019 10:41:21 -0500
 
 libsoup2.4 (2.64.2-2) unstable; urgency=medium
 
