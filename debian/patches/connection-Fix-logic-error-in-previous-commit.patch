@@ -1,0 +1,45 @@
+From: Michael Catanzaro <mcatanzaro@igalia.com>
+Date: Fri, 22 Feb 2019 14:10:12 -0600
+Subject: connection: Fix logic error in previous commit
+
+When there is no error at all, that is unexpected and we should
+disconnect. I mishandled it in the previous commit and Dan merged !42
+before I fixed it.
+
+Related to: #134 and !42
+---
+ libsoup/soup-connection.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/libsoup/soup-connection.c b/libsoup/soup-connection.c
+index 3e05a5a..0db54d5 100644
+--- a/libsoup/soup-connection.c
++++ b/libsoup/soup-connection.c
+@@ -639,7 +639,6 @@ is_idle_connection_disconnected (SoupConnection *conn)
+ 	GInputStream *istream;
+ 	char buffer[1];
+ 	GError *error = NULL;
+-	gboolean ret = FALSE;
+ 
+ 	if (!soup_socket_is_connected (priv->socket))
+ 		return TRUE;
+@@ -662,13 +661,14 @@ is_idle_connection_disconnected (SoupConnection *conn)
+ 	g_pollable_input_stream_read_nonblocking (G_POLLABLE_INPUT_STREAM (istream),
+ 						  &buffer, sizeof (buffer),
+ 						  NULL, &error);
+-	if (error != NULL) {
+-		if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_WOULD_BLOCK))
+-			ret = TRUE;
+-		g_error_free (error);
++	if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_WOULD_BLOCK)) {
++		g_clear_error (&error);
++		return TRUE;
+ 	}
+ 
+-	return ret;
++	g_error_free (error);
++
++	return FALSE;
+ }
+ 
+ SoupConnectionState

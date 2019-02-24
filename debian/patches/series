@@ -1,1 +1,3 @@
 skip-tls_interaction-test.patch
+connection-Fix-check-for-remote-disconnection-when-in-idl.patch
+connection-Fix-logic-error-in-previous-commit.patch
