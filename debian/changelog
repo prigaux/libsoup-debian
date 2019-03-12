@@ -1,8 +1,9 @@
-libsoup2.4 (2.66.0-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.66.0-1) experimental; urgency=medium
 
   * New upstream release
+  * Drop the 2 patches to fix tests: Applied in new release
 
- -- Jeremy Bicha <jbicha@debian.org>  Tue, 12 Mar 2019 06:09:34 -0400
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 12 Mar 2019 06:18:51 -0400
 
 libsoup2.4 (2.65.91-2) experimental; urgency=medium
 
