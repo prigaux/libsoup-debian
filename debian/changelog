@@ -1,8 +1,12 @@
 libsoup2.4 (2.66.1-1) UNRELEASED; urgency=medium
 
   * New upstream release
+    + Code cleanups
+    + Fix random CI failures due to parallel apache tests
+    + Meson build system improvements
+  * Bump meson BD per upstream
 
- -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 11:35:34 +0100
+ -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 11:42:00 +0100
 
 libsoup2.4 (2.66.0-1) experimental; urgency=medium
 
