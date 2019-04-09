@@ -1,6 +1,6 @@
 project('libsoup', 'c',
-        version: '2.66.0',
-        meson_version : '>=0.47',
+        version: '2.66.1',
+        meson_version : '>=0.48',
         license : 'LGPL2',
         default_options : 'c_std=c89')
 
@@ -16,6 +16,11 @@ libversion = '1.8.0'
 apiversion = '2.4'
 soversion = '1'
 libsoup_api_name = '@0@-@1@'.format(meson.project_name(), apiversion)
+libversion_arr = libversion.split('.')
+darwin_version_major = libversion_arr[0].to_int()
+darwin_version_minor = libversion_arr[1].to_int()
+darwin_version_micro = libversion_arr[2].to_int()
+darwin_versions = [darwin_version_major + darwin_version_minor + 1, '@0@.@1@'.format(darwin_version_major + darwin_version_minor + 1, darwin_version_micro)]
 
 host_system = host_machine.system()
 
@@ -52,6 +57,11 @@ else
   common_flags += cc.get_supported_arguments(test_cflags)
 endif
 
+if cc.get_id() != 'msvc' and host_system == 'windows'
+  # For "%2hhx" sscanf format and the like
+  add_project_arguments('-D__USE_MINGW_ANSI_STDIO=1', language : 'c')
+endif
+
 add_project_arguments(common_flags, language : 'c')
 
 glib_required_version = '>= 2.38'
@@ -62,7 +72,8 @@ glib_dep = [dependency('glib-2.0', version : glib_required_version,
             dependency('gio-2.0', version : glib_required_version,
                        fallback: ['glib', 'libgio_dep'])]
 
-sqlite_dep = dependency('sqlite3', required: false)
+sqlite_dep = dependency('sqlite3', required: false,
+                        fallback: ['sqlite', 'sqlite_dep'])
 
 # Fallback check for sqlite, not all platforms ship pkg-config file
 if not sqlite_dep.found()
@@ -71,7 +82,8 @@ if not sqlite_dep.found()
   sqlite_dep = cc.find_library('sqlite3')
 endif
 
-libxml_dep = dependency('libxml-2.0', required: false)
+libxml_dep = dependency('libxml-2.0', required: false,
+                        fallback: ['libxml2', 'xml2lib_dep'])
 
 # Fallback check for libxml2, not all platforms ship pkg-config file
 if not libxml_dep.found()
