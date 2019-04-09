@@ -229,6 +229,7 @@ libsoup = library('soup-@0@'.format(apiversion),
   soup_enums,
   version : libversion,
   soversion : soversion,
+  darwin_versions: darwin_versions,
   c_args : libsoup_c_args + hidden_visibility_flag,
   include_directories : configinc,
   install : true,
@@ -260,6 +261,7 @@ if enable_gnome
     soup_gnome_sources + soup_gnome_headers,
     version : libversion,
     soversion : soversion,
+    darwin_versions: darwin_versions,
     c_args : libsoup_c_args + hidden_visibility_flag,
     include_directories : configinc,
     install : true,
@@ -288,6 +290,7 @@ if enable_introspection or enable_vapi
       soup_enum_h,
       soup_version_h
     ],
+    dependencies : libsoup_dep,
     nsversion : apiversion,
     namespace : soup_ns,
     symbol_prefix : soup_ns.to_lower(),
@@ -299,9 +302,8 @@ if enable_introspection or enable_vapi
     header: join_paths(meson.project_name(), 'soup.h'),
   )
 
-  soup_gir_gen_dep = declare_dependency(link_with : libsoup,
-    include_directories : configinc,
-    dependencies : deps,
+  soup_gir_gen_dep = declare_dependency(
+    dependencies : libsoup_dep,
     sources : soup_gir_gen_sources)
 
   if enable_vapi
