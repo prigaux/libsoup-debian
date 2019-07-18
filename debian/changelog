@@ -2,8 +2,11 @@ libsoup2.4 (2.67.3-1) UNRELEASED; urgency=medium
 
   * debian/watch: Find unstable versions
   * New upstream release
+  * debian/rules: Explicilty enable the new brotli support
+  * debian/rules: 'doc' is renamed to 'gtk_doc' in meson_options.txt
+  * debian/libsoup2.4-1.symbols: Add new symbols introduced w/this release
 
- -- Iain Lane <iain.lane@canonical.com>  Thu, 18 Jul 2019 17:57:34 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 19 Jul 2019 11:00:24 +0100
 
 libsoup2.4 (2.66.1-1) experimental; urgency=medium
 
