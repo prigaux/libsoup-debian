@@ -1,8 +1,9 @@
-libsoup2.4 (2.66.1-1ubuntu1) UNRELEASED; urgency=medium
+libsoup2.4 (2.67.3-1) UNRELEASED; urgency=medium
 
   * debian/watch: Find unstable versions
+  * New upstream release
 
- -- Iain Lane <iain.lane@canonical.com>  Thu, 18 Jul 2019 17:57:14 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 18 Jul 2019 17:57:34 +0100
 
 libsoup2.4 (2.66.1-1) experimental; urgency=medium
 
