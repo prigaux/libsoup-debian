@@ -1,3 +1,71 @@
+Changes in libsoup from 2.67.2 to 2.67.3:
+
+        * WebSockets: allow sending empty binary data [Carlos Garcia Campos]
+
+        * WebSockets: fail and load the connection on invalid payload length  [Carlos Garcia Campos]
+
+        * WebSockets: allow NULL characters in text messages data [Carlos Garcia Campos]
+
+        * WebSockets: Close connection on wrongly masked/unmasked frame as per RFC [Carlos Garcia Campos]
+
+        * WebSockets: other code fixes [Carlos Garcia Campos]
+
+        * NTLM: Fix NTLMv2 authentication [Thibaut Robert]
+
+        * SoupMessage: fix several deprecation warnings related to private data [Claudio Saavedra]
+
+Changes in libsoup from 2.67.1 to 2.67.2:
+
+        * gobject-introspection: Fix annotation for soup_auth_new()
+          [Rico Tzschichholz]
+
+        * brotli: Do not advertise the decoder as it's failing with
+          some websites [Patrick Griffis]
+
+        * Meson: Fix xml2 and sqlite fallbacks [Xavier Claessens]
+
+        * HSTS: Add SoupHSTSEnforcer:hsts-enforced signal [Claudio
+          Saavedra]
+
+        * HSTS: Fixes to the types used to store policies in the
+          SQLite storage [Claudio Saavedra]
+
+        * HSTS: Accept Strict-Transport-Security regardless of casing
+          [Claudio Saavedra]
+
+        * WebSockets: Ensure messages finishes when handshake fails
+          [Carlos Garcia Campos]
+
+        * WebSockets: Fix critical warnings and test failures [Carlos
+          Garcia Campos]
+
+Changes in libsoup from 2.66.2 to 2.67.1:
+
+        * Add a brotli decoder. This adds a new dependency on libbrotli
+	  [Patrick Griffis]
+
+        * Add strict secure cookies support [Patrick Griffis]
+
+        * Add HSTS enforcer SoupSession feature (with both memory
+          and sqlite backends) [Adrien Plazas, Claudio Saavedra]
+
+        * meson gtk-doc documentation fixes [Claudio Saavedra]
+
+        * Bump the CI test image to Fedora 30 and add libbrotli
+          dependency [Claudio Saavedra]
+
+Changes in libsoup from 2.66.1 to 2.66.2:
+
+	* Make gettext optional (might not be available in Windows)
+	  [Seungha Yang]
+
+	* MSVC: set encoding to UTF-8 to avoid errors [Seungha Yang]
+
+	* MinGW tests build fix [Tomas Popela]
+
+	* Check for TLS support only when external glib dependency is available
+	  [Seungha Yang]
+
 Changes in libsoup from 2.66.0 to 2.66.1:
 
         * Fix dylib versioning in MacOS [Tom Schoonjans]

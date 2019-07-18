@@ -24,6 +24,7 @@
 
 #include "soup-websocket-connection.h"
 #include "soup-enum-types.h"
+#include "soup-io-stream.h"
 #include "soup-uri.h"
 
 /*
@@ -155,6 +156,82 @@ static void queue_frame (SoupWebsocketConnection *self, SoupWebsocketQueueFlags 
 
 static void protocol_error_and_close (SoupWebsocketConnection *self);
 
+/* Code below is based on g_utf8_validate() implementation,
+ * but handling NULL characters as valid, as expected by
+ * WebSockets and compliant with RFC 3629.
+ */
+#define VALIDATE_BYTE(mask, expect)                             \
+        G_STMT_START {                                          \
+          if (G_UNLIKELY((*(guchar *)p & (mask)) != (expect)))  \
+                  return FALSE;                                 \
+        } G_STMT_END
+
+/* see IETF RFC 3629 Section 4 */
+static gboolean
+utf8_validate (const char *str,
+               gsize max_len)
+
+{
+        const gchar *p;
+
+        for (p = str; ((p - str) < max_len); p++) {
+                if (*(guchar *)p < 128)
+                        /* done */;
+                else {
+                        if (*(guchar *)p < 0xe0) { /* 110xxxxx */
+                                if (G_UNLIKELY (max_len - (p - str) < 2))
+                                        return FALSE;
+
+                                if (G_UNLIKELY (*(guchar *)p < 0xc2))
+                                        return FALSE;
+                        } else {
+                                if (*(guchar *)p < 0xf0) { /* 1110xxxx */
+                                        if (G_UNLIKELY (max_len - (p - str) < 3))
+                                                return FALSE;
+
+                                        switch (*(guchar *)p++ & 0x0f) {
+                                        case 0:
+                                                VALIDATE_BYTE(0xe0, 0xa0); /* 0xa0 ... 0xbf */
+                                                break;
+                                        case 0x0d:
+                                                VALIDATE_BYTE(0xe0, 0x80); /* 0x80 ... 0x9f */
+                                                break;
+                                        default:
+                                                VALIDATE_BYTE(0xc0, 0x80); /* 10xxxxxx */
+                                        }
+                                } else if (*(guchar *)p < 0xf5) { /* 11110xxx excluding out-of-range */
+                                        if (G_UNLIKELY (max_len - (p - str) < 4))
+                                                return FALSE;
+
+                                        switch (*(guchar *)p++ & 0x07) {
+                                        case 0:
+                                                VALIDATE_BYTE(0xc0, 0x80); /* 10xxxxxx */
+                                                if (G_UNLIKELY((*(guchar *)p & 0x30) == 0))
+                                                        return FALSE;
+                                                break;
+                                        case 4:
+                                                VALIDATE_BYTE(0xf0, 0x80); /* 0x80 ... 0x8f */
+                                                break;
+                                        default:
+                                                VALIDATE_BYTE(0xc0, 0x80); /* 10xxxxxx */
+                                        }
+                                        p++;
+                                        VALIDATE_BYTE(0xc0, 0x80); /* 10xxxxxx */
+                                } else {
+                                        return FALSE;
+                                }
+                        }
+
+                        p++;
+                        VALIDATE_BYTE(0xc0, 0x80); /* 10xxxxxx */
+                }
+        }
+
+        return TRUE;
+}
+
+#undef VALIDATE_BYTE
+
 static void
 frame_free (gpointer data)
 {
@@ -281,12 +358,17 @@ shutdown_wr_io_stream (SoupWebsocketConnection *self)
 {
 	SoupWebsocketConnectionPrivate *pv = self->pv;
 	GSocket *socket;
+	GIOStream *base_iostream;
 	GError *error = NULL;
 
 	stop_output (self);
 
-	if (G_IS_SOCKET_CONNECTION (pv->io_stream)) {
-		socket = g_socket_connection_get_socket (G_SOCKET_CONNECTION (pv->io_stream));
+	base_iostream = SOUP_IS_IO_STREAM (pv->io_stream) ?
+		soup_io_stream_get_base_iostream (SOUP_IO_STREAM (pv->io_stream)) :
+		pv->io_stream;
+
+	if (G_IS_SOCKET_CONNECTION (base_iostream)) {
+		socket = g_socket_connection_get_socket (G_SOCKET_CONNECTION (base_iostream));
 		g_socket_shutdown (socket, FALSE, TRUE, &error);
 		if (error != NULL) {
 			g_debug ("error shutting down io stream: %s", error->message);
@@ -592,7 +674,7 @@ close_connection (SoupWebsocketConnection *self,
 		g_debug ("responding to close request");
 
 	flags = 0;
-	if (pv->connection_type == SOUP_WEBSOCKET_CONNECTION_SERVER && pv->close_received)
+	if (pv->close_received)
 		flags |= SOUP_WEBSOCKET_QUEUE_LAST;
 	send_close (self, flags, code, data);
 	close_io_after_timeout (self);
@@ -629,7 +711,7 @@ receive_close (SoupWebsocketConnection *self,
 		data += 2;
 		len -= 2;
 		
-		if (!g_utf8_validate ((char *)data, len, NULL)) {
+		if (!utf8_validate ((const char *)data, len)) {
 			g_debug ("received non-UTF8 close data: %d '%.*s' %d", (int)len, (int)len, (char *)data, (int)data[0]);
 			protocol_error_and_close (self);
 			return;
@@ -774,9 +856,8 @@ process_contents (SoupWebsocketConnection *self,
 		/* Actually deliver the message? */
 		if (fin) {
 			if (pv->message_opcode == 0x01 &&
-			    !g_utf8_validate((char *)pv->message_data->data,
-			                     pv->message_data->len,
-			                     NULL)) {
+			    !utf8_validate((const char *)pv->message_data->data,
+					   pv->message_data->len)) {
 
 				g_debug ("received invalid non-UTF8 text data");
 
@@ -831,20 +912,52 @@ process_frame (SoupWebsocketConnection *self)
 	opcode = header[0] & 0x0f;
 	masked = ((header[1] & 0x80) != 0);
 
+	if (self->pv->connection_type == SOUP_WEBSOCKET_CONNECTION_CLIENT && masked) {
+		/* A server MUST NOT mask any frames that it sends to the client.
+		 * A client MUST close a connection if it detects a masked frame.
+		 */
+		g_debug ("A server must not mask any frames that it sends to the client.");
+		protocol_error_and_close (self);
+		return FALSE;
+	}
+
+	if (self->pv->connection_type == SOUP_WEBSOCKET_CONNECTION_SERVER && !masked) {
+		/* The server MUST close the connection upon receiving a frame
+		 * that is not masked.
+		 */
+		g_debug ("The client should always mask frames");
+		protocol_error_and_close (self);
+                return FALSE;
+        }
+
 	/* We do not support extensions, reserved bits must be 0 */
 	if (header[0] & 0x70) {
 		protocol_error_and_close (self);
+		return FALSE;
 	}
 
 	switch (header[1] & 0x7f) {
 	case 126:
+		/* If 126, the following 2 bytes interpreted as a 16-bit
+		 * unsigned integer are the payload length.
+		 */
 		at = 4;
 		if (len < at)
 			return FALSE; /* need more data */
 		payload_len = (((guint16)header[2] << 8) |
 			       ((guint16)header[3] << 0));
+
+		/* The minimal number of bytes MUST be used to encode the length. */
+		if (payload_len <= 125) {
+			protocol_error_and_close (self);
+			return FALSE;
+		}
 		break;
 	case 127:
+		/* If 127, the following 8 bytes interpreted as a 64-bit
+		 * unsigned integer (the most significant bit MUST be 0)
+		 * are the payload length.
+		 */
 		at = 10;
 		if (len < at)
 			return FALSE; /* need more data */
@@ -856,6 +969,12 @@ process_frame (SoupWebsocketConnection *self)
 			       ((guint64)header[7] << 16) |
 			       ((guint64)header[8] << 8) |
 			       ((guint64)header[9] << 0));
+
+		/* The minimal number of bytes MUST be used to encode the length. */
+		if (payload_len <= G_MAXUINT16) {
+			protocol_error_and_close (self);
+			return FALSE;
+		}
 		break;
 	default:
 		payload_len = header[1] & 0x7f;
@@ -1696,7 +1815,9 @@ soup_websocket_connection_get_close_data (SoupWebsocketConnection *self)
  * @self: the WebSocket
  * @text: the message contents
  *
- * Send a text (UTF-8) message to the peer.
+ * Send a %NULL-terminated text (UTF-8) message to the peer. If you need
+ * to send text messages containing %NULL characters use
+ * soup_websocket_connection_send_message() instead.
  *
  * The message is queued to be sent and will be sent when the main loop
  * is run.
@@ -1714,7 +1835,7 @@ soup_websocket_connection_send_text (SoupWebsocketConnection *self,
 	g_return_if_fail (text != NULL);
 
 	length = strlen (text);
-	g_return_if_fail (g_utf8_validate (text, length, NULL));
+        g_return_if_fail (utf8_validate (text, length));
 
 	send_message (self, SOUP_WEBSOCKET_QUEUE_NORMAL, 0x01, (const guint8 *) text, length);
 }
@@ -1722,10 +1843,10 @@ soup_websocket_connection_send_text (SoupWebsocketConnection *self,
 /**
  * soup_websocket_connection_send_binary:
  * @self: the WebSocket
- * @data: (array length=length) (element-type guint8): the message contents
+ * @data: (array length=length) (element-type guint8) (nullable): the message contents
  * @length: the length of @data
  *
- * Send a binary message to the peer.
+ * Send a binary message to the peer. If @length is 0, @data may be %NULL.
  *
  * The message is queued to be sent and will be sent when the main loop
  * is run.
@@ -1739,9 +1860,41 @@ soup_websocket_connection_send_binary (SoupWebsocketConnection *self,
 {
 	g_return_if_fail (SOUP_IS_WEBSOCKET_CONNECTION (self));
 	g_return_if_fail (soup_websocket_connection_get_state (self) == SOUP_WEBSOCKET_STATE_OPEN);
-	g_return_if_fail (data != NULL);
+	g_return_if_fail (data != NULL || length == 0);
 
 	send_message (self, SOUP_WEBSOCKET_QUEUE_NORMAL, 0x02, data, length);
+}
+
+/**
+ * soup_websocket_connection_send_message:
+ * @self: the WebSocket
+ * @type: the type of message contents
+ * @message: the message data as #GBytes
+ *
+ * Send a message of the given @type to the peer. Note that this method,
+ * allows to send text messages containing %NULL characters.
+ *
+ * The message is queued to be sent and will be sent when the main loop
+ * is run.
+ *
+ * Since: 2.68
+ */
+void
+soup_websocket_connection_send_message (SoupWebsocketConnection *self,
+                                        SoupWebsocketDataType type,
+                                        GBytes *message)
+{
+        gconstpointer data;
+        gsize length;
+
+        g_return_if_fail (SOUP_IS_WEBSOCKET_CONNECTION (self));
+        g_return_if_fail (soup_websocket_connection_get_state (self) == SOUP_WEBSOCKET_STATE_OPEN);
+        g_return_if_fail (message != NULL);
+
+        data = g_bytes_get_data (message, &length);
+        g_return_if_fail (type != SOUP_WEBSOCKET_DATA_TEXT || utf8_validate ((const char *)data, length));
+
+        send_message (self, SOUP_WEBSOCKET_QUEUE_NORMAL, (int)type, data, length);
 }
 
 /**

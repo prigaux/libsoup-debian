@@ -1,6 +1,6 @@
 project('libsoup', 'c',
-        version: '2.66.1',
-        meson_version : '>=0.48',
+        version: '2.67.3',
+        meson_version : '>=0.50',
         license : 'LGPL2',
         default_options : 'c_std=c89')
 
@@ -39,6 +39,9 @@ cc = meson.get_compiler('c')
 # Enable extra warnings if compiler supports them.
 if cc.get_id() == 'msvc'
   common_flags += ['/FImsvc_recommended_pragmas.h']
+
+  # set the input encoding to utf-8
+  add_project_arguments(cc.get_supported_arguments(['/utf-8']), language: 'c')
 else
   test_cflags = [
       '-Wall',
@@ -65,36 +68,52 @@ endif
 add_project_arguments(common_flags, language : 'c')
 
 glib_required_version = '>= 2.38'
-glib_dep = [dependency('glib-2.0', version : glib_required_version,
-                       fallback: ['glib', 'libglib_dep']),
-            dependency('gobject-2.0', version : glib_required_version,
-                       fallback: ['glib', 'libgobject_dep']),
-            dependency('gio-2.0', version : glib_required_version,
-                       fallback: ['glib', 'libgio_dep'])]
+glib_dep = dependency('glib-2.0', version : glib_required_version,
+                       fallback: ['glib', 'libglib_dep'])
+gobject_dep = dependency('gobject-2.0', version : glib_required_version,
+                       fallback: ['glib', 'libgobject_dep'])
+gio_dep = dependency('gio-2.0', version : glib_required_version,
+                       fallback: ['glib', 'libgio_dep'])
 
-sqlite_dep = dependency('sqlite3', required: false,
-                        fallback: ['sqlite', 'sqlite_dep'])
+glib_deps = [glib_dep, gobject_dep, gio_dep]
+
+sqlite_dep = dependency('sqlite3', required: false)
 
 # Fallback check for sqlite, not all platforms ship pkg-config file
 if not sqlite_dep.found()
-  cc.has_header('sqlite3.h')
-  cc.has_header('sqlite3ext.h')
-  sqlite_dep = cc.find_library('sqlite3')
+  sqlite_dep = cc.find_library('sqlite3',
+    has_headers : ['sqlite3.h', 'sqlite3ext.h'],
+    required: false)
 endif
 
-libxml_dep = dependency('libxml-2.0', required: false,
-                        fallback: ['libxml2', 'xml2lib_dep'])
+if not sqlite_dep.found()
+  sqlite_dep = subproject('sqlite').get_variable('sqlite_dep')
+endif
+
+libxml_dep = dependency('libxml-2.0', required: false)
 
 # Fallback check for libxml2, not all platforms ship pkg-config file
 if not libxml_dep.found()
   # Note: The XML include dir needs to be within the INCLUDE envvar,
   # such as <INCLUDEDIR>\libxml2
-  cc.has_header('libxml/tree.h')
   libxml2_libname = cc.get_id() == 'msvc' ? 'libxml2' : 'xml2'
-  libxml_dep = cc.find_library(libxml2_libname)
+  libxml_dep = cc.find_library(libxml2_libname,
+    has_headers : 'libxml/tree.h',
+    required: false)
+endif
+
+if not libxml_dep.found()
+  libxml_dep = subproject('libxml2').get_variable('xml2lib_dep')
 endif
 
 cdata = configuration_data()
+
+if get_option('brotli')
+  brotlidec_dep = dependency('libbrotlidec')
+  cdata.set('WITH_BROTLI', true)
+else
+  brotlidec_dep = dependency('', required: false)
+endif
 
 platform_deps = []
 hidden_visibility_flag = []
@@ -126,14 +145,18 @@ endif
 ###################
 enable_tls_check = get_option('tls_check')
 if enable_tls_check
-  check_gio_tls_src = '''#include <gio/gio.h>
-  int main(void) {
-    return !g_tls_backend_supports_tls (g_tls_backend_get_default ());
-  }
-  '''
+  if gio_dep.type_name() == 'internal'
+    warning('TLS check was enabled but required dependency is internal')
+  else
+    check_gio_tls_src = '''#include <gio/gio.h>
+    int main(void) {
+      return !g_tls_backend_supports_tls (g_tls_backend_get_default ());
+    }
+    '''
 
-  assert(cc.compiles(check_gio_tls_src, name : 'GIO has real TLS support', dependencies : glib_dep),
-         'libsoup requires glib-networking or glib-openssl for TLS support')
+    assert(cc.compiles(check_gio_tls_src, name : 'GIO has real TLS support', dependencies : glib_deps),
+          'libsoup requires glib-networking or glib-openssl for TLS support')
+  endif
 endif
 
 #################################
@@ -302,13 +325,17 @@ cdata.set_quoted('GETTEXT_PACKAGE', libsoup_api_name)
 configure_file(output : 'config.h', configuration : cdata)
 
 subdir('libsoup')
-subdir('po')
+# xgettext is optional (on Windows for instance)
+if find_program('xgettext', required : false).found()
+  subdir('po')
+endif
 subdir('examples')
 
 if get_option('tests')
   subdir('tests')
  endif
 
-if get_option('doc')
+if get_option('gtk_doc')
+  srcdir = include_directories('libsoup')
   subdir('docs/reference')
 endif
