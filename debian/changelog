@@ -1,4 +1,4 @@
-libsoup2.4 (2.67.3-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.67.3-1) experimental; urgency=medium
 
   * debian/watch: Find unstable versions
   * New upstream release
