@@ -8,8 +8,8 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs -Wl,--as-needed
 
 override_dh_auto_configure:
 	dh_auto_configure -- \
-		-Ddoc=true \
 		-Dbrotli=true \
+		-Dgtk_doc=true \
 		-Dvapi=true
 
 override_dh_missing:
