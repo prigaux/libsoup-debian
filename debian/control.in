@@ -6,6 +6,7 @@ Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper (>= 11),
                dh-sequence-gir,
                dh-sequence-gnome,
+               libbrotli-dev,
                libglib2.0-dev (>= 2.39.90),
                glib-networking (>= 2.32.0),
                libsqlite3-dev,
