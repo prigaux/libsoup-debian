@@ -4804,6 +4804,8 @@ websocket_connect_async_stop (SoupMessage *msg, gpointer user_data)
 	/* Disconnect websocket_connect_async_stop() handler. */
 	g_signal_handlers_disconnect_matched (msg, G_SIGNAL_MATCH_DATA,
 					      0, 0, NULL, NULL, task);
+	/* Ensure websocket_connect_async_complete is not called either. */
+	item->callback = NULL;
 
 	if (soup_websocket_client_verify_handshake (item->msg, &error)){
 		stream = soup_session_steal_connection (item->session, item->msg);
@@ -4815,8 +4817,10 @@ websocket_connect_async_stop (SoupMessage *msg, gpointer user_data)
 		g_object_unref (stream);
 
 		g_task_return_pointer (task, client, g_object_unref);
-	} else
+	} else {
+		soup_message_io_finished (item->msg);
 		g_task_return_error (task, error);
+	}
 	g_object_unref (task);
 }
 
