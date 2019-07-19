@@ -89,6 +89,8 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_auth_ntlm_get_type@Base 2.4.0
  soup_auth_save_password@Base 2.28.0
  soup_auth_update@Base 2.4.0
+ soup_brotli_decompressor_get_type@Base 2.67.3
+ soup_brotli_decompressor_new@Base 2.67.3
  soup_buffer_copy@Base 2.4.0
  soup_buffer_free@Base 2.4.0
  soup_buffer_get_as_bytes@Base 2.39.2
@@ -145,6 +147,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_cookie_get_value@Base 2.32.2
  soup_cookie_jar_accept_policy_get_type@Base 2.30.0
  soup_cookie_jar_add_cookie@Base 2.26.1
+ soup_cookie_jar_add_cookie_full@Base 2.67.3
  soup_cookie_jar_add_cookie_with_first_party@Base 2.39.3
  soup_cookie_jar_all_cookies@Base 2.26.1
  soup_cookie_jar_db_get_type@Base 2.41.90
@@ -230,6 +233,26 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_headers_parse_request@Base 2.4.0
  soup_headers_parse_response@Base 2.4.0
  soup_headers_parse_status_line@Base 2.4.0
+ soup_hsts_enforcer_db_get_type@Base 2.67.3
+ soup_hsts_enforcer_db_new@Base 2.67.3
+ soup_hsts_enforcer_get_type@Base 2.67.3
+ soup_hsts_enforcer_has_valid_policy@Base 2.67.3
+ soup_hsts_enforcer_is_persistent@Base 2.67.3
+ soup_hsts_enforcer_new@Base 2.67.3
+ soup_hsts_enforcer_set_policy@Base 2.67.3
+ soup_hsts_enforcer_set_session_policy@Base 2.67.3
+ soup_hsts_policy_copy@Base 2.67.3
+ soup_hsts_policy_equal@Base 2.67.3
+ soup_hsts_policy_free@Base 2.67.3
+ soup_hsts_policy_get_domain@Base 2.67.3
+ soup_hsts_policy_get_type@Base 2.67.3
+ soup_hsts_policy_includes_subdomains@Base 2.67.3
+ soup_hsts_policy_is_expired@Base 2.67.3
+ soup_hsts_policy_is_session_policy@Base 2.67.3
+ soup_hsts_policy_new@Base 2.67.3
+ soup_hsts_policy_new_from_response@Base 2.67.3
+ soup_hsts_policy_new_full@Base 2.67.3
+ soup_hsts_policy_new_session_policy@Base 2.67.3
  soup_http_error_quark@Base 2.4.0
  soup_http_version_get_type@Base 2.4.0
  soup_known_status_code_get_type@Base 2.4.0
@@ -545,6 +568,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_websocket_connection_get_uri@Base 2.49.91.1
  soup_websocket_connection_new@Base 2.49.91.1
  soup_websocket_connection_send_binary@Base 2.49.91.1
+ soup_websocket_connection_send_message@Base 2.67.3
  soup_websocket_connection_send_text@Base 2.49.91.1
  soup_websocket_connection_set_keepalive_interval@Base 2.58.2
  soup_websocket_connection_set_max_incoming_payload_size@Base 2.56.0
