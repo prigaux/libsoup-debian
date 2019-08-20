@@ -235,6 +235,8 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_headers_parse_status_line@Base 2.4.0
  soup_hsts_enforcer_db_get_type@Base 2.67.3
  soup_hsts_enforcer_db_new@Base 2.67.3
+ soup_hsts_enforcer_get_domains@Base 2.67.91
+ soup_hsts_enforcer_get_policies@Base 2.67.91
  soup_hsts_enforcer_get_type@Base 2.67.3
  soup_hsts_enforcer_has_valid_policy@Base 2.67.3
  soup_hsts_enforcer_is_persistent@Base 2.67.3
@@ -406,6 +408,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_server_add_auth_domain@Base 2.4.0
  soup_server_add_early_handler@Base 2.49.91.1
  soup_server_add_handler@Base 2.4.0
+ soup_server_add_websocket_extension@Base 2.67.91
  soup_server_add_websocket_handler@Base 2.49.91.1
  soup_server_disconnect@Base 2.33.92
  soup_server_get_async_context@Base 2.4.0
@@ -426,6 +429,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_server_quit@Base 2.4.0
  soup_server_remove_auth_domain@Base 2.4.0
  soup_server_remove_handler@Base 2.4.0
+ soup_server_remove_websocket_extension@Base 2.67.91
  soup_server_run@Base 2.4.0
  soup_server_run_async@Base 2.4.0
  soup_server_set_ssl_cert_file@Base 2.49.1
@@ -552,12 +556,15 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_value_hash_new@Base 2.4.0
  soup_value_hash_new_with_vals@Base 2.4.0
  soup_websocket_client_prepare_handshake@Base 2.49.91.1
+ soup_websocket_client_prepare_handshake_with_extensions@Base 2.67.91
  soup_websocket_client_verify_handshake@Base 2.49.91.1
+ soup_websocket_client_verify_handshake_with_extensions@Base 2.67.91
  soup_websocket_close_code_get_type@Base 2.49.91.1
  soup_websocket_connection_close@Base 2.49.91.1
  soup_websocket_connection_get_close_code@Base 2.49.91.1
  soup_websocket_connection_get_close_data@Base 2.49.91.1
  soup_websocket_connection_get_connection_type@Base 2.49.91.1
+ soup_websocket_connection_get_extensions@Base 2.67.91
  soup_websocket_connection_get_io_stream@Base 2.49.91.1
  soup_websocket_connection_get_keepalive_interval@Base 2.58.2
  soup_websocket_connection_get_max_incoming_payload_size@Base 2.56.0
@@ -567,6 +574,7 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_websocket_connection_get_type@Base 2.49.91.1
  soup_websocket_connection_get_uri@Base 2.49.91.1
  soup_websocket_connection_new@Base 2.49.91.1
+ soup_websocket_connection_new_with_extensions@Base 2.67.91
  soup_websocket_connection_send_binary@Base 2.49.91.1
  soup_websocket_connection_send_message@Base 2.67.3
  soup_websocket_connection_send_text@Base 2.49.91.1
@@ -576,8 +584,18 @@ libsoup-2.4.so.1 libsoup2.4-1 #MINVER#
  soup_websocket_data_type_get_type@Base 2.49.91.1
  soup_websocket_error_get_quark@Base 2.49.91.1
  soup_websocket_error_get_type@Base 2.49.91.1
+ soup_websocket_extension_configure@Base 2.67.91
+ soup_websocket_extension_deflate_get_type@Base 2.67.91
+ soup_websocket_extension_get_request_params@Base 2.67.91
+ soup_websocket_extension_get_response_params@Base 2.67.91
+ soup_websocket_extension_get_type@Base 2.67.91
+ soup_websocket_extension_manager_get_type@Base 2.67.91
+ soup_websocket_extension_process_incoming_message@Base 2.67.91
+ soup_websocket_extension_process_outgoing_message@Base 2.67.91
  soup_websocket_server_check_handshake@Base 2.49.91.1
+ soup_websocket_server_check_handshake_with_extensions@Base 2.67.91
  soup_websocket_server_process_handshake@Base 2.49.91.1
+ soup_websocket_server_process_handshake_with_extensions@Base 2.67.91
  soup_websocket_state_get_type@Base 2.49.91.1
  soup_xmlrpc_build_fault@Base 2.4.0
  soup_xmlrpc_build_method_call@Base 2.4.0
