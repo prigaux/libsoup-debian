@@ -1,3 +1,9 @@
+libsoup2.4 (2.67.91-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 20 Aug 2019 09:19:30 +0200
+
 libsoup2.4 (2.67.3-1) experimental; urgency=medium
 
   * debian/watch: Find unstable versions
