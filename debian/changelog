@@ -1,3 +1,9 @@
+libsoup2.4 (2.67.92-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 21 Aug 2019 13:57:06 +0200
+
 libsoup2.4 (2.67.91-2) experimental; urgency=medium
 
   * debian/libsoup2.4-1.symbols:
