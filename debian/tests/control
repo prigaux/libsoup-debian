@@ -1,0 +1,15 @@
+Tests: libsoup2.4-dev
+Depends: build-essential,
+         dbus,
+         libsoup2.4-dev,
+         xauth,
+         xvfb
+Restrictions: allow-stderr superficial
+
+Tests: libsoup-gnome2.4-dev
+Depends: build-essential,
+         dbus,
+         libsoup-gnome2.4-dev,
+         xauth,
+         xvfb
+Restrictions: allow-stderr superficial
