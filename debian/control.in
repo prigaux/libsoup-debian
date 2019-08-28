@@ -33,6 +33,7 @@ Section: libdevel
 Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends},
+         libbrotli-dev,
          libpsl-dev (>= 0.20),
          libsoup2.4-1 (= ${binary:Version}),
          libsqlite3-dev,

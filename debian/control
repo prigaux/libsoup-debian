@@ -6,7 +6,7 @@ Source: libsoup2.4
 Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>
+Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>, Sebastien Bacher <seb128@debian.org>
 Build-Depends: debhelper (>= 11),
                dh-sequence-gir,
                dh-sequence-gnome,
@@ -37,6 +37,7 @@ Section: libdevel
 Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends},
+         libbrotli-dev,
          libpsl-dev (>= 0.20),
          libsoup2.4-1 (= ${binary:Version}),
          libsqlite3-dev,
