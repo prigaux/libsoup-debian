@@ -1,3 +1,12 @@
+libsoup2.4 (2.67.92-3) UNRELEASED; urgency=medium
+
+  * Add a superficial autopkgtest for the -dev packages.
+    This will detect bugs like #935944 in future.
+  * libsoup2.4-dev: Add missing dependency on libbrotli-dev
+    (Closes: #935944)
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 28 Aug 2019 11:11:33 +0100
+
 libsoup2.4 (2.67.92-2) experimental; urgency=medium
 
   * debian/rules:
