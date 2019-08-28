@@ -20,10 +20,10 @@ Build-Depends: debhelper-compat (= 12),
                gtk-doc-tools,
                meson (>= 0.48),
                libgirepository1.0-dev (>= 0.9.5),
-               apache2 (>= 2.4) <!nocheck>,
-               php <!nocheck>,
-               php-xmlrpc <!nocheck>,
-               curl <!nocheck>,
+               apache2 (>= 2.4) <!nocheck !pkg.libsoup2.4.noinsttests>,
+               php <!nocheck !pkg.libsoup2.4.noinsttests>,
+               php-xmlrpc <!nocheck !pkg.libsoup2.4.noinsttests>,
+               curl <!nocheck !pkg.libsoup2.4.noinsttests>,
                libnss-myhostname <!nocheck>,
                valac
 Build-Depends-Indep: libglib2.0-doc
@@ -211,3 +211,26 @@ Description: GObject introspection data for the libsoup HTTP library
  .
  It can be used by packages using the GIRepository format to generate
  dynamic bindings.
+
+Package: libsoup2.4-tests
+Build-Profiles: <!pkg.libsoup2.4.noinsttests>
+Section: misc
+Architecture: any
+Depends: apache2 (>= 2.4),
+         curl,
+         libnss-myhostname,
+         php,
+         php-xmlrpc,
+         ${misc:Depends},
+         ${shlibs:Depends},
+Recommends: gnome-desktop-testing
+Description: HTTP library implementation in C -- installed tests
+ libsoup uses the Glib main loop and is designed to work well with GTK+
+ applications. This enables GNOME applications to access HTTP servers
+ on the network in a completely asynchronous fashion, very similar to
+ the GTK+ programming model (a synchronous operation mode is also
+ supported for those who want it).
+ .
+ This package contains automated tests, mostly for use via autopkgtest.
+ They can most easily be invoked via the gnome-desktop-testing-runner
+ tool in the gnome-desktop-testing package.

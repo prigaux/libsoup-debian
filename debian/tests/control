@@ -1,3 +1,12 @@
+Tests: installed-tests
+Depends: dbus,
+         gnome-desktop-testing,
+         libsoup2.4-tests,
+         winbind,
+         xauth,
+         xvfb
+Restrictions: allow-stderr isolation-container
+
 Tests: libsoup2.4-dev
 Depends: build-essential,
          dbus,
