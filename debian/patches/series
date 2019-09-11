@@ -1,1 +1,2 @@
 skip-tls_interaction-test.patch
+disable_buggy_test.patch
