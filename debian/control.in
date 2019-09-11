@@ -20,6 +20,7 @@ Build-Depends: debhelper (>= 11),
                php <!nocheck>,
                php-xmlrpc <!nocheck>,
                curl <!nocheck>,
+               libnss-myhostname <!nocheck>,
                valac
 Build-Depends-Indep: libglib2.0-doc
 Standards-Version: 4.3.0
