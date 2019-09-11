@@ -1,198 +1,192 @@
-# Brazilian Portuguese translation for libsoup.
+# Finnish translation for libsoup.
 # Copyright (C) 2019 libsoup's COPYRIGHT HOLDER
 # This file is distributed under the same license as the libsoup package.
-# Gabriel F. Vilar <cogumm@gmail.com>, 2012.
-# Enrico Nicoletto <liverig@gmail.com>, 2013, 2014.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2015-2019.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libsoup master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libsoup/issues\n"
-"POT-Creation-Date: 2019-07-31 12:10+0000\n"
-"PO-Revision-Date: 2019-09-05 02:29-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2019-08-22 08:47+0000\n"
+"PO-Revision-Date: 2019-08-22 19:44+0300\n"
+"Language-Team: Finnish <lokalisointi-lista@googlegroups.com>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.32.0\n"
-"X-Project-Style: gnome\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: libsoup/soup-body-input-stream.c:139 libsoup/soup-body-input-stream.c:170
 #: libsoup/soup-body-input-stream.c:203 libsoup/soup-message-io.c:236
 msgid "Connection terminated unexpectedly"
-msgstr "A conexão terminou inesperadamente"
+msgstr "Yhteys päättyi odottamatta"
 
 #: libsoup/soup-body-input-stream.c:459
 msgid "Invalid seek request"
-msgstr "Requisição de busca inválida"
+msgstr ""
 
 #: libsoup/soup-body-input-stream.c:487
 msgid "Cannot truncate SoupBodyInputStream"
-msgstr "Não foi possível truncar SoupBodyInputStream"
+msgstr ""
 
 #: libsoup/soup-cache-input-stream.c:76
 msgid "Network stream unexpectedly closed"
-msgstr "O fluxo de rede fechou de forma inesperada"
+msgstr ""
 
 #: libsoup/soup-cache-input-stream.c:291
 msgid "Failed to completely cache the resource"
-msgstr "Falha ao armazenar completamente em cache o recurso"
+msgstr ""
 
 #: libsoup/soup-converter-wrapper.c:189
 #, c-format
 msgid "Output buffer is too small"
-msgstr "O buffer de saída é muito pequeno"
+msgstr ""
 
 #: libsoup/soup-message-client-io.c:39
 msgid "Could not parse HTTP response"
-msgstr "Não foi possível analisar a resposta HTTP"
+msgstr "HTTP-vastausta ei voitu jäsentää"
 
 #: libsoup/soup-message-client-io.c:62
 msgid "Unrecognized HTTP response encoding"
-msgstr "Codificação de resposta HTTP não reconhecível"
+msgstr ""
 
 #: libsoup/soup-message-io.c:261
 msgid "Header too big"
-msgstr "Cabeçalho grande demais"
+msgstr "Otsake on liian suuri"
 
 #: libsoup/soup-message-io.c:393 libsoup/soup-message-io.c:1016
 msgid "Operation would block"
-msgstr "A operação será bloqueada"
+msgstr ""
 
 #: libsoup/soup-message-io.c:968 libsoup/soup-message-io.c:1001
 msgid "Operation was cancelled"
-msgstr "A operação foi cancelada"
+msgstr ""
 
 #: libsoup/soup-message-server-io.c:63
 msgid "Could not parse HTTP request"
-msgstr "Não foi possível analisar a solicitação HTTP"
+msgstr "HTTP-pyyntöä ei voitu jäsentää"
 
 #: libsoup/soup-request.c:141
 #, c-format
 msgid "No URI provided"
-msgstr "Nenhuma URI foi fornecida"
+msgstr ""
 
 #: libsoup/soup-request.c:151
 #, c-format
 msgid "Invalid “%s” URI: %s"
-msgstr "URI “%s” inválida: %s"
+msgstr ""
 
 #: libsoup/soup-server.c:1797
 msgid "Can’t create a TLS server without a TLS certificate"
-msgstr "Não foi possível criar um servidor TLS sem um certificado TLS"
+msgstr "TLS-palvelinta ei voi luoda ilman TLS-varmennetta"
 
 #: libsoup/soup-server.c:1814
 #, c-format
 msgid "Could not listen on address %s, port %d: "
-msgstr "Não foi possível escutar o endereço %s, porta %d: "
+msgstr "Ei voitu kuunnella osoitteessa %s, portissa %d: "
 
-#: libsoup/soup-session.c:4535
+#: libsoup/soup-session.c:4543
 #, c-format
 msgid "Could not parse URI “%s”"
-msgstr "Não foi possível analisar URI “%s”"
+msgstr "URI:a “%s” ei voitu jäsentää"
 
-#: libsoup/soup-session.c:4572
+#: libsoup/soup-session.c:4580
 #, c-format
 msgid "Unsupported URI scheme “%s”"
-msgstr "Esquema de URI não suportado “%s”"
+msgstr "Ei-tuettu URI-skeema “%s”"
 
-#: libsoup/soup-session.c:4594
+#: libsoup/soup-session.c:4602
 #, c-format
 msgid "Not an HTTP URI"
-msgstr "Não é um URI do tipo HTTP"
+msgstr "Ei HTTP URI"
 
-#: libsoup/soup-session.c:4805
+#: libsoup/soup-session.c:4813
 msgid "The server did not accept the WebSocket handshake."
-msgstr "O servidor não aceitou handshake de WebSocket."
+msgstr ""
 
 #: libsoup/soup-socket.c:148
 msgid "Can’t import non-socket as SoupSocket"
-msgstr "Não foi possível importar um não-soquete como SoupSocket"
+msgstr ""
 
 #: libsoup/soup-socket.c:166
 msgid "Could not import existing socket: "
-msgstr "Não foi possível importar o soquete existente: "
+msgstr ""
 
 #: libsoup/soup-socket.c:175
 msgid "Can’t import unconnected socket"
-msgstr "Não foi possível importar soquete desconectado"
+msgstr ""
 
 #: libsoup/soup-websocket.c:479 libsoup/soup-websocket.c:523
 #: libsoup/soup-websocket.c:539
 msgid "Server requested unsupported extension"
-msgstr "O servidor requisitou uma extensão sem suporte"
+msgstr ""
 
 #: libsoup/soup-websocket.c:502 libsoup/soup-websocket.c:694
 #, c-format
 msgid "Incorrect WebSocket “%s” header"
-msgstr "Cabeçalho WebSocket “%s” incorreto"
+msgstr "Virheellinen WebSocket “%s” -otsake"
 
 #: libsoup/soup-websocket.c:503 libsoup/soup-websocket.c:1024
 #, c-format
 msgid "Server returned incorrect “%s” key"
-msgstr "O servidor retornou chave “%s” incorreta"
+msgstr ""
 
 #: libsoup/soup-websocket.c:566
 #, c-format
 msgid "Duplicated parameter in “%s” WebSocket extension header"
-msgstr "Parâmetro duplicado no cabeçalho de extensão Websocket “%s”"
+msgstr ""
 
 #: libsoup/soup-websocket.c:567
 #, c-format
-msgid ""
-"Server returned a duplicated parameter in “%s” WebSocket extension header"
+msgid "Server returned a duplicated parameter in “%s” WebSocket extension header"
 msgstr ""
-"O servidor retornou um parâmetro duplicado no cabeçalho de extensão "
-"Websocket “%s”"
 
 #: libsoup/soup-websocket.c:658 libsoup/soup-websocket.c:667
 msgid "WebSocket handshake expected"
-msgstr "Handshake de WebSocket esperado"
+msgstr ""
 
 #: libsoup/soup-websocket.c:675
 msgid "Unsupported WebSocket version"
-msgstr "Sem suporte à versão WebSocket"
+msgstr "Ei-tuettu WebSocket-versio"
 
 #: libsoup/soup-websocket.c:684
 msgid "Invalid WebSocket key"
-msgstr "Chave WebSocket inválida"
+msgstr "Virheellinen WebSocket-avain"
 
 #: libsoup/soup-websocket.c:703
 msgid "Unsupported WebSocket subprotocol"
-msgstr "Sem suporte ao subprotocolo WebSocket"
+msgstr ""
 
 #: libsoup/soup-websocket.c:975
 msgid "Server rejected WebSocket handshake"
-msgstr "O servidor rejeitou o handshake de WebSocket"
+msgstr ""
 
 #: libsoup/soup-websocket.c:983 libsoup/soup-websocket.c:992
 msgid "Server ignored WebSocket handshake"
-msgstr "O servidor ignorou handshake de WebSocket"
+msgstr ""
 
 #: libsoup/soup-websocket.c:1004
 msgid "Server requested unsupported protocol"
-msgstr "O servidor requisitou um protocolo sem suporte"
+msgstr ""
 
 #: libsoup/soup-tld.c:150
 msgid "No public-suffix list available."
-msgstr "Nenhuma lista de sufixo público disponível."
+msgstr ""
 
 #: libsoup/soup-tld.c:160 libsoup/soup-tld.c:176
 msgid "Invalid hostname"
-msgstr "O nome da máquina é inválido"
+msgstr ""
 
 #: libsoup/soup-tld.c:167
 msgid "Hostname is an IP address"
-msgstr "O nome da máquina é um endereço de IP"
+msgstr "Konenimi on IP-osoite"
 
 #: libsoup/soup-tld.c:188
 msgid "Hostname has no base domain"
-msgstr "O nome da máquina não está na base do domínio"
+msgstr ""
 
 #: libsoup/soup-tld.c:196
 msgid "Not enough domains"
-msgstr "Não há domínios suficientes"
+msgstr ""
