@@ -1,4 +1,4 @@
-libsoup2.4 (2.68.0-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.68.0-1) experimental; urgency=medium
 
   [ Simon McVittie ]
   * Add a superficial autopkgtest for the -dev packages.
@@ -14,7 +14,7 @@ libsoup2.4 (2.68.0-1) UNRELEASED; urgency=medium
     - disabled some buggy tests following upstream's recommendation, at
       least until the next version where they plan to rework or drop those
 
- -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 11 Sep 2019 12:56:56 +0200
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 11 Sep 2019 15:09:30 +0200
 
 libsoup2.4 (2.67.92-2) experimental; urgency=medium
 
