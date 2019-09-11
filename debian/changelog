@@ -8,6 +8,8 @@ libsoup2.4 (2.68.0-1) UNRELEASED; urgency=medium
 
   [ Sebastien Bacher ]
   * New upstream release
+  * debian/control.in:
+    - libsoup2.4-dev depends also on zlib1g-dev now
   * debian/patches/disable_buggy_test.patch:
     - disabled some buggy tests following upstream's recommendation, at
       least until the next version where they plan to rework or drop those
