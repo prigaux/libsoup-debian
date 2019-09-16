@@ -1,4 +1,4 @@
-libsoup2.4 (2.68.1-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.68.1-1) experimental; urgency=medium
 
   [ Philip Chimento ]
   * debian/control.in: Add build dependency on libnss-myhostname, this
@@ -9,7 +9,7 @@ libsoup2.4 (2.68.1-1) UNRELEASED; urgency=medium
   [ Sebastien Bacher ]
   * New upstream release
 
- -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 16 Sep 2019 15:17:44 +0200
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 16 Sep 2019 15:18:07 +0200
 
 libsoup2.4 (2.68.0-1) experimental; urgency=medium
 
