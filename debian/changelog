@@ -1,3 +1,11 @@
+libsoup2.4 (2.68.1-2) unstable; urgency=medium
+
+  * Build-Depend on debhelper-compat 12 and drop debian/compat
+  * Bump Standards-Version to 4.4.0
+  * Drop obsolete dh_strip dbgsym migration rule
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sat, 28 Sep 2019 09:55:29 -0400
+
 libsoup2.4 (2.68.1-1) experimental; urgency=medium
 
   [ Philip Chimento ]
