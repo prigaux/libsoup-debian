@@ -23,7 +23,7 @@ Build-Depends: debhelper-compat (= 12),
                libnss-myhostname <!nocheck>,
                valac
 Build-Depends-Indep: libglib2.0-doc
-Standards-Version: 4.3.0
+Standards-Version: 4.4.0
 Vcs-Browser: https://salsa.debian.org/gnome-team/libsoup
 Vcs-Git: https://salsa.debian.org/gnome-team/libsoup.git
 Homepage: https://wiki.gnome.org/Projects/libsoup
