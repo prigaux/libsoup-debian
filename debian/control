@@ -7,7 +7,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>, Sebastien Bacher <seb128@debian.org>
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper-compat (= 12),
                dh-sequence-gir,
                dh-sequence-gnome,
                libbrotli-dev,
