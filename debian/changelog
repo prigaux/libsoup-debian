@@ -29,6 +29,14 @@ libsoup2.4 (2.68.1-3) UNRELEASED; urgency=medium
     a Lintian error.
   * Standards-Version: 4.4.1 (no changes required)
   * d/copyright: Update
+  * Explicitly build-depend on libapache2-mod-php, PHP 7 and Python 3.
+    The script that checks for the required PHP version is written in
+    Python 3 and specifically looks for a php7* module. It seems that in
+    practice the dependency resolver used on unstable buildds will always
+    select libapache2-mod-php anyway, but the resolver used on
+    experimental buildds can select the -cgi or -fpm implementations,
+    which are not detected, resulting in the necessary files for some of
+    the installed-tests not being installed.
 
  -- Simon McVittie <smcv@debian.org>  Sun, 06 Oct 2019 15:24:29 +0100
 
