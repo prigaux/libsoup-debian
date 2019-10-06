@@ -1,0 +1,29 @@
+From: Simon McVittie <smcv@debian.org>
+Date: Sun, 6 Oct 2019 18:23:05 +0100
+Subject: tests: Disable parallelism for XMLRPC server tests
+
+These indirectly use Apache on a fixed port number (they run the
+xmlrpc or xmlrpc-old tests), so they will only work if not running at
+the same time as other tests.
+
+Signed-off-by: Simon McVittie <smcv@debian.org>
+---
+ tests/meson.build | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/meson.build b/tests/meson.build
+index e755367..4e310a6 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -127,9 +127,9 @@ endif
+ 
+ if have_php_xmlrpc
+   tests += [
+-    ['xmlrpc-old-server', true, []],
++    ['xmlrpc-old-server', false, []],
+     ['xmlrpc-old', false, []],
+-    ['xmlrpc-server', true, []],
++    ['xmlrpc-server', false, []],
+     ['xmlrpc', false, []]
+   ]
+ 

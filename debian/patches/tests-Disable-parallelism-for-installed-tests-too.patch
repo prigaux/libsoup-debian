@@ -1,0 +1,35 @@
+From: Simon McVittie <smcv@debian.org>
+Date: Sun, 6 Oct 2019 18:24:45 +0100
+Subject: tests: Disable parallelism for installed-tests too
+
+Installed-test runners are allowed to parallelize 'session' tests, but
+not 'session-exclusive'.
+
+Signed-off-by: Simon McVittie <smcv@debian.org>
+---
+ tests/meson.build          | 1 +
+ tests/template-tap.test.in | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/tests/meson.build b/tests/meson.build
+index 4e310a6..846554b 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -163,6 +163,7 @@ foreach test: tests
+     test_conf.set('installed_tests_dir', abs_installed_tests_execdir)
+     test_conf.set('program', test_name)
+     test_conf.set('env', '')
++    test_conf.set('type', test[1] ? 'session' : 'session-exclusive')
+     configure_file(
+       input : installed_tests_template_tap,
+       output : test_name + '.test',
+diff --git a/tests/template-tap.test.in b/tests/template-tap.test.in
+index 30cd166..b84de71 100644
+--- a/tests/template-tap.test.in
++++ b/tests/template-tap.test.in
+@@ -1,4 +1,4 @@
+ [Test]
+-Type=session
++Type=@type@
+ Exec=@env@@installed_tests_dir@/@program@ --tap
+ Output=TAP
