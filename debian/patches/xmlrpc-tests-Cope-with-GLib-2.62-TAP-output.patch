@@ -1,0 +1,48 @@
+From: Simon McVittie <smcv@debian.org>
+Date: Sun, 6 Oct 2019 16:44:15 +0100
+Subject: xmlrpc tests: Cope with GLib 2.62 TAP output
+
+In GLib 2.62, "some-test-executable -l" outputs TAP headers before the
+list of tests. Ignore those lines.
+
+Signed-off-by: Simon McVittie <smcv@debian.org>
+Forwarded: https://gitlab.gnome.org/GNOME/libsoup/merge_requests/104
+---
+ tests/xmlrpc-old-server-test.c | 6 ++++++
+ tests/xmlrpc-server-test.c     | 6 ++++++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/tests/xmlrpc-old-server-test.c b/tests/xmlrpc-old-server-test.c
+index a7076b5..e8e440a 100644
+--- a/tests/xmlrpc-old-server-test.c
++++ b/tests/xmlrpc-old-server-test.c
+@@ -344,6 +344,12 @@ main (int argc, char **argv)
+ 		g_free (out);
+ 
+ 		for (i = 0; tests[i] && *tests[i]; i++) {
++			if (tests[i][0] == '#') {
++				continue;
++			}
++			if (g_str_has_prefix (tests[i], "1..")) {
++				continue;
++			}
+ 			g_assert_true (g_str_has_prefix (tests[i], "/xmlrpc-old/"));
+ 			path = g_strdup_printf ("/xmlrpc-old-server/%s", tests[i] + strlen ("/xmlrpc-old/"));
+ 			g_test_add_data_func (path, tests[i], do_one_xmlrpc_test);
+diff --git a/tests/xmlrpc-server-test.c b/tests/xmlrpc-server-test.c
+index 80f04ea..90d74f2 100644
+--- a/tests/xmlrpc-server-test.c
++++ b/tests/xmlrpc-server-test.c
+@@ -344,6 +344,12 @@ main (int argc, char **argv)
+ 		g_free (out);
+ 
+ 		for (i = 0; tests[i] && *tests[i]; i++) {
++			if (tests[i][0] == '#') {
++				continue;
++			}
++			if (g_str_has_prefix (tests[i], "1..")) {
++				continue;
++			}
+ 			g_assert_true (g_str_has_prefix (tests[i], "/xmlrpc/"));
+ 			path = g_strdup_printf ("/xmlrpc-server/%s", tests[i] + strlen ("/xmlrpc/"));
+ 			g_test_add_data_func (path, tests[i], do_one_xmlrpc_test);
