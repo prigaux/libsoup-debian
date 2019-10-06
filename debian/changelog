@@ -37,6 +37,9 @@ libsoup2.4 (2.68.1-3) UNRELEASED; urgency=medium
     experimental buildds can select the -cgi or -fpm implementations,
     which are not detected, resulting in the necessary files for some of
     the installed-tests not being installed.
+  * d/p/build-Improve-diagnostics-when-detecting-Apache.patch:
+    Improve diagnostics when detecting Apache PHP support.
+    This will help us to debug similar issues if they recur in future.
 
  -- Simon McVittie <smcv@debian.org>  Sun, 06 Oct 2019 15:24:29 +0100
 
