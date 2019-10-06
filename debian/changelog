@@ -40,6 +40,11 @@ libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
     experimental buildds can select the -cgi or -fpm implementations,
     which are not detected, resulting in the necessary files for some of
     the installed-tests not being installed.
+  * Add lintian overrides for the binary package names not precisely
+    matching the SONAMEs.
+    They're close enough to achieve the goal of the mechanically-generated
+    naming convention, and changing them now (other than at the time of an
+    upstream SONAME bump) seems like more disruption than it's worth.
 
  -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
 
