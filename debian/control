@@ -135,6 +135,7 @@ Section: libdevel
 Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends},
+         gir1.2-soup-2.4 (= ${binary:Version}),
          libsoup-gnome2.4-1 (= ${binary:Version}),
          libsoup2.4-dev (= ${binary:Version})
 Suggests: libsoup2.4-doc
