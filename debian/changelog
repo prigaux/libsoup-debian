@@ -5,6 +5,31 @@ libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
     the debian/master branch already has a version waiting for NEW
     processing.
   * New upstream release (CVE-2019-17266) (Closes: #941912)
+  * libsoup-gnome2.4-dev: Explicitly depend on gir1.2-soup-2.4.
+    According to the GIR mini-policy, this is required because
+    gir1.2-soup-2.4 contains SoupGNOME-2.4.typelib, corresponding to
+    SoupGNOME-2.4.gir in libsoup-gnome2.4-dev. This dependency is not in
+    fact strictly necessary, because libsoup-gnome2.4-dev depends on
+    libsoup2.4-dev which in turn depends on gir1.2-soup-2.4, but Lintian
+    doesn't look at recursive dependencies.
+  * libsoup2.4-doc.links: Create symlinks to documentation in /usr/share/doc.
+    The actual documentation files remain in /usr/share/gtk-doc/html,
+    because they are technically a programmatic interface: other libraries
+    that depend on libsoup2.4 and use gtk-doc will use that path to fix
+    cross-references in their own documentation.
+    There are symlinks in both /u/s/d/libsoup2.4-dev (the "main package"
+    in Policy §12.3), and /u/s/d/libsoup2.4-doc (the traditional location
+    for documentation).
+  * libsoup2.4-doc: Add Recommends: libglib2.0-doc, for the cross-references.
+    The libsoup2.4 documentation contains many cross-references to GLib,
+    GObject and GIO documentation. Add symlinks in /usr/share/doc so that
+    those cross-references can be followed, even in browsers that treat
+    symlinks like directories for the purposes of resolving relative paths.
+  * d/libsoup2.4-doc.doc-base: Use the symlinks in /usr/share/doc.
+    This is functionally equivalent to what we already had, but silences
+    a Lintian error.
+  * Standards-Version: 4.4.1 (no changes required)
+  * d/copyright: Update
 
  -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
 
