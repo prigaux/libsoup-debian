@@ -32,6 +32,14 @@ libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
   * d/copyright: Update
   * d/p/xmlrpc-tests-Cope-with-GLib-2.62-TAP-output.patch:
     Add proposed patch to fix test failures with GLib 2.62
+  * Explicitly build-depend on libapache2-mod-php, PHP 7 and Python 3.
+    The script that checks for the required PHP version is written in
+    Python 3 and specifically looks for a php7* module. It seems that in
+    practice the dependency resolver used on unstable buildds will always
+    select libapache2-mod-php anyway, but the resolver used on
+    experimental buildds can select the -cgi or -fpm implementations,
+    which are not detected, resulting in the necessary files for some of
+    the installed-tests not being installed.
 
  -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
 
