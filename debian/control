@@ -170,6 +170,7 @@ Section: doc
 Architecture: all
 Multi-Arch: foreign
 Depends: ${misc:Depends}
+Recommends: libglib2.0-doc
 Suggests: libsoup2.4-dev
 Description: HTTP library implementation in C -- API Reference
  It was originally part of a SOAP (Simple Object Access Protocol)
