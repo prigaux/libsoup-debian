@@ -30,6 +30,8 @@ libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
     a Lintian error.
   * Standards-Version: 4.4.1 (no changes required)
   * d/copyright: Update
+  * d/p/xmlrpc-tests-Cope-with-GLib-2.62-TAP-output.patch:
+    Add proposed patch to fix test failures with GLib 2.62
 
  -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
 
