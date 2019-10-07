@@ -1,5 +1,7 @@
-libsoup2.4 (2.68.1-3) UNRELEASED; urgency=medium
+libsoup2.4 (2.68.1-3) experimental; urgency=medium
 
+  * Team upload
+  * Upload to experimental for NEW processing
   * Install automated tests in a new libsoup2.4-tests binary package
   * d/tests/installed-tests: Run those tests
   * d/p/xmlrpc-tests-Cope-with-GLib-2.62-TAP-output.patch:
@@ -49,7 +51,7 @@ libsoup2.4 (2.68.1-3) UNRELEASED; urgency=medium
     naming convention, and changing them now (other than at the time of an
     upstream SONAME bump) seems like more disruption than it's worth.
 
- -- Simon McVittie <smcv@debian.org>  Sun, 06 Oct 2019 15:24:29 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 07 Oct 2019 08:41:33 +0100
 
 libsoup2.4 (2.68.1-2) unstable; urgency=medium
 
