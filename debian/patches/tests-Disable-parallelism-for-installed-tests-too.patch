@@ -6,6 +6,7 @@ Installed-test runners are allowed to parallelize 'session' tests, but
 not 'session-exclusive'.
 
 Signed-off-by: Simon McVittie <smcv@debian.org>
+Forwarded: https://gitlab.gnome.org/GNOME/libsoup/merge_requests/105
 ---
  tests/meson.build          | 1 +
  tests/template-tap.test.in | 2 +-
