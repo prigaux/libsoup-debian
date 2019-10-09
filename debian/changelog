@@ -1,3 +1,9 @@
+libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 09 Oct 2019 12:39:53 +0200
+
 libsoup2.4 (2.68.1-3) experimental; urgency=medium
 
   * Team upload
