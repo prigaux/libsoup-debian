@@ -9,8 +9,9 @@ libsoup2.4 (2.68.2-2) UNRELEASED; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Mon, 07 Oct 2019 08:41:33 +0100
 
-libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.68.2-1) unstable; urgency=medium
 
+  * Team upload
   * d/gbp.conf: Switch branch to debian/unstable.
     We should upload the fix for CVE-2019-17266 to unstable, but
     the debian/master branch already has a version waiting for NEW
@@ -57,7 +58,7 @@ libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
     naming convention, and changing them now (other than at the time of an
     upstream SONAME bump) seems like more disruption than it's worth.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:23:19 +0100
 
 libsoup2.4 (2.68.1-2) unstable; urgency=medium
 
