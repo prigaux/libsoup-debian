@@ -1,17 +1,21 @@
-libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
+libsoup2.4 (2.68.2-2) UNRELEASED; urgency=medium
 
-  * New upstream release
-
- -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 09 Oct 2019 12:39:53 +0200
-
-libsoup2.4 (2.68.1-3) experimental; urgency=medium
-
-  * Team upload
   * Upload to experimental for NEW processing
   * Install automated tests in a new libsoup2.4-tests binary package
   * d/tests/installed-tests: Run those tests
-  * d/p/xmlrpc-tests-Cope-with-GLib-2.62-TAP-output.patch:
-    Add proposed patch to fix installed-tests failures with GLib 2.62
+  * d/p/tests-Disable-parallelism-for-XMLRPC-server-tests.patch,
+    d/p/tests-Disable-parallelism-for-installed-tests-too.patch:
+    Avoid running tests in parallel if they need a specific port number
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 07 Oct 2019 08:41:33 +0100
+
+libsoup2.4 (2.68.2-1) UNRELEASED; urgency=medium
+
+  * d/gbp.conf: Switch branch to debian/unstable.
+    We should upload the fix for CVE-2019-17266 to unstable, but
+    the debian/master branch already has a version waiting for NEW
+    processing.
+  * New upstream release (CVE-2019-17266) (Closes: #941912)
   * libsoup-gnome2.4-dev: Explicitly depend on gir1.2-soup-2.4.
     According to the GIR mini-policy, this is required because
     gir1.2-soup-2.4 contains SoupGNOME-2.4.typelib, corresponding to
@@ -37,6 +41,8 @@ libsoup2.4 (2.68.1-3) experimental; urgency=medium
     a Lintian error.
   * Standards-Version: 4.4.1 (no changes required)
   * d/copyright: Update
+  * d/p/xmlrpc-tests-Cope-with-GLib-2.62-TAP-output.patch:
+    Add proposed patch to fix test failures with GLib 2.62
   * Explicitly build-depend on libapache2-mod-php, PHP 7 and Python 3.
     The script that checks for the required PHP version is written in
     Python 3 and specifically looks for a php7* module. It seems that in
@@ -45,19 +51,13 @@ libsoup2.4 (2.68.1-3) experimental; urgency=medium
     experimental buildds can select the -cgi or -fpm implementations,
     which are not detected, resulting in the necessary files for some of
     the installed-tests not being installed.
-  * d/p/build-Improve-diagnostics-when-detecting-Apache.patch:
-    Improve diagnostics when detecting Apache PHP support.
-    This will help us to debug similar issues if they recur in future.
-  * d/p/tests-Disable-parallelism-for-XMLRPC-server-tests.patch,
-    d/p/tests-Disable-parallelism-for-installed-tests-too.patch:
-    Avoid running tests in parallel if they need a specific port number
   * Add lintian overrides for the binary package names not precisely
     matching the SONAMEs.
     They're close enough to achieve the goal of the mechanically-generated
     naming convention, and changing them now (other than at the time of an
     upstream SONAME bump) seems like more disruption than it's worth.
 
- -- Simon McVittie <smcv@debian.org>  Mon, 07 Oct 2019 08:41:33 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
 
 libsoup2.4 (2.68.1-2) unstable; urgency=medium
 
