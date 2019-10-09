@@ -1,4 +1,3 @@
 skip-tls_interaction-test.patch
 xmlrpc-tests-Cope-with-GLib-2.62-TAP-output.patch
-tests-Disable-parallelism-for-XMLRPC-server-tests.patch
 tests-Disable-parallelism-for-installed-tests-too.patch
