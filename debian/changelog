@@ -1,3 +1,12 @@
+libsoup2.4 (2.68.1-3~) UNRELEASED; urgency=medium
+
+  * d/gbp.conf: Switch branch to debian/unstable.
+    We should upload the fix for CVE-2019-17266 to unstable, but
+    the debian/master branch already has a version waiting for NEW
+    processing.
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 12:10:33 +0100
+
 libsoup2.4 (2.68.1-2) unstable; urgency=medium
 
   * Build-Depend on debhelper-compat 12 and drop debian/compat
