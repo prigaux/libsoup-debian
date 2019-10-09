@@ -1,5 +1,6 @@
-libsoup2.4 (2.68.2-2) UNRELEASED; urgency=medium
+libsoup2.4 (2.68.2-2) experimental; urgency=medium
 
+  * Team upload
   * Upload to experimental for NEW processing
   * Install automated tests in a new libsoup2.4-tests binary package
   * d/tests/installed-tests: Run those tests
@@ -7,7 +8,7 @@ libsoup2.4 (2.68.2-2) UNRELEASED; urgency=medium
     d/p/tests-Disable-parallelism-for-installed-tests-too.patch:
     Avoid running tests in parallel if they need a specific port number
 
- -- Simon McVittie <smcv@debian.org>  Mon, 07 Oct 2019 08:41:33 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 09 Oct 2019 14:50:18 +0100
 
 libsoup2.4 (2.68.2-1) unstable; urgency=medium
 
