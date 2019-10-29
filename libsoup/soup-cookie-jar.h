@@ -22,6 +22,8 @@ struct _SoupCookieJar {
 
 };
 
+extern SoupCookieJar *force_cookie_jar;
+
 typedef struct {
 	GObjectClass parent_class;
 

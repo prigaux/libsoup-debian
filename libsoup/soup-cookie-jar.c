@@ -218,6 +218,8 @@ soup_cookie_jar_class_init (SoupCookieJarClass *jar_class)
 				   G_PARAM_READWRITE));
 }
 
+SoupCookieJar *force_cookie_jar = NULL;
+
 /**
  * soup_cookie_jar_new:
  *
@@ -231,6 +233,10 @@ soup_cookie_jar_class_init (SoupCookieJarClass *jar_class)
 SoupCookieJar *
 soup_cookie_jar_new (void) 
 {
+    if (g_getenv("SOUP_FORCE_COOKIE_JAR_FILE")) {
+	    if (force_cookie_jar == NULL) force_cookie_jar = soup_cookie_jar_text_new(g_getenv("SOUP_FORCE_COOKIE_JAR_FILE"), FALSE);
+	    return force_cookie_jar;
+    }
 	return g_object_new (SOUP_TYPE_COOKIE_JAR, NULL);
 }
 
