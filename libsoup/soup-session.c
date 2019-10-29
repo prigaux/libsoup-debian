@@ -1304,10 +1304,8 @@ soup_session_send_queue_item (SoupSession *session,
 {
 	SoupSessionPrivate *priv = soup_session_get_instance_private (session);
 
-	if (priv->user_agent) {
 		soup_message_headers_replace (item->msg->request_headers,
-					      "User-Agent", priv->user_agent);
-	}
+					      "User-Agent", "DSClient; PulseLinux; Kerberos");
 
 	if (priv->accept_language &&
 	    !soup_message_headers_get_list (item->msg->request_headers,

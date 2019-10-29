@@ -52,7 +52,7 @@ soup_session_async_init (SoupSessionAsync *sa)
 SoupSession *
 soup_session_async_new (void)
 {
-	return g_object_new (SOUP_TYPE_SESSION_ASYNC, NULL);
+	return g_object_new (SOUP_TYPE_SESSION_ASYNC, SOUP_SESSION_ADD_FEATURE_BY_TYPE, SOUP_TYPE_AUTH_NEGOTIATE, NULL);
 }
 
 /**
